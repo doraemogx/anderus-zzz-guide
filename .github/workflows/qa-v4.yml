@@ -1,0 +1,54 @@
+name: Qualidade V4 — JavaScript e Galaxy S25 Edge
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/overhaul-v4.js'
+      - 'scripts/smoke_v4.mjs'
+      - '.github/workflows/qa-v4.yml'
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verifica sintaxe
+        run: node --check assets/overhaul-v4.js
+      - name: Testa integridade factual dos arquivos
+        run: |
+          python - <<'PY'
+          import json,re,glob
+          html=open('index.html').read()
+          db=json.loads(re.search(r'<script id="db" type="application/json">([\s\S]*?)</script>',html).group(1))
+          assert len(db["agents"])==65 and len(db["engines"])==106 and len(db["discs"])==32
+          assert len(glob.glob('assets/portraits/*.webp'))==65
+          assert len(glob.glob('assets/engines/*.webp'))==106
+          assert len(glob.glob('assets/discs/*.webp'))==32
+          lex=json.load(open('data/localizacao-ptbr.json'))
+          assert all(x['name'] in lex['engines'] for x in db['engines'])
+          assert all(x['name'] in lex['discs'] for x in db['discs'])
+          enc=json.load(open('data/encyclopedia.json'))
+          assert len(enc['agents'])>=60
+          assert all(len(x['stats'])==10 for x in enc['agents'].values())
+          print('Integridade factual: OK')
+          PY
+      - name: Instala Chromium para teste de interface
+        run: |
+          npm install --no-save playwright@1.58.2
+          npx playwright install --with-deps chromium
+      - name: Teste de navegação, fotos, fichas e largura
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/zzz-http.log 2>&1 &
+          sleep 2
+          node scripts/smoke_v4.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: captura-s25-edge-v4
+          path: qa-v4-mobile.png
