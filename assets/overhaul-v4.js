@@ -120,6 +120,6 @@ async function bootstrap(){
   if(arr[1])ency=arr[1];
   enhance();
 }
-enhance();
+render();
 bootstrap();
 })();
