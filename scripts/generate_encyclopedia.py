@@ -226,6 +226,13 @@ def main():
     found.sort(key=lambda a:int(a["id"].lstrip("a")))
     summary={"agents":len(found),"stats":sum(bool(a.get("stats")) for a in found),"withSkills":sum(bool(a.get("habilidades")) for a in found),"numericFacts":sum(sum(len(s["numeros"]) for s in a.get("habilidades",[])) for a in found),"failed":[a.get("name") for a in found if not a.get("stats")]}
     data={"version":"4.0","updatedAt":datetime.now(timezone.utc).isoformat(),"source":"zzz.gg/pt-br game data","scope":"Somente estatisticas e valores numericos factuais; beta nao tem valores finais.","agents":{a["id"]:a for a in found}}
+    # Não degrade a enciclopédia se o fornecedor estiver momentaneamente indisponível.
+    if summary["stats"]<58 or summary["withSkills"]<58 or summary["numericFacts"]<850:
+        raise RuntimeError("Extração insuficiente; dados existentes preservados: "+json.dumps(summary,ensure_ascii=False))
+    if OUT.exists():
+        old_data=json.loads(OUT.read_text(encoding="utf-8"))
+        if old_data.get("agents")==data["agents"]:
+            data["updatedAt"]=old_data.get("updatedAt",data["updatedAt"])
     OUT.write_text(json.dumps(data,ensure_ascii=False,separators=(',',':'))+"\n",encoding="utf-8")
     STATUS.write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(summary,ensure_ascii=False))
