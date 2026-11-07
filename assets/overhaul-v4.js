@@ -33,17 +33,23 @@ function translate(root){
   });
 }
 function clearRedirects(page){
-  page.querySelectorAll('a[target="_blank"],a[href^="https://"]').forEach(function(a){
-    var span=document.createElement('span');
-    span.className='v4-internal';
-    span.textContent='Informações disponíveis neste guia';
-    a.replaceWith(span);
-  });
+  // Remover o bloco legado antes de trocar links, para não deixar um painel
+  // contraditório mandando o leitor consultar fontes externas.
   if(S.page==='detail'&&S.type==='agent'){
     page.querySelectorAll('.detailSection').forEach(function(x){
-      if(x.textContent.indexOf('ABRIR FONTE EXTERNA')>=0)x.remove();
+      if(x.textContent.includes('05 / CONFERÊNCIA') || x.textContent.includes('FONTE E STATUS') || x.textContent.includes('ABRIR FONTE EXTERNA'))x.remove();
     });
+    page.querySelectorAll('.qualityLine a').forEach(function(x){x.remove();});
   }
+  page.querySelectorAll('a[target="_blank"],a[href^="https://"]').forEach(function(a){
+    if(a.textContent.includes('FONTE')||a.textContent.includes('CONSULTAR')||a.textContent.includes('PASSIVA INTEGRAL')){
+      a.remove();return;
+    }
+    var span=document.createElement('span');
+    span.className='v4-internal';
+    span.textContent='Informação incluída no guia';
+    a.replaceWith(span);
+  });
 }
 function safeStats(stats){
   var names=['PV','ATQ','DEF','Impacto','Taxa CRIT','Dano CRIT','Maestria de Anomalia','Proficiência de Anomalia','Taxa de Perfuração','Recuperação de Energia'];
@@ -77,7 +83,7 @@ function newSection(a){
   var summary='<section class="v4-panel"><div class="v4-kicker">01 / PROGRESSÃO</div><h3>ESTATÍSTICAS DO AGENTE</h3>'+(beta?'<p>Os números de teste não devem ser considerados definitivos.</p>':safeStats(data&&data.stats))+'</section>';
   var rota=(deep.rotation&&deep.rotation.length?deep.rotation:[a.how,'Prepare os apoios e confira a habilidade adicional do agente.','Use a janela de dano e reaplique efeitos antes de trocar.']);
   var guide='<section class="v4-panel"><div class="v4-kicker">02 / COMBATE</div><h3>COMO FUNCIONA NA PRÁTICA</h3><p>'+esc(deep.overview||a.summary)+'</p><ol>'+rota.map(function(s){return '<li>'+esc(s)+'</li>';}).join('')+'</ol></section>';
-  var skills='<section class="v4-panel"><div class="v4-kicker">03 / DADOS DAS HABILIDADES</div><h3>MULTIPLICADORES E GOLPES</h3><p>Valores apresentados apenas quando encontrados e estruturados na base de referência. Ausência de valor não significa 0%.</p>'+(beta?'<div class="v4-unverified">Os kits em beta ainda não possuem multiplicadores finais e não devem orientar investimentos irreversíveis.</div>':skillList(data&&data.habilidades))+'</section>';
+  var skills='<section class="v4-panel"><div class="v4-kicker">03 / DADOS DAS HABILIDADES</div><h3>MULTIPLICADORES E GOLPES</h3><p>Valores apresentados apenas quando encontrados e estruturados na base de referência. Ausência de valor não significa 0%.</p><details class="v4-glossary"><summary>COMO LER ESTES NÚMEROS? <span>+</span></summary><p><strong>Multiplicador de Dano:</strong> escala o dano daquela ação a partir dos atributos e das demais regras de combate; não é o dano final garantido.</p><p><strong>Multiplicador de Atordoamento:</strong> determina a contribuição do golpe para a barra de Atordoamento (Daze), considerando Impacto e modificadores.</p><p><strong>Habilidade adicional:</strong> pode exigir aliados de atributos, facções ou especialidades específicas; confira o requisito antes de avaliar a equipe.</p><p><strong>Versão e nível:</strong> os valores mudam com melhorias das habilidades e revisões; compare sempre o mesmo nível.</p></details>'+(beta?'<div class="v4-unverified">Os kits em beta ainda não possuem multiplicadores finais e não devem orientar investimentos irreversíveis.</div>':skillList(data&&data.habilidades))+'</section>';
   var researched=data&&data.build||{};
   var factualBuild='<div class="v4-buildfact"><div><small>ATRIBUTOS PRINCIPAIS (REFERÊNCIA)</small><p>'+esc(researched.principais||'Consulte a recomendação editorial e as condições do kit.')+'</p></div><div><small>SUBATRIBUTOS (REFERÊNCIA)</small><p>'+esc(researched.secundarios||'Prioridades ainda não disponíveis.')+'</p></div><div><small>PRIORIDADE DE HABILIDADES</small><p>'+esc(data&&data.prioridade||'Sujeita à composição da equipe.')+'</p></div></div>';
   var build='<section class="v4-panel"><div class="v4-kicker">04 / BUILD E EQUIPE</div><h3>ITENS RELACIONADOS</h3>'+factualBuild+equipment(a)+'<p>Composições de exemplo: '+esc(a.teams||'sem equipe validada').replaceAll(' / ',' · ')+'</p><div class="v4-unverified">'+(a.buildReviewed?'Recomendação editorial revisada. A adequação depende da sua conta.':'Recomendação editorial: verificação individual de kit e sinergias pendente.')+'</div></section>';
