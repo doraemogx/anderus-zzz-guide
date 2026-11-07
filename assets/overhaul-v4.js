@@ -119,8 +119,26 @@ function enhance(){
   applyDetail();homeBanner();
   translate(page);
 }
-render=function(){nativeRender();enhance();};
-updateCatalog=function(){nativeUpdate();enhance();};
+function localeCatalog(){
+ var p=S.page,f=filters[p];
+ if(!f || !f.q){nativeUpdate();return;}
+ var query=norm(f.q);
+ var items=DB[p].filter(function(a){
+  var lookup=[a.name,label(a.name),a.role,a.element,a.summary,a.two,a.four,a.owner];
+  return norm(lookup.filter(Boolean).join(' ')).includes(query)
+   &&(!f.rank||a.rank===f.rank)&&(!f.role||a.role===f.role)
+   &&(!f.element||a.element===f.element)
+   &&(!f.status||statusTag(a)===f.status)
+   &&(!(p==='agents'&&f.owned)||!!account.saved[a.name]);
+ });
+ var count=document.querySelector('#resultCount'),list=document.querySelector('#catalogItems');
+ if(count)count.textContent=items.length+' '+(p==='agents'?'AGENTES':p==='engines'?'MOTORES':'CONJUNTOS')+' ENCONTRADOS';
+ if(list)list.innerHTML=items.length?items.map(function(x){
+   return p==='agents'?agentCard(x):itemCard(x,p==='engines'?'engine':'disc');
+ }).join(''):'<div class="empty">Nenhum item encontrado. Tente outro nome em português.</div>';
+}
+render=function(){nativeRender();enhance();if(filters[S.page]&&filters[S.page].q)localeCatalog();};
+updateCatalog=function(){localeCatalog();enhance();};
 async function load(path){
   try{var r=await fetch(path+'?v=4.0',{cache:'no-store'});return r.ok?await r.json():null;}catch{return null;}
 }
