@@ -12,6 +12,13 @@ for(const width of [360,393,412,1280]){
  await page.waitForSelector('.v5-home',{timeout:15000});
  if(await page.locator('.v5-quick-card').count()!==4)throw Error('Home quick links: expected 4');
  if(await page.locator('.v5-bottom button').count()!==5)throw Error('Bottom nav: expected 5');
+ if(!await page.locator('.v5-review-cta').count())throw Error('Account preview review action missing');
+ for(const [term,type] of [['Phoenix','agents'],['Crimson','engines'],['Thorned','discs']]){
+  await page.locator('#v5-global-search').fill(term);
+  await page.waitForSelector('.v5-global-results .v5-search-hit[data-type="'+type+'"]',{timeout:8000});
+  await page.locator('.v5-bottom [data-to="home"]').click();
+  await page.waitForSelector('#v5-global-search');
+ }
  await page.locator('.v5-bottom [data-to="encyclopedia"]').click();
  await page.waitForSelector('.v5-agent-tile');
  if(await page.locator('.v5-agent-tile').count()!==65)throw Error('Expected 65 agents');
