@@ -59,35 +59,53 @@ def download_circle(number):
     if im.width<100 or im.height<100:raise ValueError("too small")
     return im
   except Exception:return None
-def paste_portrait(im,forced=False):
+# Regiões de rosto/busto conferidas visualmente no arquivo original 424 px.
+# Círculos de perfil do jogo são usados diretamente; o crop só é aplicado
+# para os personagens cuja imagem verificada era uma arte de corpo inteiro.
+FOCUS={
+ "Velina Airgid":(146,2,126),
+ "Norma Hollowell":(120,52,125),
+ "Pyrois":(166,42,108),
+ "Starlight - Billy":(143,42,115),
+ "Promeia":(150,44,113),
+ "Cissia":(170,43,115),
+ "Nangong Yu":(178,57,122),
+ "Aria":(192,25,120),
+ "Sunna":(121,53,114),
+ "Zhao":(110,73,126),
+ "Seed":(112,12,136),
+ "Soldier 0: Anby":(142,17,118),
+ "Piper":(121,39,124),
+ "Sunbringer":(165,12,220),
+}
+def paste_portrait(im,name,game_icon=False):
   im=ImageOps.exif_transpose(im.convert("RGBA"))
-  # Discard transparent empty margins without losing the character's silhouette
-  a=im.getchannel("A")
-  bbox=a.point(lambda n:255 if n>=20 else 0).getbbox()
-  if bbox: im=im.crop(bbox)
-  w,h=im.size
-  # Framing: square head and shoulders. Keep existing close-up icons as-is.
-  opaque_ratio=sum(1 for pix in im.resize((44,44)).getchannel("A").getdata() if pix>120)/(44*44)
-  if forced or (h>w*1.08 and opaque_ratio<.63) or (w<h*.69):
-    side=max(1,min(w,int(h*.62)))
-    center=int(w*.5)
-    l=max(0,min(w-side,center-side//2))
-    y=max(0,min(int(h*.06),h-side))
-    im=im.crop((l,y,l+side,y+side))
+  if not game_icon and name in FOCUS:
+    x,y,side=FOCUS[name]
+    # Originais são imagens em 424 px de largura; preserva o mesmo
+    # enquadramento relativo se o fornecedor mudar a resolução.
+    k=im.width/424
+    left,top,width=int(x*k),int(y*k),int(side*k)
+    left=max(0,min(left,im.width-width))
+    top=max(0,min(top,im.height-width))
+    width=min(width,im.width-left,im.height-top)
+    im=im.crop((left,top,left+width,top+width))
   else:
-    # square close-up; gently center without clipping the character
-    side=max(w,h)
-    bg=Image.new("RGBA",(side,side),(0,0,0,0))
-    bg.alpha_composite(im,((side-w)//2,(side-h)//2))
-    im=bg
-  im.thumbnail((420,420),Image.Resampling.LANCZOS)
+    # Uma foto de perfil já quadrada não pode ser reduzida a 200 px e colada
+    # no centro de 440: o erro anterior causava personagens minúsculos.
+    w,h=im.size
+    side=min(w,h)
+    left=max(0,(w-side)//2)
+    top=max(0,(h-side)//2)
+    im=im.crop((left,top,left+side,top+side))
+  im=im.resize((W,H),Image.Resampling.LANCZOS)
   canvas=Image.new("RGBA",(W,H),(17,23,29,255))
-  # subtle neutral surface, no artificial silhouette/face
   from PIL import ImageDraw
   p=ImageDraw.Draw(canvas)
   p.ellipse((-66,-58,W+66,H+70),outline=(43,61,66,255),width=2)
-  canvas.alpha_composite(im,((W-im.width)//2,(H-im.height)//2))
+  canvas.alpha_composite(im,(0,0))
   return canvas.convert("RGB")
+
 def main():
   global names
   m=re.search(r'<script id="db" type="application/json">([\s\S]*?)</script>',(ROOT/"index.html").read_text(encoding="utf-8"))
@@ -103,7 +121,7 @@ def main():
     code=mapped.get(a["name"])
     candidate=download_circle(code) if code else None
     chosen=candidate if candidate else original
-    output=paste_portrait(chosen,a["name"] in FORCE_BUST and candidate is None)
+    output=paste_portrait(chosen,a["name"],candidate is not None)
     fp=DEST/(a["id"]+".webp")
     output.save(fp,"WEBP",quality=86,method=5)
     check=Image.open(fp)
