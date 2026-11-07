@@ -15,9 +15,33 @@ const images=await page.locator('.agentCard img').first().evaluate(async im=>{
   return {src:im.getAttribute('src'),loaded:im.naturalWidth>0,w:im.naturalWidth};
 });
 if(!images.loaded)throw new Error('Retrato principal não carregou: '+JSON.stringify(images));
+const assetsCheck=await page.evaluate(async()=>{
+ const sources=[...Array(65)].map((_,i)=>'assets/portraits/a'+i+'.webp')
+  .concat([...Array(106)].map((_,i)=>'assets/engines/w'+i+'.webp'))
+  .concat([...Array(32)].map((_,i)=>'assets/discs/d'+i+'.webp'));
+ let idx=0,verified=0,failed=[],sizes={};
+ async function check(){
+  while(idx<sources.length){
+   const url=sources[idx++];
+   try{
+     const r=await fetch(url);
+     if(!r.ok)throw new Error('HTTP '+r.status);
+     const b=await r.blob(),bitmap=await createImageBitmap(b);
+     if(bitmap.width<50||bitmap.height<50)throw new Error('imagem pequena');
+     if(url.includes('/portraits/') && bitmap.width!==bitmap.height)throw new Error('retrato não quadrado');
+     bitmap.close();verified++;
+   }catch(e){failed.push(url+': '+e.message)}
+  }
+ }
+ await Promise.all(Array.from({length:12},check));
+ return {verified,total:sources.length,failed:failed.slice(0,20)};
+});
+if(assetsCheck.failed.length)throw new Error('Artes locais: '+JSON.stringify(assetsCheck));
+await page.screenshot({path:'qa-v4-agentes.png',fullPage:false});
 await page.locator('.agentCard').first().click();
 await page.waitForSelector('#v4-encyclopedia');
 await page.waitForTimeout(1200);
+await page.screenshot({path:'qa-v4-ficha.png',fullPage:false});
 const stats=await page.locator('#v4-encyclopedia .v4-stat').count();
 if(stats!==10)throw new Error('Esperadas 10 estatísticas, obtidas '+stats);
 const moveCount=await page.locator('#v4-encyclopedia .v4-skill').count();
@@ -41,5 +65,5 @@ const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-wind
 if(overflow>3)throw new Error('Barra horizontal no S25 Edge: '+overflow);
 if(pageErrors.length)throw new Error('Erro JS: '+pageErrors.join(' | '));
 await page.screenshot({path:'qa-v4-mobile.png',fullPage:false});
-console.log(JSON.stringify({status:'PASSOU',viewport:393,agents:count,engineCount,stats,movimentos:moveCount,image:images.src,overflow},null,2));
+console.log(JSON.stringify({status:'PASSOU',viewport:393,agents:count,engineCount,stats,movimentos:moveCount,image:images.src,overflow,assetsCheck},null,2));
 await browser.close();
