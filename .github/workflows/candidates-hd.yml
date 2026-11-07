@@ -1,0 +1,30 @@
+name: Candidatos HD de perfis
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/candidate_hd.py'
+      - '.github/workflows/candidates-hd.yml'
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow==11.3.0
+      - run: python scripts/candidate_hd.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/hd-candidates data/hd-candidates-status.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Prévia: retratos oficiais HD, revisão visual pendente"
+            git pull --rebase
+            git push
+          fi
