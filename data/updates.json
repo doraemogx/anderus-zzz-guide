@@ -6,6 +6,48 @@
   "betaRevision": "20280288",
   "entries": [
     {
+      "id": "audit-20261107-signatures",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Assinaturas corrigidas: Remielle, Cissia, Nangong e Severian",
+      "summary": "Associações de equipamentos revisadas em fontes de guias e dados do jogo. Corrigidos Ode of Resurrected Wings, Serpentine Seeker, Neon Fantasies e Incarcerating Grip.",
+      "areas": [
+        "Motores",
+        "Builds",
+        "Equipes"
+      ],
+      "url": "https://zzz.gachabase.net/w-engines/release"
+    },
+    {
+      "id": "audit-20261107-buildmore",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Ajustes de discos e fontes em mais cinco fichas",
+      "summary": "Sigrid e Cissia com Dawn's Bloom, Nangong Yu com Phaethon's Melody e Roxy com King of the Summit; conferência de itens ligados.",
+      "areas": [
+        "Discos",
+        "Sigrid",
+        "Cissia",
+        "Nangong Yu",
+        "Roxy"
+      ]
+    },
+    {
+      "id": "audit-20261107-quality",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Selos de transparência incluídos nas fichas",
+      "summary": "Identidades e tipos separados de sugestões de build. Fichas com recomendações verificadas indicam fonte; demais mostram revisão individual pendente. O beta permanece provisório.",
+      "areas": [
+        "Precisão",
+        "Agentes",
+        "Fontes"
+      ]
+    },
+    {
       "id": "audit-20261107-media",
       "date": "2026-11-07",
       "kind": "site",
