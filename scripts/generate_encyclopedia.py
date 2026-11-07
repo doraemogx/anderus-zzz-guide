@@ -156,7 +156,7 @@ def extract_mindscapes(soup,role=""):
         seg=chunk[idx+1:next_i]
         title=next((x for x in seg if x.strip() not in ("Image","Imagem") and not x.startswith("Image:")),f"Mindscape {i}")
         effect=" ".join(seg[1:])
-        params=list(dict.fromkeys(re.findall(r"\b\d+(?:[.,]\d+)?(?:%|s|m)?\b",effect)))[:18]
+        params=list(dict.fromkeys(re.findall(r"(?<![\w])\d+(?:[.,]\d+)?(?:%|s|m)?(?![\w])",effect)))[:18]
         mechanics=[]
         rules=[
             ("CRIT","Crítico"),("ATQ","Ataque"),("Dano","Dano"),("Anomalia","Anomalia"),
