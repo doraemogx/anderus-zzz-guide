@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T21:46:49.649477+00:00",
+  "updatedAt": "2026-11-07T22:30:14.765524+00:00",
   "total": 65,
   "ok": 65,
   "gameIcons": 43,
@@ -10,7 +10,7 @@
       "name": "Phoenix",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 32466,
+      "bytes": 34240,
       "status": "ok"
     },
     {
@@ -18,7 +18,7 @@
       "name": "Velina Airgid",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 16260,
+      "bytes": 15772,
       "status": "ok"
     },
     {
@@ -26,7 +26,7 @@
       "name": "Jane Doe",
       "source": "icone_de_perfil",
       "circleID": "24",
-      "bytes": 5108,
+      "bytes": 14922,
       "status": "ok"
     },
     {
@@ -34,7 +34,7 @@
       "name": "Rina",
       "source": "icone_de_perfil",
       "circleID": "22",
-      "bytes": 5548,
+      "bytes": 16282,
       "status": "ok"
     },
     {
@@ -42,7 +42,7 @@
       "name": "Severian Lowell",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 9138,
+      "bytes": 31660,
       "status": "ok"
     },
     {
@@ -50,7 +50,7 @@
       "name": "Roxy Ifrita Pryce",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 22316,
+      "bytes": 34114,
       "status": "ok"
     },
     {
@@ -58,7 +58,7 @@
       "name": "Claret Flint",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 22050,
+      "bytes": 32946,
       "status": "ok"
     },
     {
@@ -66,7 +66,7 @@
       "name": "Sigrid de L'Azur",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 9008,
+      "bytes": 31690,
       "status": "ok"
     },
     {
@@ -74,7 +74,7 @@
       "name": "Remielle Dan",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 9602,
+      "bytes": 32428,
       "status": "ok"
     },
     {
@@ -82,7 +82,7 @@
       "name": "Norma Hollowell",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 15614,
+      "bytes": 16892,
       "status": "ok"
     },
     {
@@ -90,7 +90,7 @@
       "name": "Pyrois",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 9580,
+      "bytes": 12560,
       "status": "ok"
     },
     {
@@ -98,7 +98,7 @@
       "name": "Starlight - Billy",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 10364,
+      "bytes": 17074,
       "status": "ok"
     },
     {
@@ -106,7 +106,7 @@
       "name": "Promeia",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 9174,
+      "bytes": 13180,
       "status": "ok"
     },
     {
@@ -114,7 +114,7 @@
       "name": "Cissia",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 12702,
+      "bytes": 21316,
       "status": "ok"
     },
     {
@@ -122,7 +122,7 @@
       "name": "Nangong Yu",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 12260,
+      "bytes": 22604,
       "status": "ok"
     },
     {
@@ -130,7 +130,7 @@
       "name": "Aria",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 16726,
+      "bytes": 16436,
       "status": "ok"
     },
     {
@@ -138,7 +138,7 @@
       "name": "Sunna",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 8638,
+      "bytes": 19238,
       "status": "ok"
     },
     {
@@ -146,7 +146,7 @@
       "name": "Ye Shunguang",
       "source": "icone_de_perfil",
       "circleID": "55",
-      "bytes": 5822,
+      "bytes": 17298,
       "status": "ok"
     },
     {
@@ -154,7 +154,7 @@
       "name": "Zhao",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 18680,
+      "bytes": 20416,
       "status": "ok"
     },
     {
@@ -162,7 +162,7 @@
       "name": "Dialyn",
       "source": "icone_de_perfil",
       "circleID": "54",
-      "bytes": 6118,
+      "bytes": 18442,
       "status": "ok"
     },
     {
@@ -170,7 +170,7 @@
       "name": "Banyue",
       "source": "icone_de_perfil",
       "circleID": "53",
-      "bytes": 6308,
+      "bytes": 19244,
       "status": "ok"
     },
     {
@@ -178,7 +178,7 @@
       "name": "Lucia",
       "source": "icone_de_perfil",
       "circleID": "50",
-      "bytes": 6580,
+      "bytes": 19760,
       "status": "ok"
     },
     {
@@ -186,7 +186,7 @@
       "name": "Yidhari",
       "source": "icone_de_perfil",
       "circleID": "52",
-      "bytes": 6724,
+      "bytes": 21262,
       "status": "ok"
     },
     {
@@ -194,7 +194,7 @@
       "name": "Komano Manato",
       "source": "icone_de_perfil",
       "circleID": "51",
-      "bytes": 6244,
+      "bytes": 18054,
       "status": "ok"
     },
     {
@@ -202,7 +202,7 @@
       "name": "Orphie & Magus",
       "source": "icone_de_perfil",
       "circleID": "49",
-      "bytes": 6452,
+      "bytes": 18680,
       "status": "ok"
     },
     {
@@ -210,7 +210,7 @@
       "name": "Seed",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 19988,
+      "bytes": 33130,
       "status": "ok"
     },
     {
@@ -218,7 +218,7 @@
       "name": "Yuzuha",
       "source": "icone_de_perfil",
       "circleID": "47",
-      "bytes": 6182,
+      "bytes": 17882,
       "status": "ok"
     },
     {
@@ -226,7 +226,7 @@
       "name": "Alice",
       "source": "icone_de_perfil",
       "circleID": "46",
-      "bytes": 6096,
+      "bytes": 17532,
       "status": "ok"
     },
     {
@@ -234,7 +234,7 @@
       "name": "Ju Fufu",
       "source": "icone_de_perfil",
       "circleID": "43",
-      "bytes": 6412,
+      "bytes": 19008,
       "status": "ok"
     },
     {
@@ -242,7 +242,7 @@
       "name": "Yixuan",
       "source": "icone_de_perfil",
       "circleID": "44",
-      "bytes": 6112,
+      "bytes": 18616,
       "status": "ok"
     },
     {
@@ -250,7 +250,7 @@
       "name": "Pan Yinhu",
       "source": "icone_de_perfil",
       "circleID": "45",
-      "bytes": 5234,
+      "bytes": 14842,
       "status": "ok"
     },
     {
@@ -258,7 +258,7 @@
       "name": "Vivian",
       "source": "icone_de_perfil",
       "circleID": "41",
-      "bytes": 6750,
+      "bytes": 20488,
       "status": "ok"
     },
     {
@@ -266,7 +266,7 @@
       "name": "Hugo",
       "source": "icone_de_perfil",
       "circleID": "42",
-      "bytes": 5880,
+      "bytes": 17356,
       "status": "ok"
     },
     {
@@ -274,7 +274,7 @@
       "name": "Soldier 0: Anby",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 8416,
+      "bytes": 9812,
       "status": "ok"
     },
     {
@@ -282,7 +282,7 @@
       "name": "Trigger",
       "source": "icone_de_perfil",
       "circleID": "39",
-      "bytes": 5208,
+      "bytes": 15636,
       "status": "ok"
     },
     {
@@ -290,7 +290,7 @@
       "name": "Pulchra",
       "source": "icone_de_perfil",
       "circleID": "38",
-      "bytes": 6684,
+      "bytes": 20426,
       "status": "ok"
     },
     {
@@ -298,7 +298,7 @@
       "name": "Astra Yao",
       "source": "icone_de_perfil",
       "circleID": "36",
-      "bytes": 5248,
+      "bytes": 15694,
       "status": "ok"
     },
     {
@@ -306,7 +306,7 @@
       "name": "Evelyn Chevalier",
       "source": "icone_de_perfil",
       "circleID": "37",
-      "bytes": 5492,
+      "bytes": 16150,
       "status": "ok"
     },
     {
@@ -314,7 +314,7 @@
       "name": "Hoshimi Miyabi",
       "source": "icone_de_perfil",
       "circleID": "13",
-      "bytes": 4702,
+      "bytes": 13798,
       "status": "ok"
     },
     {
@@ -322,7 +322,7 @@
       "name": "Asaba Harumasa",
       "source": "icone_de_perfil",
       "circleID": "35",
-      "bytes": 5532,
+      "bytes": 16610,
       "status": "ok"
     },
     {
@@ -330,7 +330,7 @@
       "name": "Tsukishiro Yanagi",
       "source": "icone_de_perfil",
       "circleID": "31",
-      "bytes": 5622,
+      "bytes": 16736,
       "status": "ok"
     },
     {
@@ -338,7 +338,7 @@
       "name": "Lighter",
       "source": "icone_de_perfil",
       "circleID": "26",
-      "bytes": 5192,
+      "bytes": 15696,
       "status": "ok"
     },
     {
@@ -346,7 +346,7 @@
       "name": "Burnice White",
       "source": "icone_de_perfil",
       "circleID": "32",
-      "bytes": 6064,
+      "bytes": 18210,
       "status": "ok"
     },
     {
@@ -354,7 +354,7 @@
       "name": "Caesar King",
       "source": "icone_de_perfil",
       "circleID": "25",
-      "bytes": 5542,
+      "bytes": 17406,
       "status": "ok"
     },
     {
@@ -362,7 +362,7 @@
       "name": "Qingyi",
       "source": "icone_de_perfil",
       "circleID": "29",
-      "bytes": 5328,
+      "bytes": 15922,
       "status": "ok"
     },
     {
@@ -370,7 +370,7 @@
       "name": "Seth Lowell",
       "source": "icone_de_perfil",
       "circleID": "30",
-      "bytes": 5730,
+      "bytes": 17550,
       "status": "ok"
     },
     {
@@ -378,7 +378,7 @@
       "name": "Ellen Joe",
       "source": "icone_de_perfil",
       "circleID": "21",
-      "bytes": 5352,
+      "bytes": 15534,
       "status": "ok"
     },
     {
@@ -386,7 +386,7 @@
       "name": "Von Lycaon",
       "source": "icone_de_perfil",
       "circleID": "18",
-      "bytes": 6216,
+      "bytes": 18694,
       "status": "ok"
     },
     {
@@ -394,7 +394,7 @@
       "name": "Soukaku",
       "source": "icone_de_perfil",
       "circleID": "17",
-      "bytes": 6118,
+      "bytes": 17632,
       "status": "ok"
     },
     {
@@ -402,7 +402,7 @@
       "name": "Zhu Yuan",
       "source": "icone_de_perfil",
       "circleID": "23",
-      "bytes": 5708,
+      "bytes": 16404,
       "status": "ok"
     },
     {
@@ -410,7 +410,7 @@
       "name": "Soldier 11",
       "source": "icone_de_perfil",
       "circleID": "05",
-      "bytes": 6052,
+      "bytes": 18136,
       "status": "ok"
     },
     {
@@ -418,7 +418,7 @@
       "name": "Nicole Demara",
       "source": "icone_de_perfil",
       "circleID": "12",
-      "bytes": 6646,
+      "bytes": 20540,
       "status": "ok"
     },
     {
@@ -426,7 +426,7 @@
       "name": "Grace Howard",
       "source": "icone_de_perfil",
       "circleID": "20",
-      "bytes": 5314,
+      "bytes": 14864,
       "status": "ok"
     },
     {
@@ -434,7 +434,7 @@
       "name": "Nekomata",
       "source": "icone_de_perfil",
       "circleID": "11",
-      "bytes": 5806,
+      "bytes": 16678,
       "status": "ok"
     },
     {
@@ -442,7 +442,7 @@
       "name": "Koleda Belobog",
       "source": "icone_de_perfil",
       "circleID": "14",
-      "bytes": 7388,
+      "bytes": 22262,
       "status": "ok"
     },
     {
@@ -450,7 +450,7 @@
       "name": "Lucy",
       "source": "icone_de_perfil",
       "circleID": "27",
-      "bytes": 6306,
+      "bytes": 18988,
       "status": "ok"
     },
     {
@@ -458,7 +458,7 @@
       "name": "Anby Demara",
       "source": "icone_de_perfil",
       "circleID": "01",
-      "bytes": 6088,
+      "bytes": 17354,
       "status": "ok"
     },
     {
@@ -466,7 +466,7 @@
       "name": "Billy Kid",
       "source": "icone_de_perfil",
       "circleID": "10",
-      "bytes": 4896,
+      "bytes": 12998,
       "status": "ok"
     },
     {
@@ -474,7 +474,7 @@
       "name": "Piper",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 6038,
+      "bytes": 10702,
       "status": "ok"
     },
     {
@@ -482,7 +482,7 @@
       "name": "Anton Ivanov",
       "source": "icone_de_perfil",
       "circleID": "15",
-      "bytes": 5270,
+      "bytes": 14822,
       "status": "ok"
     },
     {
@@ -490,7 +490,7 @@
       "name": "Ben Bigger",
       "source": "icone_de_perfil",
       "circleID": "16",
-      "bytes": 4104,
+      "bytes": 10362,
       "status": "ok"
     },
     {
@@ -498,7 +498,7 @@
       "name": "Corin Wickes",
       "source": "icone_de_perfil",
       "circleID": "09",
-      "bytes": 6042,
+      "bytes": 17124,
       "status": "ok"
     },
     {
@@ -506,7 +506,7 @@
       "name": "Sunbringer",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 6374,
+      "bytes": 24926,
       "status": "ok"
     },
     {
@@ -514,7 +514,7 @@
       "name": "Robin",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 15252,
+      "bytes": 31996,
       "status": "ok"
     },
     {
@@ -522,7 +522,7 @@
       "name": "Kafka",
       "source": "recorte_do_agente",
       "circleID": null,
-      "bytes": 11862,
+      "bytes": 27768,
       "status": "ok"
     }
   ]
