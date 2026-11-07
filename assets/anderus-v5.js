@@ -2,8 +2,8 @@
 (function(){
 "use strict";
 const root=document.createElement("div");root.id="and-v5";document.body.appendChild(root);document.body.classList.add("and-v5-mode");
-const state={page:"home",type:"agents",id:"",sub:"overview",query:"",element:"",role:"",rarity:"",onlyOwned:false,lesson:"intro",feedFilter:"all",edit:"Phoenix",mode:"deadly"};
-let enc={agents:{}},loc={engines:{},discs:{},agents:{}},feed={entries:[]};
+const state={page:"home",type:"agents",id:"",sub:"overview",query:"",element:"",role:"",rarity:"",onlyOwned:false,lesson:"intro",feedFilter:"all",edit:"Phoenix",mode:"deadly",phase:1};
+let enc={agents:{}},loc={engines:{},discs:{},agents:{}},feed={entries:[]},endgameReference=null;
 const esc=x=>String(x==null?"":x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const tr=x=>(loc.engines&&loc.engines[x])||(loc.discs&&loc.discs[x])||(loc.agents&&loc.agents[x])||x;
 const findAgent=n=>DB.agents.find(a=>a.name===n);
@@ -183,6 +183,21 @@ function readyTeam(team){
  const cls=!full?"low":status==="BASE ESTRUTURAL FORTE"?"good":"warn";
  return {owned,lv,withCompatible,disco,full,status,cls,reason:!full?"Complete três agentes distintos.":lv<50?"Eleve níveis antes de avaliar metas avançadas.":withCompatible<3?"Revise a especialidade dos motores.":disco<3?"Equipe mais discos e confira conjuntos 4+2.":"Verifique inimigos, bônus e execução; isto não garante estrelas."};
 }
+function endgamePhaseReference(){
+ if(!endgameReference||!["shiyu","deadly"].includes(state.mode))return "";
+ const phase=Number(state.phase)||1;
+ const list=state.mode==="shiyu"?endgameReference.shiyu:endgameReference.deadly;
+ const current=list.find(x=>x.phase===phase);
+ if(!current)return "";
+ const bands=[1,2,3].map(n=>'<button class="'+(n===phase?'on':'')+'" data-v5="phase" data-id="'+n+'">FASE '+n+'</button>').join("");
+ const own=Object.keys(account.saved).map(findAgent).filter(Boolean);
+ let entries=state.mode==="shiyu"?'<div class="v5-phase-entries">'+current.buffs.map(x=>{
+  const matches=own.filter(a=>a.role===x.favRole&&(!x.favElements.length||x.favElements.includes(a.element)));
+  return '<div><h4>'+esc(x.label)+'</h4><p>'+esc(x.text)+'</p>'+(matches.length?'<div class="v5-buffmatch">POTENCIALMENTE FAVORECIDOS: '+matches.map(a=>'<span><img src="'+portrait(a)+'" alt="'+esc(a.name)+'">'+esc(tr(a.name))+'</span>').join("")+'</div>':'<div class="v5-buffmatch">Não há uma correspondência direta entre seus agentes registrados e esse bônus específico.</div>')+'</div>';
+ }).join("")+'</div>':
+ '<div class="v5-bosses"><div><b>PROVA</b>'+current.trial.map(x=>'<span>'+esc(x)+'</span>').join("")+'</div><div><b>ADVERSIDADE</b>'+current.adversity.map(x=>'<span>'+esc(x)+'</span>').join("")+'</div></div>';
+ return '<section class="v5-panel v5-reference"><div class="v5-eyebrow">REFERÊNCIA OFICIAL V'+esc(endgameReference.version)+' / 21 OUT 2026</div><h2>FASES E CONDIÇÕES PUBLICADAS</h2><div class="v5-segment v5-phases">'+bands+'</div>'+entries+'<div class="v5-note">'+esc(endgameReference.notice)+'</div></section>';
+}
 function endgame(){
  const m=mindModes.find(x=>x[0]===state.mode)||mindModes[0];
  const uniq=Object.keys(account.saved).filter(x=>findAgent(x));const enough=uniq.length>=m[3]*3;
@@ -192,7 +207,7 @@ function endgame(){
  return '<div class="v5-inner">'+title('LABORATÓRIO // ENDGAME','VOCÊ ESTÁ PRONTO<span class="v5-dot">?</span>','Veja sua preparação para os modos difíceis, com base nos dados que cadastrou.')+
  '<div class="v5-mode-nav">'+mindModes.map(x=>'<button class="'+(state.mode===x[0]?'on':'')+'" data-v5="mode" data-id="'+x[0]+'">'+x[1]+'</button>').join("")+'</div>'+
  '<section class="v5-panel v5-mode-panel"><div class="v5-eyebrow">ANÁLISE DE PREPARAÇÃO</div><h2>'+m[1]+'</h2><p>'+m[2]+'</p><div class="v5-info-strip"><div><b>'+m[3]+'</b><small>EQUIPE(S) DE REFERÊNCIA</small></div><div><b>'+uniq.length+'</b><small>AGENTES REGISTRADOS</small></div><div><b class="'+(enough?'v5-green':'v5-amber')+'">'+(enough?'ELENCO SUFICIENTE':'ELENCO CURTO')+'</b><small>PARA TIMES DISTINTOS</small></div></div><p class="v5-small">'+m[4]+'</p></section>'+
- teams.map((team,i)=>{const st=readyTeam(team);return '<section class="v5-panel"><div class="v5-rowbetween"><h3>EQUIPE '+(i+1)+'</h3><span class="v5-level '+st.cls+'">'+st.status+'</span></div><div class="v5-endteam">'+team.map(n=>{const a=findAgent(n);return a?'<div><img src="'+portrait(a)+'"><strong>'+esc(tr(a.name))+'</strong></div>':'<div class="v5-emptychar"><span>+</span><small>AGENTE</small></div>';}).join("")+'</div><p>'+esc(st.reason)+'</p><div class="v5-readfacts">NÍVEL MÉDIO <b>'+fmt(st.lv)+'</b> · MOTORES COMPATÍVEIS <b>'+st.withCompatible+'/'+st.owned.length+'</b> · DISCOS EQUIPADOS <b>'+st.disco+'/'+st.owned.length+'</b></div></section>';}).join("")+
+ endgamePhaseReference()+teams.map((team,i)=>{const st=readyTeam(team);return '<section class="v5-panel"><div class="v5-rowbetween"><h3>EQUIPE '+(i+1)+'</h3><span class="v5-level '+st.cls+'">'+st.status+'</span></div><div class="v5-endteam">'+team.map(n=>{const a=findAgent(n);return a?'<div><img src="'+portrait(a)+'"><strong>'+esc(tr(a.name))+'</strong></div>':'<div class="v5-emptychar"><span>+</span><small>AGENTE</small></div>';}).join("")+'</div><p>'+esc(st.reason)+'</p><div class="v5-readfacts">NÍVEL MÉDIO <b>'+fmt(st.lv)+'</b> · MOTORES COMPATÍVEIS <b>'+st.withCompatible+'/'+st.owned.length+'</b> · DISCOS EQUIPADOS <b>'+st.disco+'/'+st.owned.length+'</b></div></section>';}).join("")+
  (anyDuplicates.length&&m[3]>1?'<div class="v5-warning">ATENÇÃO: algumas equipes repetem agentes. Investida Mortal exige elencos distintos por chefe.</div>':'')+
  '<section class="v5-panel"><h2>O QUE MELHORAR PRIMEIRO</h2><ol class="v5-priority">'+(uniq.length<m[3]*3?'<li>Você tem '+uniq.length+' agentes registrados; para '+m[3]+' equipes de três, planeje '+m[3]*3+' integrantes distintos. Isso não significa que todos precisam ser de raridade S.</li>':'')+'<li>Priorize agentes no nível 60, talentos centrais e motores da especialidade correta.</li><li>Monte conjuntos de disco coerentes e meça os atributos em combate quando houver buffs.</li><li>Confira a rotação, o bônus do ciclo e a fraqueza do chefe antes de investir em outro personagem.</li></ol><button class="v5-button v5-button-yellow" data-v5="go" data-to="account">EDITAR SUAS EQUIPES '+svg("arrow",15)+'</button></section>'+
  '<div class="v5-note">Esta análise verifica estrutura da conta. Sem resultados de combate, dados do inimigo e cálculos completos de dano, não é possível prever estrelas ou garantir aprovação do desafio.</div></div>';
@@ -295,7 +310,8 @@ function bindEvents(){
   if(act==="lesson"){state.lesson=el.dataset.id;draw();return;}
   if(act==="nextlesson"){const ix=lessons.findIndex(x=>x.id===state.lesson);state.lesson=lessons[(ix+1)%lessons.length].id;draw();return;}
   if(act==="feed"){state.feedFilter=el.dataset.id;draw();return;}
-  if(act==="mode"){state.mode=el.dataset.id;draw();return;}
+  if(act==="mode"){state.mode=el.dataset.id;state.phase=1;draw();return;}
+  if(act==="phase"){state.phase=Number(el.dataset.id)||1;draw();return;}
   if(act==="edit"){state.edit=el.dataset.name;account.selected=state.edit;save();draw();return;}
   if(act==="add-own"){const name=el.dataset.name;if(!account.saved[name])account.saved[name]=blankBuild(findAgent(name));state.edit=name;account.selected=name;save();go("account",{id:""});return;}
   if(act==="add-selected"){const name=root.querySelector("#v5-add-agent")?.value;if(!name)return;if(!account.saved[name])account.saved[name]=blankBuild(findAgent(name));state.edit=name;account.selected=name;save();draw();return;}
@@ -326,8 +342,8 @@ function bindEvents(){
 async function init(){
  root.innerHTML='<div class="v5-loading"><span>Z</span><strong>NEW ERIDU // ANDERUS</strong><small>Preparando seu arquivo Proxy OS...</small></div>';
  const get=async p=>{try{const r=await fetch(p+"?version=5",{cache:"no-store"});return r.ok?r.json():null;}catch{return null;}};
- const results=await Promise.all([get("data/encyclopedia.json"),get("data/localizacao-ptbr.json"),get("data/updates.json")]);
- enc=results[0]||enc;loc=results[1]||loc;feed=results[2]||feed;
+ const results=await Promise.all([get("data/encyclopedia.json"),get("data/localizacao-ptbr.json"),get("data/updates.json"),get("data/endgame-reference.json")]);
+ enc=results[0]||enc;loc=results[1]||loc;feed=results[2]||feed;endgameReference=results[3]||null;
  const hash=decodeURIComponent(location.hash||"");
  if(hash.indexOf("#and-v5/")===0){const a=hash.slice(8).split("/");state.page=a[0]||"home";state.id=a[1]||"";if(state.id){const it=DB.agents.find(x=>x.id===state.id);state.type=it?"agents":"engines";}}
  history.replaceState({...state,__v5:true,scroll:0},"",location.href);
