@@ -3,7 +3,7 @@
 de fichas públicas para navegação dentro do guia; não reproduz prosa de terceiros."""
 import json,re,time,unicodedata,html as hlib
 from pathlib import Path
-from urllib.parse import urljoin,urlsplit
+from urllib.parse import urljoin,urlsplit,quote
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -16,7 +16,7 @@ STATUS=ROOT/"data"/"encyclopedia-status.json"
 BASE="https://zzz.gg/pt-br/"
 HEAD={"User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36","Accept-Language":"pt-BR,pt;q=0.9,en;q=0.5"}
 def fetch(url):
-    with urlopen(Request(url,headers=HEAD),timeout=25) as r:
+    with urlopen(Request(quote(url,safe=':/?&=%'),headers=HEAD),timeout=25) as r:
         if r.status!=200:raise ValueError(str(r.status))
         data=r.read(3_000_000)
     return BeautifulSoup(data,"html.parser")
@@ -57,7 +57,7 @@ ALIASES={
 "Ju Fufu":"ju-fufu","Pan Yinhu":"pan-yinhu","Promeia":"promeia",
 "Cissia":"cissia","Sunbringer":"sunbringer","Robin":"robin","Kafka":"kafka"}
 ATTRS=["PV","ATQ","DEF","Impacto","Taxa CRIT","Dano CRIT","Maestria de Anomalia","Proficiência de Anomalia","Taxa de Perfuração","Recuperação de Energia"]
-KEYS={"pv":"PV","atk":"ATQ","def":"DEF","impacto":"Impacto","taxacrit":"Taxa CRIT","danocrit":"Dano CRIT","maestriadeanomalia":"Maestria de Anomalia","proficienciadeanomalia":"Proficiência de Anomalia","taxadeperfuracao":"Taxa de Perfuração","recuperacaodeenergia":"Recuperação de Energia"}
+KEYS={"pv":"PV","atq":"ATQ","atk":"ATQ","def":"DEF","impacto":"Impacto","taxacrit":"Taxa CRIT","danocrit":"Dano CRIT","maestriadeanomalia":"Maestria de Anomalia","proficienciadeanomalia":"Proficiência de Anomalia","taxadeperfuracao":"Taxa de Perfuração","recuperacaodeenergia":"Recuperação de Energia"}
 CAT=("Ataque Básico:","Ataque Especial:","Ataque Especial Reforçado:","Contraesquiva:","Ataque Rápido:","Ataque em Cadeia:","Supremo:","Assistência")
 def find_slug(agent,links):
     variants=[agent["name"],ALIASES.get(agent["name"],""),agent["name"].split()[0]]
