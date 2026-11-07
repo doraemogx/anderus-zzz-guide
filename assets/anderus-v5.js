@@ -73,7 +73,7 @@ function home(){
  ['account','CONTA DO ANDERUS','Elenco, builds, equipamentos e prioridades','account'],
  ['endgame','ENDGAME','Defesa Shiyu, Investida Mortal e mais','sword'],
  ];
- return '<div class="v5-home"><section class="v5-hero"><div class="v5-stamps"><span class="v5-sticker">VERSÃO 3.3</span><span class="v5-stamp-line">ZZZ // ARQUIVO PESSOAL</span></div><div class="v5-hero-city"></div><h1>BEM-VINDO,<br><em>PROXY</em><b>↗</b></h1><p>Tudo sobre Nova Eridu. Do primeiro combate até sua estratégia de endgame.</p></section>'+
+ return '<div class="v5-home"><section class="v5-hero"><div class="v5-stamps"><span class="v5-sticker">VERSÃO '+esc(feed.officialVersion||"3.3")+'</span><span class="v5-stamp-line">ZZZ // ARQUIVO PESSOAL</span></div><div class="v5-hero-city"></div><h1>BEM-VINDO,<br><em>PROXY</em><b>↗</b></h1><p>Tudo sobre Nova Eridu. Do primeiro combate até sua estratégia de endgame.</p></section>'+
  '<div class="v5-search-wrap"><label class="v5-search">'+svg("search",20)+'<input id="v5-global-search" placeholder="Buscar agente, motor, disco, guia..." autocomplete="off"></label><button class="v5-search-btn" data-v5="go" data-to="encyclopedia" aria-label="Ver enciclopédia">'+svg("sliders")+'</button></div>'+
  '<div class="v5-quick">'+banners.map(([p,h,d,icon],i)=>'<button class="v5-quick-card v5-quick-'+i+'" data-v5="go" data-to="'+p+'">'+svg(icon,28)+'<strong>'+h+'</strong><small>'+d+'</small><span class="v5-quick-arrow">'+svg("right",16)+'</span></button>').join("")+'</div>'+
  '<button class="v5-radar-banner" data-v5="go" data-to="radar">'+svg("radar",30)+'<span><strong>RADAR DE ATUALIZAÇÕES</strong><small>Oficial, beta, mudanças no site e comparações</small></span>'+svg("right",18)+'</button>'+
@@ -276,7 +276,7 @@ function accountDiagnostics(a,b){
  const equipped=(b.slots||[]).filter(s=>s.set).length;
  if(equipped<6)recs.push("Equipe os seis discos e revise os conjuntos 4+2.");
  if(names.length<9)recs.push("Para Investida Mortal, avance na construção de mais equipes distintas.");
- return '<div class="v5-diagnostics">'+result.slice(0,7).map(x=>'<div class="'+(x.kind==="pass"?"pass":x.kind==="fail"?"fail":"pending")+'"><b>'+esc(x.title)+'</b><p>'+esc(x.explain)+'</p></div>').join("")+'</div><div class="v5-note"><b>MINHAS RECOMENDAÇÕES</b><ul>'+recs.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>Não é uma simulação do dano real do combate.</div>';
+ return '<div class="v5-diagnostics">'+result.slice(0,7).map(x=>'<div class="'+(x.kind==="pass"?"pass":x.kind==="fail"?"fail":"pending")+'"><b>'+esc(x.title)+'</b><p>'+esc(x.explain)+'</p></div>').join("")+'</div><div class="v5-note"><b>MINHAS RECOMENDAÇÕES</b><ul>'+recs.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>Não é uma simulação do dano real do combate.</div><button class="v5-button v5-button-yellow v5-reanalyze" data-v5="reanalyze">RECALCULAR DIAGNÓSTICO '+svg('refresh',15)+'</button>';
 }
 function learnScreen(){
  const l=lessons.find(x=>x.id===state.lesson)||lessons[0];
@@ -311,6 +311,7 @@ function bindEvents(){
   if(act==="nextlesson"){const ix=lessons.findIndex(x=>x.id===state.lesson);state.lesson=lessons[(ix+1)%lessons.length].id;draw();return;}
   if(act==="feed"){state.feedFilter=el.dataset.id;draw();return;}
   if(act==="mode"){state.mode=el.dataset.id;state.phase=1;draw();return;}
+  if(act==="reanalyze"){const y=window.scrollY;draw();window.scrollTo(0,y);return;}
   if(act==="phase"){state.phase=Number(el.dataset.id)||1;draw();return;}
   if(act==="edit"){state.edit=el.dataset.name;account.selected=state.edit;save();draw();return;}
   if(act==="add-own"){const name=el.dataset.name;if(!account.saved[name])account.saved[name]=blankBuild(findAgent(name));state.edit=name;account.selected=name;save();go("account",{id:""});return;}
