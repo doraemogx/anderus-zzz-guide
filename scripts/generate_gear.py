@@ -31,7 +31,10 @@ def links(soup):
         label=name_from_link(a)
         alltext=a.get_text(" ",strip=True)
         if len(label)<3:continue
-        result[slug]={"name":label,"text":alltext}
+        img=a.find("img")
+        src=(img.get("src") or img.get("data-src") or img.get("data-lazy-src") or "") if img else ""
+        image_key=urlsplit(urljoin("https://zzz.gg",src)).path.rsplit("/",1)[-1].split(".")[0] if src else ""
+        result[slug]={"name":label,"text":alltext,"icon":image_key}
     return result
 def main():
     obj=json.loads(re.search(r'<script id="db" type="application/json">([\s\S]*?)</script>',(ROOT/"index.html").read_text()).group(1))
@@ -68,6 +71,18 @@ def main():
         words=v["text"].replace(v["name"],"",1)
         nums=list(dict.fromkeys(re.findall(r"(?:\d{1,3}(?:[.,]\d+)?%|\d+(?:[.,]\d+)?\s*s)",words)))
         mapped[item["id"]]={"nome":v["name"],"numeros":nums[:28],"confirmado":True,"base":"slug PT-BR"}
+    # O mesmo ícone do jogo possui um ID de arquivo idêntico em todos os idiomas.
+    # Isso permite ligar o nome em inglês ao nome PT-BR mesmo com URL traduzida.
+    official_images={v["icon"]:(slug,v) for slug,v in pt.items() if len(v.get("icon",""))>6}
+    for slug,en_item in en.items():
+        icon=en_item.get("icon","")
+        if len(icon)<=6 or icon not in official_images:continue
+        pt_slug,pt_item=official_images[icon]
+        item=next((x for x in obj["engines"] if norm(x["name"])==norm(en_item["name"])),None)
+        if not item or item["id"] in mapped:continue
+        words=pt_item["text"].replace(pt_item["name"],"",1)
+        nums=list(dict.fromkeys(re.findall(r"(?:\\d{1,3}(?:[.,]\\d+)?%|\\d+(?:[.,]\\d+)?\\s*s)",words)))
+        mapped[item["id"]]={"nome":pt_item["name"],"numeros":nums[:28],"confirmado":True,"base":"ícone idêntico EN/PT-BR"}
     total=len(mapped)
     data={"version":"4.1","updatedAt":datetime.now(timezone.utc).isoformat(),"engines":mapped}
     (ROOT/"data"/"gear-ptbr.json").write_text(json.dumps(data,ensure_ascii=False,separators=(',',':'))+"\n",encoding="utf-8")
