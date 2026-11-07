@@ -83,3 +83,19 @@ body{background:#0b1014;color:#e6eeee}
 .v4-numeric-tags{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 16px}
 .v4-numeric-tags span{border:1px solid #415a5f;border-radius:7px;background:#0c171a;padding:7px 10px;font-size:12px;color:#edfc77}
 @media(max-width:720px){.v4-buildfact{grid-template-columns:1fr}.v4-buildfact>div{padding:13px}}
+
+/* V4.1 — navegação e leitura de dados técnicos */
+.v4-glossary{margin:15px 0 20px;background:#253138;border:1px solid #536a70;border-radius:10px}
+.v4-glossary summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;padding:13px 16px;color:#e8ff4a;font-size:11px;font-weight:850;letter-spacing:.09em}
+.v4-glossary summary::-webkit-details-marker{display:none}
+.v4-glossary summary span{font-size:18px;line-height:1}
+.v4-glossary[open] summary span{transform:rotate(45deg)}
+.v4-glossary p{margin:10px 16px 14px;font-size:12px;color:#c3d1d4;line-height:1.65}
+.v4-glossary strong{color:#e5efef}
+.v4-buildfact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:15px 0}
+.v4-buildfact>div{border:1px solid #334952;border-radius:8px;padding:11px;background:#0f1b20;min-width:0}
+.v4-buildfact small{color:#dcf62b;font-size:9px;letter-spacing:.06em;font-weight:850;line-height:1.5}
+.v4-buildfact p{font-size:11px;line-height:1.5;overflow-wrap:break-word}
+.v4-numeric-tags{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}
+.v4-numeric-tags span{border:1px solid #50636c;border-radius:7px;padding:7px 10px;color:#eeff3e;font-size:12px;font-variant-numeric:tabular-nums}
+@media(max-width:700px){.v4-buildfact{grid-template-columns:1fr}}
