@@ -57,6 +57,7 @@ function go(page,opts={}){
  draw();window.scrollTo(0,0);
 }
 function ago(){if(history.state&&history.state.__v5)history.back();else go("home");}
+if("scrollRestoration" in history)history.scrollRestoration="manual";
 window.addEventListener("popstate",ev=>{
  const v=ev.state;
  if(!v||!v.__v5)return;
