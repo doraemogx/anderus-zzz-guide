@@ -15,6 +15,16 @@ for(const width of [360,393,412,1280]){
  await page.locator('.v5-bottom [data-to="encyclopedia"]').click();
  await page.waitForSelector('.v5-agent-tile');
  if(await page.locator('.v5-agent-tile').count()!==65)throw Error('Expected 65 agents');
+ await page.evaluate(()=>window.scrollTo(0,550));
+ await page.waitForTimeout(100);
+ const previousScroll=await page.evaluate(()=>window.scrollY);
+ await page.locator('.v5-agent-tile[data-id="a40"]').click();
+ await page.waitForSelector('.v5-agent-head');
+ await page.goBack();
+ await page.waitForSelector('.v5-agent-tile[data-id="a40"]');
+ await page.waitForTimeout(180);
+ const restoredScroll=await page.evaluate(()=>window.scrollY);
+ if(previousScroll>90&&Math.abs(restoredScroll-previousScroll)>70)throw Error('Voltar não preservou posição na lista: '+previousScroll+' -> '+restoredScroll);
  await page.locator('.v5-agent-tile[data-id="a0"]').click();
  await page.locator('.v5-tabscroll [data-sub="mind"]').click();
  await page.waitForSelector('.v5-mind');
