@@ -5,8 +5,10 @@ for(const width of [360,393,412,1280]){
  const page=await browser.newPage({viewport:{width,height:900},deviceScaleFactor:1,isMobile:width<700,hasTouch:width<700});
  const errs=[];page.on('pageerror',e=>errs.push(e.message));
  await page.goto('http://127.0.0.1:8765/',{waitUntil:'domcontentloaded',timeout:60000});
- await page.addStyleTag({url:'http://127.0.0.1:8765/assets/anderus-v5.css'});
- await page.addScriptTag({url:'http://127.0.0.1:8765/assets/anderus-v5.js'});
+ if(!await page.locator('#and-v5').count()){
+  await page.addStyleTag({url:'http://127.0.0.1:8765/assets/anderus-v5.css'});
+  await page.addScriptTag({url:'http://127.0.0.1:8765/assets/anderus-v5.js'});
+ }
  await page.waitForSelector('.v5-home',{timeout:15000});
  if(await page.locator('.v5-quick-card').count()!==4)throw Error('Home quick links: expected 4');
  if(await page.locator('.v5-bottom button').count()!==5)throw Error('Bottom nav: expected 5');
