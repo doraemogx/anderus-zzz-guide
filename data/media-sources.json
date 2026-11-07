@@ -1,0 +1,2257 @@
+{
+  "revision": "2026-11-07-auditoria",
+  "description": "Candidatos por item; o processo de espelhamento só salva imagens quando obtém arquivos de imagem válidos.",
+  "agents": [
+    {
+      "id": "a0",
+      "name": "Phoenix",
+      "authoritative": false,
+      "urls": [
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Phoenix%20Reffaella.png",
+        "https://i.gachabase.net/pjWvKjiqcrVXw62mVjjtK_3-o3UjrDqO7uaUdapJDv8/q%3A50/f%3Awebp/plain/zzz/assets/8f0be38216c1d38219a1cb97c18d76c2.png",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/phoenix.webp",
+        "https://img.4gamers.com.tw/ckfinder-th/image2/auto/2026-09/Zenless%20Zone%20Zero%203.3%20Drip%20Marketing%20Phoenix-260912-220125.jpg",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Phoenix%20Reffaella%20Icon.png"
+      ]
+    },
+    {
+      "id": "a1",
+      "name": "Velina Airgid",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/163785/d5e2d9545a1490db7f6219c9d0787466_2876464395956313992.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Velina%20Airgid.png",
+        "https://cdn.gachabase.net/zzz/assets/8c70e873449a3cf3bdfe0c233cf11999.png",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/velina-airgid.webp",
+        "https://img.gachabase.net/conv/zzz/assets/faac6ac238707481ac60b5ec48b96529.png?q=50&sig=46b58293a7961de5f8d12b94ac83ba6774bffc7f991d3e84a19d413883843aba",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Velina%20Airgid%20Icon.png"
+      ]
+    },
+    {
+      "id": "a2",
+      "name": "Jane Doe",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/124675/be75dc37b5f356bdebc358fa21b7086a_5376265045261362106.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Jane%20Doe.png",
+        "https://cdn.gachabase.net/prod/zzz/assets/custom/SquareIcon_1261_272_14050658.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/jane-doe.webp",
+        "https://rackoon.com.br/images/characters/s-rank/Jane%20Doe/Jane%20Doe_icon.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Jane%20Doe%20Icon.png"
+      ]
+    },
+    {
+      "id": "a3",
+      "name": "Rina",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/113612/24f2740a52110a0491ae5bc49ecb23ba_4790537105761997346.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Alexandrina%20Sebastiane.png",
+        "https://img.gachabase.net/conv/zzz/assets/b06b14634997744ca11b55d9397dfcdf.png?q=50&sig=cc2875c4909768076e5c3e6b310b5d5ab89647326912ce66b9f8c437010cee49",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/rina.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Alexandrina%20Sebastiane%20Icon.png"
+      ]
+    },
+    {
+      "id": "a4",
+      "name": "Severian Lowell",
+      "authoritative": false,
+      "urls": [
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Severian%20Lowell.png",
+        "https://rackoon.com.br/images/characters/s-rank/Severian%20Lowell/Severian%20Lowell_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/severian-lowell.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Severian%20Lowell%20Icon.png"
+      ]
+    },
+    {
+      "id": "a5",
+      "name": "Roxy Ifrita Pryce",
+      "authoritative": false,
+      "urls": [
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Roxy%20Ifrita%20Pryce.png",
+        "https://rackoon.com.br/images/characters/s-rank/Roxy%20Ifrita%20Pryce/Roxy%20Ifrita%20Pryce_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/roxy-ifrita-pryce.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Roxy%20Ifrita%20Pryce%20Icon.png"
+      ]
+    },
+    {
+      "id": "a6",
+      "name": "Claret Flint",
+      "authoritative": false,
+      "urls": [
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Claret%20Flint.png",
+        "https://rackoon.com.br/images/characters/s-rank/Claret%20Flint/Claret%20Flint_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/claret-flint.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Claret%20Flint%20Icon.png"
+      ]
+    },
+    {
+      "id": "a7",
+      "name": "Sigrid de L'Azur",
+      "authoritative": false,
+      "urls": [
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Sigrid%20de%20L'Azur.png",
+        "https://rackoon.com.br/images/characters/s-rank/Sigrid%20de%20L%27Azur/Sigrid%20de%20L%27Azur_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/sigrid-de-l-azur.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Sigrid%20de%20L%27Azur%20Icon.png"
+      ]
+    },
+    {
+      "id": "a8",
+      "name": "Remielle Dan",
+      "authoritative": false,
+      "urls": [
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Remielle%20Dan.png",
+        "https://rackoon.com.br/images/characters/s-rank/Remielle%20Dan/Remielle%20Dan_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/remielle-dan.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Remielle%20Dan%20Icon.png"
+      ]
+    },
+    {
+      "id": "a9",
+      "name": "Norma Hollowell",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/163786/a29aae92640f03e7b757fe9d566e293a_7326536601431031510.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Norma%20Hollowell.png",
+        "https://rackoon.com.br/images/characters/s-rank/Norma%20Hollowell/Norma%20Hollowell_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/norma-hollowell.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Norma%20Hollowell%20Icon.png"
+      ]
+    },
+    {
+      "id": "a10",
+      "name": "Pyrois",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/163768/c348d5d938a3d4b63cc16c8ccb1e294b_3881191356598004278.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Pyrois.png",
+        "https://rackoon.com.br/images/characters/s-rank/Pyrois/Pyrois_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/pyrois.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Pyrois%20Icon.png"
+      ]
+    },
+    {
+      "id": "a11",
+      "name": "Starlight - Billy",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/163293/72203b341040aa1d5e41567bf776520f_1328464857447434543.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Starlight%20-%20Billy%20Kid.png",
+        "https://rackoon.com.br/images/characters/s-rank/Billy%20Estelar/Billy%20Estelar_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/starlight-billy.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Starlight%20-%20Billy%20Icon.png"
+      ]
+    },
+    {
+      "id": "a12",
+      "name": "Promeia",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/163316/d8b0bb6abf166120cd1ac42d7ff30dfe_1970899984572226888.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Promeia.png",
+        "https://rackoon.com.br/images/characters/s-rank/Promeia/Promeia_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/promeia.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Promeia%20Icon.png"
+      ]
+    },
+    {
+      "id": "a13",
+      "name": "Cissia",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/162680/585f3ee1e8c2b94705a63f5a825884cc_4908432112529369481.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Cissia.png",
+        "https://rackoon.com.br/images/characters/s-rank/Cissia/Cissia_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/cissia.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Cissia%20Icon.png"
+      ]
+    },
+    {
+      "id": "a14",
+      "name": "Nangong Yu",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/162652/af24710d9e7d31f33c7a12589bd14ba2_604255830637894303.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Nangong%20Yu.png",
+        "https://rackoon.com.br/images/characters/s-rank/Nangong%20Yu/Nangong%20Yu_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/nangong-yu.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Nangong%20Yu%20Icon.png"
+      ]
+    },
+    {
+      "id": "a15",
+      "name": "Aria",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/161792/e1e816946b90b6af17d2a6beee7de6bf_6851365167422486772.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Aria.png",
+        "https://rackoon.com.br/images/characters/s-rank/Aria/Aria_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/aria.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Aria%20Icon.png"
+      ]
+    },
+    {
+      "id": "a16",
+      "name": "Sunna",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/161791/a434b4e933780b981ddb5f3921021f96_8036322301967591660.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Sunna.png",
+        "https://rackoon.com.br/images/characters/s-rank/Sunna/Sunna_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/sunna.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Sunna%20Icon.png"
+      ]
+    },
+    {
+      "id": "a17",
+      "name": "Ye Shunguang",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/160762/173d01cbeacb3a3d5c9585fa6107918d_217473232024965946.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Ye%20Shunguang.png",
+        "https://rackoon.com.br/images/characters/s-rank/Ye%20Shunguang/Ye%20Shunguang_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/ye-shunguang.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Ye%20Shunguang%20Icon.png"
+      ]
+    },
+    {
+      "id": "a18",
+      "name": "Zhao",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/160758/8b90f4ec335bba4b9322cc56acb0dd53_6349089187938925913.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Zhao.png",
+        "https://rackoon.com.br/images/characters/s-rank/Zhao/Zhao_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/zhao.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Zhao%20Icon.png"
+      ]
+    },
+    {
+      "id": "a19",
+      "name": "Dialyn",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/160142/dc7b9329d1e95c990094ac368d07dcdf_1308477408469485834.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Dialyn.png",
+        "https://rackoon.com.br/images/characters/s-rank/Dialyn/Dialyn_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/dialyn.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Dialyn%20Icon.png"
+      ]
+    },
+    {
+      "id": "a20",
+      "name": "Banyue",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/160168/5ca3559a147248da4114afa504397dd1_3443450437018539200.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Banyue.png",
+        "https://rackoon.com.br/images/characters/s-rank/Banyue/Banyue_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/banyue.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Banyue%20Icon.png"
+      ]
+    },
+    {
+      "id": "a21",
+      "name": "Lucia",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/158985/e90ee65a51825d15b050771b11266ed2_5406952935168116492.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Lucia%20Elowen.png",
+        "https://rackoon.com.br/images/characters/s-rank/Lucia/Lucia_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/lucia.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Lucia%20Icon.png"
+      ]
+    },
+    {
+      "id": "a22",
+      "name": "Yidhari",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/158997/312790c0e8e46c57b1017cb2dc1f4256_7313603203238124964.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Yidhari%20Murphy.png",
+        "https://rackoon.com.br/images/characters/s-rank/Yidhari/Yidhari_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/yidhari.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Yidhari%20Icon.png"
+      ]
+    },
+    {
+      "id": "a23",
+      "name": "Komano Manato",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/158996/2679e3fcafde73e483927972cf7d2ae1_8136552018718167046.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Komano%20Manato.png",
+        "https://rackoon.com.br/images/characters/a-rank/Komano%20Manato/Komano%20Manato_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/komano-manato.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Komano%20Manato%20Icon.png"
+      ]
+    },
+    {
+      "id": "a24",
+      "name": "Orphie & Magus",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/157833/96b8690cbc3c06a1787dbbc024235e92_393693254733149336.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Orphie%20Magnusson%20%26%20Magus.png",
+        "https://rackoon.com.br/images/characters/s-rank/Orphie%20%26%20Magus/Orphie%20%26%20Magus_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/orphie-magus.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Orphie%20%26%20Magus%20Icon.png"
+      ]
+    },
+    {
+      "id": "a25",
+      "name": "Seed",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/157829/786878e538b5fd6b6f9ef7243b8a6723_3026433832217459302.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Seed.png",
+        "https://rackoon.com.br/images/characters/s-rank/Seed/Seed_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/seed.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Seed%20Icon.png"
+      ]
+    },
+    {
+      "id": "a26",
+      "name": "Yuzuha",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/156729/becee89b80a25a3d89d3dda4e1994bcd_7088484842189623518.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Ukinami%20Yuzuha.png",
+        "https://rackoon.com.br/images/characters/s-rank/Yuzuha/Yuzuha_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/yuzuha.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Ukinami%20Yuzuha%20Icon.png"
+      ]
+    },
+    {
+      "id": "a27",
+      "name": "Alice",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/156728/a8237a45141a924a7fba8d74a91ac261_3295946505674175020.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Alice%20Thymefield.png",
+        "https://rackoon.com.br/images/characters/s-rank/Alice/Alice_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/alice.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Alice%20Icon.png"
+      ]
+    },
+    {
+      "id": "a28",
+      "name": "Ju Fufu",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/155659/c47d1280baedc3e06d648835355697da_5057013715001391411.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Ju%20Fufu.png",
+        "https://rackoon.com.br/images/characters/s-rank/Ju%20Fufu/Ju%20Fufu_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/ju-fufu.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Ju%20Fufu%20Icon.png"
+      ]
+    },
+    {
+      "id": "a29",
+      "name": "Yixuan",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/155654/527a49361dc4d54a77126e39b45aa8f2_9209841707526508747.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Yixuan.png",
+        "https://rackoon.com.br/images/characters/s-rank/Yixuan/Yixuan_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/yixuan.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Yixuan%20Icon.png"
+      ]
+    },
+    {
+      "id": "a30",
+      "name": "Pan Yinhu",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/155657/a85c9e2d346f14b2d6467217c6e5a5c8_4760102803573941038.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Pan%20Yinhu.png",
+        "https://rackoon.com.br/images/characters/a-rank/Pan%20Yinhu/Pan%20Yinhu_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/pan-yinhu.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Pan%20Yinhu%20Icon.png"
+      ]
+    },
+    {
+      "id": "a31",
+      "name": "Vivian",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/154605/307b213b69532b3626dbb8a61623529b_7270360110938708640.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Vivian%20Banshee.png",
+        "https://rackoon.com.br/images/characters/s-rank/Vivian/Vivian_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/vivian.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Vivian%20Icon.png"
+      ]
+    },
+    {
+      "id": "a32",
+      "name": "Hugo",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/154609/615e0e4747ebb6850da580197afd808d_1117746455351627130.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Hugo%20Vlad.png",
+        "https://rackoon.com.br/images/characters/s-rank/Hugo/Hugo_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/hugo.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Hugo%20Icon.png"
+      ]
+    },
+    {
+      "id": "a33",
+      "name": "Soldier 0: Anby",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/129632/7cbb1cf6e5925d997777653c68b35981_1077773102639067869.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Soldier%200%20-%20Anby.png",
+        "https://rackoon.com.br/images/characters/s-rank/Soldier%200%3A%20Anby/Soldier%200%3A%20Anby_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/soldier-0-anby.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Soldier%200%20-%20Anby%20Icon.png"
+      ]
+    },
+    {
+      "id": "a34",
+      "name": "Trigger",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/129638/eb4fa741f6a0f0326fe38ae4e9251e2d_8201139830252731082.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Trigger.png",
+        "https://rackoon.com.br/images/characters/s-rank/Trigger/Trigger_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/trigger.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Trigger%20Icon.png"
+      ]
+    },
+    {
+      "id": "a35",
+      "name": "Pulchra",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/129637/b4c279b96ee9da7cd8d8cc1d4c953a23_6222622343947038758.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Pulchra.png",
+        "https://rackoon.com.br/images/characters/a-rank/Pulchra/Pulchra_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/pulchra.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Pulchra%20Icon.png"
+      ]
+    },
+    {
+      "id": "a36",
+      "name": "Astra Yao",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/127387/6ab6842b1aa84556f176d87e0f41f8f3_4716046376600021245.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Astra%20Yao.png",
+        "https://rackoon.com.br/images/characters/s-rank/Astra%20Yao/Astra%20Yao_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/astra-yao.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Astra%20Yao%20Icon.png"
+      ]
+    },
+    {
+      "id": "a37",
+      "name": "Evelyn Chevalier",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/127403/e90f841040d1b7f1d703dffebe2edf64_3255851908411847312.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Evelyn%20Chevalier.png",
+        "https://rackoon.com.br/images/characters/s-rank/Evelyn%20Chevalier/Evelyn%20Chevalier_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/evelyn-chevalier.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Evelyn%20Chevalier%20Icon.png"
+      ]
+    },
+    {
+      "id": "a38",
+      "name": "Hoshimi Miyabi",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/103379/a0b6a3fedf5b19a224dad6332f5c9404_8648655379164550438.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Hoshimi%20Miyabi.png",
+        "https://rackoon.com.br/images/characters/s-rank/Hoshimi%20Miyabi/Hoshimi%20Miyabi_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/hoshimi-miyabi.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Hoshimi%20Miyabi%20Icon.png"
+      ]
+    },
+    {
+      "id": "a39",
+      "name": "Asaba Harumasa",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/126693/e3b951480021844f724594411b317f10_3435695605970332945.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Asaba%20Harumasa.png",
+        "https://rackoon.com.br/images/characters/s-rank/Asaba%20Harumasa/Asaba%20Harumasa_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/asaba-harumasa.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Asaba%20Harumasa%20Icon.png"
+      ]
+    },
+    {
+      "id": "a40",
+      "name": "Tsukishiro Yanagi",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/126040/540d824077a048f0b73e22a068ef5276_6616923369095800098.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Tsukishiro%20Yanagi.png",
+        "https://rackoon.com.br/images/characters/s-rank/Tsukishiro%20Yanagi/Tsukishiro%20Yanagi_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/tsukishiro-yanagi.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Tsukishiro%20Yanagi%20Icon.png"
+      ]
+    },
+    {
+      "id": "a41",
+      "name": "Lighter",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/126060/f47c1b283f33d8613af27ac949718128_6585648807276197340.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Lighter.png",
+        "https://rackoon.com.br/images/characters/s-rank/Lighter/Lighter_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/lighter.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Lighter%20Icon.png"
+      ]
+    },
+    {
+      "id": "a42",
+      "name": "Burnice White",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/125214/9ccd4f5c1997318ec545a1f37bd23726_7904001525523783480.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Burnice%20White.png",
+        "https://rackoon.com.br/images/characters/s-rank/Burnice%20White/Burnice%20White_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/burnice-white.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Burnice%20White%20Icon.png"
+      ]
+    },
+    {
+      "id": "a43",
+      "name": "Caesar King",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/125210/17762e78d1316369f91bf2b94741ab9b_1106127992573250826.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Caesar%20King.png",
+        "https://rackoon.com.br/images/characters/s-rank/Caesar%20King/Caesar%20King_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/caesar-king.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Caesar%20King%20Icon.png"
+      ]
+    },
+    {
+      "id": "a44",
+      "name": "Qingyi",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/124660/a4a287ed2641a9ebdc8a139cf14c98a9_4627928460942222748.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Qingyi.png",
+        "https://rackoon.com.br/images/characters/s-rank/Qingyi/Qingyi_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/qingyi.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Qingyi%20Icon.png"
+      ]
+    },
+    {
+      "id": "a45",
+      "name": "Seth Lowell",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/124700/7e53d9ab9b00cc4a90be3e09b2385b1e_7742588341815502128.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Seth%20Lowell.png",
+        "https://rackoon.com.br/images/characters/a-rank/Seth%20Lowell/Seth%20Lowell_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/seth-lowell.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Seth%20Lowell%20Icon.png"
+      ]
+    },
+    {
+      "id": "a46",
+      "name": "Ellen Joe",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/113671/59a98a82a886f49c3b1b89bdc77cbb36_21606237077173472.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Ellen%20Joe.png",
+        "https://rackoon.com.br/images/characters/s-rank/Ellen%20Joe/Ellen%20Joe_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/ellen-joe.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Ellen%20Joe%20Icon.png"
+      ]
+    },
+    {
+      "id": "a47",
+      "name": "Von Lycaon",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/102529/abe371aa7c6c63bfbeaff9317bf0e92d_4940194306692044383.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Von%20Lycaon.png",
+        "https://rackoon.com.br/images/characters/s-rank/Von%20Lycaon/Von%20Lycaon_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/von-lycaon.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Von%20Lycaon%20Icon.png"
+      ]
+    },
+    {
+      "id": "a48",
+      "name": "Soukaku",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/103295/3216cf9232d277ceec1a8d0774496178_3552222678670728442.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Soukaku.png",
+        "https://rackoon.com.br/images/characters/a-rank/Soukaku/Soukaku_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/soukaku.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Soukaku%20Icon.png"
+      ]
+    },
+    {
+      "id": "a49",
+      "name": "Zhu Yuan",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/122782/429d3e32cd49a1fb11cf4a2e802e0fef_7560478538216099357.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Zhu%20Yuan.png",
+        "https://rackoon.com.br/images/characters/s-rank/Zhu%20Yuan/Zhu%20Yuan_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/zhu-yuan.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Zhu%20Yuan%20Icon.png"
+      ]
+    },
+    {
+      "id": "a50",
+      "name": "Soldier 11",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/102292/62ce86e1b3fd01dec5f855f68a59e34c_2287457318617214984.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Soldier%2011.png",
+        "https://rackoon.com.br/images/characters/s-rank/Soldier%2011/Soldier%2011_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/soldier-11.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Soldier%2011%20Icon.png"
+      ]
+    },
+    {
+      "id": "a51",
+      "name": "Nicole Demara",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/102183/346659f4fb213f3075aee813997b9b31_990728217161469939.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Nicole%20Demara.png",
+        "https://rackoon.com.br/images/characters/a-rank/Nicole%20Demara/Nicole%20Demara_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/nicole-demara.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Nicole%20Demara%20Icon.png"
+      ]
+    },
+    {
+      "id": "a52",
+      "name": "Grace Howard",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/113532/e30489408ee43cd0f2c089a9d0859143_7946847913858642631.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Grace%20Howard.png",
+        "https://rackoon.com.br/images/characters/s-rank/Grace%20Howard/Grace%20Howard_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/grace-howard.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Grace%20Howard%20Icon.png"
+      ]
+    },
+    {
+      "id": "a53",
+      "name": "Nekomata",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/102427/2aaff92fc1ef7183af44bfaf83c436af_4830154317591375669.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Nekomiya%20Mana.png",
+        "https://rackoon.com.br/images/characters/s-rank/Nekomata/Nekomata_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/nekomata.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Nekomata%20Icon.png"
+      ]
+    },
+    {
+      "id": "a54",
+      "name": "Koleda Belobog",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/102708/6e4c67af60cd634ce18433ba42527422_353400758901684502.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Koleda%20Belobog.png",
+        "https://rackoon.com.br/images/characters/s-rank/Koleda%20Belobog/Koleda%20Belobog_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/koleda-belobog.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Koleda%20Belobog%20Icon.png"
+      ]
+    },
+    {
+      "id": "a55",
+      "name": "Lucy",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/124308/dfc4ba20f7d676267870771b3a075b86_7390214467576052477.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Luciana%20de%20Montefio.png",
+        "https://rackoon.com.br/images/characters/a-rank/Lucy/Lucy_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/lucy.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Lucy%20Icon.png"
+      ]
+    },
+    {
+      "id": "a56",
+      "name": "Anby Demara",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/102103/1cf1ab68f06c0d2115ce382e6804e714_3383703376437037229.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Anby%20Demara.png",
+        "https://rackoon.com.br/images/characters/a-rank/Anby%20Demara/Anby%20Demara_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/anby-demara.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Anby%20Demara%20Icon.png"
+      ]
+    },
+    {
+      "id": "a57",
+      "name": "Billy Kid",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/102184/96e7d507f3aa3a6ccd9de17b97b1c062_6037497242185281511.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Billy%20Kid.png",
+        "https://rackoon.com.br/images/characters/a-rank/Billy%20Kid/Billy%20Kid_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/billy-kid.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Billy%20Kid%20Icon.png"
+      ]
+    },
+    {
+      "id": "a58",
+      "name": "Piper",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/124310/a74a0121ab4ef5f83fe73abe72726593_6795023243569401643.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Piper%20Wheel.png",
+        "https://rackoon.com.br/images/characters/a-rank/Piper/Piper_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/piper.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Piper%20Icon.png"
+      ]
+    },
+    {
+      "id": "a59",
+      "name": "Anton Ivanov",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/102769/ccc445fe52e84610e3e9343d34276899_9055334861656440129.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Anton%20Ivanov.png",
+        "https://rackoon.com.br/images/characters/a-rank/Anton%20Ivanov/Anton%20Ivanov_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/anton-ivanov.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Anton%20Ivanov%20Icon.png"
+      ]
+    },
+    {
+      "id": "a60",
+      "name": "Ben Bigger",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/102852/e81f1c2978debb5b7f6a33187572cc26_641108854745438561.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Ben%20Bigger.png",
+        "https://rackoon.com.br/images/characters/a-rank/Ben%20Bigger/Ben%20Bigger_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/ben-bigger.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Ben%20Bigger%20Icon.png"
+      ]
+    },
+    {
+      "id": "a61",
+      "name": "Corin Wickes",
+      "authoritative": true,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/102477/b2fb8efc534c5eaa2206ccfee19971f9_587151823061469836.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Corin%20Wickes.png",
+        "https://rackoon.com.br/images/characters/a-rank/Corin%20Wickes/Corin%20Wickes_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/corin-wickes.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Corin%20Wickes%20Icon.png"
+      ]
+    },
+    {
+      "id": "a62",
+      "name": "Sunbringer",
+      "authoritative": false,
+      "urls": [
+        "https://fastcdn.hoyoverse.com/content-v2/nap/163799/94cd1934c578d0a1598e0617fc37a2d6_8373298293438677571.jpg",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Sunbringer.png",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/sunbringer.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Sunbringer%20Icon.png"
+      ]
+    },
+    {
+      "id": "a63",
+      "name": "Robin",
+      "authoritative": false,
+      "urls": [
+        "https://i.gachabase.net/Kqtwopikv_PF_ha9aITgx5K2mNhneMBRCU6wACKu6mA/q%3A50/f%3Awebp/plain/zzz/assets/0cbeab1bc0949f02bcbeac87635c4fca.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Robin.png",
+        "https://cdn.gachabase.net/zzz/assets/0cbeab1bc0949f02bcbeac87635c4fca.png",
+        "https://rackoon.com.br/images/characters/s-rank/Robin/Robin_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/robin.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Robin%20Icon.png"
+      ]
+    },
+    {
+      "id": "a64",
+      "name": "Kafka",
+      "authoritative": false,
+      "urls": [
+        "https://i.gachabase.net/Uk8uaC95xgJVLvJggdK-c65i50z9sUydML2IvghSyP4/q%3A50/f%3Awebp/plain/zzz/assets/49ae4324e2739b53b1fbed2c062bf21d.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Avatar%20Kafka.png",
+        "https://cdn.gachabase.net/zzz/assets/49ae4324e2739b53b1fbed2c062bf21d.png",
+        "https://rackoon.com.br/images/characters/s-rank/Kafka/Kafka_icon.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/characters/kafka.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Agent%20Kafka%20Icon.png"
+      ]
+    }
+  ],
+  "engines": [
+    {
+      "id": "w0",
+      "name": "Angel in the Shell",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1501.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/angel-in-the-shell.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Angel%20in%20the%20Shell%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Angel%20in%20the%20Shell%20Icon.png"
+      ]
+    },
+    {
+      "id": "w1",
+      "name": "Bellicose Blaze",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1301.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/bellicose-blaze.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Bellicose%20Blaze%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Bellicose%20Blaze%20Icon.png"
+      ]
+    },
+    {
+      "id": "w2",
+      "name": "Blazing Laurel",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1161.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/blazing-laurel.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Blazing%20Laurel%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Blazing%20Laurel%20Icon.png"
+      ]
+    },
+    {
+      "id": "w3",
+      "name": "Chief Sidekick",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1571.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/chief-sidekick.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Chief%20Sidekick%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Chief%20Sidekick%20Icon.png"
+      ]
+    },
+    {
+      "id": "w4",
+      "name": "Cloudcleave Radiance",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1431.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/cloudcleave-radiance.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Cloudcleave%20Radiance%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Cloudcleave%20Radiance%20Icon.png"
+      ]
+    },
+    {
+      "id": "w5",
+      "name": "Cordis Germina",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1461.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/cordis-germina.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Cordis%20Germina%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Cordis%20Germina%20Icon.png"
+      ]
+    },
+    {
+      "id": "w6",
+      "name": "Crimson Moon Casket",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/crimson-moon-casket.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Crimson%20Moon%20Casket%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Crimson%20Moon%20Casket%20Icon.png"
+      ]
+    },
+    {
+      "id": "w7",
+      "name": "Crimson Thirst",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/crimson-thirst.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Crimson%20Thirst%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Crimson%20Thirst%20Icon.png"
+      ]
+    },
+    {
+      "id": "w8",
+      "name": "Deep Sea Visitor",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1191.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/deep-sea-visitor.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Deep%20Sea%20Visitor%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Deep%20Sea%20Visitor%20Icon.png"
+      ]
+    },
+    {
+      "id": "w9",
+      "name": "Dreamlit Hearth",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1451.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/dreamlit-hearth.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Dreamlit%20Hearth%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Dreamlit%20Hearth%20Icon.png"
+      ]
+    },
+    {
+      "id": "w10",
+      "name": "Elegant Vanity",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1311.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/elegant-vanity.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Elegant%20Vanity%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Elegant%20Vanity%20Icon.png"
+      ]
+    },
+    {
+      "id": "w11",
+      "name": "Flamemaker Shaker",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1171.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/flamemaker-shaker.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Flamemaker%20Shaker%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Flamemaker%20Shaker%20Icon.png"
+      ]
+    },
+    {
+      "id": "w12",
+      "name": "Flight of Fancy",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1331.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/flight-of-fancy.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Flight%20of%20Fancy%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Flight%20of%20Fancy%20Icon.png"
+      ]
+    },
+    {
+      "id": "w13",
+      "name": "Frostfall Sickle",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1541.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/frostfall-sickle.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Frostfall%20Sickle%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Frostfall%20Sickle%20Icon.png"
+      ]
+    },
+    {
+      "id": "w14",
+      "name": "Fusion Compiler",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1181.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/fusion-compiler.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Fusion%20Compiler%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Fusion%20Compiler%20Icon.png"
+      ]
+    },
+    {
+      "id": "w15",
+      "name": "Hailstorm Shrine",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1091.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/hailstorm-shrine.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Hailstorm%20Shrine%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Hailstorm%20Shrine%20Icon.png"
+      ]
+    },
+    {
+      "id": "w16",
+      "name": "Half-Sugar Bunny",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1341.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/half-sugar-bunny.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Half-Sugar%20Bunny%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Half-Sugar%20Bunny%20Icon.png"
+      ]
+    },
+    {
+      "id": "w17",
+      "name": "Heartstring Nocturne",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1321.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/heartstring-nocturne.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Heartstring%20Nocturne%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Heartstring%20Nocturne%20Icon.png"
+      ]
+    },
+    {
+      "id": "w18",
+      "name": "Hellfire Gears",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1101.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/hellfire-gears.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Hellfire%20Gears%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Hellfire%20Gears%20Icon.png"
+      ]
+    },
+    {
+      "id": "w19",
+      "name": "Ice-Jade Teapot",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1251.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/ice-jade-teapot.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Ice-Jade%20Teapot%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Ice-Jade%20Teapot%20Icon.png"
+      ]
+    },
+    {
+      "id": "w20",
+      "name": "Incarcerating Grip",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/incarcerating-grip.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Incarcerating%20Grip%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Incarcerating%20Grip%20Icon.png"
+      ]
+    },
+    {
+      "id": "w21",
+      "name": "Joyau Dore",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1561.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/joyau-dore.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Joyau%20Dore%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Joyau%20Dore%20Icon.png"
+      ]
+    },
+    {
+      "id": "w22",
+      "name": "Knight's Extolment",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/knight-s-extolment.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Knight%27s%20Extolment%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Knight%27s%20Extolment%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Knight's%20Extolment%20Icon.png"
+      ]
+    },
+    {
+      "id": "w23",
+      "name": "Kraken's Cradle",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1051.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/kraken-s-cradle.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Kraken%27s%20Cradle%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Kraken%27s%20Cradle%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Kraken's%20Cradle%20Icon.png"
+      ]
+    },
+    {
+      "id": "w24",
+      "name": "Metanukimorphosis",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1411.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/metanukimorphosis.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Metanukimorphosis%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Metanukimorphosis%20Icon.png"
+      ]
+    },
+    {
+      "id": "w25",
+      "name": "Myriad Eclipse",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1291.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/myriad-eclipse.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Myriad%20Eclipse%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Myriad%20Eclipse%20Icon.png"
+      ]
+    },
+    {
+      "id": "w26",
+      "name": "Neon Fantasies",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1511.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/neon-fantasies.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Neon%20Fantasies%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Neon%20Fantasies%20Icon.png"
+      ]
+    },
+    {
+      "id": "w27",
+      "name": "Ode of Resurrected Wings",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/ode-of-resurrected-wings.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Ode%20of%20Resurrected%20Wings%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Ode%20of%20Resurrected%20Wings%20Icon.png"
+      ]
+    },
+    {
+      "id": "w28",
+      "name": "Plume of Rebirth",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/plume-of-rebirth.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Plume%20of%20Rebirth%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Plume%20of%20Rebirth%20Icon.png"
+      ]
+    },
+    {
+      "id": "w29",
+      "name": "Practiced Perfection",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1401.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/practiced-perfection.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Practiced%20Perfection%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Practiced%20Perfection%20Icon.png"
+      ]
+    },
+    {
+      "id": "w30",
+      "name": "Qingming Birdcage",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1371.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/qingming-birdcage.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Qingming%20Birdcage%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Qingming%20Birdcage%20Icon.png"
+      ]
+    },
+    {
+      "id": "w31",
+      "name": "Riot Suppressor Mark VI",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1241.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/riot-suppressor-mark-vi.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Riot%20Suppressor%20Mark%20VI%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Riot%20Suppressor%20Mark%20VI%20Icon.png"
+      ]
+    },
+    {
+      "id": "w32",
+      "name": "Roaring Fur-nace",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1391.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/roaring-fur-nace.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Roaring%20Fur-nace%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Roaring%20Fur-nace%20Icon.png"
+      ]
+    },
+    {
+      "id": "w33",
+      "name": "Robin's Exclusive W-Engine",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/robin-s-exclusive-w-engine.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Robin%27s%20Exclusive%20W-Engine%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Robin%27s%20Exclusive%20W-Engine%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Robin's%20Exclusive%20W-Engine%20Icon.png"
+      ]
+    },
+    {
+      "id": "w34",
+      "name": "Serpentine Seeker",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1521.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/serpentine-seeker.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Serpentine%20Seeker%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Serpentine%20Seeker%20Icon.png"
+      ]
+    },
+    {
+      "id": "w35",
+      "name": "Severed Innocence",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1381.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/severed-innocence.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Severed%20Innocence%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Severed%20Innocence%20Icon.png"
+      ]
+    },
+    {
+      "id": "w36",
+      "name": "Sharpened Stinger",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1261.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/sharpened-stinger.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Sharpened%20Stinger%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Sharpened%20Stinger%20Icon.png"
+      ]
+    },
+    {
+      "id": "w37",
+      "name": "Sol Exuvia",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_Common_04.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/sol-exuvia.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Sol%20Exuvia%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Sol%20Exuvia%20Icon.png"
+      ]
+    },
+    {
+      "id": "w38",
+      "name": "Spectral Gaze",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1361.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/spectral-gaze.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Spectral%20Gaze%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Spectral%20Gaze%20Icon.png"
+      ]
+    },
+    {
+      "id": "w39",
+      "name": "Starlight Rider Faceplate",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1531.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/starlight-rider-faceplate.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Starlight%20Rider%20Faceplate%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Starlight%20Rider%20Faceplate%20Icon.png"
+      ]
+    },
+    {
+      "id": "w40",
+      "name": "Steel Cushion",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1021.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/steel-cushion.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Steel%20Cushion%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Steel%20Cushion%20Icon.png"
+      ]
+    },
+    {
+      "id": "w41",
+      "name": "Sunbringer's Signature",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/sunbringer-s-signature.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Sunbringer%27s%20Signature%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Sunbringer%27s%20Signature%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Sunbringer's%20Signature%20Icon.png"
+      ]
+    },
+    {
+      "id": "w42",
+      "name": "The Brimstone",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1041.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/the-brimstone.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20The%20Brimstone%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/The%20Brimstone%20Icon.png"
+      ]
+    },
+    {
+      "id": "w43",
+      "name": "The Restrained",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1141.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/the-restrained.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20The%20Restrained%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/The%20Restrained%20Icon.png"
+      ]
+    },
+    {
+      "id": "w44",
+      "name": "Thoughtbop",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1491.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/thoughtbop.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Thoughtbop%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Thoughtbop%20Icon.png"
+      ]
+    },
+    {
+      "id": "w45",
+      "name": "Timeweaver",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1221.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/timeweaver.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Timeweaver%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Timeweaver%20Icon.png"
+      ]
+    },
+    {
+      "id": "w46",
+      "name": "Tusks of Fury",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1071.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/tusks-of-fury.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Tusks%20of%20Fury%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Tusks%20of%20Fury%20Icon.png"
+      ]
+    },
+    {
+      "id": "w47",
+      "name": "Weeping Cradle",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1211.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/weeping-cradle.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Weeping%20Cradle%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Weeping%20Cradle%20Icon.png"
+      ]
+    },
+    {
+      "id": "w48",
+      "name": "Wrathful Vajra",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1471.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/wrathful-vajra.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Wrathful%20Vajra%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Wrathful%20Vajra%20Icon.png"
+      ]
+    },
+    {
+      "id": "w49",
+      "name": "Yesterday Calls",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1481.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/yesterday-calls.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Yesterday%20Calls%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Yesterday%20Calls%20Icon.png"
+      ]
+    },
+    {
+      "id": "w50",
+      "name": "Zanshin Herb Case",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_1201.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/zanshin-herb-case.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Zanshin%20Herb%20Case%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Zanshin%20Herb%20Case%20Icon.png"
+      ]
+    },
+    {
+      "id": "w51",
+      "name": "Bashful Demon",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1131.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/bashful-demon.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Bashful%20Demon%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Bashful%20Demon%20Icon.png"
+      ]
+    },
+    {
+      "id": "w52",
+      "name": "Big Cylinder",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1121.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/big-cylinder.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Big%20Cylinder%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Big%20Cylinder%20Icon.png"
+      ]
+    },
+    {
+      "id": "w53",
+      "name": "Bloodmarrow Coffer",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/bloodmarrow-coffer.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Bloodmarrow%20Coffer%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Bloodmarrow%20Coffer%20Icon.png"
+      ]
+    },
+    {
+      "id": "w54",
+      "name": "Boisterous Echoes",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/boisterous-echoes.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Boisterous%20Echoes%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Boisterous%20Echoes%20Icon.png"
+      ]
+    },
+    {
+      "id": "w55",
+      "name": "Box Cutter",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1351.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/box-cutter.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Box%20Cutter%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Box%20Cutter%20Icon.png"
+      ]
+    },
+    {
+      "id": "w56",
+      "name": "Bunny Band",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_10.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/bunny-band.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Bunny%20Band%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Bunny%20Band%20Icon.png"
+      ]
+    },
+    {
+      "id": "w57",
+      "name": "Candlelit Scheme",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/candlelit-scheme.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Candlelit%20Scheme%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Candlelit%20Scheme%20Icon.png"
+      ]
+    },
+    {
+      "id": "w58",
+      "name": "Cannon Rotor",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_Common_01.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/cannon-rotor.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Cannon%20Rotor%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Cannon%20Rotor%20Icon.png"
+      ]
+    },
+    {
+      "id": "w59",
+      "name": "Catty Luck",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/catty-luck.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Catty%20Luck%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Catty%20Luck%20Icon.png"
+      ]
+    },
+    {
+      "id": "w60",
+      "name": "Cauldron of Clarity",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_19.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/cauldron-of-clarity.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Cauldron%20of%20Clarity%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Cauldron%20of%20Clarity%20Icon.png"
+      ]
+    },
+    {
+      "id": "w61",
+      "name": "Demara Battery Mark II",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1011.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/demara-battery-mark-ii.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Demara%20Battery%20Mark%20II%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Demara%20Battery%20Mark%20II%20Icon.png"
+      ]
+    },
+    {
+      "id": "w62",
+      "name": "Drill Rig - Red Axis",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1111.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/drill-rig-red-axis.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Drill%20Rig%20-%20Red%20Axis%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drill%20Rig%20-%20Red%20Axis%20Icon.png"
+      ]
+    },
+    {
+      "id": "w63",
+      "name": "Electro-Lip Gloss",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_09.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/electro-lip-gloss.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Electro-Lip%20Gloss%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Electro-Lip%20Gloss%20Icon.png"
+      ]
+    },
+    {
+      "id": "w64",
+      "name": "Gilded Blossom",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_13.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/gilded-blossom.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Gilded%20Blossom%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Gilded%20Blossom%20Icon.png"
+      ]
+    },
+    {
+      "id": "w65",
+      "name": "Grill O'Wisp",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1441.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/grill-o-wisp.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Grill%20O%27Wisp%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Grill%20O%27Wisp%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Grill%20O'Wisp%20Icon.png"
+      ]
+    },
+    {
+      "id": "w66",
+      "name": "Housekeeper",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1061.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/housekeeper.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Housekeeper%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Housekeeper%20Icon.png"
+      ]
+    },
+    {
+      "id": "w67",
+      "name": "Kaboom the Cannon",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1151.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/kaboom-the-cannon.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Kaboom%20the%20Cannon%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Kaboom%20the%20Cannon%20Icon.png"
+      ]
+    },
+    {
+      "id": "w68",
+      "name": "Marcato Desire",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_15.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/marcato-desire.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Marcato%20Desire%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Marcato%20Desire%20Icon.png"
+      ]
+    },
+    {
+      "id": "w69",
+      "name": "Original Transmorpher",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_07.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/original-transmorpher.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Original%20Transmorpher%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Original%20Transmorpher%20Icon.png"
+      ]
+    },
+    {
+      "id": "w70",
+      "name": "Peacekeeper - Specialized",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1271.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/peacekeeper-specialized.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Peacekeeper%20-%20Specialized%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Peacekeeper%20-%20Specialized%20Icon.png"
+      ]
+    },
+    {
+      "id": "w71",
+      "name": "Precious Fossilized Core",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_06.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/precious-fossilized-core.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Precious%20Fossilized%20Core%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Precious%20Fossilized%20Core%20Icon.png"
+      ]
+    },
+    {
+      "id": "w72",
+      "name": "Puzzle Sphere",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_12.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/puzzle-sphere.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Puzzle%20Sphere%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Puzzle%20Sphere%20Icon.png"
+      ]
+    },
+    {
+      "id": "w73",
+      "name": "Radiowave Journey",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_14.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/radiowave-journey.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Radiowave%20Journey%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Radiowave%20Journey%20Icon.png"
+      ]
+    },
+    {
+      "id": "w74",
+      "name": "Rainforest Gourmet",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_03.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/rainforest-gourmet.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Rainforest%20Gourmet%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Rainforest%20Gourmet%20Icon.png"
+      ]
+    },
+    {
+      "id": "w75",
+      "name": "Reel Projector",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_16.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/reel-projector.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Reel%20Projector%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Reel%20Projector%20Icon.png"
+      ]
+    },
+    {
+      "id": "w76",
+      "name": "Roaring Ride",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1281.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/roaring-ride.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Roaring%20Ride%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Roaring%20Ride%20Icon.png"
+      ]
+    },
+    {
+      "id": "w77",
+      "name": "Six Shooter",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_Common_03.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/six-shooter.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Six%20Shooter%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Six%20Shooter%20Icon.png"
+      ]
+    },
+    {
+      "id": "w78",
+      "name": "Slice of Time",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_02.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/slice-of-time.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Slice%20of%20Time%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Slice%20of%20Time%20Icon.png"
+      ]
+    },
+    {
+      "id": "w79",
+      "name": "Spring Embrace",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_11.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/spring-embrace.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Spring%20Embrace%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Spring%20Embrace%20Icon.png"
+      ]
+    },
+    {
+      "id": "w80",
+      "name": "Starlight Engine",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_04.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/starlight-engine.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Starlight%20Engine%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Starlight%20Engine%20Icon.png"
+      ]
+    },
+    {
+      "id": "w81",
+      "name": "Starlight Engine Replica",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1081.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/starlight-engine-replica.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Starlight%20Engine%20Replica%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Starlight%20Engine%20Replica%20Icon.png"
+      ]
+    },
+    {
+      "id": "w82",
+      "name": "Steam Oven",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_05.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/steam-oven.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Steam%20Oven%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Steam%20Oven%20Icon.png"
+      ]
+    },
+    {
+      "id": "w83",
+      "name": "Street Superstar",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_01.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/street-superstar.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Street%20Superstar%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Street%20Superstar%20Icon.png"
+      ]
+    },
+    {
+      "id": "w84",
+      "name": "The Simmering Pot",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_20.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/the-simmering-pot.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20The%20Simmering%20Pot%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/The%20Simmering%20Pot%20Icon.png"
+      ]
+    },
+    {
+      "id": "w85",
+      "name": "The Vault",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1031.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/the-vault.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20The%20Vault%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/The%20Vault%20Icon.png"
+      ]
+    },
+    {
+      "id": "w86",
+      "name": "Tremor Trigram Vessel",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_1421.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/tremor-trigram-vessel.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Tremor%20Trigram%20Vessel%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Tremor%20Trigram%20Vessel%20Icon.png"
+      ]
+    },
+    {
+      "id": "w87",
+      "name": "Unfettered Game Ball",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_S_Common_02.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/unfettered-game-ball.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Unfettered%20Game%20Ball%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Unfettered%20Game%20Ball%20Icon.png"
+      ]
+    },
+    {
+      "id": "w88",
+      "name": "Weeping Gemini",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_08.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/weeping-gemini.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Weeping%20Gemini%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Weeping%20Gemini%20Icon.png"
+      ]
+    },
+    {
+      "id": "w89",
+      "name": "[Cinder] Cobalt",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_15.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/cinder-cobalt.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BCinder%5D%20Cobalt%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BCinder%5D%20Cobalt%20Icon.png"
+      ]
+    },
+    {
+      "id": "w90",
+      "name": "[Identity] Base",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_13.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/identity-base.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BIdentity%5D%20Base%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BIdentity%5D%20Base%20Icon.png"
+      ]
+    },
+    {
+      "id": "w91",
+      "name": "[Identity] Inflection",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_14.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/identity-inflection.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BIdentity%5D%20Inflection%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BIdentity%5D%20Inflection%20Icon.png"
+      ]
+    },
+    {
+      "id": "w92",
+      "name": "[Lunar] Decrescent",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_02.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/lunar-decrescent.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BLunar%5D%20Decrescent%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BLunar%5D%20Decrescent%20Icon.png"
+      ]
+    },
+    {
+      "id": "w93",
+      "name": "[Lunar] Noviluna",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_03.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/lunar-noviluna.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BLunar%5D%20Noviluna%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BLunar%5D%20Noviluna%20Icon.png"
+      ]
+    },
+    {
+      "id": "w94",
+      "name": "[Lunar] Pleniluna",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_01.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/lunar-pleniluna.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BLunar%5D%20Pleniluna%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BLunar%5D%20Pleniluna%20Icon.png"
+      ]
+    },
+    {
+      "id": "w95",
+      "name": "[Lunar] Semiluna",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/lunar-semiluna.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BLunar%5D%20Semiluna%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BLunar%5D%20Semiluna%20Icon.png"
+      ]
+    },
+    {
+      "id": "w96",
+      "name": "[Magnetic Storm] Alpha",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_10.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/magnetic-storm-alpha.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BMagnetic%20Storm%5D%20Alpha%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BMagnetic%20Storm%5D%20Alpha%20Icon.png"
+      ]
+    },
+    {
+      "id": "w97",
+      "name": "[Magnetic Storm] Bravo",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_11.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/magnetic-storm-bravo.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BMagnetic%20Storm%5D%20Bravo%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BMagnetic%20Storm%5D%20Bravo%20Icon.png"
+      ]
+    },
+    {
+      "id": "w98",
+      "name": "[Magnetic Storm] Charlie",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_12.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/magnetic-storm-charlie.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BMagnetic%20Storm%5D%20Charlie%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BMagnetic%20Storm%5D%20Charlie%20Icon.png"
+      ]
+    },
+    {
+      "id": "w99",
+      "name": "[Reverb] Mark I",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_04.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/reverb-mark-i.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BReverb%5D%20Mark%20I%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BReverb%5D%20Mark%20I%20Icon.png"
+      ]
+    },
+    {
+      "id": "w100",
+      "name": "[Reverb] Mark II",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_05.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/reverb-mark-ii.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BReverb%5D%20Mark%20II%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BReverb%5D%20Mark%20II%20Icon.png"
+      ]
+    },
+    {
+      "id": "w101",
+      "name": "[Reverb] Mark III",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_06.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/reverb-mark-iii.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BReverb%5D%20Mark%20III%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BReverb%5D%20Mark%20III%20Icon.png"
+      ]
+    },
+    {
+      "id": "w102",
+      "name": "[Vortex] Arrow",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_08.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/vortex-arrow.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BVortex%5D%20Arrow%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BVortex%5D%20Arrow%20Icon.png"
+      ]
+    },
+    {
+      "id": "w103",
+      "name": "[Vortex] Hatchet",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_09.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/vortex-hatchet.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BVortex%5D%20Hatchet%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BVortex%5D%20Hatchet%20Icon.png"
+      ]
+    },
+    {
+      "id": "w104",
+      "name": "[Vortex] Revolver",
+      "authoritative": true,
+      "urls": [
+        "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_07.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/vortex-revolver.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20%5BVortex%5D%20Revolver%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/%5BVortex%5D%20Revolver%20Icon.png"
+      ]
+    },
+    {
+      "id": "w105",
+      "name": "Kafka Test W-Engine",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/kafka-test-w-engine.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Kafka%20Test%20W-Engine%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Kafka%20Test%20W-Engine%20Icon.png"
+      ]
+    }
+  ],
+  "discs": [
+    {
+      "id": "d0",
+      "name": "Crimson Wing Nocturne",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/crimson-wing-nocturne.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Crimson%20Wing%20Nocturne%20Icon.png"
+      ]
+    },
+    {
+      "id": "d1",
+      "name": "Rank Stele",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/rank-stele.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Rank%20Stele%20Icon.png"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "Thorned Rose",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/thorned-rose.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Thorned%20Rose%20Icon.png"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "Feathered Fate",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/feathered-fate.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Feathered%20Fate%20Icon.png"
+      ]
+    },
+    {
+      "id": "d4",
+      "name": "The Sky Ablaze",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/the-sky-ablaze.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20The%20Sky%20Ablaze%20Icon.png"
+      ]
+    },
+    {
+      "id": "d5",
+      "name": "Wuthering Salon",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/wuthering-salon.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Wuthering%20Salon%20Icon.png"
+      ]
+    },
+    {
+      "id": "d6",
+      "name": "Notes From the Chained",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/notes-from-the-chained.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Notes%20From%20the%20Chained%20Icon.png"
+      ]
+    },
+    {
+      "id": "d7",
+      "name": "Bunny in Wonderland",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/bunny-in-wonderland.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Bunny%20in%20Wonderland%20Icon.png"
+      ]
+    },
+    {
+      "id": "d8",
+      "name": "Shining Aria",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/shining-aria.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Shining%20Aria%20Icon.png"
+      ]
+    },
+    {
+      "id": "d9",
+      "name": "White Water Ballad",
+      "authoritative": false,
+      "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/white-water-ballad.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20White%20Water%20Ballad%20Icon.png"
+      ]
+    },
+    {
+      "id": "d10",
+      "name": "Moonlight Lullaby",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitMoonlightLullaby.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/moonlight-lullaby.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Moonlight%20Lullaby%20Icon.png"
+      ]
+    },
+    {
+      "id": "d11",
+      "name": "Dawn's Bloom",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitDawnsBloom.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/dawn-s-bloom.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Dawn%27s%20Bloom%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Dawn's%20Bloom%20Icon.png"
+      ]
+    },
+    {
+      "id": "d12",
+      "name": "King of the Summit",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitKingoftheSummit.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/king-of-the-summit.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20King%20of%20the%20Summit%20Icon.png"
+      ]
+    },
+    {
+      "id": "d13",
+      "name": "Yunkui Tales",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitYunkuiTales.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/yunkui-tales.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Yunkui%20Tales%20Icon.png"
+      ]
+    },
+    {
+      "id": "d14",
+      "name": "Phaethon's Melody",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitSavior.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/phaethon-s-melody.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Phaethon%27s%20Melody%20Icon.png",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Phaethon's%20Melody%20Icon.png"
+      ]
+    },
+    {
+      "id": "d15",
+      "name": "Shadow Harmony",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitShadow.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/shadow-harmony.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Shadow%20Harmony%20Icon.png"
+      ]
+    },
+    {
+      "id": "d16",
+      "name": "Astral Voice",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitAstralVoice.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/astral-voice.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Astral%20Voice%20Icon.png"
+      ]
+    },
+    {
+      "id": "d17",
+      "name": "Branch & Blade Song",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitBranch&BladeSong.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/branch-blade-song.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Branch%20%26%20Blade%20Song%20Icon.png"
+      ]
+    },
+    {
+      "id": "d18",
+      "name": "Fanged Metal",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitFangedMetal.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/fanged-metal.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Fanged%20Metal%20Icon.png"
+      ]
+    },
+    {
+      "id": "d19",
+      "name": "Polar Metal",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitPolarMetal.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/polar-metal.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Polar%20Metal%20Icon.png"
+      ]
+    },
+    {
+      "id": "d20",
+      "name": "Thunder Metal",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitThunderMetal.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/thunder-metal.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Thunder%20Metal%20Icon.png"
+      ]
+    },
+    {
+      "id": "d21",
+      "name": "Chaotic Metal",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitChaosMetal.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/chaotic-metal.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Chaotic%20Metal%20Icon.png"
+      ]
+    },
+    {
+      "id": "d22",
+      "name": "Inferno Metal",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitInfernoMetal.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/inferno-metal.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Inferno%20Metal%20Icon.png"
+      ]
+    },
+    {
+      "id": "d23",
+      "name": "Proto Punk",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitProtoPunk.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/proto-punk.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Proto%20Punk%20Icon.png"
+      ]
+    },
+    {
+      "id": "d24",
+      "name": "Chaos Jazz",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitChaosJazz.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/chaos-jazz.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Chaos%20Jazz%20Icon.png"
+      ]
+    },
+    {
+      "id": "d25",
+      "name": "Swing Jazz",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitSwingJazz.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/swing-jazz.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Swing%20Jazz%20Icon.png"
+      ]
+    },
+    {
+      "id": "d26",
+      "name": "Soul Rock",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitSoulRock.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/soul-rock.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Soul%20Rock%20Icon.png"
+      ]
+    },
+    {
+      "id": "d27",
+      "name": "Hormone Punk",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitHormonePunk.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/hormone-punk.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Hormone%20Punk%20Icon.png"
+      ]
+    },
+    {
+      "id": "d28",
+      "name": "Freedom Blues",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitFreedomBlues.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/freedom-blues.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Freedom%20Blues%20Icon.png"
+      ]
+    },
+    {
+      "id": "d29",
+      "name": "Shockstar Disco",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitShockstarDisco.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/shockstar-disco.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Shockstar%20Disco%20Icon.png"
+      ]
+    },
+    {
+      "id": "d30",
+      "name": "Puffer Electro",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitPufferElectro.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/puffer-electro.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Puffer%20Electro%20Icon.png"
+      ]
+    },
+    {
+      "id": "d31",
+      "name": "Woodpecker Electro",
+      "authoritative": true,
+      "urls": [
+        "https://api.hakush.in/zzz/UI/SuitWoodpeckerElectro.webp",
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/woodpecker-electro.webp",
+        "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Woodpecker%20Electro%20Icon.png"
+      ]
+    }
+  ]
+}
