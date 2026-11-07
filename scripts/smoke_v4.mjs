@@ -1,3 +1,4 @@
+/* QA pós-refinamento dos retratos: todos os 65 avatars quadrados */
 import { chromium } from 'playwright';
 const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:393,height:852},deviceScaleFactor:2,isMobile:true,hasTouch:true});
