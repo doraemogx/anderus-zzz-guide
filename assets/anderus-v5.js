@@ -197,6 +197,37 @@ function endgame(){
  '<section class="v5-panel"><h2>O QUE MELHORAR PRIMEIRO</h2><ol class="v5-priority">'+(uniq.length<m[3]*3?'<li>Você tem '+uniq.length+' agentes registrados; para '+m[3]+' equipes de três, planeje '+m[3]*3+' integrantes distintos. Isso não significa que todos precisam ser de raridade S.</li>':'')+'<li>Priorize agentes no nível 60, talentos centrais e motores da especialidade correta.</li><li>Monte conjuntos de disco coerentes e meça os atributos em combate quando houver buffs.</li><li>Confira a rotação, o bônus do ciclo e a fraqueza do chefe antes de investir em outro personagem.</li></ol><button class="v5-button v5-button-yellow" data-v5="go" data-to="account">EDITAR SUAS EQUIPES '+svg("arrow",15)+'</button></section>'+
  '<div class="v5-note">Esta análise verifica estrutura da conta. Sem resultados de combate, dados do inimigo e cálculos completos de dano, não é possível prever estrelas ou garantir aprovação do desafio.</div></div>';
 }
+function recommendedForAccount(){
+ const owned=new Set(Object.keys(account.saved));
+ const weights=new Map();
+ for(const name of owned){
+  const a=findAgent(name);
+  if(!a)continue;
+  const compositions=String(a.teams||"").split(" / ");
+  for(const row of compositions){
+   const people=row.split(",").map(x=>x.trim());
+   if(!people.includes(name))continue;
+   for(const other of people){
+    const agent=findAgent(other);
+    if(!agent||owned.has(other)||agent.beta||agent.upcoming)continue;
+    const old=weights.get(other)||{agent,points:0,partners:[]};
+    old.points+=2;
+    if(!old.partners.includes(name))old.partners.push(name);
+    if(agent.role==="Suporte"||agent.role==="Atordoador")old.points+=1;
+    weights.set(other,old);
+   }
+  }
+ }
+ return [...weights.values()].sort((x,y)=>y.points-x.points).slice(0,6);
+}
+function accountRecommendations(){
+ const items=recommendedForAccount();
+ const incomplete=account.teams.filter(t=>t.some(n=>!n)).length;
+ return '<section class="v5-panel v5-recommendations"><div class="v5-rowbetween"><div><span class="v5-eyebrow">DADOS DA SUA CONTA</span><h2>QUEM VALE INVESTIGAR A SEGUIR?</h2></div><span class="v5-level warn">PLANO DE ELENCO</span></div><p>Estas sugestões surgem das sinergias registradas nas fichas dos personagens que você possui. Não são rankings definitivos de banners.</p>'+
+ (incomplete?'<div class="v5-note">'+incomplete+' equipe(s) ainda têm vagas. Antes de buscar personagens novos, confira quais agentes atuais podem completar cada formação.</div>':'')+
+ '<div class="v5-reclist">'+items.map(x=>'<button data-v5="detail" data-type="agents" data-id="'+x.agent.id+'"><img src="'+portrait(x.agent)+'" alt="'+esc(x.agent.name)+'"><span><b>'+esc(tr(x.agent.name))+'</b><small>'+esc(x.agent.role)+' · '+esc(x.agent.element)+'</small><em>Possíveis parceiros: '+esc(x.partners.map(tr).join(", "))+'</em></span>'+svg("arrow",15)+'</button>').join("")+'</div>'+
+ '<p class="v5-small">Prioridade final depende de disponibilidade de banner, kit, meta de cada modo e orçamento. O cadastro não precisa conter dados pessoais ou identificadores da conta.</p></section>';
+}
 function accountScreen(){
  const list=Object.keys(account.saved).filter(x=>findAgent(x));
  const names=DB.agents.filter(a=>!a.beta&&!a.upcoming&&!account.saved[a.name]);
@@ -214,7 +245,7 @@ function accountScreen(){
  '<div class="v5-editor-section"><span class="v5-eyebrow">03 / HABILIDADES</span><h3>NÍVEL DAS HABILIDADES</h3><div class="v5-fields v5-fields-3">'+[["basic","ATAQUE BÁSICO"],["dodge","ESQUIVA"],["special","ESPECIAL"],["chain","CADEIA"],["assist","ASSISTÊNCIA"]].map(([k,n])=>'<label>'+n+'<input type="number" min="1" max="16" data-v5-skill="'+k+'" value="'+esc(b.skillLevels?.[k]||1)+'"></label>').join("")+'</div></div>'+
  '<div class="v5-editor-section"><span class="v5-eyebrow">04 / EQUIPAMENTO</span><h3>SEIS DISCOS DE IMPULSO</h3><div class="v5-discslots">'+(b.slots||[]).map((slot,i)=>{const d=findDisc(slot.set);return '<div class="v5-discslot"><div class="v5-discslot-head"><img src="'+discImg(d)+'" alt=""><b>DISCO '+(i+1)+'</b></div><label>CONJUNTO<select data-v5-slot="'+i+'" data-v5-key="set"><option value="">NÃO EQUIPADO</option>'+DB.discs.map(o=>'<option value="'+esc(o.name)+'" '+(o.name===slot.set?'selected':'')+'>'+esc(tr(o.name))+'</option>').join("")+'</select></label><label>ATRIBUTO PRINCIPAL<input data-v5-slot="'+i+'" data-v5-key="main" value="'+esc(slot.main||"")+'" placeholder="Ex.: PV%, ATQ%, CRIT"></label><label>SUBATRIBUTOS<input data-v5-slot="'+i+'" data-v5-key="subs" value="'+esc(slot.subs||"")+'" placeholder="Ex.: ATQ 9%, Prof. 27"></label></div>'}).join("")+'</div></div>'+
  '<div class="v5-editor-section"><span class="v5-eyebrow">05 / ANÁLISE</span><h3>DIAGNÓSTICO DA SUA BUILD</h3>'+accountDiagnostics(selected,b)+'<button class="v5-button v5-button-yellow" data-v5="go" data-to="endgame">AVALIAR ENDGAME '+svg("arrow",15)+'</button><button class="v5-delete" data-v5="remove" data-name="'+esc(selected.name)+'">REMOVER ESTE AGENTE</button></div>':'<div class="v5-panel">Adicione um agente ao seu inventário.</div>')+'</div></div>'+
- '<section class="v5-panel v5-team-edit"><span class="v5-eyebrow">LABORATÓRIO DE EQUIPES</span><h2>SUAS FORMAÇÕES</h2><p>Escolha três agentes por equipe. A análise de endgame usa essas composições.</p>'+account.teams.map((team,i)=>'<div class="v5-team-row"><b>EQUIPE '+(i+1)+'</b>'+team.map((n,j)=>'<select data-v5-team="'+i+'" data-v5-pos="'+j+'"><option value="">VAGO</option>'+list.map(nm=>'<option value="'+esc(nm)+'" '+(n===nm?'selected':'')+'>'+esc(tr(nm))+'</option>').join("")+'</select>').join("")+'</div>').join("")+'</section></div>';
+ accountRecommendations()+'<section class="v5-panel v5-team-edit"><span class="v5-eyebrow">LABORATÓRIO DE EQUIPES</span><h2>SUAS FORMAÇÕES</h2><p>Escolha três agentes por equipe. A análise de endgame usa essas composições.</p>'+account.teams.map((team,i)=>'<div class="v5-team-row"><b>EQUIPE '+(i+1)+'</b>'+team.map((n,j)=>'<select data-v5-team="'+i+'" data-v5-pos="'+j+'"><option value="">VAGO</option>'+list.map(nm=>'<option value="'+esc(nm)+'" '+(n===nm?'selected':'')+'>'+esc(tr(nm))+'</option>').join("")+'</select>').join("")+'</div>').join("")+'</section></div>';
 }
 function field(key,labelTxt,value,type,min,max){
  return '<label>'+labelTxt+'<input type="'+type+'" data-v5-build="'+esc(key)+'" value="'+esc(value)+'" '+(min!=null?'min="'+min+'"':'')+' '+(max!=null?'max="'+max+'"':'')+'></label>';
