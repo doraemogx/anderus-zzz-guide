@@ -111,18 +111,31 @@ def extract_skills(soup):
                     current["numeros"].append({"metrica":l,"valor":nxt})
                     seen.add(key)
     if current:out.append(current)
-    return out[:65]
+    grouped={}
+    for entry in out:
+        key=entry['nome']
+        if key not in grouped:grouped[key]={'nome':key,'nivel':entry.get('nivel','1'),'numeros':[]}
+        got={(x['metrica'],x['valor']) for x in grouped[key]['numeros']}
+        for num in entry.get('numeros',[]):
+            sig=(num['metrica'],num['valor'])
+            if sig not in got:grouped[key]['numeros'].append(num);got.add(sig)
+    return list(grouped.values())[:65]
 
 def build_skill_prio(lines):
     i=next((i for i,x in enumerate(lines) if x.startswith("Ordem de Habilidades")),None)
     return " ".join(lines[i+1:i+8])[:240] if i is not None else ""
 def find_build(lines):
     out={}
-    for i,line in enumerate(lines):
-        if line.startswith("Atributo Principal"):
-            out["principais"]=" · ".join(lines[i+1:i+5])[:260]
-        if line.startswith("Atributos Secundários"):
-            out["secundarios"]=" · ".join(lines[i+1:i+3])[:260]
+    def grab(label,stop):
+        idx=next((i for i,x in enumerate(lines) if x.strip()==label),None)
+        if idx is None:return ""
+        result=[]
+        for x in lines[idx+1:idx+31]:
+            if any(x.startswith(k) for k in stop):break
+            if x not in ["Image","Imagem","Selecionar","1","2","3"] and len(x)<85:result.append(x)
+        return " · ".join(result)[:400]
+    out["principais"]=grab("Atributo Principal",["Atributos Secundários","Ordem de Habilidades"])
+    out["secundarios"]=grab("Atributos Secundários",["Ordem de Habilidades","Melhor Combinação"])
     return out
 
 def parse_one(a,links):
