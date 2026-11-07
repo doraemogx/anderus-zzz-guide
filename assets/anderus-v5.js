@@ -147,7 +147,7 @@ function agentMind(a,data){
  const status=a.beta?"BETA · NÃO CONFIRMADO":v?.verificado?"DADOS IDENTIFICADOS":"PENDENTE DE CONFERÊNCIA";
  const note=n===3||n===5?"Melhoria de níveis de habilidades. Seu valor depende do peso dessas habilidades na rotação.":n===6?"Investimento elevado; avaliar somente após comparar com ampliação de elenco e equipes.":n===1||n===2?"Marco potencial para avaliar custo-benefício. O retorno depende das regras e do time.":"Revisar se altera o dano da equipe inteira ou apenas o dano individual.";
  return '<article class="v5-mind"><header><span class="v5-mindex '+(owned?"owned":"")+'">M'+n+'</span><div><small>'+status+'</small><h3>'+esc(v?.nome||"EFEITO NÃO VERIFICADO")+'</h3></div><span class="v5-mindown">'+(owned?'✓ OBTIDO':'')+'</span></header><div class="v5-mind-body"><p>'+esc(v?.resumo||"Sem efeito confiável publicado. Nada foi inventado.")+'</p>'+(v?.dados?.length?'<div class="v5-mvalues"><small>NÚMEROS CITADOS NO EFEITO</small>'+v.dados.slice(0,12).map(x=>'<span>'+esc(x)+'</span>').join("")+'</div>':'')+(v?.mecanicas?.length?'<div class="v5-mtags">'+v.mecanicas.map(x=>'<span>'+esc(x)+'</span>').join("")+'</div>':'')+'<div class="v5-myview"><b>MINHA ANÁLISE</b><p>'+esc(note)+'</p></div></div></article>';
- }).join(""));
+ }).join("");
 }
 function gearCard(x,type,labelTxt){
  if(!x)return '';
