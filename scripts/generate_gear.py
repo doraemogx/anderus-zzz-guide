@@ -56,9 +56,21 @@ def main():
                 words=v["text"].replace(v["name"],"",1)
                 nums=list(dict.fromkeys(re.findall(r"(?:\d{1,3}(?:[.,]\d+)?%|\d+(?:[.,]\d+)?\s*s)",words)))
                 mapped[item["id"]]={"nome":v["name"],"numeros":nums[:28],"confirmado":True,"base":"lista PT-BR"};break
+    # Referência por slug estável, quando o título do card é abreviado ou traduzido.
+    # Não aproxima nomes: só aceita slug com correspondência exata normalizada.
+    for item in obj["engines"]:
+        if item["id"] in mapped:continue
+        candidates=[norm(item["name"]),norm(loc["engines"].get(item["name"],""))]
+        candidates=[x for x in candidates if len(x)>3]
+        exact=next(((slug,v) for slug,v in pt.items() if norm(slug) in candidates),None)
+        if exact is None:continue
+        slug,v=exact
+        words=v["text"].replace(v["name"],"",1)
+        nums=list(dict.fromkeys(re.findall(r"(?:\\d{1,3}(?:[.,]\\d+)?%|\\d+(?:[.,]\\d+)?\\s*s)",words)))
+        mapped[item["id"]]={"nome":v["name"],"numeros":nums[:28],"confirmado":True,"base":"slug PT-BR"}
     total=len(mapped)
-    data={"version":"4.0","updatedAt":datetime.now(timezone.utc).isoformat(),"engines":mapped}
+    data={"version":"4.1","updatedAt":datetime.now(timezone.utc).isoformat(),"engines":mapped}
     (ROOT/"data"/"gear-ptbr.json").write_text(json.dumps(data,ensure_ascii=False,separators=(',',':'))+"\n",encoding="utf-8")
     (ROOT/"data"/"gear-status.json").write_text(json.dumps({"mapped":total,"allEngines":len(obj["engines"]),"unmapped":[x["name"] for x in obj["engines"] if x["id"] not in mapped]},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print("Motores com valores factuais",total,"de",len(obj["engines"]))
+    print("Motores com correspondência PT-BR",total,"de",len(obj["engines"]))
 if __name__=="__main__":main()
