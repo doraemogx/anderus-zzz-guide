@@ -1026,6 +1026,9 @@
       "name": "Knight's Extolment",
       "authoritative": false,
       "urls": [
+        "https://img.gachabase.net/conv/zzz/assets/33618ddbd703e5f6dddc93a650391f92.png?q=50&sig=07cdcc15c15bbf4e06300986bf0a7bb7ade3d04f9cce86db6516ef0ba5862ba0",
+        "https://cdn.gachabase.net/zzz/assets/33618ddbd703e5f6dddc93a650391f92.png",
+        "https://static.icy-veins.com/images/zenless-zone-zero/portraits/w-engines/knights-extolment.webp",
         "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/knight-s-extolment.webp",
         "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Knight%27s%20Extolment%20Icon.png",
         "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Knight%27s%20Extolment%20Icon.png",
@@ -1146,6 +1149,8 @@
       "name": "Robin's Exclusive W-Engine",
       "authoritative": false,
       "urls": [
+        "https://i.gachabase.net/8o2RqRNc6f9bYRj_plT_yPAUdxIUUKv_xiUlSgxadRE/q%3A50/f%3Awebp/plain/zzz/assets/99cd8677cbacd45ba2bd7f3de2ee0cfe.png",
+        "https://cdn.gachabase.net/zzz/assets/99cd8677cbacd45ba2bd7f3de2ee0cfe.png",
         "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/robin-s-exclusive-w-engine.webp",
         "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Robin%27s%20Exclusive%20W-Engine%20Icon.png",
         "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Robin%27s%20Exclusive%20W-Engine%20Icon.png",
@@ -1231,9 +1236,11 @@
     },
     {
       "id": "w41",
-      "name": "Sunbringer's Signature",
+      "name": "Dragonfire Mirage",
       "authoritative": false,
       "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/portraits/w-engines/sunbringers-signature.webp",
+        "https://cdn.mobalytics.gg/cdn-cgi/image/format=auto,width=256,height=256/assets/zzz/images/w-engines/dragonfire-mirage.webp",
         "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/sunbringer-s-signature.webp",
         "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Sunbringer%27s%20Signature%20Icon.png",
         "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Sunbringer%27s%20Signature%20Icon.png",
@@ -2046,6 +2053,8 @@
       "name": "Dawn's Bloom",
       "authoritative": true,
       "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/dawns-bloom.webp",
+        "https://cdn.mobalytics.gg/cdn-cgi/image/format=auto,width=128,height=128/assets/zzz/images/drive-discs/dawns-bloom.webp",
         "https://api.hakush.in/zzz/UI/SuitDawnsBloom.webp",
         "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/dawn-s-bloom.webp",
         "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Dawn%27s%20Bloom%20Icon.png",
@@ -2077,6 +2086,8 @@
       "name": "Phaethon's Melody",
       "authoritative": true,
       "urls": [
+        "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/phaethons-melody.webp",
+        "https://cdn.mobalytics.gg/cdn-cgi/image/format=auto,width=128,height=128/assets/zzz/images/drive-discs/phaethons-melody.webp",
         "https://api.hakush.in/zzz/UI/SuitSavior.webp",
         "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/phaethon-s-melody.webp",
         "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Phaethon%27s%20Melody%20Icon.png",
