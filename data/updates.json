@@ -1,0 +1,83 @@
+{
+  "schema": 2,
+  "checkedAt": "2026-11-07",
+  "officialVersion": "3.3",
+  "betaVersion": "3.4.3",
+  "betaRevision": "20278274",
+  "entries": [
+    {
+      "id": "guide-3",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Proxy OS 3.0 · interface redesenhada",
+      "summary": "Cartões reestruturados para celular, retratos normalizados, alternativas de imagens, ícones vetoriais e navegação revisada.",
+      "areas": [
+        "Interface",
+        "Agentes",
+        "Motores",
+        "Conta do Anderus"
+      ]
+    },
+    {
+      "id": "official-33",
+      "date": "2026-10-21",
+      "kind": "official",
+      "status": "included",
+      "title": "Versão 3.3 · Journey to the Sky",
+      "summary": "Lançamento oficial da 3.3 com Phoenix e Severian; novos motores e capítulo da história.",
+      "areas": [
+        "Agentes",
+        "Motores",
+        "Guia do zero"
+      ],
+      "url": "https://zenless.hoyoverse.com/en-us/news/166963"
+    },
+    {
+      "id": "official-33a",
+      "date": "2026-10-21",
+      "kind": "official",
+      "status": "included",
+      "title": "3.3 · Primeira fase com Phoenix e Velina",
+      "summary": "Anúncio de Phoenix, Velina e seus motores Plume of Rebirth e Joyau Dore.",
+      "areas": [
+        "Phoenix",
+        "Velina",
+        "Plume of Rebirth",
+        "Joyau Dore"
+      ],
+      "url": "https://zenless.hoyoverse.com/en-us/news/166964?catchSpider=1"
+    },
+    {
+      "id": "beta-343",
+      "date": "2026-11-07",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Beta 3.4.3 · revisão 20278274",
+      "summary": "Mudanças de teste relatadas para Kafka, Sunbringer e Vivian. Dados preliminares, não aplicados automaticamente como kits finais.",
+      "areas": [
+        "Kafka",
+        "Sunbringer",
+        "Vivian"
+      ],
+      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+    },
+    {
+      "id": "beta-343b",
+      "date": "2026-11-07",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Beta 3.4.3 · revisão 20266797",
+      "summary": "Revisões de Robin, Kafka, Sunbringer, motores de teste e novos discos. Conferir números antes de atualizar fichas.",
+      "areas": [
+        "Robin",
+        "Kafka",
+        "Sunbringer",
+        "W-Engines",
+        "Drive Discs"
+      ],
+      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+    }
+  ],
+  "note": "Radar editorial de 07/11/2026. O monitoramento coleta avisos e versões de teste; kits e builds só são alterados após revisão."
+}
