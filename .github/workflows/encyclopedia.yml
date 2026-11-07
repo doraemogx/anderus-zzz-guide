@@ -1,0 +1,34 @@
+name: Fichas factuais PT-BR — dados internos
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/generate_encyclopedia.py'
+      - '.github/workflows/encyclopedia.yml'
+  schedule:
+    - cron: '15 11 * * 2'
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install beautifulsoup4==4.14.2
+      - name: Extrai fatos PT-BR e valores, preservando os kits do beta
+        run: python scripts/generate_encyclopedia.py
+      - name: Publica base para consultas internas
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/encyclopedia.json data/encyclopedia-status.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Fichas: atualiza estatisticas e numeros PT-BR"
+            git pull --rebase
+            git push
+          fi
