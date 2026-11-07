@@ -6,6 +6,62 @@
   "betaRevision": "20280288",
   "entries": [
     {
+      "id": "site-4.1-20261107",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "PROXY OS V4.1 · Retratos padronizados e pesquisa em PT-BR",
+      "summary": "65 retratos quadrados (43 ícones de perfil e 22 enquadramentos de artes existentes), estilos refinados para Galaxy S25 Edge e busca que encontra nomes de equipamentos em português.",
+      "areas": [
+        "Agentes",
+        "Imagens",
+        "Pesquisa",
+        "Celular"
+      ],
+      "url": "https://github.com/doraemogx/anderus-zzz-guide/commits/main"
+    },
+    {
+      "id": "site-4-data-20261107",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Enciclopédia interna · habilidades e estatísticas sem sair do site",
+      "summary": "62 agentes não beta com atributos e valores numéricos importados de referência PT-BR, fichas internas expansíveis por golpe e glossário para entender os multiplicadores. Beta mantém aviso de dados provisórios.",
+      "areas": [
+        "Fichas",
+        "Habilidades",
+        "Multiplicadores",
+        "Beta"
+      ]
+    },
+    {
+      "id": "site-4-localization-20261107",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Nomes dos Motores-W auditados em português do Brasil",
+      "summary": "103 nomes associados à versão PT-BR por identidade do motor e ícone compartilhado. Três motores de beta preservam nomes provisórios. Dados existentes da Conta do Anderus continuam compatíveis.",
+      "areas": [
+        "Motores",
+        "PT-BR",
+        "Conta do Anderus"
+      ]
+    },
+    {
+      "id": "site-4-trust-20261107",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Qualidade editorial · limites identificados dentro do guia",
+      "summary": "Recomendações de build que ainda não foram revistas individualmente continuam marcadas como editoriais; lacunas de dados técnicos não recebem valores inventados. O radar não substitui a revisão dos kits.",
+      "areas": [
+        "Precisão",
+        "Builds",
+        "Fontes",
+        "Atualizações"
+      ]
+    },
+    {
       "id": "v4-20261107-ui",
       "date": "2026-11-07",
       "kind": "site",
@@ -245,5 +301,5 @@
       "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
     }
   ],
-  "note": "Radar editorial de 07/11/2026. O monitoramento coleta avisos e versões de teste; kits e builds só são alterados após revisão."
+  "note": "Central de atualizações: mostra mudanças já publicadas no site e notícias acompanhadas. Kits, builds e beta precisam de confirmação antes da alteração."
 }
