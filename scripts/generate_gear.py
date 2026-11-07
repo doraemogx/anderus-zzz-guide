@@ -66,7 +66,7 @@ def main():
         if exact is None:continue
         slug,v=exact
         words=v["text"].replace(v["name"],"",1)
-        nums=list(dict.fromkeys(re.findall(r"(?:\\d{1,3}(?:[.,]\\d+)?%|\\d+(?:[.,]\\d+)?\\s*s)",words)))
+        nums=list(dict.fromkeys(re.findall(r"(?:\d{1,3}(?:[.,]\d+)?%|\d+(?:[.,]\d+)?\s*s)",words)))
         mapped[item["id"]]={"nome":v["name"],"numeros":nums[:28],"confirmado":True,"base":"slug PT-BR"}
     total=len(mapped)
     data={"version":"4.1","updatedAt":datetime.now(timezone.utc).isoformat(),"engines":mapped}
