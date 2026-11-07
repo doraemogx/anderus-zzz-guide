@@ -67,6 +67,7 @@ window.addEventListener("popstate",ev=>{
 const title=(eyebrow,heading,desc)=>'<div class="v5-heading"><div><span class="v5-eyebrow">'+eyebrow+'</span><h1>'+heading+'</h1><p>'+desc+'</p></div></div>';
 function home(){
  const names=Object.keys(account.saved).filter(n=>findAgent(n)),recent=feed.entries||[];
+ const completed=names.filter(n=>{const b=account.saved[n]||{};return Number(b.level)>=60&&!!b.engine&&(b.slots||[]).filter(d=>d.set).length===6}).length;
  const art=DB.agents.find(a=>a.name==="Phoenix")||DB.agents[0];
  const banners=[
  ['learn','COMECE PELO BÁSICO','Fundamentos, combate, atributos e progressão','learn'],
@@ -78,9 +79,31 @@ function home(){
  '<div class="v5-search-wrap"><label class="v5-search">'+svg("search",20)+'<input id="v5-global-search" placeholder="Buscar agente, motor, disco, guia..." autocomplete="off"></label><button class="v5-search-btn" data-v5="go" data-to="encyclopedia" aria-label="Ver enciclopédia">'+svg("sliders")+'</button></div>'+
  '<div class="v5-quick">'+banners.map(([p,h,d,icon],i)=>'<button class="v5-quick-card v5-quick-'+i+'" data-v5="go" data-to="'+p+'">'+svg(icon,28)+'<strong>'+h+'</strong><small>'+d+'</small><span class="v5-quick-arrow">'+svg("right",16)+'</span></button>').join("")+'</div>'+
  '<button class="v5-radar-banner" data-v5="go" data-to="radar">'+svg("radar",30)+'<span><strong>RADAR DE ATUALIZAÇÕES</strong><small>Oficial, beta, mudanças no site e comparações</small></span>'+svg("right",18)+'</button>'+
- '<section class="v5-account-teaser"><div class="v5-sectionline"><span>'+svg("layers",16)+' PRÉVIA DA SUA CONTA</span><button data-v5="go" data-to="account">VER ANÁLISE '+svg("arrow",16)+'</button></div><div class="v5-previewrow"><div class="v5-avatars">'+names.slice(0,4).map(n=>'<img alt="'+esc(n)+'" src="'+portrait(findAgent(n))+'">').join("")+'</div><div class="v5-preview-state"><strong>'+names.length+' AGENTES</strong><span>'+Math.min(3,account.teams.length)+' EQUIPES PLANEJADAS</span></div></div><div class="v5-progress"><span>Inventário registrado</span><div><i style="width:'+Math.min(100,names.length/9*100)+'%"></i></div><b>'+names.length+'/9</b></div></section>'+
+ '<section class="v5-account-teaser"><div class="v5-sectionline"><span>'+svg("layers",16)+' PRÉVIA DA SUA CONTA</span><button data-v5="go" data-to="account">VER ANÁLISE '+svg("arrow",16)+'</button></div><div class="v5-previewrow"><div class="v5-avatars">'+(names.length?names.slice(0,3).map(n=>'<img alt="'+esc(n)+'" src="'+portrait(findAgent(n))+'">').join(""):'<span class="v5-empty-avatar">+</span><span class="v5-empty-avatar">+</span><span class="v5-empty-avatar">+</span>')+'</div><div class="v5-preview-state"><strong class="'+(completed?'v5-state-ok':'v5-state-warn')+'">'+(completed?completed+' BUILDS CONFIGURADAS':'BUILDS EM PROGRESSO')+'</strong><button class="v5-review-cta" data-v5="go" data-to="account">'+svg('sliders',14)+' REVISAR ATRIBUTOS</button></div></div><div class="v5-progress"><span>Inventário registrado</span><div><i style="width:'+Math.min(100,names.length/9*100)+'%"></i></div><b>'+names.length+'/9</b></div></section>'+
  '<section class="v5-highlight"><div class="v5-highlight-art"><img src="'+portrait(art)+'" alt="'+esc(art.name)+'"></div><div class="v5-highlight-copy"><span class="v5-pill">NOTÍCIAS & VERSÕES DE TESTE</span><h2>'+esc(recent.find(x=>x.kind==="beta")?.title||"BETA 3.4 EM ACOMPANHAMENTO")+'</h2><p>Compare o que foi divulgado com o que já entrou no guia.</p><button data-v5="go" data-to="radar">VER MUDANÇAS '+svg("arrow",17)+'</button></div></section><div class="v5-home-foot"><span>NEW ERIDU // ANDERUS</span><span>FEITO PARA VOCÊ, PROXY.</span></div></div>';
 }
+
+function searchResults(){
+ const term=parseName(state.query.trim());
+ if(!term)return '<div class="v5-search-empty">Digite o nome de um agente, motor-W, disco ou aula para pesquisar todo o guia.</div>';
+ const groups=[['AGENTES','agents',DB.agents,portrait],['MOTORES-W','engines',DB.engines,engineImg],['DISCOS DE IMPULSO','discs',DB.discs,discImg]];
+ let found=0;
+ const parts=groups.map(([label,type,items,img])=>{
+  const matches=items.filter(x=>parseName([x.name,tr(x.name),x.role,x.element,x.summary,x.two,x.four].join(' ')).includes(term)).slice(0,24);
+  found+=matches.length;
+  return matches.length?'<section class="v5-search-group"><h2>'+label+' <small>'+matches.length+' resultado(s)</small></h2><div class="v5-search-grid">'+matches.map(x=>'<button class="v5-search-hit" data-v5="detail" data-type="'+type+'" data-id="'+esc(x.id)+'"><img loading="lazy" src="'+esc(img(x))+'" alt=""><span><strong>'+esc(tr(x.name))+'</strong><small>'+esc(x.role||x.element||'Abrir ficha completa')+'</small></span>'+svg('right',16)+'</button>').join('')+'</div></section>':'';
+ }).join('');
+ const matches=lessons.filter(l=>parseName([l.name,l.sub].join(' ')).includes(term));
+ found+=matches.length;
+ const lessonPart=matches.length?'<section class="v5-search-group"><h2>GUIAS E AULAS <small>'+matches.length+' resultado(s)</small></h2><div class="v5-search-grid">'+matches.map(l=>'<button class="v5-search-hit" data-v5="lessonjump" data-id="'+esc(l.id)+'">'+svg('learn',24)+'<span><strong>'+esc(l.name)+'</strong><small>'+esc(l.sub)+'</small></span>'+svg('right',16)+'</button>').join('')+'</div></section>':'';
+ return '<p class="v5-search-count">'+found+' resultado(s) para <b>'+esc(state.query)+'</b></p>'+(found?parts+lessonPart:'<div class="v5-search-empty">Nenhum resultado encontrado. Tente outro nome ou uma palavra mais curta.</div>');
+}
+function searchScreen(){
+ return '<div class="v5-inner v5-global-results">'+title('BUSCA // TODO O GUIA','ENCONTRE O QUE PRECISA<span class="v5-dot">.</span>','Pesquise agentes, motores-W, discos e aulas sem sair do site.')+
+ '<label class="v5-search v5-search-all">'+svg('search',20)+'<input id="v5-full-search" aria-label="Pesquisar no guia inteiro" value="'+esc(state.query)+'" placeholder="Nome, equipamento ou mecânica..." autocomplete="off"></label>'+
+ '<div id="v5-search-content">'+searchResults()+'</div></div>';
+}
+
 function listCatalog(){
  const arr=DB[state.type]||[];
  const normalized=x=>parseName(x);
@@ -295,7 +318,7 @@ function radarScreen(){
  '<div class="v5-feed">'+entries.slice(0,100).map(x=>{const agent=DB.agents.find(a=>(x.areas||[]).some(v=>parseName(v)===parseName(a.name)));return '<article class="v5-news"><div class="v5-news-top"><span class="v5-label '+esc(x.kind)+'">'+(x.kind==='beta'?'BETA · SUJEITO A MUDANÇAS':x.kind==='official'?'OFICIAL':'ALTERAÇÃO NO SITE')+'</span><time>'+esc(x.date||"")+'</time></div><div class="v5-news-body">'+(agent?'<img src="'+portrait(agent)+'" alt="'+esc(agent.name)+'">':'')+'<div><h3>'+esc(x.title)+'</h3><p>'+esc(x.summary)+'</p></div></div>'+(x.before||x.after?'<div class="v5-beforeafter"><div><b>ANTES</b><p>'+esc(x.before||"Não registrado")+'</p></div><div><b>DEPOIS</b><p>'+esc(x.after||"Não registrado")+'</p></div></div>':'<div class="v5-no-diff">Sem comparação de valores publicada para esta atualização.</div>')+'<div class="v5-news-tags">'+(x.areas||[]).slice(0,5).map(t=>'<span>'+esc(t)+'</span>').join("")+'</div></article>';}).join("")+'</div></div>';
 }
 function draw(){
- let body=state.page==='home'?home():state.page==='learn'?learnScreen():state.page==='encyclopedia'?listCatalog():state.page==='detail'?details():state.page==='account'?accountScreen():state.page==='endgame'?endgame():state.page==='radar'?radarScreen():home();
+ let body=state.page==='home'?home():state.page==='learn'?learnScreen():state.page==='encyclopedia'?listCatalog():state.page==='search'?searchScreen():state.page==='detail'?details():state.page==='account'?accountScreen():state.page==='endgame'?endgame():state.page==='radar'?radarScreen():home();
  frame(body);
  for(const a of root.querySelectorAll('.v5-lesson-body a')){const n=document.createElement('span');n.textContent=a.textContent;a.replaceWith(n);}
 }
@@ -304,6 +327,7 @@ function bindEvents(){
   const el=e.target.closest("[data-v5]");if(!el)return;
   const act=el.dataset.v5;
   if(act==="go"){go(el.dataset.to,{id:"",type:el.dataset.to==="encyclopedia"?"agents":state.type});return;}
+  if(act==="lessonjump"){state.lesson=el.dataset.id;go("learn",{id:""});return;}
   if(act==="type"){state.type=el.dataset.type;state.query="";state.role="";state.element="";state.rarity="";state.onlyOwned=false;draw();return;}
   if(act==="detail"){go("detail",{type:el.dataset.type,id:el.dataset.id,sub:"overview"});return;}
   if(act==="sub"){state.sub=el.dataset.sub;draw();return;}
@@ -334,10 +358,10 @@ function bindEvents(){
  let debounce;
  root.addEventListener("input",function(e){
    const t=e.target;
-   if(t.id==="v5-catalog-search"||t.id==="v5-global-search"){
+   if(t.id==="v5-catalog-search"||t.id==="v5-global-search"||t.id==="v5-full-search"){
     clearTimeout(debounce);
     const v=t.value;const isGlobal=t.id==="v5-global-search";
-    debounce=setTimeout(()=>{state.query=v;if(isGlobal){go("encyclopedia",{type:"agents",query:v,id:""});}else {const p=t.selectionStart;const list=listCatalog();const temp=document.createElement("div");temp.innerHTML=list;const newList=temp.querySelector("#v5-list");const current=root.querySelector("#v5-list");if(current&&newList)current.innerHTML=newList.innerHTML;const count=root.querySelector(".v5-resultcount");const nextCount=temp.querySelector(".v5-resultcount");if(count&&nextCount)count.textContent=nextCount.textContent;}},110);
+    debounce=setTimeout(()=>{state.query=v;if(isGlobal){go("search",{query:v,id:""});}else if(t.id==="v5-full-search"){const results=root.querySelector("#v5-search-content");if(results)results.innerHTML=searchResults();}else {const p=t.selectionStart;const list=listCatalog();const temp=document.createElement("div");temp.innerHTML=list;const newList=temp.querySelector("#v5-list");const current=root.querySelector("#v5-list");if(current&&newList)current.innerHTML=newList.innerHTML;const count=root.querySelector(".v5-resultcount");const nextCount=temp.querySelector(".v5-resultcount");if(count&&nextCount)count.textContent=nextCount.textContent;}},110);
    }
  });
 }
