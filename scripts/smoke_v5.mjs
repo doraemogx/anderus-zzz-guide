@@ -15,10 +15,11 @@ for(const width of [360,393,412,1280]){
  await page.locator('.v5-bottom [data-to="encyclopedia"]').click();
  await page.waitForSelector('.v5-agent-tile');
  if(await page.locator('.v5-agent-tile').count()!==65)throw Error('Expected 65 agents');
- await page.evaluate(()=>window.scrollTo(0,550));
+ const targetCard=page.locator('.v5-agent-tile[data-id="a40"]');
+ await targetCard.scrollIntoViewIfNeeded();
  await page.waitForTimeout(100);
  const previousScroll=await page.evaluate(()=>window.scrollY);
- await page.locator('.v5-agent-tile[data-id="a40"]').click();
+ await targetCard.click();
  await page.waitForSelector('.v5-agent-head');
  await page.goBack();
  await page.waitForSelector('.v5-agent-tile[data-id="a40"]');
