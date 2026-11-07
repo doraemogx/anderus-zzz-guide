@@ -1,0 +1,529 @@
+{
+  "updatedAt": "2026-11-07T21:46:49.649477+00:00",
+  "total": 65,
+  "ok": 65,
+  "gameIcons": 43,
+  "fallbackCrops": 22,
+  "items": [
+    {
+      "id": "a0",
+      "name": "Phoenix",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 32466,
+      "status": "ok"
+    },
+    {
+      "id": "a1",
+      "name": "Velina Airgid",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 16260,
+      "status": "ok"
+    },
+    {
+      "id": "a2",
+      "name": "Jane Doe",
+      "source": "icone_de_perfil",
+      "circleID": "24",
+      "bytes": 5108,
+      "status": "ok"
+    },
+    {
+      "id": "a3",
+      "name": "Rina",
+      "source": "icone_de_perfil",
+      "circleID": "22",
+      "bytes": 5548,
+      "status": "ok"
+    },
+    {
+      "id": "a4",
+      "name": "Severian Lowell",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 9138,
+      "status": "ok"
+    },
+    {
+      "id": "a5",
+      "name": "Roxy Ifrita Pryce",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 22316,
+      "status": "ok"
+    },
+    {
+      "id": "a6",
+      "name": "Claret Flint",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 22050,
+      "status": "ok"
+    },
+    {
+      "id": "a7",
+      "name": "Sigrid de L'Azur",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 9008,
+      "status": "ok"
+    },
+    {
+      "id": "a8",
+      "name": "Remielle Dan",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 9602,
+      "status": "ok"
+    },
+    {
+      "id": "a9",
+      "name": "Norma Hollowell",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 15614,
+      "status": "ok"
+    },
+    {
+      "id": "a10",
+      "name": "Pyrois",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 9580,
+      "status": "ok"
+    },
+    {
+      "id": "a11",
+      "name": "Starlight - Billy",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 10364,
+      "status": "ok"
+    },
+    {
+      "id": "a12",
+      "name": "Promeia",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 9174,
+      "status": "ok"
+    },
+    {
+      "id": "a13",
+      "name": "Cissia",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 12702,
+      "status": "ok"
+    },
+    {
+      "id": "a14",
+      "name": "Nangong Yu",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 12260,
+      "status": "ok"
+    },
+    {
+      "id": "a15",
+      "name": "Aria",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 16726,
+      "status": "ok"
+    },
+    {
+      "id": "a16",
+      "name": "Sunna",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 8638,
+      "status": "ok"
+    },
+    {
+      "id": "a17",
+      "name": "Ye Shunguang",
+      "source": "icone_de_perfil",
+      "circleID": "55",
+      "bytes": 5822,
+      "status": "ok"
+    },
+    {
+      "id": "a18",
+      "name": "Zhao",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 18680,
+      "status": "ok"
+    },
+    {
+      "id": "a19",
+      "name": "Dialyn",
+      "source": "icone_de_perfil",
+      "circleID": "54",
+      "bytes": 6118,
+      "status": "ok"
+    },
+    {
+      "id": "a20",
+      "name": "Banyue",
+      "source": "icone_de_perfil",
+      "circleID": "53",
+      "bytes": 6308,
+      "status": "ok"
+    },
+    {
+      "id": "a21",
+      "name": "Lucia",
+      "source": "icone_de_perfil",
+      "circleID": "50",
+      "bytes": 6580,
+      "status": "ok"
+    },
+    {
+      "id": "a22",
+      "name": "Yidhari",
+      "source": "icone_de_perfil",
+      "circleID": "52",
+      "bytes": 6724,
+      "status": "ok"
+    },
+    {
+      "id": "a23",
+      "name": "Komano Manato",
+      "source": "icone_de_perfil",
+      "circleID": "51",
+      "bytes": 6244,
+      "status": "ok"
+    },
+    {
+      "id": "a24",
+      "name": "Orphie & Magus",
+      "source": "icone_de_perfil",
+      "circleID": "49",
+      "bytes": 6452,
+      "status": "ok"
+    },
+    {
+      "id": "a25",
+      "name": "Seed",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 19988,
+      "status": "ok"
+    },
+    {
+      "id": "a26",
+      "name": "Yuzuha",
+      "source": "icone_de_perfil",
+      "circleID": "47",
+      "bytes": 6182,
+      "status": "ok"
+    },
+    {
+      "id": "a27",
+      "name": "Alice",
+      "source": "icone_de_perfil",
+      "circleID": "46",
+      "bytes": 6096,
+      "status": "ok"
+    },
+    {
+      "id": "a28",
+      "name": "Ju Fufu",
+      "source": "icone_de_perfil",
+      "circleID": "43",
+      "bytes": 6412,
+      "status": "ok"
+    },
+    {
+      "id": "a29",
+      "name": "Yixuan",
+      "source": "icone_de_perfil",
+      "circleID": "44",
+      "bytes": 6112,
+      "status": "ok"
+    },
+    {
+      "id": "a30",
+      "name": "Pan Yinhu",
+      "source": "icone_de_perfil",
+      "circleID": "45",
+      "bytes": 5234,
+      "status": "ok"
+    },
+    {
+      "id": "a31",
+      "name": "Vivian",
+      "source": "icone_de_perfil",
+      "circleID": "41",
+      "bytes": 6750,
+      "status": "ok"
+    },
+    {
+      "id": "a32",
+      "name": "Hugo",
+      "source": "icone_de_perfil",
+      "circleID": "42",
+      "bytes": 5880,
+      "status": "ok"
+    },
+    {
+      "id": "a33",
+      "name": "Soldier 0: Anby",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 8416,
+      "status": "ok"
+    },
+    {
+      "id": "a34",
+      "name": "Trigger",
+      "source": "icone_de_perfil",
+      "circleID": "39",
+      "bytes": 5208,
+      "status": "ok"
+    },
+    {
+      "id": "a35",
+      "name": "Pulchra",
+      "source": "icone_de_perfil",
+      "circleID": "38",
+      "bytes": 6684,
+      "status": "ok"
+    },
+    {
+      "id": "a36",
+      "name": "Astra Yao",
+      "source": "icone_de_perfil",
+      "circleID": "36",
+      "bytes": 5248,
+      "status": "ok"
+    },
+    {
+      "id": "a37",
+      "name": "Evelyn Chevalier",
+      "source": "icone_de_perfil",
+      "circleID": "37",
+      "bytes": 5492,
+      "status": "ok"
+    },
+    {
+      "id": "a38",
+      "name": "Hoshimi Miyabi",
+      "source": "icone_de_perfil",
+      "circleID": "13",
+      "bytes": 4702,
+      "status": "ok"
+    },
+    {
+      "id": "a39",
+      "name": "Asaba Harumasa",
+      "source": "icone_de_perfil",
+      "circleID": "35",
+      "bytes": 5532,
+      "status": "ok"
+    },
+    {
+      "id": "a40",
+      "name": "Tsukishiro Yanagi",
+      "source": "icone_de_perfil",
+      "circleID": "31",
+      "bytes": 5622,
+      "status": "ok"
+    },
+    {
+      "id": "a41",
+      "name": "Lighter",
+      "source": "icone_de_perfil",
+      "circleID": "26",
+      "bytes": 5192,
+      "status": "ok"
+    },
+    {
+      "id": "a42",
+      "name": "Burnice White",
+      "source": "icone_de_perfil",
+      "circleID": "32",
+      "bytes": 6064,
+      "status": "ok"
+    },
+    {
+      "id": "a43",
+      "name": "Caesar King",
+      "source": "icone_de_perfil",
+      "circleID": "25",
+      "bytes": 5542,
+      "status": "ok"
+    },
+    {
+      "id": "a44",
+      "name": "Qingyi",
+      "source": "icone_de_perfil",
+      "circleID": "29",
+      "bytes": 5328,
+      "status": "ok"
+    },
+    {
+      "id": "a45",
+      "name": "Seth Lowell",
+      "source": "icone_de_perfil",
+      "circleID": "30",
+      "bytes": 5730,
+      "status": "ok"
+    },
+    {
+      "id": "a46",
+      "name": "Ellen Joe",
+      "source": "icone_de_perfil",
+      "circleID": "21",
+      "bytes": 5352,
+      "status": "ok"
+    },
+    {
+      "id": "a47",
+      "name": "Von Lycaon",
+      "source": "icone_de_perfil",
+      "circleID": "18",
+      "bytes": 6216,
+      "status": "ok"
+    },
+    {
+      "id": "a48",
+      "name": "Soukaku",
+      "source": "icone_de_perfil",
+      "circleID": "17",
+      "bytes": 6118,
+      "status": "ok"
+    },
+    {
+      "id": "a49",
+      "name": "Zhu Yuan",
+      "source": "icone_de_perfil",
+      "circleID": "23",
+      "bytes": 5708,
+      "status": "ok"
+    },
+    {
+      "id": "a50",
+      "name": "Soldier 11",
+      "source": "icone_de_perfil",
+      "circleID": "05",
+      "bytes": 6052,
+      "status": "ok"
+    },
+    {
+      "id": "a51",
+      "name": "Nicole Demara",
+      "source": "icone_de_perfil",
+      "circleID": "12",
+      "bytes": 6646,
+      "status": "ok"
+    },
+    {
+      "id": "a52",
+      "name": "Grace Howard",
+      "source": "icone_de_perfil",
+      "circleID": "20",
+      "bytes": 5314,
+      "status": "ok"
+    },
+    {
+      "id": "a53",
+      "name": "Nekomata",
+      "source": "icone_de_perfil",
+      "circleID": "11",
+      "bytes": 5806,
+      "status": "ok"
+    },
+    {
+      "id": "a54",
+      "name": "Koleda Belobog",
+      "source": "icone_de_perfil",
+      "circleID": "14",
+      "bytes": 7388,
+      "status": "ok"
+    },
+    {
+      "id": "a55",
+      "name": "Lucy",
+      "source": "icone_de_perfil",
+      "circleID": "27",
+      "bytes": 6306,
+      "status": "ok"
+    },
+    {
+      "id": "a56",
+      "name": "Anby Demara",
+      "source": "icone_de_perfil",
+      "circleID": "01",
+      "bytes": 6088,
+      "status": "ok"
+    },
+    {
+      "id": "a57",
+      "name": "Billy Kid",
+      "source": "icone_de_perfil",
+      "circleID": "10",
+      "bytes": 4896,
+      "status": "ok"
+    },
+    {
+      "id": "a58",
+      "name": "Piper",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 6038,
+      "status": "ok"
+    },
+    {
+      "id": "a59",
+      "name": "Anton Ivanov",
+      "source": "icone_de_perfil",
+      "circleID": "15",
+      "bytes": 5270,
+      "status": "ok"
+    },
+    {
+      "id": "a60",
+      "name": "Ben Bigger",
+      "source": "icone_de_perfil",
+      "circleID": "16",
+      "bytes": 4104,
+      "status": "ok"
+    },
+    {
+      "id": "a61",
+      "name": "Corin Wickes",
+      "source": "icone_de_perfil",
+      "circleID": "09",
+      "bytes": 6042,
+      "status": "ok"
+    },
+    {
+      "id": "a62",
+      "name": "Sunbringer",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 6374,
+      "status": "ok"
+    },
+    {
+      "id": "a63",
+      "name": "Robin",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 15252,
+      "status": "ok"
+    },
+    {
+      "id": "a64",
+      "name": "Kafka",
+      "source": "recorte_do_agente",
+      "circleID": null,
+      "bytes": 11862,
+      "status": "ok"
+    }
+  ]
+}
