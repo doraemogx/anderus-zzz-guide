@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-07T21:14:26.926567+00:00",
+  "checkedAt": "2026-11-07T21:18:44.352671+00:00",
   "counts": {
     "agents": {
       "ok": 65,
@@ -7,13 +7,13 @@
       "total": 65
     },
     "engines": {
-      "ok": 103,
-      "missing": 3,
+      "ok": 106,
+      "missing": 0,
       "total": 106
     },
     "discs": {
-      "ok": 30,
-      "missing": 2,
+      "ok": 32,
+      "missing": 0,
       "total": 32
     }
   },
@@ -23,585 +23,455 @@
         "id": "a0",
         "name": "Phoenix",
         "status": "ok",
-        "source": "https://i.gachabase.net/pjWvKjiqcrVXw62mVjjtK_3-o3UjrDqO7uaUdapJDv8/q%3A50/f%3Awebp/plain/zzz/assets/8f0be38216c1d38219a1cb97c18d76c2.png",
-        "width": 424,
-        "height": 424,
+        "source": "local",
         "bytes": 43464
       },
       {
         "id": "a1",
         "name": "Velina Airgid",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/163785/d5e2d9545a1490db7f6219c9d0787466_2876464395956313992.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 37724
       },
       {
         "id": "a10",
         "name": "Pyrois",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/163768/c348d5d938a3d4b63cc16c8ccb1e294b_3881191356598004278.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 28906
       },
       {
         "id": "a11",
         "name": "Starlight - Billy",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/163293/72203b341040aa1d5e41567bf776520f_1328464857447434543.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 30176
       },
       {
         "id": "a12",
         "name": "Promeia",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/163316/d8b0bb6abf166120cd1ac42d7ff30dfe_1970899984572226888.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 24284
       },
       {
         "id": "a13",
         "name": "Cissia",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/162680/585f3ee1e8c2b94705a63f5a825884cc_4908432112529369481.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 33972
       },
       {
         "id": "a14",
         "name": "Nangong Yu",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/162652/af24710d9e7d31f33c7a12589bd14ba2_604255830637894303.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 29224
       },
       {
         "id": "a15",
         "name": "Aria",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/161792/e1e816946b90b6af17d2a6beee7de6bf_6851365167422486772.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 38720
       },
       {
         "id": "a16",
         "name": "Sunna",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/161791/a434b4e933780b981ddb5f3921021f96_8036322301967591660.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 23342
       },
       {
         "id": "a17",
         "name": "Ye Shunguang",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/160762/173d01cbeacb3a3d5c9585fa6107918d_217473232024965946.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 23222
       },
       {
         "id": "a18",
         "name": "Zhao",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/160758/8b90f4ec335bba4b9322cc56acb0dd53_6349089187938925913.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 21180
       },
       {
         "id": "a19",
         "name": "Dialyn",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/160142/dc7b9329d1e95c990094ac368d07dcdf_1308477408469485834.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 19390
       },
       {
         "id": "a2",
         "name": "Jane Doe",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/124675/be75dc37b5f356bdebc358fa21b7086a_5376265045261362106.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 23060
       },
       {
         "id": "a20",
         "name": "Banyue",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/160168/5ca3559a147248da4114afa504397dd1_3443450437018539200.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 27006
       },
       {
         "id": "a21",
         "name": "Lucia",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/158985/e90ee65a51825d15b050771b11266ed2_5406952935168116492.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 17266
       },
       {
         "id": "a22",
         "name": "Yidhari",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/158997/312790c0e8e46c57b1017cb2dc1f4256_7313603203238124964.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 21560
       },
       {
         "id": "a23",
         "name": "Komano Manato",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/158996/2679e3fcafde73e483927972cf7d2ae1_8136552018718167046.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 18660
       },
       {
         "id": "a24",
         "name": "Orphie & Magus",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/157833/96b8690cbc3c06a1787dbbc024235e92_393693254733149336.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 27916
       },
       {
         "id": "a25",
         "name": "Seed",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/157829/786878e538b5fd6b6f9ef7243b8a6723_3026433832217459302.png",
-        "width": 424,
-        "height": 313,
+        "source": "local",
         "bytes": 20494
       },
       {
         "id": "a26",
         "name": "Yuzuha",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/156729/becee89b80a25a3d89d3dda4e1994bcd_7088484842189623518.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 26288
       },
       {
         "id": "a27",
         "name": "Alice",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/156728/a8237a45141a924a7fba8d74a91ac261_3295946505674175020.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 23410
       },
       {
         "id": "a28",
         "name": "Ju Fufu",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/155659/c47d1280baedc3e06d648835355697da_5057013715001391411.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 27482
       },
       {
         "id": "a29",
         "name": "Yixuan",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/155654/527a49361dc4d54a77126e39b45aa8f2_9209841707526508747.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 26636
       },
       {
         "id": "a3",
         "name": "Rina",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/113612/24f2740a52110a0491ae5bc49ecb23ba_4790537105761997346.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 31150
       },
       {
         "id": "a30",
         "name": "Pan Yinhu",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/155657/a85c9e2d346f14b2d6467217c6e5a5c8_4760102803573941038.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 23060
       },
       {
         "id": "a31",
         "name": "Vivian",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/154605/307b213b69532b3626dbb8a61623529b_7270360110938708640.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 24146
       },
       {
         "id": "a32",
         "name": "Hugo",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/154609/615e0e4747ebb6850da580197afd808d_1117746455351627130.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 27384
       },
       {
         "id": "a33",
         "name": "Soldier 0: Anby",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/129632/7cbb1cf6e5925d997777653c68b35981_1077773102639067869.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 23794
       },
       {
         "id": "a34",
         "name": "Trigger",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/129638/eb4fa741f6a0f0326fe38ae4e9251e2d_8201139830252731082.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 25238
       },
       {
         "id": "a35",
         "name": "Pulchra",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/129637/b4c279b96ee9da7cd8d8cc1d4c953a23_6222622343947038758.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 31046
       },
       {
         "id": "a36",
         "name": "Astra Yao",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/127387/6ab6842b1aa84556f176d87e0f41f8f3_4716046376600021245.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 27450
       },
       {
         "id": "a37",
         "name": "Evelyn Chevalier",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/127403/e90f841040d1b7f1d703dffebe2edf64_3255851908411847312.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 19164
       },
       {
         "id": "a38",
         "name": "Hoshimi Miyabi",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/103379/a0b6a3fedf5b19a224dad6332f5c9404_8648655379164550438.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 24308
       },
       {
         "id": "a39",
         "name": "Asaba Harumasa",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/126693/e3b951480021844f724594411b317f10_3435695605970332945.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 25912
       },
       {
         "id": "a4",
         "name": "Severian Lowell",
         "status": "ok",
-        "source": "https://rackoon.com.br/images/characters/s-rank/Severian%20Lowell/Severian%20Lowell_icon.webp",
-        "width": 283,
-        "height": 307,
+        "source": "local",
         "bytes": 23868
       },
       {
         "id": "a40",
         "name": "Tsukishiro Yanagi",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/126040/540d824077a048f0b73e22a068ef5276_6616923369095800098.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 20868
       },
       {
         "id": "a41",
         "name": "Lighter",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/126060/f47c1b283f33d8613af27ac949718128_6585648807276197340.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 20798
       },
       {
         "id": "a42",
         "name": "Burnice White",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/125214/9ccd4f5c1997318ec545a1f37bd23726_7904001525523783480.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 21632
       },
       {
         "id": "a43",
         "name": "Caesar King",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/125210/17762e78d1316369f91bf2b94741ab9b_1106127992573250826.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 24892
       },
       {
         "id": "a44",
         "name": "Qingyi",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/124660/a4a287ed2641a9ebdc8a139cf14c98a9_4627928460942222748.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 22634
       },
       {
         "id": "a45",
         "name": "Seth Lowell",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/124700/7e53d9ab9b00cc4a90be3e09b2385b1e_7742588341815502128.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 27530
       },
       {
         "id": "a46",
         "name": "Ellen Joe",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/113671/59a98a82a886f49c3b1b89bdc77cbb36_21606237077173472.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 26322
       },
       {
         "id": "a47",
         "name": "Von Lycaon",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/102529/abe371aa7c6c63bfbeaff9317bf0e92d_4940194306692044383.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 22448
       },
       {
         "id": "a48",
         "name": "Soukaku",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/103295/3216cf9232d277ceec1a8d0774496178_3552222678670728442.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 26454
       },
       {
         "id": "a49",
         "name": "Zhu Yuan",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/122782/429d3e32cd49a1fb11cf4a2e802e0fef_7560478538216099357.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 19612
       },
       {
         "id": "a5",
         "name": "Roxy Ifrita Pryce",
         "status": "ok",
-        "source": "https://rackoon.com.br/images/characters/s-rank/Roxy%20Ifrita%20Pryce/Roxy%20Ifrita%20Pryce_icon.webp",
-        "width": 283,
-        "height": 307,
+        "source": "local",
         "bytes": 25872
       },
       {
         "id": "a50",
         "name": "Soldier 11",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/102292/62ce86e1b3fd01dec5f855f68a59e34c_2287457318617214984.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 18606
       },
       {
         "id": "a51",
         "name": "Nicole Demara",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/102183/346659f4fb213f3075aee813997b9b31_990728217161469939.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 24036
       },
       {
         "id": "a52",
         "name": "Grace Howard",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/113532/e30489408ee43cd0f2c089a9d0859143_7946847913858642631.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 19912
       },
       {
         "id": "a53",
         "name": "Nekomata",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/102427/2aaff92fc1ef7183af44bfaf83c436af_4830154317591375669.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 25038
       },
       {
         "id": "a54",
         "name": "Koleda Belobog",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/102708/6e4c67af60cd634ce18433ba42527422_353400758901684502.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 37234
       },
       {
         "id": "a55",
         "name": "Lucy",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/124308/dfc4ba20f7d676267870771b3a075b86_7390214467576052477.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 31238
       },
       {
         "id": "a56",
         "name": "Anby Demara",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/102103/1cf1ab68f06c0d2115ce382e6804e714_3383703376437037229.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 21922
       },
       {
         "id": "a57",
         "name": "Billy Kid",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/102184/96e7d507f3aa3a6ccd9de17b97b1c062_6037497242185281511.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 25414
       },
       {
         "id": "a58",
         "name": "Piper",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/124310/a74a0121ab4ef5f83fe73abe72726593_6795023243569401643.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 23946
       },
       {
         "id": "a59",
         "name": "Anton Ivanov",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/102769/ccc445fe52e84610e3e9343d34276899_9055334861656440129.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 23368
       },
       {
         "id": "a6",
         "name": "Claret Flint",
         "status": "ok",
-        "source": "https://rackoon.com.br/images/characters/s-rank/Claret%20Flint/Claret%20Flint_icon.webp",
-        "width": 283,
-        "height": 307,
+        "source": "local",
         "bytes": 25488
       },
       {
         "id": "a60",
         "name": "Ben Bigger",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/102852/e81f1c2978debb5b7f6a33187572cc26_641108854745438561.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 25428
       },
       {
         "id": "a61",
         "name": "Corin Wickes",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/102477/b2fb8efc534c5eaa2206ccfee19971f9_587151823061469836.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 28834
       },
       {
         "id": "a62",
         "name": "Sunbringer",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/163799/94cd1934c578d0a1598e0617fc37a2d6_8373298293438677571.jpg",
-        "width": 424,
-        "height": 239,
+        "source": "local",
         "bytes": 19772
       },
       {
         "id": "a63",
         "name": "Robin",
         "status": "ok",
-        "source": "https://i.gachabase.net/Kqtwopikv_PF_ha9aITgx5K2mNhneMBRCU6wACKu6mA/q%3A50/f%3Awebp/plain/zzz/assets/0cbeab1bc0949f02bcbeac87635c4fca.png",
-        "width": 424,
-        "height": 424,
+        "source": "local",
         "bytes": 37586
       },
       {
         "id": "a64",
         "name": "Kafka",
         "status": "ok",
-        "source": "https://i.gachabase.net/Uk8uaC95xgJVLvJggdK-c65i50z9sUydML2IvghSyP4/q%3A50/f%3Awebp/plain/zzz/assets/49ae4324e2739b53b1fbed2c062bf21d.png",
-        "width": 424,
-        "height": 424,
+        "source": "local",
         "bytes": 34330
       },
       {
         "id": "a7",
         "name": "Sigrid de L'Azur",
         "status": "ok",
-        "source": "https://rackoon.com.br/images/characters/s-rank/Sigrid%20de%20L%27Azur/Sigrid%20de%20L%27Azur_icon.webp",
-        "width": 283,
-        "height": 307,
+        "source": "local",
         "bytes": 25500
       },
       {
         "id": "a8",
         "name": "Remielle Dan",
         "status": "ok",
-        "source": "https://rackoon.com.br/images/characters/s-rank/Remielle%20Dan/Remielle%20Dan_icon.webp",
-        "width": 283,
-        "height": 307,
+        "source": "local",
         "bytes": 24672
       },
       {
         "id": "a9",
         "name": "Norma Hollowell",
         "status": "ok",
-        "source": "https://fastcdn.hoyoverse.com/content-v2/nap/163786/a29aae92640f03e7b757fe9d566e293a_7326536601431031510.png",
-        "width": 402,
-        "height": 424,
+        "source": "local",
         "bytes": 35084
       }
     ],
@@ -610,996 +480,748 @@
         "id": "w0",
         "name": "Angel in the Shell",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1501.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16428
       },
       {
         "id": "w1",
         "name": "Bellicose Blaze",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1301.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16476
       },
       {
         "id": "w10",
         "name": "Elegant Vanity",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1311.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18878
       },
       {
         "id": "w100",
         "name": "[Reverb] Mark II",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_05.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15388
       },
       {
         "id": "w101",
         "name": "[Reverb] Mark III",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_06.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 14944
       },
       {
         "id": "w102",
         "name": "[Vortex] Arrow",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_08.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 14390
       },
       {
         "id": "w103",
         "name": "[Vortex] Hatchet",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_09.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 14510
       },
       {
         "id": "w104",
         "name": "[Vortex] Revolver",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_07.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 13278
       },
       {
         "id": "w105",
         "name": "Kafka Test W-Engine",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/kafka-test-w-engine.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 22578
       },
       {
         "id": "w11",
         "name": "Flamemaker Shaker",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1171.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 17340
       },
       {
         "id": "w12",
         "name": "Flight of Fancy",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1331.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15684
       },
       {
         "id": "w13",
         "name": "Frostfall Sickle",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1541.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15326
       },
       {
         "id": "w14",
         "name": "Fusion Compiler",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1181.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18574
       },
       {
         "id": "w15",
         "name": "Hailstorm Shrine",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1091.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 20014
       },
       {
         "id": "w16",
         "name": "Half-Sugar Bunny",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1341.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 20110
       },
       {
         "id": "w17",
         "name": "Heartstring Nocturne",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1321.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 17958
       },
       {
         "id": "w18",
         "name": "Hellfire Gears",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1101.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18410
       },
       {
         "id": "w19",
         "name": "Ice-Jade Teapot",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1251.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 14854
       },
       {
         "id": "w2",
         "name": "Blazing Laurel",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1161.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18832
       },
       {
         "id": "w20",
         "name": "Incarcerating Grip",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/incarcerating-grip.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15728
       },
       {
         "id": "w21",
         "name": "Joyau Dore",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1561.webp",
-        "width": 211,
-        "height": 280,
+        "source": "local",
         "bytes": 22158
       },
       {
         "id": "w22",
         "name": "Knight's Extolment",
-        "status": "missing",
-        "attempts": [
-          {
-            "url": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/knight-s-extolment.webp",
-            "error": "HTTP Error 404: Not Found"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Knight%27s%20Extolment%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Knight%27s%20Extolment%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Knight's%20Extolment%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          }
-        ]
+        "status": "ok",
+        "source": "https://cdn.gachabase.net/zzz/assets/33618ddbd703e5f6dddc93a650391f92.png",
+        "width": 275,
+        "height": 280,
+        "bytes": 22556
       },
       {
         "id": "w23",
         "name": "Kraken's Cradle",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1051.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16782
       },
       {
         "id": "w24",
         "name": "Metanukimorphosis",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1411.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 14510
       },
       {
         "id": "w25",
         "name": "Myriad Eclipse",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1291.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 19784
       },
       {
         "id": "w26",
         "name": "Neon Fantasies",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1511.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 20286
       },
       {
         "id": "w27",
         "name": "Ode of Resurrected Wings",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/ode-of-resurrected-wings.webp",
-        "width": 156,
-        "height": 156,
+        "source": "local",
         "bytes": 5070
       },
       {
         "id": "w28",
         "name": "Plume of Rebirth",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/plume-of-rebirth.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 14228
       },
       {
         "id": "w29",
         "name": "Practiced Perfection",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1401.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15718
       },
       {
         "id": "w3",
         "name": "Chief Sidekick",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1571.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15484
       },
       {
         "id": "w30",
         "name": "Qingming Birdcage",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1371.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 30442
       },
       {
         "id": "w31",
         "name": "Riot Suppressor Mark VI",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1241.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 17278
       },
       {
         "id": "w32",
         "name": "Roaring Fur-nace",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1391.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 20898
       },
       {
         "id": "w33",
         "name": "Robin's Exclusive W-Engine",
-        "status": "missing",
-        "attempts": [
-          {
-            "url": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/robin-s-exclusive-w-engine.webp",
-            "error": "HTTP Error 404: Not Found"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Robin%27s%20Exclusive%20W-Engine%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Robin%27s%20Exclusive%20W-Engine%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Robin's%20Exclusive%20W-Engine%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          }
-        ]
+        "status": "ok",
+        "source": "https://i.gachabase.net/8o2RqRNc6f9bYRj_plT_yPAUdxIUUKv_xiUlSgxadRE/q%3A50/f%3Awebp/plain/zzz/assets/99cd8677cbacd45ba2bd7f3de2ee0cfe.png",
+        "width": 239,
+        "height": 210,
+        "bytes": 10320
       },
       {
         "id": "w34",
         "name": "Serpentine Seeker",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1521.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18276
       },
       {
         "id": "w35",
         "name": "Severed Innocence",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1381.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 17858
       },
       {
         "id": "w36",
         "name": "Sharpened Stinger",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1261.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15232
       },
       {
         "id": "w37",
         "name": "Sol Exuvia",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_Common_04.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16710
       },
       {
         "id": "w38",
         "name": "Spectral Gaze",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1361.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 13812
       },
       {
         "id": "w39",
         "name": "Starlight Rider Faceplate",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1531.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15586
       },
       {
         "id": "w4",
         "name": "Cloudcleave Radiance",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1431.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15958
       },
       {
         "id": "w40",
         "name": "Steel Cushion",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1021.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16202
       },
       {
         "id": "w41",
-        "name": "Sunbringer's Signature",
-        "status": "missing",
-        "attempts": [
-          {
-            "url": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/sunbringer-s-signature.webp",
-            "error": "HTTP Error 404: Not Found"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Sunbringer%27s%20Signature%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Sunbringer%27s%20Signature%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/W-Engine%20Sunbringer's%20Signature%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          }
-        ]
+        "name": "Dragonfire Mirage",
+        "status": "ok",
+        "source": "https://static.icy-veins.com/images/zenless-zone-zero/portraits/w-engines/sunbringers-signature.webp",
+        "width": 64,
+        "height": 64,
+        "bytes": 1872
       },
       {
         "id": "w42",
         "name": "The Brimstone",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1041.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16118
       },
       {
         "id": "w43",
         "name": "The Restrained",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1141.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 17960
       },
       {
         "id": "w44",
         "name": "Thoughtbop",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1491.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 22226
       },
       {
         "id": "w45",
         "name": "Timeweaver",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1221.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15782
       },
       {
         "id": "w46",
         "name": "Tusks of Fury",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1071.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 17970
       },
       {
         "id": "w47",
         "name": "Weeping Cradle",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1211.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16538
       },
       {
         "id": "w48",
         "name": "Wrathful Vajra",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1471.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18716
       },
       {
         "id": "w49",
         "name": "Yesterday Calls",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1481.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 19514
       },
       {
         "id": "w5",
         "name": "Cordis Germina",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1461.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16546
       },
       {
         "id": "w50",
         "name": "Zanshin Herb Case",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1201.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15826
       },
       {
         "id": "w51",
         "name": "Bashful Demon",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1131.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15604
       },
       {
         "id": "w52",
         "name": "Big Cylinder",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1121.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16542
       },
       {
         "id": "w53",
         "name": "Bloodmarrow Coffer",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/bloodmarrow-coffer.webp",
-        "width": 156,
-        "height": 156,
+        "source": "local",
         "bytes": 5532
       },
       {
         "id": "w54",
         "name": "Boisterous Echoes",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/boisterous-echoes.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 19110
       },
       {
         "id": "w55",
         "name": "Box Cutter",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1351.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 17140
       },
       {
         "id": "w56",
         "name": "Bunny Band",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_10.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16234
       },
       {
         "id": "w57",
         "name": "Candlelit Scheme",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/candlelit-scheme.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16044
       },
       {
         "id": "w58",
         "name": "Cannon Rotor",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_Common_01.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15800
       },
       {
         "id": "w59",
         "name": "Catty Luck",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/catty-luck.webp",
-        "width": 156,
-        "height": 156,
+        "source": "local",
         "bytes": 5622
       },
       {
         "id": "w6",
         "name": "Crimson Moon Casket",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/crimson-moon-casket.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 20042
       },
       {
         "id": "w60",
         "name": "Cauldron of Clarity",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_19.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18828
       },
       {
         "id": "w61",
         "name": "Demara Battery Mark II",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1011.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18976
       },
       {
         "id": "w62",
         "name": "Drill Rig - Red Axis",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1111.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 19850
       },
       {
         "id": "w63",
         "name": "Electro-Lip Gloss",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_09.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 12710
       },
       {
         "id": "w64",
         "name": "Gilded Blossom",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_13.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 22548
       },
       {
         "id": "w65",
         "name": "Grill O'Wisp",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1441.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15578
       },
       {
         "id": "w66",
         "name": "Housekeeper",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1061.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 19696
       },
       {
         "id": "w67",
         "name": "Kaboom the Cannon",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1151.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18236
       },
       {
         "id": "w68",
         "name": "Marcato Desire",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_15.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 20762
       },
       {
         "id": "w69",
         "name": "Original Transmorpher",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_07.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15420
       },
       {
         "id": "w7",
         "name": "Crimson Thirst",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/crimson-thirst.webp",
-        "width": 156,
-        "height": 156,
+        "source": "local",
         "bytes": 5000
       },
       {
         "id": "w70",
         "name": "Peacekeeper - Specialized",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1271.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16896
       },
       {
         "id": "w71",
         "name": "Precious Fossilized Core",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_06.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 11464
       },
       {
         "id": "w72",
         "name": "Puzzle Sphere",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_12.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 14280
       },
       {
         "id": "w73",
         "name": "Radiowave Journey",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_14.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18566
       },
       {
         "id": "w74",
         "name": "Rainforest Gourmet",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_03.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16866
       },
       {
         "id": "w75",
         "name": "Reel Projector",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_16.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 17870
       },
       {
         "id": "w76",
         "name": "Roaring Ride",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1281.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 19758
       },
       {
         "id": "w77",
         "name": "Six Shooter",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_Common_03.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15600
       },
       {
         "id": "w78",
         "name": "Slice of Time",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_02.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18034
       },
       {
         "id": "w79",
         "name": "Spring Embrace",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_11.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16728
       },
       {
         "id": "w8",
         "name": "Deep Sea Visitor",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1191.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 12470
       },
       {
         "id": "w80",
         "name": "Starlight Engine",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_04.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 13672
       },
       {
         "id": "w81",
         "name": "Starlight Engine Replica",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1081.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18002
       },
       {
         "id": "w82",
         "name": "Steam Oven",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_05.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 17654
       },
       {
         "id": "w83",
         "name": "Street Superstar",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_01.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15302
       },
       {
         "id": "w84",
         "name": "The Simmering Pot",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_20.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18310
       },
       {
         "id": "w85",
         "name": "The Vault",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1031.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 18702
       },
       {
         "id": "w86",
         "name": "Tremor Trigram Vessel",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_1421.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 20258
       },
       {
         "id": "w87",
         "name": "Unfettered Game Ball",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_Common_02.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 16376
       },
       {
         "id": "w88",
         "name": "Weeping Gemini",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_A_Common_08.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15848
       },
       {
         "id": "w89",
         "name": "[Cinder] Cobalt",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_15.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 14070
       },
       {
         "id": "w9",
         "name": "Dreamlit Hearth",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_S_1451.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 24374
       },
       {
         "id": "w90",
         "name": "[Identity] Base",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_13.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 14906
       },
       {
         "id": "w91",
         "name": "[Identity] Inflection",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_14.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 14382
       },
       {
         "id": "w92",
         "name": "[Lunar] Decrescent",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_02.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 12172
       },
       {
         "id": "w93",
         "name": "[Lunar] Noviluna",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_03.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 14268
       },
       {
         "id": "w94",
         "name": "[Lunar] Pleniluna",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_01.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 14268
       },
       {
         "id": "w95",
         "name": "[Lunar] Semiluna",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/w-engines/lunar-semiluna.webp",
-        "width": 156,
-        "height": 156,
+        "source": "local",
         "bytes": 5480
       },
       {
         "id": "w96",
         "name": "[Magnetic Storm] Alpha",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_10.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 11948
       },
       {
         "id": "w97",
         "name": "[Magnetic Storm] Bravo",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_11.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 15204
       },
       {
         "id": "w98",
         "name": "[Magnetic Storm] Charlie",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_12.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 13606
       },
       {
         "id": "w99",
         "name": "[Reverb] Mark I",
         "status": "ok",
-        "source": "https://static.nanoka.cc/assets/zzz/Weapon_B_Common_04.webp",
-        "width": 280,
-        "height": 280,
+        "source": "local",
         "bytes": 13792
       }
     ],
@@ -1608,316 +1230,228 @@
         "id": "d0",
         "name": "Crimson Wing Nocturne",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/crimson-wing-nocturne.webp",
-        "width": 96,
-        "height": 96,
+        "source": "local",
         "bytes": 3310
       },
       {
         "id": "d1",
         "name": "Rank Stele",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/rank-stele.webp",
-        "width": 96,
-        "height": 96,
+        "source": "local",
         "bytes": 3310
       },
       {
         "id": "d10",
         "name": "Moonlight Lullaby",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/moonlight-lullaby.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 6826
       },
       {
         "id": "d11",
         "name": "Dawn's Bloom",
-        "status": "missing",
-        "attempts": [
-          {
-            "url": "https://api.hakush.in/zzz/UI/SuitDawnsBloom.webp",
-            "error": "<urlopen error [Errno -2] Name or service not known>"
-          },
-          {
-            "url": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/dawn-s-bloom.webp",
-            "error": "HTTP Error 404: Not Found"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Dawn%27s%20Bloom%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Dawn's%20Bloom%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          }
-        ]
+        "status": "ok",
+        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/dawns-bloom.webp",
+        "width": 152,
+        "height": 152,
+        "bytes": 5690
       },
       {
         "id": "d12",
         "name": "King of the Summit",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/king-of-the-summit.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 8150
       },
       {
         "id": "d13",
         "name": "Yunkui Tales",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/yunkui-tales.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 5964
       },
       {
         "id": "d14",
         "name": "Phaethon's Melody",
-        "status": "missing",
-        "attempts": [
-          {
-            "url": "https://api.hakush.in/zzz/UI/SuitSavior.webp",
-            "error": "<urlopen error [Errno -2] Name or service not known>"
-          },
-          {
-            "url": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/phaethon-s-melody.webp",
-            "error": "HTTP Error 404: Not Found"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Phaethon%27s%20Melody%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          },
-          {
-            "url": "https://zenless-zone-zero.fandom.com/wiki/Special:Redirect/file/Drive%20Disc%20Phaethon's%20Melody%20Icon.png",
-            "error": "HTTP Error 403: Forbidden"
-          }
-        ]
+        "status": "ok",
+        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/phaethons-melody.webp",
+        "width": 152,
+        "height": 152,
+        "bytes": 4686
       },
       {
         "id": "d15",
         "name": "Shadow Harmony",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/shadow-harmony.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 5618
       },
       {
         "id": "d16",
         "name": "Astral Voice",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/astral-voice.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 6988
       },
       {
         "id": "d17",
         "name": "Branch & Blade Song",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/branch-blade-song.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 6326
       },
       {
         "id": "d18",
         "name": "Fanged Metal",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/fanged-metal.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 6674
       },
       {
         "id": "d19",
         "name": "Polar Metal",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/polar-metal.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 4916
       },
       {
         "id": "d2",
         "name": "Thorned Rose",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/thorned-rose.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 7926
       },
       {
         "id": "d20",
         "name": "Thunder Metal",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/thunder-metal.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 4972
       },
       {
         "id": "d21",
         "name": "Chaotic Metal",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/chaotic-metal.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 6512
       },
       {
         "id": "d22",
         "name": "Inferno Metal",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/inferno-metal.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 4664
       },
       {
         "id": "d23",
         "name": "Proto Punk",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/proto-punk.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 4806
       },
       {
         "id": "d24",
         "name": "Chaos Jazz",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/chaos-jazz.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 3752
       },
       {
         "id": "d25",
         "name": "Swing Jazz",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/swing-jazz.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 5488
       },
       {
         "id": "d26",
         "name": "Soul Rock",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/soul-rock.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 4732
       },
       {
         "id": "d27",
         "name": "Hormone Punk",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/hormone-punk.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 3768
       },
       {
         "id": "d28",
         "name": "Freedom Blues",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/freedom-blues.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 4176
       },
       {
         "id": "d29",
         "name": "Shockstar Disco",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/shockstar-disco.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 6436
       },
       {
         "id": "d3",
         "name": "Feathered Fate",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/feathered-fate.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 5654
       },
       {
         "id": "d30",
         "name": "Puffer Electro",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/puffer-electro.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 3286
       },
       {
         "id": "d31",
         "name": "Woodpecker Electro",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/woodpecker-electro.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 4450
       },
       {
         "id": "d4",
         "name": "The Sky Ablaze",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/the-sky-ablaze.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 7320
       },
       {
         "id": "d5",
         "name": "Wuthering Salon",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/wuthering-salon.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 8508
       },
       {
         "id": "d6",
         "name": "Notes From the Chained",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/notes-from-the-chained.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 5684
       },
       {
         "id": "d7",
         "name": "Bunny in Wonderland",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/bunny-in-wonderland.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 5824
       },
       {
         "id": "d8",
         "name": "Shining Aria",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/shining-aria.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 4462
       },
       {
         "id": "d9",
         "name": "White Water Ballad",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/white-water-ballad.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 7564
       }
     ]
