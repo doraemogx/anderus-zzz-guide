@@ -57,6 +57,14 @@ if(engineCount!==106)throw new Error('Esperados 106 motores, encontrado '+engine
 await page.waitForTimeout(1000);
 const firstEngine=await page.locator('.itemCard').first().innerText();
 if(!firstEngine.includes('Anjo na Concha'))throw new Error('Tradução de motores não foi aplicada: '+firstEngine.slice(0,100));
+const engineSearch=page.locator('input[data-filter="q"]');
+await engineSearch.fill('Pluma Renascente');
+await page.waitForTimeout(250);
+const translatedHits=await page.locator('.itemCard').count();
+if(translatedHits!==1)throw new Error('Pesquisa PT-BR do motor falhou: encontrados '+translatedHits);
+const translatedTitle=await page.locator('.itemCard h3').first().innerText();
+if(!translatedTitle.includes('Pluma Renascente'))throw new Error('Resultado de motor traduzido incorreto: '+translatedTitle);
+await engineSearch.fill('');
 await page.locator('#mobNav button[data-nav="account"]').click();
 await page.waitForTimeout(300);
 await page.locator('#mobNav button[data-nav="updates"]').click();
