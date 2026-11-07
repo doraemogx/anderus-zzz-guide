@@ -3,8 +3,78 @@
   "checkedAt": "2026-11-07",
   "officialVersion": "3.3",
   "betaVersion": "3.4.3",
-  "betaRevision": "20278274",
+  "betaRevision": "20280288",
   "entries": [
+    {
+      "id": "audit-20261107-media",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Auditoria visual: 65 agentes, 106 motores, 32 discos com imagens locais",
+      "summary": "203 artes espelhadas, decodificadas e armazenadas no próprio repositório após análise de fontes. Imagens não dependem mais apenas dos links originais.",
+      "areas": [
+        "Agentes",
+        "Motores",
+        "Discos"
+      ],
+      "url": "https://github.com/doraemogx/anderus-zzz-guide/blob/main/data/media-status.json"
+    },
+    {
+      "id": "audit-20261107-characters",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Revisão de classificações e elementos do elenco",
+      "summary": "Starlight Billy S; Pyrois I; Yixuan Sépia; Ye Shunguang Lâmina Afiada. 56 fichas confrontadas em rank, elemento e função com banco estruturado; personagens recentes e beta revisados separadamente.",
+      "areas": [
+        "Ranks",
+        "Elementos",
+        "Filtros"
+      ],
+      "url": "https://github.com/doraemogx/anderus-zzz-guide/commits/main/"
+    },
+    {
+      "id": "audit-20261107-builds",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Builds revisadas para Phoenix, Velina, Jane e Rina",
+      "summary": "Rina com Moonlight Lullaby 4p + Puffer Electro 2p; Velina com Wuthering Salon 4p + Energia 2p; condições e marcos de Phoenix e Jane conferidos.",
+      "areas": [
+        "Conta do Anderus",
+        "Builds",
+        "Passivas"
+      ]
+    },
+    {
+      "id": "audit-20261107-beta",
+      "date": "2026-11-07",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Beta 3.4.3 · hotfix 20280288",
+      "summary": "Atualização de teste de 7 de novembro detectada; conteúdo de habilidades permanece preliminar e demanda revisão antes de alterar as fichas.",
+      "areas": [
+        "Beta",
+        "Kafka",
+        "Sunbringer",
+        "Robin"
+      ],
+      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+    },
+    {
+      "id": "audit-20261107-betaengine",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Revisão dos motores beta de Sunbringer e Robin",
+      "summary": "A assinatura de Sunbringer foi identificada como Dragonfire Mirage; descrição do motor de Robin corrigida para escudos, Laceração e Aftershock.",
+      "areas": [
+        "Motores",
+        "Sunbringer",
+        "Robin"
+      ],
+      "url": "https://zzz.gachabase.net/w-engines/beta?lang=en"
+    },
     {
       "id": "guide-3",
       "date": "2026-11-07",
