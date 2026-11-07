@@ -437,3 +437,41 @@ body.and-v5-mode #and-v5{display:block!important;position:relative;z-index:10;is
 #and-v5 .v5-bosses span{padding:9px 12px;border-radius:7px;background:#29353c;font-size:12px;color:#e0eaea}
 @media(max-width:850px){#and-v5 .v5-reclist{grid-template-columns:repeat(2,minmax(0,1fr))}#and-v5 .v5-phase-entries{grid-template-columns:1fr}}
 @media(max-width:540px){#and-v5 .v5-reclist{grid-template-columns:1fr}#and-v5 .v5-bosses{grid-template-columns:1fr}}
+
+
+/* V5.3: busca universal e prévia da Conta do Anderus alinhada à proposta híbrida A+B */
+#and-v5 .v5-empty-avatar{width:66px;height:66px;display:grid;place-items:center;border:2px dashed #687972;border-radius:50%;background:#1b252a;color:#defa37;font:900 25px 'Barlow Condensed',sans-serif;margin-left:-9px;flex:none}
+#and-v5 .v5-preview-state .v5-state-warn{background:#2f3130;color:#d2d9cc;border-color:#687773}
+#and-v5 .v5-preview-state .v5-state-ok{background:#264f31;color:#dcffc6;border-color:#9be265}
+#and-v5 .v5-preview-state .v5-review-cta{display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;min-height:35px;padding:7px 10px;background:var(--v5-yellow);border:1px solid #f2ff5d;border-radius:100px;color:#0b1517;font-size:10px;line-height:1.1;font-weight:900;box-shadow:0 3px 17px #e9ff1631}
+#and-v5 .v5-preview-state .v5-review-cta:active{transform:scale(.98)}
+#and-v5 .v5-global-results{max-width:1060px}
+#and-v5 .v5-global-results .v5-search-all{display:flex;max-width:820px;min-height:60px;margin:15px 0 24px;border:2px solid var(--v5-yellow);box-shadow:0 0 0 3px #eaff151a}
+#and-v5 .v5-global-results .v5-search-all input{border:0;outline:0;background:transparent;box-shadow:none;min-width:0;flex:1}
+#and-v5 .v5-search-count{color:#aebfc2;margin:12px 0 18px}
+#and-v5 .v5-search-count b{color:#f3ffcf}
+#and-v5 .v5-search-empty{border:1px dashed #6b7a75;border-radius:12px;background:linear-gradient(135deg,#222e2f,#141e22);padding:26px;color:#d3dfde;line-height:1.7}
+#and-v5 .v5-search-group{margin:32px 0}
+#and-v5 .v5-search-group h2{display:flex;align-items:baseline;gap:11px;border-bottom:1px solid #3a5151;padding-bottom:12px;margin-bottom:12px;font-size:26px;color:#f4fff0}
+#and-v5 .v5-search-group h2 small{font-size:11px;color:var(--v5-yellow);font-family:'DM Sans',sans-serif;white-space:nowrap}
+#and-v5 .v5-search-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+#and-v5 .v5-search-hit{width:100%;min-width:0;text-align:left;display:flex;align-items:center;gap:13px;color:#f2f7f4;background:linear-gradient(135deg,#202d32,#121b20);border:1px solid #46595e;border-radius:11px;padding:10px;transition:border-color .15s,transform .15s}
+#and-v5 .v5-search-hit:hover{border-color:var(--v5-yellow);transform:translateY(-1px)}
+#and-v5 .v5-search-hit>img{width:66px;height:66px;flex:none;border-radius:8px;object-fit:cover;background:#2b363c}
+#and-v5 .v5-search-hit>span{display:flex;flex:1;min-width:0;flex-direction:column;gap:3px}
+#and-v5 .v5-search-hit strong{font-size:13px;overflow-wrap:anywhere;line-height:1.35}
+#and-v5 .v5-search-hit small{font-size:10px;line-height:1.5;color:#a8c0c4}
+#and-v5 .v5-search-hit>svg:last-child{flex:none;color:var(--v5-yellow)}
+@media(max-width:640px){
+ #and-v5 .v5-empty-avatar{width:52px;height:52px;font-size:22px}
+ #and-v5 .v5-preview-state .v5-review-cta{font-size:9px;min-height:32px;padding:6px 9px}
+ #and-v5 .v5-search-grid{grid-template-columns:1fr}
+ #and-v5 .v5-search-group{margin:23px 0}
+ #and-v5 .v5-search-group h2{font-size:23px}
+ #and-v5 .v5-global-results .v5-search-all{min-height:52px}
+}
+@media(max-width:370px){
+ #and-v5 .v5-empty-avatar{width:45px;height:45px}
+ #and-v5 .v5-previewrow{gap:8px}
+ #and-v5 .v5-preview-state .v5-review-cta{font-size:8px;padding:5px 7px}
+}
