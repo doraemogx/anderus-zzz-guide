@@ -138,6 +138,56 @@ def find_build(lines):
     out["secundarios"]=grab("Atributos Secundários",["Ordem de Habilidades","Melhor Combinação"])
     return out
 
+def extract_mindscapes(soup,role=""):
+    """Extrai títulos e parâmetros factuais. Não republica descrições do jogo na íntegra."""
+    lines=line_text(soup)
+    start=next((i for i,x in enumerate(lines) if x.strip() in ("Talentos","Mindscape Cinema","Cinema Mental")),None)
+    if start is None:return []
+    chunk=lines[start+1:]
+    endings=("Contato","Política de Privacidade","Sobre Nós","Legal","Atualizações Recentes","Aviso legal")
+    out=[]
+    for i in range(1,7):
+        token="M"+str(i)
+        idx=next((j for j,x in enumerate(chunk) if x.strip()==token),None)
+        if idx is None:
+            out.append({"nivel":i,"nome":"Sem informação confirmada","dados":[],"mecanicas":[],"resumo":"Este efeito ainda não está validado.","verificado":False})
+            continue
+        next_i=next((j for j in range(idx+1,len(chunk)) if re.fullmatch(r"M[1-6]",chunk[j].strip()) or any(chunk[j].startswith(z) for z in endings)),len(chunk))
+        seg=chunk[idx+1:next_i]
+        title=next((x for x in seg if x.strip() not in ("Image","Imagem") and not x.startswith("Image:")),f"Mindscape {i}")
+        effect=" ".join(seg[1:])
+        params=list(dict.fromkeys(re.findall(r"\b\d+(?:[.,]\d+)?(?:%|s|m)?\b",effect)))[:18]
+        mechanics=[]
+        rules=[
+            ("CRIT","Crítico"),("ATQ","Ataque"),("Dano","Dano"),("Anomalia","Anomalia"),
+            ("DEF","Defesa"),("Resistência","Resistência"),("Energia","Energia"),
+            ("Escudo","Escudo"),("Atordoamento","Atordoamento"),("Ataque Básico","Ataque básico"),
+            ("Ataque Especial","Especial"),("Supremo","Suprema"),
+            ("Esquiva","Esquiva"),("Assistência","Assistência"),("Cadeia","Ataque em cadeia"),
+            ("Proficiência","Proficiência"),("Maestria","Maestria"),("duração","Duração"),
+            ("acúmulos","Acúmulos"),("estado","Estado de combate"),
+        ]
+        for needle,term in rules:
+            if needle.lower() in effect.lower() and term not in mechanics:mechanics.append(term)
+        if i in (3,5):
+            summary="Eleva em dois níveis as categorias principais de habilidades. É uma melhoria de progressão; não substitui os efeitos exclusivos de outras Mindscapes."
+        elif "ignora" in effect.lower() and ("DEF" in effect or "Resistência" in effect):
+            summary="Introduz ou amplia a capacidade de ignorar parte da defesa ou resistência. O ganho real depende da mecânica atingida e de outros redutores presentes no time."
+        elif "acúmulo" in effect.lower() or "recupera" in effect.lower():
+            summary="Altera a geração, recuperação ou consumo de recursos do kit. Verifique se melhora a frequência das rotações e não apenas um golpe isolado."
+        elif "taxa crit" in effect.lower() or "dano crit" in effect.lower():
+            summary="Modifica os atributos de crítico ou a condição de ativação do dano crítico. O efeito só é aproveitado quando a mecânica descrita está ativa."
+        elif "dano" in effect.lower():
+            summary="Amplia o potencial de dano em condições específicas do kit. O valor do benefício depende da rotação, do tempo em campo e da equipe."
+        elif "energia" in effect.lower():
+            summary="Afeta a economia de energia ou a frequência das habilidades. Pode reduzir o intervalo entre ativações importantes."
+        else:
+            summary="Modifica uma regra do kit ou a interação do agente com a equipe. Os indicadores abaixo identificam as mecânicas envolvidas; a prioridade depende da build."
+        out.append({"nivel":i,"nome":title[:120],"dados":params,
+                    "mecanicas":mechanics[:10],"resumo":summary,
+                    "verificado":True,"nivelHabilidades":2 if i in (3,5) else 0})
+    return out
+
 def parse_one(a,links):
     slug=find_slug(a,links)
     urls=[BASE+"characters/"+slug]
@@ -152,7 +202,7 @@ def parse_one(a,links):
             lines=line_text(soup)
             heading=soup.find("h1")
             result={"id":a["id"],"name":a["name"],"ptName":txt(heading)[:90] if heading else a["name"],"situacao":"beta" if a.get("beta") else "publicado",
-                    "stats":extract_stats(soup),"habilidades":extract_skills(soup),
+                    "stats":extract_stats(soup),"habilidades":extract_skills(soup),"mindscapes":extract_mindscapes(soup,a.get("role","")),
                     "prioridade":build_skill_prio(lines),"build":find_build(lines),"reference":url}
             result["qualidade"]={"estatisticas":bool(result["stats"]),"movimentos":len(result["habilidades"]),"metricas":sum(len(x["numeros"]) for x in result["habilidades"])}
             return result
