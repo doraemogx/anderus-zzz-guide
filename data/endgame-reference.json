@@ -1,0 +1,165 @@
+{
+  "schema": 1,
+  "version": "3.3",
+  "published": "2026-10-21",
+  "source": "Comunicado oficial 3.3 HoYoverse — Journey to the Sky",
+  "sourceUrl": "https://zenless.hoyoverse.com/m/en-us/news/166963",
+  "notice": "Referência da versão 3.3. As rotações de endgame mudam durante a versão; não confunda estas fases publicadas com o ciclo que está ativo hoje no seu servidor.",
+  "shiyu": [
+    {
+      "phase": 1,
+      "buffs": [
+        {
+          "label": "Anomalia Fogo",
+          "text": "Dano de Fogo de agentes de Anomalia +20%; acertos críticos de Anomalia podem recuperar Energia e fortalecer o dano de Anomalia temporariamente.",
+          "favRole": "Anomalia",
+          "favElements": [
+            "Fogo"
+          ],
+          "tags": [
+            "CRIT de Anomalia",
+            "Energia"
+          ]
+        },
+        {
+          "label": "Dano Sharp e defesa",
+          "text": "Aumentos de dano Sharp e DEF, com recompensa por derrotar inimigos de elite envolvendo Atordoador e Decibéis.",
+          "favRole": "Armeiro",
+          "favElements": [],
+          "tags": [
+            "Sharp",
+            "DEF",
+            "Atordoamento"
+          ]
+        },
+        {
+          "label": "Atacantes Gelo/Éter",
+          "text": "Aumentos de dano desses atributos e de Dano CRIT; atordoar altera a recuperação de Daze do alvo.",
+          "favRole": "Atacante",
+          "favElements": [
+            "Gelo",
+            "Éter"
+          ],
+          "tags": [
+            "Crítico",
+            "Daze"
+          ]
+        }
+      ]
+    },
+    {
+      "phase": 2,
+      "buffs": [
+        {
+          "label": "Atacantes de Vento",
+          "text": "Aumento de ATQ para Atacantes e bônus de Vento; Supremas podem reduzir a resistência a Vento do inimigo.",
+          "favRole": "Atacante",
+          "favElements": [
+            "Vento"
+          ],
+          "tags": [
+            "ATQ",
+            "Suprema",
+            "Vento"
+          ]
+        },
+        {
+          "label": "Anomalia e Queimadura",
+          "text": "Dano crítico de Anomalia pode fortalecer ATQ e dano de Anomalia da equipe; aplicar Anomalia de Fogo pode reduzir resistência ao Fogo.",
+          "favRole": "Anomalia",
+          "favElements": [
+            "Fogo"
+          ],
+          "tags": [
+            "Disfunção",
+            "Queimadura"
+          ]
+        },
+        {
+          "label": "Destruidor / Sheer",
+          "text": "Dano Sheer favorecido; ao usar a Suprema, agentes Destruidores recebem bônus temporários de dano de Fogo e Gelo.",
+          "favRole": "Destruidor",
+          "favElements": [],
+          "tags": [
+            "Sheer",
+            "Suprema"
+          ]
+        }
+      ]
+    },
+    {
+      "phase": 3,
+      "buffs": [
+        {
+          "label": "Atacantes Vento",
+          "text": "Dano de Vento e Dano CRIT favorecidos; usar Especial Reforçado permite ignorar parte da resistência ao Vento do alvo.",
+          "favRole": "Atacante",
+          "favElements": [
+            "Vento"
+          ],
+          "tags": [
+            "EX",
+            "CRIT"
+          ]
+        },
+        {
+          "label": "Armeiros / Sharp",
+          "text": "DEF e Sharp favorecidos; ataques podem ignorar parte da resistência ao Fogo e Elétrico do inimigo.",
+          "favRole": "Armeiro",
+          "favElements": [],
+          "tags": [
+            "Sharp",
+            "DEF"
+          ]
+        },
+        {
+          "label": "Anomalia e Véu de Éter",
+          "text": "Proficiência de Anomalia aumentada; efeitos de Atordoamento e Véu de Éter podem facilitar a janela ofensiva.",
+          "favRole": "Anomalia",
+          "favElements": [
+            "Éter"
+          ],
+          "tags": [
+            "Proficiência",
+            "Véu de Éter"
+          ]
+        }
+      ]
+    }
+  ],
+  "deadly": [
+    {
+      "phase": 1,
+      "trial": [
+        "Blasphemer",
+        "Unknown Corruption Complex",
+        "Discordant Solo – Vesper"
+      ],
+      "adversity": [
+        "Integrated – Girtablullu – Stagnant Aberrant"
+      ]
+    },
+    {
+      "phase": 2,
+      "trial": [
+        "Blasphemer",
+        "Infernal Revenant",
+        "Autonomous Assault Unit – Typhon Destroyer"
+      ],
+      "adversity": [
+        "Rewritten – Sanguine Sweeper"
+      ]
+    },
+    {
+      "phase": 3,
+      "trial": [
+        "Infernal Revenant",
+        "Kusarikku",
+        "Phaethon of the Scorched Horizon"
+      ],
+      "adversity": [
+        "Integrated – Girtablullu"
+      ]
+    }
+  ]
+}
