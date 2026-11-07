@@ -6,6 +6,105 @@
   "betaRevision": "20280288",
   "entries": [
     {
+      "id": "v5-hybrid-home",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "V5 · Interface híbrida A+B aprovada",
+      "summary": "Navegação simplificada para cinco áreas, identidade street-art com legibilidade premium, homepage orientada à conta e grid responsivo para Galaxy S25 Edge.",
+      "before": "V4: seis botões de navegação e seções separadas de agentes, motores e conta",
+      "after": "V5: Início, Aprender, Agentes/Enciclopédia, Conta e Radar. Equipamentos dentro da Enciclopédia.",
+      "areas": [
+        "Visual",
+        "Navegação",
+        "Mobile"
+      ],
+      "version": "5.0"
+    },
+    {
+      "id": "v5-mindscapes-62",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Mindscape M1–M6 integrado em fichas de agentes",
+      "summary": "62 personagens lançados com títulos M1–M6, parâmetros factuais detectados e leituras estratégicas originais. Valores do beta mantidos como não confirmados.",
+      "before": "Sem painel específico de M1 a M6; poucos dados numéricos",
+      "after": "Aba Mindscapes com seis níveis, números identificados, tags de mecânicas e opinião explicativa.",
+      "areas": [
+        "Mindscape",
+        "Agentes",
+        "Habilidades"
+      ],
+      "version": "5.0"
+    },
+    {
+      "id": "v5-account-strategy",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Conta do Anderus · UX renovada e recomendações",
+      "summary": "Cadastro com fotos dos 6 discos e dos motores, níveis das habilidades e Mindscape; ranking de agentes recomendados com base nas sinergias dos agentes cadastrados.",
+      "before": "Formulário de inventário longo e nomes ingleses em parte dos controles",
+      "after": "Painel separado por blocos, nomes PT-BR, imagens dos equipamentos, análise de build e recomendações ilustradas.",
+      "areas": [
+        "Conta do Anderus",
+        "Equipamentos",
+        "Estratégia",
+        "PT-BR"
+      ],
+      "version": "5.0"
+    },
+    {
+      "id": "v5-endgame-33",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Endgame · avaliação de prontidão por modo",
+      "summary": "Oito modos de desafio, equipes registradas, nível médio e compatibilidade de motor, dificuldades e fases de Shiyu e Investida Mortal conforme referência oficial 3.3 de lançamento.",
+      "before": "Sem avaliação integrada das equipes cadastradas em diferentes modos",
+      "after": "Prontidão estrutural explicada, melhorias recomendadas e painéis de buffs/chefes publicados na referência 3.3.",
+      "areas": [
+        "Endgame",
+        "Defesa Shiyu",
+        "Investida Mortal",
+        "Times"
+      ],
+      "version": "5.0"
+    },
+    {
+      "id": "v5-images-hd",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Retratos HD com conferência visual",
+      "summary": "Oito retratos locais substituídos por recortes de origem em maior resolução após conferência visual. Artes restantes mantidas onde a nova amostra piorava o enquadramento.",
+      "before": "Parte dos retratos usava recorte de 424 px ampliado artificialmente",
+      "after": "Velina, Norma, Billy Estelar, Promeia, Cissia, Nangong Yu, Sunna e Piper agora usam arquivos de origem HD.",
+      "areas": [
+        "Agentes",
+        "Imagens",
+        "Qualidade"
+      ],
+      "version": "5.0"
+    },
+    {
+      "id": "v5-radar-3hour",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Radar de anúncios e beta reagendado a cada 3 horas",
+      "summary": "GitHub Actions consulta fontes cadastradas e atualiza o arquivo de novidades quando encontra mudanças. Modificações automáticas de kits e builds ainda exigem validação específica.",
+      "before": "Verificação diária",
+      "after": "Agendamento a cada 3 horas (UTC); registro de novidades sem enviar notificações de ausência de mudanças.",
+      "areas": [
+        "Radar",
+        "Oficial",
+        "Beta",
+        "Automação"
+      ],
+      "version": "5.0"
+    },
+    {
       "id": "site-4.1-20261107",
       "date": "2026-11-07",
       "kind": "site",
@@ -301,5 +400,6 @@
       "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
     }
   ],
-  "note": "Central de atualizações: mostra mudanças já publicadas no site e notícias acompanhadas. Kits, builds e beta precisam de confirmação antes da alteração."
+  "note": "Monitoramento de 3h em GitHub Actions, atualiza notícias e revisões detectadas. Reescrita do kit/beta não é automática sem validação. Registro de mudanças na V5 inclui antes/depois.",
+  "siteVersion": "5.0"
 }
