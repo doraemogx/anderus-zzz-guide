@@ -413,3 +413,27 @@ body.and-v5-mode #and-v5{display:block!important;position:relative;z-index:10;is
  #and-v5 .v5-agent-lead h1{font-size:24px}
  #and-v5 .v5-avatars img{height:48px;width:48px}
 }
+/* Conta do Anderus — recomendações e endgame verificável */
+#and-v5 .v5-recommendations .v5-rowbetween{align-items:flex-end;margin-bottom:12px}
+#and-v5 .v5-recommendations .v5-rowbetween h2{margin:7px 0}
+#and-v5 .v5-reclist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}
+#and-v5 .v5-reclist button{display:flex;align-items:center;gap:10px;border:1px solid #4c6267;background:linear-gradient(125deg,#1a282c,#131d22);border-radius:10px;padding:10px;color:#eaf3f1;text-align:left;min-width:0}
+#and-v5 .v5-reclist button:hover{border-color:var(--v5-yellow)}
+#and-v5 .v5-reclist button>img{width:64px;height:64px;object-fit:cover;border-radius:8px;flex:none}
+#and-v5 .v5-reclist button>span{flex:1;display:flex;flex-direction:column;gap:4px;min-width:0}
+#and-v5 .v5-reclist b{font-size:13px;line-height:1.25;overflow-wrap:anywhere}
+#and-v5 .v5-reclist small{color:#a3bcc0;font-size:10px}
+#and-v5 .v5-reclist em{font-style:normal;font-size:9px;color:#e7fa68;line-height:1.45}
+#and-v5 .v5-phase-entries{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:13px 0}
+#and-v5 .v5-phase-entries>div{padding:14px;background:#16242b;border:1px solid #465a60;border-radius:9px}
+#and-v5 .v5-phase-entries h4{font-size:17px;color:#e9fb8a;margin:0 0 10px}
+#and-v5 .v5-phase-entries p{font-size:12px;line-height:1.6}
+#and-v5 .v5-buffmatch{font-size:10px;color:#afc0c0;border-top:1px solid #46555a;padding-top:10px;line-height:1.6;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+#and-v5 .v5-buffmatch span{display:flex;align-items:center;gap:5px;padding:4px;border:1px solid #94a63a;background:#2c3926;border-radius:7px;color:#f0ffc3}
+#and-v5 .v5-buffmatch img{height:25px;width:25px;object-fit:cover;border-radius:5px}
+#and-v5 .v5-bosses{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+#and-v5 .v5-bosses>div{display:flex;flex-direction:column;gap:8px;background:#1a272c;border:1px solid #3c5157;padding:14px;border-radius:10px}
+#and-v5 .v5-bosses b{color:var(--v5-yellow);font-size:11px;letter-spacing:.15em}
+#and-v5 .v5-bosses span{padding:9px 12px;border-radius:7px;background:#29353c;font-size:12px;color:#e0eaea}
+@media(max-width:850px){#and-v5 .v5-reclist{grid-template-columns:repeat(2,minmax(0,1fr))}#and-v5 .v5-phase-entries{grid-template-columns:1fr}}
+@media(max-width:540px){#and-v5 .v5-reclist{grid-template-columns:1fr}#and-v5 .v5-bosses{grid-template-columns:1fr}}
