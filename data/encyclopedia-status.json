@@ -1,10 +1,7 @@
 {
   "agents": 62,
-  "stats": 60,
-  "withSkills": 60,
-  "numericFacts": 1068,
-  "failed": [
-    "Cissia",
-    "Lucia"
-  ]
+  "stats": 62,
+  "withSkills": 62,
+  "numericFacts": 1098,
+  "failed": []
 }
