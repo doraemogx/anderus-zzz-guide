@@ -1,0 +1,243 @@
+{
+  "candidates": [
+    {
+      "id": "a1",
+      "name": "Velina Airgid",
+      "status": "ok",
+      "original": [
+        1297,
+        1369
+      ],
+      "crop": [
+        471,
+        6,
+        878,
+        413
+      ],
+      "size": 65952,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/163785/d5e2d9545a1490db7f6219c9d0787466_2876464395956313992.png"
+    },
+    {
+      "id": "a9",
+      "name": "Norma Hollowell",
+      "status": "ok",
+      "original": [
+        1297,
+        1369
+      ],
+      "crop": [
+        387,
+        167,
+        791,
+        571
+      ],
+      "size": 67056,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/163786/a29aae92640f03e7b757fe9d566e293a_7326536601431031510.png"
+    },
+    {
+      "id": "a10",
+      "name": "Pyrois",
+      "status": "ok",
+      "original": [
+        1297,
+        1369
+      ],
+      "crop": [
+        461,
+        64,
+        881,
+        484
+      ],
+      "size": 49608,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/163768/c348d5d938a3d4b63cc16c8ccb1e294b_3881191356598004278.png"
+    },
+    {
+      "id": "a11",
+      "name": "Starlight - Billy",
+      "status": "ok",
+      "original": [
+        1297,
+        1369
+      ],
+      "crop": [
+        461,
+        135,
+        833,
+        506
+      ],
+      "size": 67634,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/163293/72203b341040aa1d5e41567bf776520f_1328464857447434543.png"
+    },
+    {
+      "id": "a12",
+      "name": "Promeia",
+      "status": "ok",
+      "original": [
+        1297,
+        1369
+      ],
+      "crop": [
+        484,
+        142,
+        849,
+        506
+      ],
+      "size": 54150,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/163316/d8b0bb6abf166120cd1ac42d7ff30dfe_1970899984572226888.png"
+    },
+    {
+      "id": "a13",
+      "name": "Cissia",
+      "status": "ok",
+      "original": [
+        1297,
+        1369
+      ],
+      "crop": [
+        548,
+        138,
+        920,
+        510
+      ],
+      "size": 90064,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/162680/585f3ee1e8c2b94705a63f5a825884cc_4908432112529369481.png"
+    },
+    {
+      "id": "a14",
+      "name": "Nangong Yu",
+      "status": "ok",
+      "original": [
+        1297,
+        1369
+      ],
+      "crop": [
+        574,
+        184,
+        968,
+        577
+      ],
+      "size": 81936,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/162652/af24710d9e7d31f33c7a12589bd14ba2_604255830637894303.png"
+    },
+    {
+      "id": "a15",
+      "name": "Aria",
+      "status": "ok",
+      "original": [
+        1297,
+        1369
+      ],
+      "crop": [
+        419,
+        100,
+        887,
+        568
+      ],
+      "size": 66170,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/161792/e1e816946b90b6af17d2a6beee7de6bf_6851365167422486772.png"
+    },
+    {
+      "id": "a16",
+      "name": "Sunna",
+      "status": "ok",
+      "original": [
+        1297,
+        1369
+      ],
+      "crop": [
+        380,
+        167,
+        833,
+        619
+      ],
+      "size": 83214,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/161791/a434b4e933780b981ddb5f3921021f96_8036322301967591660.png"
+    },
+    {
+      "id": "a18",
+      "name": "Zhao",
+      "status": "ok",
+      "original": [
+        1297,
+        1369
+      ],
+      "crop": [
+        355,
+        235,
+        761,
+        642
+      ],
+      "size": 72504,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/160758/8b90f4ec335bba4b9322cc56acb0dd53_6349089187938925913.png"
+    },
+    {
+      "id": "a25",
+      "name": "Seed",
+      "status": "ok",
+      "original": [
+        1852,
+        1369
+      ],
+      "crop": [
+        489,
+        52,
+        1083,
+        646
+      ],
+      "size": 111254,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/157829/786878e538b5fd6b6f9ef7243b8a6723_3026433832217459302.png"
+    },
+    {
+      "id": "a33",
+      "name": "Soldier 0: Anby",
+      "status": "ok",
+      "original": [
+        1297,
+        1369
+      ],
+      "crop": [
+        458,
+        54,
+        839,
+        435
+      ],
+      "size": 43526,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/129632/7cbb1cf6e5925d997777653c68b35981_1077773102639067869.png"
+    },
+    {
+      "id": "a58",
+      "name": "Piper",
+      "status": "ok",
+      "original": [
+        1297,
+        1369
+      ],
+      "crop": [
+        390,
+        125,
+        791,
+        526
+      ],
+      "size": 47456,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/124310/a74a0121ab4ef5f83fe73abe72726593_6795023243569401643.png"
+    },
+    {
+      "id": "a62",
+      "name": "Sunbringer",
+      "status": "ok",
+      "original": [
+        1920,
+        1080
+      ],
+      "crop": [
+        747,
+        54,
+        1743,
+        1050
+      ],
+      "size": 77728,
+      "url": "https://fastcdn.hoyoverse.com/content-v2/nap/163799/94cd1934c578d0a1598e0617fc37a2d6_8373298293438677571.jpg"
+    }
+  ],
+  "count": 14
+}
