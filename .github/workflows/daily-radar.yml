@@ -1,13 +1,16 @@
-name: Radar ZZZ - novidades oficiais e beta
+name: Radar ZZZ - varredura a cada 3 horas
 on:
   workflow_dispatch:
   schedule:
-    - cron: '45 11 * * *'
+    - cron: '23 */3 * * *'
 permissions:
   contents: write
 jobs:
   update:
     runs-on: ubuntu-latest
+    concurrency:
+      group: radar-zzz-data
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
