@@ -6,6 +6,60 @@
   "betaRevision": "20280288",
   "entries": [
     {
+      "id": "v4-20261107-ui",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "PROXY OS V4 · Retratos e interface premium para celular",
+      "summary": "65 retratos quadrados próprios (43 ícones oficiais de perfil e 22 recortes das artes existentes), interface redesenhada, idioma PT-BR e atalhos com o mesmo endereço do site.",
+      "areas": [
+        "Interface",
+        "Agentes",
+        "Retratos",
+        "PT-BR"
+      ]
+    },
+    {
+      "id": "v4-20261107-data",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Enciclopédia interna · 62 agentes e 1.103 valores numéricos",
+      "summary": "62 fichas lançadas com 10 estatísticas de níveis 1 e 60, nomes e valores de movimentos no idioma português. Beta marcado separadamente e números sem fonte não são estimados.",
+      "areas": [
+        "Habilidades",
+        "Multiplicadores",
+        "Níveis",
+        "Estatísticas"
+      ]
+    },
+    {
+      "id": "v4-20261107-gear",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Localização completa do catálogo de motores e discos",
+      "summary": "Nomes em português para 106 motores-W e 32 discos; 52 motores tiveram números factuais importados de catálogos em português. Termos editoriais de beta podem mudar.",
+      "areas": [
+        "Motores-W",
+        "Discos",
+        "Tradução"
+      ]
+    },
+    {
+      "id": "v4-20261107-qa",
+      "date": "2026-11-07",
+      "kind": "site",
+      "status": "included",
+      "title": "Teste mobile aprovado em Chromium",
+      "summary": "Fluxos de agentes, motores, ficha interna, retratos e atualizações testados em 393 px, sem erros de JavaScript ou rolagem lateral.",
+      "areas": [
+        "Qualidade",
+        "Navegação",
+        "Mobile"
+      ]
+    },
+    {
       "id": "audit-20261107-signatures",
       "date": "2026-11-07",
       "kind": "site",

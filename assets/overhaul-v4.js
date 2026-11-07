@@ -119,6 +119,7 @@ async function load(path){
   try{var r=await fetch(path+'?v=4.0',{cache:'no-store'});return r.ok?await r.json():null;}catch{return null;}
 }
 async function bootstrap(){
+  document.title='NEW ERIDU // ANDERUS · Enciclopédia V4';
   var arr=await Promise.all([load('data/localizacao-ptbr.json'),load('data/encyclopedia.json'),load('data/gear-ptbr.json')]);
   if(arr[0]){loc=arr[0];refreshPairs();}
   if(arr[1])ency=arr[1];
