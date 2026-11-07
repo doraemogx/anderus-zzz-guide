@@ -1,7 +1,7 @@
 /* ANDERUS PROXY OS V4: interface própria, retratos, fatos numéricos internos */
 (function(){
 'use strict';
-var loc={engines:{},discs:{},agents:{},labels:{}},ency=null,pairs=[];
+var loc={engines:{},discs:{},agents:{},labels:{}},ency=null,gear={engines:{}},pairs=[];
 var nativePic=pic,nativeRender=render,nativeUpdate=updateCatalog;
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 pic=function(src,fallback,cls,alt,sources){
@@ -78,7 +78,9 @@ function newSection(a){
   var rota=(deep.rotation&&deep.rotation.length?deep.rotation:[a.how,'Prepare os apoios e confira a habilidade adicional do agente.','Use a janela de dano e reaplique efeitos antes de trocar.']);
   var guide='<section class="v4-panel"><div class="v4-kicker">02 / COMBATE</div><h3>COMO FUNCIONA NA PRÁTICA</h3><p>'+esc(deep.overview||a.summary)+'</p><ol>'+rota.map(function(s){return '<li>'+esc(s)+'</li>';}).join('')+'</ol></section>';
   var skills='<section class="v4-panel"><div class="v4-kicker">03 / DADOS DAS HABILIDADES</div><h3>MULTIPLICADORES E GOLPES</h3><p>Valores apresentados apenas quando encontrados e estruturados na base de referência. Ausência de valor não significa 0%.</p>'+(beta?'<div class="v4-unverified">Os kits em beta ainda não possuem multiplicadores finais e não devem orientar investimentos irreversíveis.</div>':skillList(data&&data.habilidades))+'</section>';
-  var build='<section class="v4-panel"><div class="v4-kicker">04 / BUILD E EQUIPE</div><h3>ITENS RELACIONADOS</h3>'+equipment(a)+'<p>Composições de exemplo: '+esc(a.teams||'sem equipe validada').replaceAll(' / ',' · ')+'</p><div class="v4-unverified">'+(a.buildReviewed?'Recomendação editorial revisada. A adequação depende da sua conta.':'Recomendação editorial: verificação individual de kit e sinergias pendente.')+'</div></section>';
+  var researched=data&&data.build||{};
+  var factualBuild='<div class="v4-buildfact"><div><small>ATRIBUTOS PRINCIPAIS (REFERÊNCIA)</small><p>'+esc(researched.principais||'Consulte a recomendação editorial e as condições do kit.')+'</p></div><div><small>SUBATRIBUTOS (REFERÊNCIA)</small><p>'+esc(researched.secundarios||'Prioridades ainda não disponíveis.')+'</p></div><div><small>PRIORIDADE DE HABILIDADES</small><p>'+esc(data&&data.prioridade||'Sujeita à composição da equipe.')+'</p></div></div>';
+  var build='<section class="v4-panel"><div class="v4-kicker">04 / BUILD E EQUIPE</div><h3>ITENS RELACIONADOS</h3>'+factualBuild+equipment(a)+'<p>Composições de exemplo: '+esc(a.teams||'sem equipe validada').replaceAll(' / ',' · ')+'</p><div class="v4-unverified">'+(a.buildReviewed?'Recomendação editorial revisada. A adequação depende da sua conta.':'Recomendação editorial: verificação individual de kit e sinergias pendente.')+'</div></section>';
   p.innerHTML=intro+'<div class="v4-split">'+summary+guide+'</div>'+skills+build+'<footer class="v4-footer">Arquivo pessoal em português brasileiro. Dados de versões de teste aparecem separados de dados oficiais.</footer>';
   return p;
 }
@@ -92,7 +94,9 @@ function applyDetail(){
     var engine=DB.engines.find(function(a){return a.id===S.id;});
     if(engine){
       var el=document.createElement('section');el.id='v4-encyclopedia';el.className='v4-panel v4-encyclopedia';
-      el.innerHTML='<div class="v4-kicker">MOTOR-W / EQUIPAMENTO</div><h2>'+esc(label(engine.name))+'</h2><p>'+esc(engine.summary)+'</p><div class="v4-unverified">'+(engine.beta?'BETA — NÃO DEFINITIVO':'Efeito resumido em português. Valores exatos não confirmados permanecem sem números inventados.')+'</div>';
+      var facts=gear&&gear.engines&&gear.engines[engine.id];
+      var numbers=facts&&facts.numeros&&facts.numeros.length?'<div class="v4-numeric-tags">'+facts.numeros.map(function(n){return '<span>'+esc(n)+'</span>';}).join('')+'</div>':'';
+      el.innerHTML='<div class="v4-kicker">MOTOR-W / EQUIPAMENTO</div><h2>'+esc(label(engine.name))+'</h2><p>'+esc(engine.summary)+'</p><h3>VALORES RELEVANTES</h3>'+numbers+'<div class="v4-unverified">'+(engine.beta?'BETA — NÃO DEFINITIVO':'Efeito resumido em português. Valores exatos não confirmados permanecem sem números inventados.')+'</div>';
       page.appendChild(el);
     }
   }
@@ -115,9 +119,10 @@ async function load(path){
   try{var r=await fetch(path+'?v=4.0',{cache:'no-store'});return r.ok?await r.json():null;}catch{return null;}
 }
 async function bootstrap(){
-  var arr=await Promise.all([load('data/localizacao-ptbr.json'),load('data/encyclopedia.json')]);
+  var arr=await Promise.all([load('data/localizacao-ptbr.json'),load('data/encyclopedia.json'),load('data/gear-ptbr.json')]);
   if(arr[0]){loc=arr[0];refreshPairs();}
   if(arr[1])ency=arr[1];
+  if(arr[2])gear=arr[2];
   enhance();
 }
 render();
