@@ -2,7 +2,7 @@
 (function(){
 "use strict";
 const root=document.createElement("div");root.id="and-v5";document.body.appendChild(root);document.body.classList.add("and-v5-mode");
-const state={page:"home",type:"agents",id:"",sub:"overview",query:"",element:"",role:"",rarity:"",onlyOwned:false,lesson:"intro",feedFilter:"all",edit:"Phoenix",addQuery:"",accountTab:"roster",mode:"deadly",phase:1};
+const state={page:"home",type:"agents",id:"",sub:"overview",query:"",element:"",role:"",rarity:"",onlyOwned:false,lesson:"intro",feedFilter:"all",edit:"Phoenix",addQuery:"",accountTab:"roster",upgradeName:"Phoenix",mode:"deadly",phase:1};
 let enc={agents:{}},loc={engines:{},discs:{},agents:{}},feed={entries:[]},endgameReference=null,betaKits={agents:{}};
 const esc=x=>String(x==null?"":x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const tr=x=>(loc.engines&&loc.engines[x])||(loc.discs&&loc.discs[x])||(loc.agents&&loc.agents[x])||x;
@@ -338,6 +338,96 @@ function investmentDashboard(){
  const missing=recommendedForAccount();
  const targets=missing.length?'<section class="v5-panel"><span class="v5-eyebrow">POSSÍVEIS PRÓXIMOS ALVOS</span><h2>QUEM PODE COMPLETAR SEUS TIMES</h2><p>Baseado nas sinergias que aparecem nas fichas dos agentes cadastrados; não substitui uma avaliação de banner e custo.</p><div class="v5-reclist">'+missing.map(x=>'<button data-v5="detail" data-type="agents" data-id="'+x.agent.id+'"><img src="'+portrait(x.agent)+'" alt=""><span><b>'+esc(tr(x.agent.name))+'</b><small>'+esc(x.agent.role)+'</small><em>Combina com: '+esc(x.partners.map(tr).join(", "))+'</em></span></button>').join("")+'</div></section>':'';
  return '<section class="v5-invest"><div class="v5-invest-intro"><span class="v5-eyebrow">PRIORIZAÇÃO PERSONALIZADA</span><h2>ONDE VALE INVESTIR?</h2><p>Ordenei suas prioridades pelo uso nas equipes, nível, motor, discos e habilidades cadastrados. Não classifico agentes como ruins apenas por não estarem nos times.</p></div>'+ (rows.length?plan:'<div class="v5-panel">Adicione personagens e monte suas equipes para receber recomendações específicas.</div>')+targets+'<div class="v5-note">Esta é uma análise de prontidão da sua conta, não um ranking absoluto do meta. Para refletir sua evolução, atualize os dados na aba Meu elenco.</div></section>';
+}
+
+
+/* ANDERUS LAB — reads saved account data; never fabricates build values */
+const labAttrs=[["atk","ATQ"],["proficiency","Proficiência de Anomalia"],["mastery","Maestria de Anomalia"],["energy","Recuperação de Energia"],["crit","Taxa CRIT (%)"],["cdmg","Dano CRIT (%)"],["hp","PV"],["def","DEF"],["pen","Perfuração"],["impact","Impacto"]];
+const labSkills=[["basic","Básico"],["dodge","Esquiva"],["special","Especial"],["chain","Cadeia"],["assist","Assistência"]];
+const labNumber=v=>v===null||v===undefined||String(v).trim()===""?null:(Number.isFinite(Number(String(v).trim().replace(/%/g,"").replace(",",".")))?Number(String(v).trim().replace(/%/g,"").replace(",",".")):null);
+const labFormat=v=>Number(v).toLocaleString("pt-BR",{maximumFractionDigits:2});
+function labColor(a){
+ const name=a.name,el=parseName(a.element||"");
+ if(name==="Velina Airgid")return"wind";
+ if(name==="Nicole Demara")return"pink";
+ if(name==="Phoenix")return"fire";
+ return el.includes("fogo")?"fire":el.includes("gelo")?"ice":el.includes("vento")?"wind":el.includes("eletr")?"electric":el.includes("eter")?"ether":el.includes("fisico")?"physical":"lime";
+}
+function labTargets(a,b){
+ const deep=DB.deep[a.name]||{},breaks=deep.breaks||[];
+ const byRole={Anomalia:["proficiency","mastery","atk","energy","pen"],Atacante:["crit","cdmg","atk","pen","energy"],Armeiro:["def","crit","cdmg","atk","hp"],Defesa:["def","hp","energy","atk","impact"],Suporte:["energy","atk","pen","hp","proficiency"],Atordoador:["impact","atk","energy","crit","hp"]};
+ const keys=byRole[a.role]||["atk","hp","def","proficiency","energy"];
+ return keys.map(k=>{
+  const ref=breaks.find(x=>x.key===k),user=labNumber(b.goals?.[k]),combat=/durante\s+o\s+combate|em\s+combate/i.test(ref?.rule||"");
+  const goal=user!==null&&user>0?user:!combat?labNumber(ref?.target):null,cur=labNumber(b.stats?.[k]);
+  return {k,name:labAttrs.find(t=>t[0]===k)?.[1]||k,cur,goal,source:user!==null&&user>0?"Sua meta":goal!==null?"Marco técnico":"Sem meta",note:ref?.rule||""};
+ });
+}
+function labProgress(a,b){
+ const items=labTargets(a,b);
+ return '<section class="lab-panel" id="lab-progress"><header class="lab-panel-title">'+svg("layers",22)+'<h2>PROGRESSO DE ATRIBUTOS</h2></header><p class="lab-intro-note">Comparação com suas metas ou marcos técnicos da ficha. Números ausentes não são tratados como zero.</p><div class="lab-stats">'+
+ items.map(x=>{const valid=x.cur!==null&&x.goal!==null&&x.goal>0,percent=valid?Math.max(0,Math.min(100,100*x.cur/x.goal)):0;
+ return '<div class="lab-stat"><div class="lab-stat-name"><strong>'+esc(x.name)+'</strong><small>'+esc(x.source)+'</small></div><div class="lab-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+Math.round(percent)+'" aria-label="'+esc(x.name)+'"><span style="width:'+percent+'%"></span><b>'+ (x.cur===null?'—':labFormat(x.cur))+' / '+(x.goal===null?'—':labFormat(x.goal))+'</b></div><small class="lab-result '+(valid&&x.cur>=x.goal?'good':'')+'">'+(valid?(x.cur>=x.goal?'META ✓':'FALTAM '+labFormat(Math.max(0,x.goal-x.cur))):x.cur===null?'PREENCHER':'DEFINIR META')+'</small></div>';
+ }).join("")+'</div><button class="lab-link" data-v5="lab-edit">AJUSTAR ATRIBUTOS E METAS '+svg("right",15)+'</button></section>';
+}
+function labRecommendations(a,b){
+ const deep=DB.deep[a.name]||{},level=labNumber(b.level)||1,slots=b.slots||[],en=findEngine(b.engine),rows=[];
+ if(level<60)rows.push(["NÍVEL","Chegar ao Nv. 60","Faltam "+(60-level)+" níveis"]);
+ if(!en)rows.push(["MOTOR-W","Cadastrar motor","Escolha um motor compatível com "+a.role]);
+ else if(en.role!==a.role)rows.push(["MOTOR-W","Rever especialidade","Passiva possivelmente inativa"]);
+ else if((labNumber(b.engineLevel)||1)<60)rows.push(["MOTOR-W","Aprimorar motor","Atual: Nv. "+(b.engineLevel||"—")]);
+ const n=slots.filter(x=>x.set).length;
+ if(n<6)rows.push(["DISCOS","Completar equipamento",n+" dos 6 discos registrados"]);
+ else{
+ const counts={};slots.forEach(x=>{if(x.set)counts[x.set]=(counts[x.set]||0)+1;});
+ if(deep.ideal4&&(counts[deep.ideal4]||0)<4)rows.push(["DISCOS","Rever conjunto 4p",tr(deep.ideal4)]);
+ if(deep.ideal2&&(counts[deep.ideal2]||0)<2)rows.push(["DISCOS","Rever conjunto 2p",tr(deep.ideal2)]);
+ const low=slots.filter(x=>x.set&&labNumber(x.level)!==null&&Number(x.level)<15).length;
+ if(low)rows.push(["DISCOS","Elevar nível dos discos",low+" abaixo do Nv.15"]);
+ }
+ if(labSkills.some(([k])=>labNumber(b.skillLevels?.[k])===null))rows.push(["HABILIDADES","Cadastrar níveis","Preencha as cinco habilidades"]);
+ if(labTargets(a,b).some(x=>x.cur===null))rows.push(["ATRIBUTOS","Completar ficha","Há atributos não informados"]);
+ if(!rows.length)rows.push(["BUILDS","Revisar otimização","Estrutura básica registrada; confira subatributos e rotação"]);
+ return '<section class="lab-panel"><header class="lab-panel-title">'+svg("spark",22)+'<h2>SUGESTÕES DE APRIMORAMENTO</h2></header><div class="lab-recs">'+rows.slice(0,6).map(([cat,head,desc])=>
+ '<button type="button" class="lab-rec" data-v5="lab-edit"><small>'+esc(cat)+'</small><strong>'+esc(head)+'</strong><span>'+esc(desc)+'</span>'+svg("right",16)+'</button>').join("")+'</div></section>';
+}
+function labDiscs(a,b){
+ const deep=DB.deep[a.name]||{},four=findDisc(deep.ideal4||a.disc),two=findDisc(deep.ideal2);
+ const discs=b.slots||[],num=discs.filter(x=>x.set).length;
+ const preview=(disc,count)=>'<div class="lab-drive-item"><img src="'+discImg(disc)+'" alt=""><span><strong>'+esc(disc?tr(disc.name):"Não validado")+'</strong><small>'+count+' PEÇAS</small></span></div>';
+ return '<section class="lab-panel"><header class="lab-panel-title">'+svg("layers",22)+'<h2>DISCOS RECOMENDADOS</h2><em>4 + 2</em></header>'+
+ '<div class="lab-drive-recs">'+preview(four,4)+'<span>+</span>'+preview(two,2)+'</div><div class="lab-drive-guide"><div><h3>ATRIBUTOS PRINCIPAIS</h3>'+(deep.mains||[]).map(x=>'<p>'+esc(x)+'</p>').join("")+'</div><div><h3>SUBATRIBUTOS</h3><p>'+esc(deep.subs||ROLE_DEFAULTS[a.role]?.sub||"Conferir o kit do agente.")+'</p></div></div>'+
+ '<div class="lab-drive-subhead"><b>SEUS DISCOS</b><small>'+num+' / 6 equipados</small></div><div class="lab-drive-grid">'+Array.from({length:6},(_,i)=>{const q=discs[i]||{},disc=findDisc(q.set);return '<button type="button" class="lab-drive-card" data-v5="lab-edit"><img src="'+discImg(disc)+'" alt=""><span><b>'+(i+1)+'</b><small>'+esc(disc?tr(disc.name):"Sem conjunto")+'</small><small>NV. '+esc(q.level??"—")+'</small></span></button>';}).join("")+'</div>'+
+ '<p class="lab-intro-note">Conjuntos são recomendações editoriais. Os discos equipados e níveis vêm exclusivamente do seu cadastro.</p></section>';
+}
+function labEngine(a,b){
+ const own=findEngine(b.engine),sig=findEngine(a.engine),alternative=DB.engines.find(w=>w.role===a.role&&!w.beta&&w.name!==b.engine&&w.name!==a.engine),recommended=sig&&sig.name!==b.engine?sig:alternative;
+ const card=(e,tag)=>e?'<div class="lab-engine-card"><img src="'+engineImg(e)+'" alt=""><div><small>'+tag+'</small><strong>'+esc(tr(e.name))+'</strong><p>'+esc(e.summary||"Consulte a Enciclopédia para efeitos e condições.")+'</p></div></div>':'<div class="lab-engine-card lab-empty-engine">Cadastre seu Motor-W na aba Meu Elenco.</div>';
+ return '<section class="lab-panel"><header class="lab-panel-title">'+svg("settings",22)+'<h2>MOTOR-W</h2></header><div class="lab-engine-grid">'+card(own,"EQUIPADO · NV. "+esc(b.engineLevel||"—")+" · R"+esc(b.engineRank||1))+
+ (recommended?card(recommended,sig&&sig.name!==b.engine?"ASSINATURA · REFERÊNCIA":"OUTRA OPÇÃO DA ESPECIALIDADE"):"")+'</div><p class="lab-intro-note">Alternativas não são consideradas automaticamente superiores ou disponíveis na sua conta.</p></section>';
+}
+function labAbilities(a,b){
+ return '<section class="lab-panel"><header class="lab-panel-title">'+svg("spark",22)+'<h2>HABILIDADES</h2></header><p class="lab-intro-note">Nível cadastrado → meta que você definiu. Metas vazias não são estimadas.</p><div class="lab-abilities">'+labSkills.map(([k,title],i)=>'<div class="lab-ability"><div class="lab-ability-icon">'+svg(["sword","refresh","spark","shield","check"][i],24)+'</div><strong>'+title+'</strong><small>'+esc(b.skillLevels?.[k]??"—")+' <span>›</span> '+esc(b.skillGoals?.[k]??"—")+'</small></div>').join("")+'</div><button class="lab-link" data-v5="lab-edit">EDITAR HABILIDADES E METAS '+svg("right",15)+'</button></section>';
+}
+function labTeams(a,b){
+ const actual=account.teams.find(t=>t.includes(a.name)),recommended=String(a.teams||"").split(" / ").filter(Boolean).map(t=>t.split(",").map(x=>x.trim()));
+ const teams=actual?[actual,...recommended.filter(x=>x.join(",")!==actual.join(","))]:recommended;
+ return '<section class="lab-panel"><header class="lab-panel-title">'+svg("account",22)+'<h2>EQUIPES RECOMENDADAS</h2></header>'+
+ teams.slice(0,2).map((members,i)=>'<div class="lab-team-block"><h3>'+(i===0&&actual?'SUA EQUIPE':'REFERÊNCIA '+(i+1))+'</h3><div class="lab-team-members">'+members.slice(0,3).map(name=>{const member=findAgent(name);return '<div class="lab-team-member '+(account.saved[name]?'owned':'')+'">'+(member?'<img src="'+portrait(member)+'" alt="">':'<div class="lab-empty-member">+</div>')+'<strong>'+esc(member?tr(member.name):"Vago")+'</strong><small>'+(account.saved[name]?'NO ELENCO':'NÃO CADASTRADO')+'</small></div>'}).join("")+'</div></div>').join("")+
+ '<div class="lab-bangboo">'+svg("spark",20)+'<div><b>BANGBOO</b><span>'+esc(b.bangboo||"Não informado")+'</span></div><button data-v5="lab-edit">EDITAR</button></div>'+
+ '<p class="lab-intro-note">Referências de equipe não garantem melhor resultado. A recomendação de Bangboo depende de dados ainda não cadastrados no catálogo.</p></section>';
+}
+function upgradeScreen(){
+ const owned=Object.keys(account.saved).map(findAgent).filter(Boolean),selected=owned.find(x=>x.name===state.upgradeName)||owned[0];
+ if(!selected)return '<div class="lab-empty"><h2>ANDERUS LAB</h2><p>Cadastre um agente para iniciar.</p><button data-v5="accounttab" data-tab="roster">ADICIONAR AGENTE</button></div>';
+ const b=account.saved[selected.name];
+ return '<div class="lab-wrap lab-'+labColor(selected)+'" id="anderus-lab"><div class="lab-background" aria-hidden="true"><i></i><i></i><i></i></div>'+
+ '<div class="lab-content"><div class="lab-heading"><span>NEW ERIDU // ANDERUS LAB</span><h2>GUIA DE APRIMORAMENTO<span>.</span></h2><p>Otimize seus agentes com informações da sua conta.</p></div>'+
+ '<nav class="lab-carousel" aria-label="Agentes do seu elenco">'+owned.map(a=>'<button type="button" data-v5="lab-agent" data-name="'+esc(a.name)+'" class="'+(a.name===selected.name?'on':'')+'" aria-pressed="'+(a.name===selected.name)+'"><img src="'+portrait(a)+'" alt=""><span>'+esc(tr(a.name))+'</span></button>').join("")+'</nav>'+
+ '<section class="lab-hero"><div class="lab-hero-art"><img src="'+portrait(selected)+'" alt="'+esc(tr(selected.name))+'"></div><div class="lab-hero-info"><small class="lab-rank">'+esc(selected.rank)+' RANK</small><h1>'+esc(tr(selected.name))+'</h1><strong>NV. '+esc(b.level||"—")+' <small>/ 60</small></strong><div class="lab-pills"><span>'+esc(selected.element)+'</span><span>'+esc(selected.role)+'</span><span>M'+esc(b.mindscape??0)+'</span></div><button data-v5="lab-edit" class="lab-edit">'+svg("sliders",16)+' EDITAR BUILD '+svg("right",16)+'</button></div></section>'+
+ (selected.beta?'<div class="lab-beta">KIT BETA · METAS PROVISÓRIAS, SUJEITAS A REVISÃO</div>':'')+
+ labProgress(selected,b)+labRecommendations(selected,b)+labDiscs(selected,b)+labEngine(selected,b)+labAbilities(selected,b)+labTeams(selected,b)+
+ '<footer class="lab-footer"><strong>SEUS DADOS. SEU PROGRESSO.</strong><p>Atualize suas builds e toque em Salvar; o diagnóstico é recalculado automaticamente.</p><button data-v5="lab-edit">'+svg("arrow",16)+' VOLTAR AO EDITOR</button></footer></div></div>';
 }
 
 function accountScreen(){
