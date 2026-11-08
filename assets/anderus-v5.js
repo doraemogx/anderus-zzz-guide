@@ -2,7 +2,7 @@
 (function(){
 "use strict";
 const root=document.createElement("div");root.id="and-v5";document.body.appendChild(root);document.body.classList.add("and-v5-mode");
-const state={page:"home",type:"agents",id:"",sub:"overview",query:"",element:"",role:"",rarity:"",onlyOwned:false,lesson:"intro",feedFilter:"all",edit:"Phoenix",mode:"deadly",phase:1};
+const state={page:"home",type:"agents",id:"",sub:"overview",query:"",element:"",role:"",rarity:"",onlyOwned:false,lesson:"intro",feedFilter:"all",edit:"Phoenix",addQuery:"",mode:"deadly",phase:1};
 let enc={agents:{}},loc={engines:{},discs:{},agents:{}},feed={entries:[]},endgameReference=null;
 const esc=x=>String(x==null?"":x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const tr=x=>(loc.engines&&loc.engines[x])||(loc.discs&&loc.discs[x])||(loc.agents&&loc.agents[x])||x;
@@ -267,6 +267,13 @@ function accountRecommendations(){
  '<div class="v5-reclist">'+items.map(x=>'<button data-v5="detail" data-type="agents" data-id="'+x.agent.id+'"><img src="'+portrait(x.agent)+'" alt="'+esc(x.agent.name)+'"><span><b>'+esc(tr(x.agent.name))+'</b><small>'+esc(x.agent.role)+' · '+esc(x.agent.element)+'</small><em>Possíveis parceiros: '+esc(x.partners.map(tr).join(", "))+'</em></span>'+svg("arrow",15)+'</button>').join("")+'</div>'+
  '<p class="v5-small">Prioridade final depende de disponibilidade de banner, kit, meta de cada modo e orçamento. O cadastro não precisa conter dados pessoais ou identificadores da conta.</p></section>';
 }
+
+function addAgentTiles(){
+ const needle=parseName(state.addQuery||"");
+ const available=DB.agents.filter(a=>!a.beta&&!a.upcoming&&!account.saved[a.name]&&(!needle||parseName([a.name,tr(a.name),a.element,a.role].join(" ")).includes(needle)));
+ return available.length?available.map(a=>'<button class="v5-add-card" type="button" data-v5="add-own" data-name="'+esc(a.name)+'" aria-label="Adicionar '+esc(tr(a.name))+' à conta"><img loading="lazy" src="'+portrait(a)+'" alt="'+esc(tr(a.name))+'"><span><b>'+esc(tr(a.name))+'</b><small>'+esc(a.element)+' · '+esc(a.role)+'</small></span><i>'+svg('check',14)+' ADICIONAR</i></button>').join(""):'<div class="v5-add-empty">Nenhum agente disponível com esse filtro.</div>';
+}
+
 function accountScreen(){
  const list=Object.keys(account.saved).filter(x=>findAgent(x));
  const names=DB.agents.filter(a=>!a.beta&&!a.upcoming&&!account.saved[a.name]);
@@ -276,7 +283,7 @@ function accountScreen(){
  const compatible=selected?DB.engines.filter(w=>w.role===selected.role):[];
  return '<div class="v5-inner v5-account">'+title('PAINEL PESSOAL // ANDERUS','MINHA CONTA<span class="v5-dot">.</span>','Organize personagens, equipamentos, status, equipes e investimentos. Os dados permanecem neste navegador.')+
  '<section class="v5-profile-bar"><div class="v5-info-strip"><div><b>'+list.length+'</b><small>AGENTES</small></div><div><b>'+account.teams.length+'</b><small>EQUIPES</small></div><div><b>LOCAL</b><small>ARMAZENAMENTO</small></div></div><div class="v5-backup"><button data-v5="backup">EXPORTAR BACKUP</button><button data-v5="import">IMPORTAR</button><input type="file" id="v5-backup-input" accept="application/json,.json" hidden></div></section>'+
- '<div class="v5-account-layout"><aside class="v5-roster"><div class="v5-rowbetween"><strong>MEUS AGENTES</strong><span>'+list.length+'</span></div><div class="v5-roster-list">'+list.map(n=>{const a=findAgent(n);return '<button class="'+(selected&&selected.name===n?'on':'')+'" data-v5="edit" data-name="'+esc(n)+'"><img src="'+portrait(a)+'"><span><b>'+esc(tr(n))+'</b><small>NV. '+esc(account.saved[n].level)+' · M'+esc(account.saved[n].mindscape)+'</small></span>'+svg("right",14)+'</button>';}).join("")+'</div><select id="v5-add-agent"><option value="">+ ADICIONAR PERSONAGEM</option>'+names.map(a=>'<option value="'+esc(a.name)+'">'+esc(tr(a.name))+'</option>').join("")+'</select><button data-v5="add-selected" class="v5-button v5-button-yellow">ADICIONAR À CONTA</button></aside>'+
+ '<div class="v5-account-layout"><aside class="v5-roster"><div class="v5-rowbetween"><strong>MEUS AGENTES</strong><span>'+list.length+'</span></div><div class="v5-roster-list">'+list.map(n=>{const a=findAgent(n);return '<button class="'+(selected&&selected.name===n?'on':'')+'" data-v5="edit" data-name="'+esc(n)+'"><img src="'+portrait(a)+'"><span><b>'+esc(tr(n))+'</b><small>NV. '+esc(account.saved[n].level)+' · M'+esc(account.saved[n].mindscape)+'</small></span>'+svg("right",14)+'</button>';}).join("")+'</div><section class="v5-add-picker"><div class="v5-rowbetween"><strong>ADICIONAR AGENTE</strong><small>DESLIZE PARA O LADO →</small></div><label class="v5-add-search">'+svg('search',17)+'<input id="v5-add-search" value="'+esc(state.addQuery||"")+'" autocomplete="off" placeholder="Buscar personagem..." aria-label="Buscar agente para adicionar"></label><div class="v5-add-rail" id="v5-add-rail" role="group" aria-label="Agentes disponíveis: deslize horizontalmente">'+addAgentTiles()+'</div></section></aside>'+
  '<div class="v5-editor">'+(selected&&b?'<div class="v5-edit-head"><img src="'+portrait(selected)+'"><div><span class="v5-eyebrow">EDITANDO AGENTE</span><h2>'+esc(tr(selected.name))+'</h2><small>'+esc(selected.element)+' · '+esc(selected.role)+'</small></div><button data-v5="detail" data-type="agents" data-id="'+selected.id+'">'+svg("right",18)+'</button></div>'+
  '<div class="v5-fields v5-fields-3">'+field("level","NÍVEL",b.level,"number",1,60)+field("mindscape","MINDSCAPE M0-M6",b.mindscape,"number",0,6)+'<label>HABILIDADE CENTRAL<select data-v5-build="core">'+["A","B","C","D","E","F"].map(x=>'<option '+(x===b.core?'selected':'')+'>'+x+'</option>').join("")+'</select></label></div>'+
  '<div class="v5-editor-section"><span class="v5-eyebrow">01 / ARMA</span><h3>MOTOR-W EQUIPADO</h3><div class="v5-gear-select"><img id="v5-equipped-engine" src="'+engineImg(findEngine(b.engine))+'" alt=""><select data-v5-build="engine"><option value="">NENHUM MOTOR</option>'+compatible.map(w=>'<option value="'+esc(w.name)+'" '+(b.engine===w.name?'selected':'')+'>'+esc(tr(w.name))+'</option>').join("")+'</select></div><div class="v5-fields v5-fields-2">'+field("engineLevel","NÍVEL DO MOTOR",b.engineLevel,"number",1,60)+field("engineRank","REFINAMENTO (1–5)",b.engineRank,"number",1,5)+'</div><p class="v5-small">A foto acompanha o motor selecionado. Apenas motores da função compatível aparecem por padrão.</p></div>'+
@@ -339,7 +346,7 @@ function bindEvents(){
   if(act==="reanalyze"){const y=window.scrollY;draw();window.scrollTo(0,y);return;}
   if(act==="phase"){state.phase=Number(el.dataset.id)||1;draw();return;}
   if(act==="edit"){state.edit=el.dataset.name;account.selected=state.edit;save();draw();return;}
-  if(act==="add-own"){const name=el.dataset.name;if(!account.saved[name])account.saved[name]=blankBuild(findAgent(name));state.edit=name;account.selected=name;save();go("account",{id:""});return;}
+  if(act==="add-own"){const name=el.dataset.name;const agent=findAgent(name);if(!agent)return;if(!account.saved[name])account.saved[name]=blankBuild(agent);state.edit=name;state.addQuery="";account.selected=name;save();if(state.page==="account"){draw();requestAnimationFrame(()=>root.querySelector(".v5-editor")?.scrollIntoView({block:"start",behavior:"smooth"}));}else{go("account",{id:""});requestAnimationFrame(()=>root.querySelector(".v5-editor")?.scrollIntoView({block:"start",behavior:"smooth"}));}return;}
   if(act==="add-selected"){const name=root.querySelector("#v5-add-agent")?.value;if(!name)return;if(!account.saved[name])account.saved[name]=blankBuild(findAgent(name));state.edit=name;account.selected=name;save();draw();return;}
   if(act==="remove"){const name=el.dataset.name;if(!confirm('Remover '+name+' da Conta do Anderus?'))return;delete account.saved[name];state.edit=Object.keys(account.saved)[0]||"";account.selected=state.edit;save();draw();return;}
   if(act==="backup"){exportAccount();return;}
@@ -358,6 +365,12 @@ function bindEvents(){
  let debounce;
  root.addEventListener("input",function(e){
    const t=e.target;
+   if(t.id==="v5-add-search"){
+    state.addQuery=t.value;
+    const rail=root.querySelector("#v5-add-rail");
+    if(rail){rail.innerHTML=addAgentTiles();rail.scrollLeft=0;}
+    return;
+   }
    if(t.id==="v5-catalog-search"||t.id==="v5-global-search"||t.id==="v5-full-search"){
     clearTimeout(debounce);
     const v=t.value;const isGlobal=t.id==="v5-global-search";
