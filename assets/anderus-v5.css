@@ -539,3 +539,46 @@ body.and-v5-mode #and-v5{display:block!important;position:relative;z-index:10;is
  #and-v5 .v5-account .v5-gear-select{grid-template-columns:68px minmax(0,1fr)}
  #and-v5 .v5-account .v5-gear-select img{width:68px;height:84px}
 }
+
+
+/* V5.5 — dossiês beta e investimentos por conta */
+#and-v5 .v5-beta-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 20px}
+#and-v5 .v5-beta-meta span,#and-v5 .v5-beta-meta a{font-size:10px;font-weight:900;letter-spacing:.045em;border:1px solid #80619c;background:#32253e;color:#ebceff;border-radius:7px;padding:7px 10px}
+#and-v5 .v5-beta-meta a{border-color:#b6cb35;background:#2a3927;color:#e6fd76}
+#and-v5 .v5-beta-mechanics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:17px 0}
+#and-v5 .v5-beta-mechanics article{background:#1c2b31;border:1px solid #40575e;border-radius:10px;padding:14px;min-width:0}
+#and-v5 .v5-beta-mechanics b{color:#e5fb70;font-size:12px}
+#and-v5 .v5-beta-mechanics p{font-size:12px;line-height:1.6;color:#ced9d7;margin:8px 0 0}
+#and-v5 .v5-beta-source-btn{display:inline-flex;min-height:44px;align-items:center;border:1px solid #cde64d;border-radius:8px;padding:10px 13px;margin-top:13px;color:#ebfd9d;font-size:11px;font-weight:850;line-height:1.4}
+#and-v5 .v5-beta-engine .v5-gear-hero{display:grid;grid-template-columns:115px minmax(0,1fr);padding:10px;gap:12px;align-items:center;border:1px solid #45565b;border-radius:10px;margin:15px 0}
+#and-v5 .v5-beta-engine .v5-gear-hero img{width:110px;max-width:100%;height:110px;object-fit:contain}
+#and-v5 .v5-beta-engine .v5-gear-hero h3{overflow-wrap:anywhere}
+#and-v5 .v5-beta-engine .v5-mvalues{display:flex;flex-wrap:wrap;gap:6px}
+#and-v5 .v5-beta-team{border-top:1px solid #344b50;margin:20px 0;padding-top:14px}
+#and-v5 .v5-beta-team>small{font-size:10px;font-weight:850;letter-spacing:.12em;color:#e7fe68}
+#and-v5 .v5-account-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:20px 0 18px;padding:6px;background:#162025;border:1px solid #405156;border-radius:12px}
+#and-v5 .v5-account-tabs button{min-width:0;border:1px solid transparent;background:transparent;color:#a9c0c3;padding:14px 9px;border-radius:8px;font-size:12px;font-weight:900;letter-spacing:.05em}
+#and-v5 .v5-account-tabs button.on{background:var(--v5-yellow);color:#10191b;box-shadow:0 4px 16px #d8f42323}
+#and-v5 .v5-invest-intro{background:linear-gradient(135deg,#293636,#151e22);border:1px solid #637e52;border-radius:13px;padding:22px;margin-bottom:18px}
+#and-v5 .v5-invest-intro h2{margin:10px 0}
+#and-v5 .v5-invest-intro p{color:#c9d9d5;font-size:13px;line-height:1.7}
+#and-v5 .v5-invest-group{margin:26px 0}
+#and-v5 .v5-invest-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid #3b5357;padding-bottom:11px;margin-bottom:11px}
+#and-v5 .v5-invest-head h3{font-size:23px}
+#and-v5 .v5-invest-head small{color:#b9c9c8;font-size:11px;flex:1;min-width:140px}
+#and-v5 .v5-invest-head>b{display:grid;place-items:center;min-width:31px;height:31px;background:#d9f52f;color:#172026;border-radius:7px}
+#and-v5 .v5-invest-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#and-v5 .v5-invest-card{display:flex;align-items:center;gap:12px;text-align:left;color:#edf4f0;padding:12px;background:#1c2a2e;border:1px solid #475e61;border-radius:11px;min-width:0}
+#and-v5 .v5-invest-card:hover{border-color:var(--v5-yellow)}
+#and-v5 .v5-invest-card>img{width:76px;height:76px;object-fit:cover;flex:none;border-radius:8px}
+#and-v5 .v5-invest-card>span{min-width:0;flex:1;display:flex;flex-direction:column;gap:4px}
+#and-v5 .v5-invest-card strong{font-size:14px}
+#and-v5 .v5-invest-card small{color:#c5d6d0;font-size:9px;font-weight:800}
+#and-v5 .v5-invest-card em{font-style:normal;font-size:10px;line-height:1.5;color:#b4c9c8}
+#and-v5 .v5-invest-card>svg:last-child{flex:none;color:#e4fc66}
+#and-v5 .v5-invest-empty{padding:13px;color:#9cb0b0;font-size:12px}
+@media(max-width:690px){#and-v5 .v5-beta-mechanics,#and-v5 .v5-invest-grid{grid-template-columns:1fr}
+#and-v5 .v5-account-tabs button{font-size:11px;padding:13px 6px}
+#and-v5 .v5-invest-card>img{width:66px;height:66px}
+#and-v5 .v5-beta-engine .v5-gear-hero{grid-template-columns:85px minmax(0,1fr)}
+#and-v5 .v5-beta-engine .v5-gear-hero img{width:80px;height:80px}}
