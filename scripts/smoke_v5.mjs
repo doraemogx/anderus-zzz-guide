@@ -72,12 +72,21 @@ for(const width of [360,393,412,1280]){
  await page.locator('.v5-roster-list [data-name="Phoenix"]').click();
 
  // Offline OCR contract: screenshot is decoded locally; server OCR is not required.
+ // Same two-column reading order observed from a real ZZZ screenshot,
+ // including OCR noise in the icons and accent variations.
  const ocrSample=[
-  'PV 11129','ATQ 1831','DEF 798','Impacto 86','Taxa CRIT 12,2%',
-  'Dano CRIT 54,8%','Maestria de Anomalia 230','Proficiência de Anomalia 330',
-  'Taxa de Perfuração 0,0%','Recuperação de Energia 1,20',
-  'Perfuração 72','Bônus de Dano de Fogo 30,0%'
+  '»','J)','a7','PV','ATQ','DEF','Impacto','Taxa CRIT','Dano CRIT',
+  'Maestria de Anomalia','Proficiéncia de Anomalia','Taxa de Perfuração',
+  'Recuperação de Energia','Perfuração','Bônus de Dano de Fogo',
+  '11129','1831','798','86','12,2%','54,8%','230','330','0,0%','1,20','72','30,0%'
  ].join('\n');
+ const noisyOcr=['@ PV 11129','am ATQ 1831','@ DEF 798','W Impacto 86',
+  '4} Taxa CRIT 12,2%','€> Dano CRIT 54,8%','@ Maestria de Anomalia 230',
+  '€ Proficiéncia de Anomalia 330','M) Taxa de Perfuragao 0,0%',
+  '+ Recuperacao de Energia 1,20','M) Perfuracgao 72',
+  'é B6énus de Dano de Fogo 30,0%'].join('\n');
+ const parsedNoisy=await page.evaluate(t=>window.AnderusOCR.parseText(t),noisyOcr);
+ if(parsedNoisy.recognized!==12||parsedNoisy.fields.pen!=='72')throw Error('OCR with game icons/noisy labels failed');
  const parsedOCR=await page.evaluate(t=>window.AnderusOCR.parseText(t),ocrSample);
  if(parsedOCR.recognized!==12||parsedOCR.fields.pen!=='72'||parsedOCR.fields.penRatio!=='0'||parsedOCR.fields.energy!=='1.2')throw Error('Screenshot OCR parser did not distinguish the 12 stats: '+JSON.stringify(parsedOCR.fields));
  await page.evaluate(t=>{
@@ -89,6 +98,8 @@ for(const width of [360,393,412,1280]){
  await page.locator('[data-scan-file]').setInputFiles({name:'screenshot.png',mimeType:'image/png',buffer:png});
  await page.waitForSelector('.lab-scan-results:not([hidden])',{timeout:12000});
  if(await page.locator('.lab-scan-field').count()!==12)throw Error('OCR confirmation requires 12 distinct fields');
+ const beforeApply=await page.evaluate(()=>JSON.parse(localStorage.getItem('ANDERUS_PROXY_OS_v2')).saved.Phoenix.stats.hp);
+ if(beforeApply==='11129')throw Error('OCR must not overwrite stats before user confirmation');
  if(!await page.locator('.lab-scan-summary').innerText().then(s=>s.includes('12 de 12')))throw Error('OCR review count missing');
  await page.locator('[data-scan-apply]').click();
  await page.waitForSelector('.lab-scan-apply:disabled');
