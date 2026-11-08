@@ -417,6 +417,10 @@ function labTeams(a,b){
  '<div class="lab-bangboo">'+svg("spark",20)+'<div><b>BANGBOO</b><span>'+esc(b.bangboo||"Não informado")+'</span></div><button data-v5="lab-edit">EDITAR</button></div>'+
  '<p class="lab-intro-note">Referências de equipe não garantem melhor resultado. A recomendação de Bangboo depende de dados ainda não cadastrados no catálogo.</p></section>';
 }
+function labCompleteSheet(a,b){
+ const fields=[["hp","PV"],["atk","ATQ"],["def","DEF"],["impact","Impacto"],["crit","Taxa CRIT (%)"],["cdmg","Dano CRIT (%)"],["mastery","Maestria de Anomalia"],["proficiency","Proficiência de Anomalia"],["penRatio","Taxa de Perfuração (%)"],["energy","Recuperação de Energia"],["pen","Perfuração (valor fixo)"],["bonusDamage","Bônus de Dano "+(b.stats?.bonusDamageElement||"Elemental")+" (%)"]];
+ return '<details class="lab-complete-sheet"><summary>VER TODOS OS 12 ATRIBUTOS CADASTRADOS '+svg("right",14)+'</summary><div>'+fields.map(([k,label])=>'<article><small>'+esc(label)+'</small><strong>'+esc(b.stats?.[k]||"—")+'</strong></article>').join("")+'</div></details>';
+}
 function upgradeScreen(){
  const owned=Object.keys(account.saved).map(findAgent).filter(Boolean),selected=owned.find(x=>x.name===state.upgradeName)||owned[0];
  if(!selected)return '<div class="lab-empty"><h2>ANDERUS LAB</h2><p>Cadastre um agente para iniciar.</p><button data-v5="accounttab" data-tab="roster">ADICIONAR AGENTE</button></div>';
@@ -424,9 +428,9 @@ function upgradeScreen(){
  return '<div class="lab-wrap lab-'+labColor(selected)+'" id="anderus-lab"><div class="lab-background" aria-hidden="true"><i></i><i></i><i></i></div>'+
  '<div class="lab-content"><div class="lab-heading"><span>NEW ERIDU // ANDERUS LAB</span><h2>GUIA DE APRIMORAMENTO<span>.</span></h2><p>Otimize seus agentes com informações da sua conta.</p></div>'+
  '<nav class="lab-carousel" aria-label="Agentes do seu elenco">'+owned.map(a=>'<button type="button" data-v5="lab-agent" data-name="'+esc(a.name)+'" class="'+(a.name===selected.name?'on':'')+'" aria-pressed="'+(a.name===selected.name)+'"><img src="'+portrait(a)+'" alt=""><span>'+esc(tr(a.name))+'</span></button>').join("")+'</nav>'+
- '<section class="lab-hero"><div class="lab-hero-art"><img src="'+portrait(selected)+'" alt="'+esc(tr(selected.name))+'"></div><div class="lab-hero-info"><small class="lab-rank">'+esc(selected.rank)+' RANK</small><h1>'+esc(tr(selected.name))+'</h1><strong>NV. '+esc(b.level||"—")+' <small>/ 60</small></strong><div class="lab-pills"><span>'+esc(selected.element)+'</span><span>'+esc(selected.role)+'</span><span>M'+esc(b.mindscape??0)+'</span></div><button data-v5="lab-edit" class="lab-edit">'+svg("sliders",16)+' EDITAR BUILD '+svg("right",16)+'</button></div></section>'+
+ '<section class="lab-hero"><div class="lab-hero-art"><img src="'+portrait(selected)+'" alt="'+esc(tr(selected.name))+'"></div><div class="lab-hero-info"><small class="lab-rank">'+esc(selected.rank)+' RANK</small><h1>'+esc(tr(selected.name))+'</h1><strong>NV. '+esc(b.level||"—")+' <small>/ 60</small></strong><div class="lab-pills"><span>'+esc(selected.element)+'</span><span>'+esc(selected.role)+'</span><span>M'+esc(b.mindscape??0)+'</span></div><div class="lab-hero-actions"><button data-v5="lab-edit" class="lab-edit">'+svg("sliders",16)+' EDITAR BUILD '+svg("right",16)+'</button><button class="lab-scan-shortcut" type="button" data-v5="scan-open" data-agent="'+esc(selected.name)+'">IMPORTAR PRINT '+svg("arrow",14)+'</button></div></div></section>'+
  (selected.beta?'<div class="lab-beta">KIT BETA · METAS PROVISÓRIAS, SUJEITAS A REVISÃO</div>':'')+
- labProgress(selected,b)+labRecommendations(selected,b)+labDiscs(selected,b)+labEngine(selected,b)+labAbilities(selected,b)+labTeams(selected,b)+
+ labProgress(selected,b)+labCompleteSheet(selected,b)+labRecommendations(selected,b)+labDiscs(selected,b)+labEngine(selected,b)+labAbilities(selected,b)+labTeams(selected,b)+
  '<footer class="lab-footer"><strong>SEUS DADOS. SEU PROGRESSO.</strong><p>Atualize suas builds e toque em Salvar; o diagnóstico é recalculado automaticamente.</p><button data-v5="lab-edit">'+svg("arrow",16)+' VOLTAR AO EDITOR</button></footer></div></div>';
 }
 
@@ -435,7 +439,7 @@ function accountScreen(){
  const names=DB.agents.filter(a=>!a.beta&&!a.upcoming&&!account.saved[a.name]);
  const selected=findAgent(state.edit)||findAgent(list[0]);
  const b=selected?account.saved[selected.name]:null;
- const statkeys=[["atk","ATQ"],["hp","PV"],["def","DEF"],["crit","Taxa CRIT (%)"],["cdmg","Dano CRIT (%)"],["proficiency","Proficiência de Anomalia"],["mastery","Maestria de Anomalia"],["pen","Perfuração"],["impact","Impacto"],["energy","Recuperação de Energia"]];
+ const statkeys=[["atk","ATQ"],["hp","PV"],["def","DEF"],["impact","Impacto"],["crit","Taxa CRIT (%)"],["cdmg","Dano CRIT (%)"],["mastery","Maestria de Anomalia"],["proficiency","Proficiência de Anomalia"],["penRatio","Taxa de Perfuração (%)"],["energy","Recuperação de Energia"],["pen","Perfuração (valor fixo)"],["bonusDamage","Bônus de Dano Elemental (%)"]];
  const compatible=selected?DB.engines.filter(w=>w.role===selected.role):[];
  return '<div class="v5-inner v5-account">'+title('PAINEL PESSOAL // ANDERUS','MINHA CONTA<span class="v5-dot">.</span>','Organize personagens, equipamentos, status, equipes e investimentos. Os dados permanecem neste navegador.')+
  '<section class="v5-profile-bar"><div class="v5-info-strip"><div><b>'+list.length+'</b><small>AGENTES</small></div><div><b>'+account.teams.length+'</b><small>EQUIPES</small></div><div><b>LOCAL</b><small>ARMAZENAMENTO</small></div></div><div class="v5-backup"><button data-v5="backup">EXPORTAR BACKUP</button><button data-v5="import">IMPORTAR</button><input type="file" id="v5-backup-input" accept="application/json,.json" hidden></div></section>'+
@@ -445,7 +449,7 @@ function accountScreen(){
  '<div class="v5-editor">'+(selected&&b?'<div class="v5-edit-head"><img src="'+portrait(selected)+'"><div><span class="v5-eyebrow">EDITANDO AGENTE</span><h2>'+esc(tr(selected.name))+'</h2><small>'+esc(selected.element)+' · '+esc(selected.role)+'</small></div><button data-v5="detail" data-type="agents" data-id="'+selected.id+'">'+svg("right",18)+'</button></div>'+
  '<div class="v5-fields v5-fields-3">'+field("level","NÍVEL",b.level,"number",1,60)+field("mindscape","MINDSCAPE M0-M6",b.mindscape,"number",0,6)+'<label>HABILIDADE CENTRAL<select data-v5-build="core">'+["A","B","C","D","E","F"].map(x=>'<option '+(x===b.core?'selected':'')+'>'+x+'</option>').join("")+'</select></label></div>'+
  '<div class="v5-editor-section"><span class="v5-eyebrow">01 / ARMA</span><h3>MOTOR-W EQUIPADO</h3><div class="v5-gear-select"><img id="v5-equipped-engine" src="'+engineImg(findEngine(b.engine))+'" alt=""><select data-v5-build="engine"><option value="">NENHUM MOTOR</option>'+compatible.map(w=>'<option value="'+esc(w.name)+'" '+(b.engine===w.name?'selected':'')+'>'+esc(tr(w.name))+'</option>').join("")+'</select></div><div class="v5-fields v5-fields-2">'+field("engineLevel","NÍVEL DO MOTOR",b.engineLevel,"number",1,60)+field("engineRank","REFINAMENTO (1–5)",b.engineRank,"number",1,5)+'</div><p class="v5-small">A foto acompanha o motor selecionado. Apenas motores da função compatível aparecem por padrão.</p></div>'+
- '<div class="v5-editor-section"><span class="v5-eyebrow">02 / ESTATÍSTICAS</span><h3>ATRIBUTOS DA SUA BUILD</h3><div class="v5-fields v5-fields-2">'+statkeys.map(([k,n])=>field("stats."+k,n,b.stats?.[k]||"","text")).join("")+'</div></div>'+
+ '<div class="v5-editor-section"><span class="v5-eyebrow">02 / ESTATÍSTICAS</span><h3>ATRIBUTOS DA SUA BUILD</h3><div class="lab-import-callout"><div><strong>IMPORTAR ATRIBUTOS POR PRINT</strong><p>Leia os 12 atributos de uma captura do jogo, confira e salve sem digitar tudo manualmente.</p></div><button type="button" data-v5="scan-open" data-agent="'+esc(selected.name)+'">'+svg("arrow",16)+' IMPORTAR PRINT</button></div><div class="v5-fields v5-fields-2">'+statkeys.map(([k,n])=>field("stats."+k,n,b.stats?.[k]||"","text")).join("")+field("stats.bonusDamageElement","Elemento do bônus de dano",b.stats?.bonusDamageElement||"","text")+'</div></div>'+
  '<details class="v5-editor-section lab-editor-targets"><summary><span class="v5-eyebrow">METAS PESSOAIS (OPCIONAL)</span><h3>OBJETIVOS DE ATRIBUTOS '+svg("right",16)+'</h3></summary><p class="v5-small">Deixe vazio para usar marcos técnicos documentados quando disponíveis.</p><div class="v5-fields v5-fields-2">'+labAttrs.map(([k,n])=>field("goals."+k,n,b.goals?.[k]??"","text")).join("")+'</div></details>'+
  '<div class="v5-editor-section"><span class="v5-eyebrow">03 / HABILIDADES</span><h3>NÍVEL DAS HABILIDADES</h3><div class="v5-fields v5-fields-3">'+[["basic","ATAQUE BÁSICO"],["dodge","ESQUIVA"],["special","ESPECIAL"],["chain","CADEIA"],["assist","ASSISTÊNCIA"]].map(([k,n])=>'<label>'+n+'<input type="number" min="1" max="16" data-v5-skill="'+k+'" value="'+esc(b.skillLevels?.[k]??"")+'" placeholder="Não informado"></label>').join("")+'</div></div>'+
  '<details class="v5-editor-section lab-editor-targets"><summary><span class="v5-eyebrow">METAS PESSOAIS (OPCIONAL)</span><h3>OBJETIVOS DE HABILIDADES '+svg("right",16)+'</h3></summary><div class="v5-fields v5-fields-3">'+labSkills.map(([k,n])=>field("skillGoals."+k,n,b.skillGoals?.[k]??"","number",1,16)).join("")+'</div></details>'+
@@ -545,6 +549,30 @@ function bindEvents(){
    }
  });
 }
+
+window.addEventListener("anderus:apply-stats",function(event){
+ const item=event.detail||{},name=String(item.name||""),b=account.saved[name];
+ const allowed=new Set(["hp","atk","def","impact","crit","cdmg","mastery","proficiency","penRatio","energy","pen","bonusDamage"]);
+ let count=0;
+ if(b&&item.stats&&typeof item.stats==="object"&&!Array.isArray(item.stats)){
+   b.stats=b.stats||{};
+   for(const [key,value] of Object.entries(item.stats)){
+     if(!allowed.has(key))continue;
+     const n=Number(String(value).replace(",","."));
+     if(!Number.isFinite(n)||n<0||n>100000)continue;
+     b.stats[key]=String(n);count++;
+   }
+   if(Object.hasOwn(item.stats,"bonusDamageElement")&&count){
+     const element=String(item.stats.bonusDamageElement||"").slice(0,22);
+     if(/^[\p{L} \-]+$/u.test(element))b.stats.bonusDamageElement=element;
+   }
+   if(count){state.edit=name;state.upgradeName=name;account.selected=name;save();draw();}
+ }
+ let ok=false;
+ try{const stored=JSON.parse(localStorage.getItem("ANDERUS_PROXY_OS_v2"))?.saved?.[name]?.stats||{};ok=count>0&&Object.keys(stored).length>=count;}catch{}
+ window.dispatchEvent(new CustomEvent("anderus:scan-applied",{detail:{name,count,ok}}));
+});
+
 async function init(){
  root.innerHTML='<div class="v5-loading"><span>Z</span><strong>NEW ERIDU // ANDERUS</strong><small>Preparando seu arquivo Proxy OS...</small></div>';
  const get=async p=>{try{const r=await fetch(p+"?version=5",{cache:"no-store"});return r.ok?r.json():null;}catch{return null;}};
