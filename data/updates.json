@@ -3,7 +3,7 @@
   "checkedAt": "2026-11-08",
   "officialVersion": "3.3",
   "betaVersion": "3.4.3",
-  "betaRevision": "20286631",
+  "betaRevision": "20291004",
   "entries": [
     {
       "id": "auto-beta-3-4-3-20280288",
@@ -91,6 +91,19 @@
       "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
       "before": "Rev. 20283614",
       "after": "Rev. 20286631"
+    },
+    {
+      "id": "auto-beta-3-4-3-20291004",
+      "date": "2026-11-08",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Nova revisao de teste v3.4.3 · 20291004",
+      "summary": "Revisao beta detectada; numeros requerem curadoria antes de alterar fichas.",
+      "areas": [
+        "Beta",
+        "Pendente de validacao"
+      ],
+      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
     },
     {
       "id": "v5-hybrid-home",
