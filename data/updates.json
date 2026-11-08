@@ -3,7 +3,7 @@
   "checkedAt": "2026-11-08",
   "officialVersion": "3.3",
   "betaVersion": "3.4.3",
-  "betaRevision": "20283614",
+  "betaRevision": "20286631",
   "entries": [
     {
       "id": "auto-beta-3-4-3-20280288",
@@ -46,6 +46,51 @@
       "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
       "before": "Rev. 20278274",
       "after": "Rev. 20283614"
+    },
+    {
+      "id": "auto-beta-3-4-3-20286631",
+      "date": "2026-11-08",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Nova revisao de teste v3.4.3 · 20286631",
+      "summary": "Revisao beta detectada; numeros requerem curadoria antes de alterar fichas.",
+      "areas": [
+        "Beta",
+        "Pendente de validacao"
+      ],
+      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+    },
+    {
+      "id": "auto-beta-agent-sunbringer-20286631",
+      "date": "2026-11-08",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Sunbringer · nova revisão de kit 20286631",
+      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+      "areas": [
+        "Sunbringer",
+        "Kit beta",
+        "Conferir valores"
+      ],
+      "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
+      "before": "Rev. 20278274",
+      "after": "Rev. 20286631"
+    },
+    {
+      "id": "auto-beta-agent-kafka-20286631",
+      "date": "2026-11-08",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Kafka · nova revisão de kit 20286631",
+      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+      "areas": [
+        "Kafka",
+        "Kit beta",
+        "Conferir valores"
+      ],
+      "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
+      "before": "Rev. 20283614",
+      "after": "Rev. 20286631"
     },
     {
       "id": "v5-hybrid-home",
@@ -567,7 +612,7 @@
   "betaAgentRevisions": {
     "Sunbringer": {
       "version": "3.4.3",
-      "revision": "20278274",
+      "revision": "20286631",
       "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
       "lastChecked": "2026-11-08"
     },
@@ -579,7 +624,7 @@
     },
     "Kafka": {
       "version": "3.4.3",
-      "revision": "20283614",
+      "revision": "20286631",
       "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
       "lastChecked": "2026-11-08"
     }
