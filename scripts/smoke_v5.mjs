@@ -70,6 +70,33 @@ for(const width of [360,393,412,1280]){
  const savedAgent=await page.evaluate(n=>JSON.parse(localStorage.getItem('ANDERUS_PROXY_OS_v2')).saved[n],availableName);
  if(!savedAgent)throw Error('Swipe picker did not add agent to the account');
  await page.locator('.v5-roster-list [data-name="Phoenix"]').click();
+
+ // Offline OCR contract: screenshot is decoded locally; server OCR is not required.
+ const ocrSample=[
+  'PV 11129','ATQ 1831','DEF 798','Impacto 86','Taxa CRIT 12,2%',
+  'Dano CRIT 54,8%','Maestria de Anomalia 230','Proficiência de Anomalia 330',
+  'Taxa de Perfuração 0,0%','Recuperação de Energia 1,20',
+  'Perfuração 72','Bônus de Dano de Fogo 30,0%'
+ ].join('\n');
+ const parsedOCR=await page.evaluate(t=>window.AnderusOCR.parseText(t),ocrSample);
+ if(parsedOCR.recognized!==12||parsedOCR.fields.pen!=='72'||parsedOCR.fields.penRatio!=='0'||parsedOCR.fields.energy!=='1.2')throw Error('Screenshot OCR parser did not distinguish the 12 stats: '+JSON.stringify(parsedOCR.fields));
+ await page.evaluate(t=>{
+  window.Tesseract={createWorker:async()=>({recognize:async()=>({data:{text:t}}),terminate:async()=>{}})};
+ },ocrSample);
+ await page.locator('[data-v5="scan-open"]').first().click();
+ await page.waitForSelector('#lab-scan-dialog .lab-scan-dialog');
+ const png=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScLx/QAAAABJRU5ErkJggg==','base64');
+ await page.locator('[data-scan-file]').setInputFiles({name:'screenshot.png',mimeType:'image/png',buffer:png});
+ await page.waitForSelector('.lab-scan-results:not([hidden])',{timeout:12000});
+ if(await page.locator('.lab-scan-field').count()!==12)throw Error('OCR confirmation requires 12 distinct fields');
+ if(!await page.locator('.lab-scan-summary').innerText().then(s=>s.includes('12 de 12')))throw Error('OCR review count missing');
+ await page.locator('[data-scan-apply]').click();
+ await page.waitForSelector('.lab-scan-apply:disabled');
+ const snapshot=await page.evaluate(()=>JSON.parse(localStorage.getItem('ANDERUS_PROXY_OS_v2')).saved.Phoenix.stats);
+ if(snapshot.hp!=='11129'||snapshot.pen!=='72'||snapshot.penRatio!=='0'||snapshot.bonusDamage!=='30'||snapshot.bonusDamageElement!=='Fogo')throw Error('Imported stats not persisted to the correct agent: '+JSON.stringify(snapshot));
+ await page.locator('[data-scan-close]').first().click();
+ if(await page.locator('#lab-scan-dialog').count())throw Error('Scan modal did not close');
+
  const accountOverflowAfter=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
  if(accountOverflowAfter>4)throw Error('Account edit view overflows '+width+': '+accountOverflowAfter);
  if(!await page.locator('.v5-editor').isVisible())throw Error('Account editor missing');
