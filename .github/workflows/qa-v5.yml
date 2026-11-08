@@ -1,4 +1,4 @@
-name: QA V5 — híbrida e dados da Conta do Anderus
+name: QA V6 — ANDERUS LAB, Conta e Enciclopédia
 on:
   workflow_dispatch:
   push:
@@ -23,7 +23,7 @@ jobs:
       - run: python -c "import json; d=json.load(open('data/encyclopedia.json')); assert len(d['agents'])>=60; assert all(len(x.get('mindscapes',[]))==6 for x in d['agents'].values()); print('Mindscapes:',len(d['agents']))"
       - run: npm install --no-save playwright@1.58.2
       - run: npx playwright install --with-deps chromium
-      - name: Teste mobile com catálogo, Mindscapes, conta e radar
+      - name: Teste mobile com cadastro, salvamento, ANDERUS LAB, catálogo e radar
         run: |
           python -m http.server 8765 --bind 127.0.0.1 >/tmp/and-v5-server.log 2>&1 &
           sleep 2
@@ -31,5 +31,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: preview-anderus-v5-hibrida
-          path: v5-hibrida-s25-edge.png
+          name: preview-anderus-lab-v6-mobile
+          path: |
+            v5-hibrida-s25-edge.png
+            anderus-lab-s25-edge.png
