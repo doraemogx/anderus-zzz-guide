@@ -36,7 +36,7 @@ function svg(name,size=20){
  };
  return '<svg width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(paths[name]||paths.spark)+'</svg>';
 }
-const portrait=a=>a?'assets/portraits/'+a.id+'.webp?v=5.4':'assets/icon-192.png';
+const portrait=a=>a?'assets/portraits/'+a.id+'.webp?v=5.5':'assets/icon-192.png';
 const engineImg=e=>e?'assets/engines/'+e.id+'.webp':'assets/icon-192.png';
 const discImg=d=>d?'assets/discs/'+d.id+'.webp':'assets/icon-192.png';
 const mark=a=>a.beta?'BETA · PROVISÓRIO':a.upcoming?'ANUNCIADO':a.rank==='I'?'ESPECIAL':'RANK '+a.rank;
