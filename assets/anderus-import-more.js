@@ -196,7 +196,7 @@ function readImage(file){
 }
 function makeCanvas(img,rect={x:0,y:0,w:1,h:1},contrast=false){
  const sx=Math.round(img.naturalWidth*rect.x),sy=Math.round(img.naturalHeight*rect.y);
- const sw=Math.round(img.naturalWidth*rect.w),sh=Math.round(img.naturalHeight*rect.h);
+ const sw=Math.max(1,Math.min(img.naturalWidth-sx,Math.round(img.naturalWidth*rect.w))),sh=Math.max(1,Math.min(img.naturalHeight-sy,Math.round(img.naturalHeight*rect.h)));
  const scale=Math.min(3.5,1600/sw,2100/sh),canvas=document.createElement("canvas");
  canvas.width=Math.max(1,Math.round(sw*scale));canvas.height=Math.max(1,Math.round(sh*scale));
  const ctx=canvas.getContext("2d",{willReadFrequently:true});
