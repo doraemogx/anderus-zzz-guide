@@ -27,24 +27,43 @@ function parseValue(value,key){
  const def=keys.find(x=>x.key===key);
  return Number.isFinite(n)&&def&&n>=def.min&&n<=def.max?n:null;
 }
+// Some games place glyph icons immediately before labels. OCR may read them as
+// characters such as "@ PV", "am ATQ", "4} Taxa CRIT" and "M) Perfuragao".
+// Match the actual label anywhere on the line, not only at column 0.
+const statMatchers=[
+ ["penRatio",/\btaxa\s*(?:de\s*)?(?:perfur\w*|penetr\w*)/i],
+ ["crit",/\btaxa\s*(?:de\s*)?crit\w*/i],
+ ["cdmg",/\bdano\s*crit\w*/i],
+ ["mastery",/\bmaestria\s*(?:de\s*)?anomalia\b/i],
+ ["proficiency",/\bprofici\w*\s*(?:de\s*)?anomalia\b/i],
+ ["energy",/\brecupera\w*\s*(?:de\s*)?energia\b/i],
+ ["bonusDamage",/\bb(?:onus|6enus|0nus|enus)\s*(?:de\s*)?dano\b/i],
+ ["impact",/\bimpacto\b/i],
+ ["atk",/\batq\b/i],
+ ["def",/\bdef\b/i],
+ ["hp",/\bpv\b/i],
+ ["pen",/\b(?:perfur\w*|penetr\w*)/i]
+];
 function parseText(text){
  const lines=String(text||"").replace(/\r/g,"").split("\n").map(x=>x.replace(/[│|]/g," ").trim()).filter(Boolean);
- const fields={}, warnings=[];
+ const fields={},warnings=[];
  for(let i=0;i<lines.length;i++){
-  const line=lines[i],plain=normalize(line).replace(/[•·:;]/g," ").replace(/\s+/g," ").trim();
-  for(const def of keys){
-   if(Object.hasOwn(fields,def.key))continue;
-   const match=plain.match(def.pattern);
+  const line=lines[i],plain=normalize(line).replace(/[•·:;]/g," ").replace(/\s+/g," ");
+  for(const [key,matcher] of statMatchers){
+   if(Object.hasOwn(fields,key))continue;
+   const match=matcher.exec(plain);
    if(!match)continue;
-   let suffix=line.slice(match[0].length).trim();
-   let tokens=suffix.match(/[-+]?\d[\d.,\s]*%?/g);
+   if(key==="pen"&&/\btaxa\s*(?:de\s*)?(?:perfur|penetr)/i.test(plain))continue;
+   const def=keys.find(x=>x.key===key);
+   let suffix=line.slice(match.index+match[0].length);
+   let tokens=suffix.match(/[-+]?\d[\d.,]*\s*%?/g);
    if(!tokens?.length&&i+1<lines.length&&/^[\d\s.,%]+$/.test(lines[i+1]))tokens=[lines[i+1]];
-   const candidate=tokens?.[0]?.trim()||"";
-   const value=parseValue(candidate,def.key);
+   const candidate=tokens?.[tokens.length-1]?.trim()||"";
+   const value=parseValue(candidate,key);
    if(value!==null){
-    fields[def.key]=String(value);
-    if(def.key==="bonusDamage"){
-     const element=plain.match(/bonus\s*(?:de\s*)?dano\s*(?:(?:de|do|da)\s*)?(fogo|gelo|eter|fisico|eletrico|vento)/)?.[1];
+    fields[key]=String(value);
+    if(key==="bonusDamage"){
+     const element=plain.match(/\bdano\s*(?:(?:de|do|da)\s*)?(fogo|gelo|eter|fisico|eletrico|vento)\b/i)?.[1];
      if(element)fields.bonusDamageElement=element.charAt(0).toUpperCase()+element.slice(1);
     }
    }else warnings.push(def.label+" — não foi possível ler com segurança");
@@ -53,7 +72,8 @@ function parseText(text){
  }
  return {fields,warnings,recognized:keys.filter(x=>Object.hasOwn(fields,x.key)).length,lines};
 }
-window.AnderusOCR={parseText,parseValue,version:"6.1"};
+
+window.AnderusOCR={parseText,parseValue,version:"6.2"};
 let modal=null,activeAgent="",lastUrl=null,processing=false,cachePromise=null;
 function announce(text,error=false){
  const el=modal?.querySelector("[data-scan-status]");
@@ -122,23 +142,31 @@ function loadTesseract(){
  }).catch(err=>{cachePromise=null;throw err;});
  return cachePromise;
 }
-async function prepare(file){
+async function prepare(file,{whole=false,soft=false}={}){
  const objectUrl=URL.createObjectURL(file);
  try{
   const img=await new Promise((resolve,reject)=>{
    const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(Error("Imagem não pôde ser aberta"));im.src=objectUrl;
   });
-  const scale=Math.min(1.55,1100/img.naturalWidth,2500/img.naturalHeight);
+  const w=img.naturalWidth,h=img.naturalHeight,portrait=h/w>1.55;
+  // Phone screenshots have decorative wallpaper, navigation bar and app controls.
+  // Their attribute sheet normally occupies the middle/lower part of the image.
+  // Remove those distractions before OCR and enlarge the actual typography.
+  const left=whole?0:Math.round(w*.03),top=whole?0:Math.round(h*(portrait?.225:.045));
+  const cropW=whole?w:Math.max(40,w-2*left);
+  const cropH=whole?h:Math.max(40,Math.min(h-top,Math.round(h*(portrait?.675:.91))));
+  const scale=Math.min(2.3,1850/cropW,2850/cropH);
   const canvas=document.createElement("canvas");
-  canvas.width=Math.round(img.naturalWidth*scale);
-  canvas.height=Math.round(img.naturalHeight*scale);
+  canvas.width=Math.max(1,Math.round(cropW*scale));
+  canvas.height=Math.max(1,Math.round(cropH*scale));
   const ctx=canvas.getContext("2d",{willReadFrequently:true});
-  ctx.drawImage(img,0,0,canvas.width,canvas.height);
-  const frame=ctx.getImageData(0,0,canvas.width,canvas.height);
-  const data=frame.data;
+  if(!ctx)throw Error("Canvas de imagem indisponível");
+  ctx.drawImage(img,left,top,cropW,cropH,0,0,canvas.width,canvas.height);
+  const frame=ctx.getImageData(0,0,canvas.width,canvas.height),data=frame.data;
   for(let i=0;i<data.length;i+=4){
    const luminance=.2126*data[i]+.7152*data[i+1]+.0722*data[i+2];
-   const value=luminance>82?0:255;
+   const inverted=255-luminance;
+   const value=Math.max(0,Math.min(255,Math.round((inverted-128)*(soft?1.15:1.9)+128)));
    data[i]=value;data[i+1]=value;data[i+2]=value;data[i+3]=255;
   }
   ctx.putImageData(frame,0,0);
@@ -163,14 +191,18 @@ async function scan(file){
   }});}
   catch{worker=await tess.createWorker("eng");}
   const canvas=await prepare(file);
-  announce("Identificando os valores…");
+  announce("Lendo a área de atributos em alta resolução…");
+  try{await worker.setParameters({tessedit_pageseg_mode:"4",preserve_interword_spaces:"1"});}catch{}
   const result=await worker.recognize(canvas);
   let parsed=parseText(result.data?.text||"");
-  if(parsed.recognized<5){
-   announce("Refinando reconhecimento do print…");
-   const original=await worker.recognize(file);
-   const next=parseText(original.data?.text||"");
-   if(next.recognized>parsed.recognized)parsed=next;
+  // Second pass, only if the first did not recover most of the printed stats.
+  if(parsed.recognized<8){
+   announce("Tentando uma segunda leitura do print…");
+   try{await worker.setParameters({tessedit_pageseg_mode:"11"});}catch{}
+   const alternate=await prepare(file,{whole:false,soft:true});
+   const second=await worker.recognize(alternate);
+   const retry=parseText(second.data?.text||"");
+   if(retry.recognized>parsed.recognized)parsed=retry;
   }
   showResults(parsed);
  }catch(e){
