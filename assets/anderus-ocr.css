@@ -1,3 +1,5 @@
+/* A shell principal oculta outros filhos de body; o leitor precisa ser uma exceção visível. */
+body.and-v5-mode > #lab-scan-dialog.lab-scan-backdrop{display:grid!important;position:fixed!important;visibility:visible!important;z-index:99999!important}
 /* ANDERUS LAB V6.1 — screenshot import / local OCR */
 body.lab-scan-open{overflow:hidden}
 #and-v5 .lab-import-callout{display:flex;align-items:center;gap:12px;justify-content:space-between;min-width:0;flex-wrap:wrap;padding:14px;border:1px solid #779850;border-radius:12px;background:linear-gradient(125deg,#233b31,#172328);margin:14px 0}
