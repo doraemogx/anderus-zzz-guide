@@ -582,3 +582,5 @@ body.and-v5-mode #and-v5{display:block!important;position:relative;z-index:10;is
 #and-v5 .v5-invest-card>img{width:66px;height:66px}
 #and-v5 .v5-beta-engine .v5-gear-hero{grid-template-columns:85px minmax(0,1fr)}
 #and-v5 .v5-beta-engine .v5-gear-hero img{width:80px;height:80px}}
+
+#and-v5 .v5-beta-meta .v5-beta-outdated{background:#4c2b24;border-color:#bc714b;color:#ffe3b0}
