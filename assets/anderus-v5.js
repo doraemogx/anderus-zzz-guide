@@ -582,11 +582,87 @@ window.addEventListener("anderus:apply-stats",function(event){
  window.dispatchEvent(new CustomEvent("anderus:scan-applied",{detail:{name,count,ok}}));
 });
 
+
+/* Gear imports are transactional: apply only user-selected fields, persist and
+   verify, and leave unrelated character data untouched. */
+window.addEventListener("anderus:apply-gear",function(event){
+ const d=event.detail||{},name=String(d.name||""),mode=d.kind,prev=account.saved[name],agent=findAgent(name);
+ let success=false,count=0;
+ if(prev&&agent&&["discs","engine","skills"].includes(mode)){
+  const next=JSON.parse(JSON.stringify(prev));
+  try{
+   if(mode==="discs"){
+    const items=d.discs;
+    if(!Array.isArray(items)||!items.length||items.length>6)throw Error("Nenhum disco selecionado");
+    const used=new Set();
+    next.slots=Array.from({length:6},(_,i)=>({...((next.slots||[])[i]||{})}));
+    for(const item of items){
+     const slot=Number(item.slot);
+     if(!Number.isInteger(slot)||slot<1||slot>6||used.has(slot))throw Error("Posição inválida ou repetida");
+     used.add(slot);
+     if(!findDisc(item.set)||typeof item.main!=="string"||!item.main.trim()||typeof item.mainValue!=="string"||!item.mainValue.trim())throw Error("Dados do disco insuficientes");
+     if(item.level!==null&&(item.level<0||item.level>15||!Number.isInteger(item.level)))throw Error("Nível fora do limite");
+     const old=next.slots[slot-1],substatArray=(item.substats||[]).slice(0,4).map(v=>({
+       name:String(v.name||"").slice(0,70),
+       value:String(v.value||"").slice(0,35),
+       rolls:v.rolls===null?null:Math.max(0,Math.min(5,Number(v.rolls)||0))
+     }));
+     next.slots[slot-1]={...old,set:item.set,main:item.main.slice(0,85),mainValue:item.mainValue.slice(0,30),
+      level:item.level===null?(old.level??""):item.level,
+      subs:String(item.subs||"").slice(0,500),substats:substatArray};
+     count++;
+    }
+   }else if(mode==="engine"){
+    const e=d.engine,item=e&&findEngine(e.name);
+    if(!item||item.role!==agent.role)throw Error("Motor-W incompatível com a especialidade");
+    if(e.level!==null&&(!Number.isInteger(e.level)||e.level<1||e.level>60))throw Error("Nível inválido");
+    if(e.rank!==null&&(!Number.isInteger(e.rank)||e.rank<1||e.rank>5))throw Error("Refinamento inválido");
+    const same=next.engine===e.name;
+    next.engine=e.name;
+    next.engineLevel=e.level??(same?next.engineLevel:"");
+    next.engineRank=e.rank??(same?next.engineRank:"");
+    next.engineStats={baseAtk:String(e.baseAtk||"").slice(0,20),
+      advancedName:String(e.advancedName||"").slice(0,70),
+      advancedValue:String(e.advancedValue||"").slice(0,30)};
+    count=1;
+   }else{
+    const values=d.skills||{},allowed=["basic","dodge","assist","special","chain","coreLevel"];
+    next.skillLevels=next.skillLevels||{};
+    for(const [key,value] of Object.entries(values)){
+     const n=Number(value);
+     if(!allowed.includes(key)||!Number.isInteger(n)||n<1||n>16)throw Error("Nível de habilidade inválido");
+     if(key==="coreLevel")next.coreLevel=n;
+     else next.skillLevels[key]=n;
+     count++;
+    }
+   }
+   if(!count)throw Error("Nenhum campo selecionado");
+   account.saved[name]=next;
+   state.edit=name;state.upgradeName=name;account.selected=name;
+   save();
+   const stored=JSON.parse(localStorage.getItem("ANDERUS_PROXY_OS_v2"))?.saved?.[name];
+   if(!stored)throw Error("Armazenamento indisponível");
+   if(mode==="discs"){success=d.discs.every(x=>stored.slots?.[x.slot-1]?.set===x.set&&stored.slots?.[x.slot-1]?.mainValue===x.mainValue);}
+   else if(mode==="engine")success=stored.engine===d.engine.name;
+   else success=Object.entries(d.skills).every(([k,v])=>Number(k==="coreLevel"?stored.coreLevel:stored.skillLevels?.[k])===Number(v));
+   if(!success)throw Error("Falha na verificação");
+   draw();
+  }catch(err){
+   account.saved[name]=prev;
+   try{save();draw();}catch{}
+   success=false;count=0;
+  }
+ }
+ window.dispatchEvent(new CustomEvent("anderus:gear-applied",{detail:{name,kind:mode,ok:success,count}}));
+});
+
 async function init(){
  root.innerHTML='<div class="v5-loading"><span>Z</span><strong>NEW ERIDU // ANDERUS</strong><small>Preparando seu arquivo Proxy OS...</small></div>';
  const get=async p=>{try{const r=await fetch(p+"?version=5",{cache:"no-store"});return r.ok?r.json():null;}catch{return null;}};
  const results=await Promise.all([get("data/encyclopedia.json"),get("data/localizacao-ptbr.json"),get("data/updates.json"),get("data/endgame-reference.json"),get("data/beta-kits.json")]);
  enc=results[0]||enc;loc=results[1]||loc;feed=results[2]||feed;endgameReference=results[3]||null;betaKits=results[4]||betaKits;
+ window.AnderusImportCatalog={engines:DB.engines.map(x=>({name:x.name,label:tr(x.name),role:x.role})),discs:DB.discs.map(x=>({name:x.name,label:tr(x.name)}))};
+ window.AnderusGearOCR?.configure(window.AnderusImportCatalog);
  const hash=decodeURIComponent(location.hash||"");
  if(hash.indexOf("#and-v5/")===0){const a=hash.slice(8).split("/");state.page=a[0]||"home";state.id=a[1]||"";if(state.id){const it=DB.agents.find(x=>x.id===state.id);state.type=it?"agents":"engines";}}
  history.replaceState({...state,__v5:true,scroll:0},"",location.href);
