@@ -1,10 +1,23 @@
 {
   "schema": 2,
-  "checkedAt": "2026-11-07",
+  "checkedAt": "2026-11-08",
   "officialVersion": "3.3",
   "betaVersion": "3.4.3",
   "betaRevision": "20280288",
   "entries": [
+    {
+      "id": "auto-beta-3-4-3-20280288",
+      "date": "2026-11-08",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Nova revisao de teste v3.4.3 · 20280288",
+      "summary": "Revisao beta detectada; numeros requerem curadoria antes de alterar fichas.",
+      "areas": [
+        "Beta",
+        "Pendente de validacao"
+      ],
+      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+    },
     {
       "id": "v5-hybrid-home",
       "date": "2026-11-07",
@@ -341,6 +354,36 @@
       ]
     },
     {
+      "id": "beta-343",
+      "date": "2026-11-07",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Beta 3.4.3 · revisão 20278274",
+      "summary": "Mudanças de teste relatadas para Kafka, Sunbringer e Vivian. Dados preliminares, não aplicados automaticamente como kits finais.",
+      "areas": [
+        "Kafka",
+        "Sunbringer",
+        "Vivian"
+      ],
+      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+    },
+    {
+      "id": "beta-343b",
+      "date": "2026-11-07",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Beta 3.4.3 · revisão 20266797",
+      "summary": "Revisões de Robin, Kafka, Sunbringer, motores de teste e novos discos. Conferir números antes de atualizar fichas.",
+      "areas": [
+        "Robin",
+        "Kafka",
+        "Sunbringer",
+        "W-Engines",
+        "Drive Discs"
+      ],
+      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+    },
+    {
       "id": "official-33",
       "date": "2026-10-21",
       "kind": "official",
@@ -370,36 +413,146 @@
       "url": "https://zenless.hoyoverse.com/en-us/news/166964?catchSpider=1"
     },
     {
-      "id": "beta-343",
-      "date": "2026-11-07",
-      "kind": "beta",
+      "id": "auto-official-dcomnewsapp4162040view652616887841064661",
+      "date": "2026-10-20",
+      "kind": "official",
       "status": "monitoring",
-      "title": "Beta 3.4.3 · revisão 20278274",
-      "summary": "Mudanças de teste relatadas para Kafka, Sunbringer e Vivian. Dados preliminares, não aplicados automaticamente como kits finais.",
+      "title": "Version 3.3 \"Journey to the Sky\" Update Announcement",
+      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
       "areas": [
-        "Kafka",
-        "Sunbringer",
-        "Vivian"
+        "Noticias oficiais"
       ],
-      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+      "url": "https://store.steampowered.com/news/app/4162040/view/652616887841064661"
     },
     {
-      "id": "beta-343b",
-      "date": "2026-11-07",
-      "kind": "beta",
+      "id": "auto-official-dcomnewsapp4162040view667252863011914640",
+      "date": "2026-10-08",
+      "kind": "official",
       "status": "monitoring",
-      "title": "Beta 3.4.3 · revisão 20266797",
-      "summary": "Revisões de Robin, Kafka, Sunbringer, motores de teste e novos discos. Conferir números antes de atualizar fichas.",
+      "title": "Zenless Zone Zero Version 3.3 \"Journey to the Sky\" Special Program Announcement",
+      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
       "areas": [
-        "Robin",
-        "Kafka",
-        "Sunbringer",
-        "W-Engines",
-        "Drive Discs"
+        "Noticias oficiais"
       ],
-      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+      "url": "https://store.steampowered.com/news/app/4162040/view/667252863011914640"
+    },
+    {
+      "id": "auto-official-dcomnewsapp4162040view714537487845820569",
+      "date": "2026-09-08",
+      "kind": "official",
+      "status": "monitoring",
+      "title": "Version 3.2 \"Their Secret Histories\" Update Announcement",
+      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
+      "areas": [
+        "Noticias oficiais"
+      ],
+      "url": "https://store.steampowered.com/news/app/4162040/view/714537487845820569"
+    },
+    {
+      "id": "auto-official-dcomnewsapp4162040view712284420447405347",
+      "date": "2026-08-24",
+      "kind": "official",
+      "status": "monitoring",
+      "title": "Version 3.2 \"Their Secret Histories\" Special Program Announcement",
+      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
+      "areas": [
+        "Noticias oficiais"
+      ],
+      "url": "https://store.steampowered.com/news/app/4162040/view/712284420447405347"
+    },
+    {
+      "id": "auto-official-dcomnewsapp4162040view711156617370927264",
+      "date": "2026-07-29",
+      "kind": "official",
+      "status": "monitoring",
+      "title": "🎨 New Zenless Zone Zero Items in the Steam Points Shop! 🎨",
+      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
+      "areas": [
+        "Noticias oficiais"
+      ],
+      "url": "https://store.steampowered.com/news/app/4162040/view/711156617370927264"
+    },
+    {
+      "id": "auto-official-dcomnewsapp4162040view706649847851123192",
+      "date": "2026-07-28",
+      "kind": "official",
+      "status": "monitoring",
+      "title": "Version 3.1 \"The Long Goodbye\" Update Announcement",
+      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
+      "areas": [
+        "Noticias oficiais"
+      ],
+      "url": "https://store.steampowered.com/news/app/4162040/view/706649847851123192"
+    },
+    {
+      "id": "auto-official-dcomnewsapp4162040view693140950130622535",
+      "date": "2026-07-15",
+      "kind": "official",
+      "status": "monitoring",
+      "title": "Zenless Zone Zero Version 3.1 \"The Long Goodbye\" Special Program Announcement",
+      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
+      "areas": [
+        "Noticias oficiais"
+      ],
+      "url": "https://store.steampowered.com/news/app/4162040/view/693140950130622535"
+    },
+    {
+      "id": "auto-official-dcomnewsapp4162040view702145613257509310",
+      "date": "2026-06-18",
+      "kind": "official",
+      "status": "monitoring",
+      "title": "How to Fix the Issue of Linking the Wrong HoYoverse Account",
+      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
+      "areas": [
+        "Noticias oficiais"
+      ],
+      "url": "https://store.steampowered.com/news/app/4162040/view/702145613257509310"
+    },
+    {
+      "id": "auto-official-dcomnewsapp4162040view704396868946233231",
+      "date": "2026-06-16",
+      "kind": "official",
+      "status": "monitoring",
+      "title": "Version 3.0 \"A Sleepwalker's Confession\" Update Announcement",
+      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
+      "areas": [
+        "Noticias oficiais"
+      ],
+      "url": "https://store.steampowered.com/news/app/4162040/view/704396868946233231"
+    },
+    {
+      "id": "auto-official-dcomnewsapp4162040view704396868946232791",
+      "date": "2026-06-16",
+      "kind": "official",
+      "status": "monitoring",
+      "title": "Zenless Zone Zero Steam Version Launches June 17",
+      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
+      "areas": [
+        "Noticias oficiais"
+      ],
+      "url": "https://store.steampowered.com/news/app/4162040/view/704396868946232791"
     }
   ],
-  "note": "Monitoramento de 3h em GitHub Actions, atualiza notícias e revisões detectadas. Reescrita do kit/beta não é automática sem validação. Registro de mudanças na V5 inclui antes/depois.",
-  "siteVersion": "5.0"
+  "note": "Monitoramento de noticias e revisoes; dados das fichas exigem revisao antes de publicar.",
+  "siteVersion": "5.0",
+  "betaAgentRevisions": {
+    "Sunbringer": {
+      "version": "3.4.3",
+      "revision": "20278274",
+      "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
+      "lastChecked": "2026-11-08"
+    },
+    "Robin": {
+      "version": "3.4.3",
+      "revision": "20266797",
+      "url": "https://zzz.gachabase.net/agents/1661/robin/beta?lang=en",
+      "lastChecked": "2026-11-08"
+    },
+    "Kafka": {
+      "version": "3.4.3",
+      "revision": "20278274",
+      "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
+      "lastChecked": "2026-11-08"
+    }
+  }
 }
