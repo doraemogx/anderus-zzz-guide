@@ -125,7 +125,7 @@ function parseSkillsWords(words,text){
  const values=rowGroups[0]?.values||parseSkillsText(text).values;
  return {values,recognized:values.length,raw:String(text||"")};
 }
-const api={parseDiscCard,parseDiscsText,parseEngineText,parseSkillsText,parseSkillsWords,matchCatalog,parseStatLine,number,version:"6.3",configure:data=>{window.AnderusImportCatalog=data;}};
+const api={parseDiscCard,parseDiscsText,parseEngineText,parseSkillsText,parseSkillsWords,matchCatalog,parseStatLine,number,version:"6.4",configure:data=>{window.AnderusImportCatalog=data;}};
 window.AnderusGearOCR=api;
 
 let modal=null,activeAgent="",kind="",photoUrl=null,busy=false,worker=null,loaded=null,review=null;
@@ -216,6 +216,47 @@ const DISC_LAYOUT=[
  {x:.033,y:.352,w:.457,h:.226},{x:.505,y:.352,w:.462,h:.226},
  {x:.033,y:.581,w:.457,h:.247},{x:.505,y:.581,w:.462,h:.247}
 ];
+function allWords(data){
+ const words=[...(data?.words||[])];
+ for(const block of data?.blocks||[])for(const para of block.paragraphs||[])for(const line of para.lines||[])for(const word of line.words||[])words.push(word);
+ return words;
+}
+function badgeRects(y){
+ const xs=[.116,.268,.420,.574,.726,.878];
+ return xs.map(x=>({x:Math.max(0,x-.039),y:Math.max(0,y-.017),w:.078,h:.034}));
+}
+async function recognizeSkillBadges(ocr,image,data){
+ // Numeric chips are rendered inside circular skill icons. Reading the
+ // surrounding paragraph rarely captures them, so crop only these chips.
+ const H=image.naturalHeight,W=image.naturalWidth;
+ const whole={x:.03,y:.13,w:.94,h:.77},canvasScale=Math.min(3.5,1600/(W*whole.w),2100/(H*whole.h));
+ const word=allWords(data).filter(w=>/^habilidades[|]?$/.test(norm(w.text))).sort((a,b)=>a.bbox.y0-b.bbox.y0)[0];
+ const centers=[];
+ if(word?.bbox&&Number.isFinite(word.bbox.y0)){
+  const header=(whole.y*H)+(word.bbox.y0/canvasScale);
+  centers.push(Math.max(.03,Math.min(.95,header/H+.107)));
+ }
+ // Fallbacks for the two real phone screenshot placements supplied to the
+ // project; only use the values if the OCR sees six valid level chips.
+ if(!centers.length)centers.push(.566,.825);
+ try{await ocr.setParameters({tessedit_pageseg_mode:"7",tessedit_char_whitelist:"0123456789"});}catch{}
+ let best=[];
+ for(const center of centers){
+  const levels=[];
+  for(const rect of badgeRects(center)){
+   const canvas=makeCanvas(image,rect,true);
+   const result=await ocr.recognize(canvas);
+   const raw=String(result.data?.text||"").replace(/[Oo]/g,"0").replace(/[Il]/g,"1");
+   const digits=raw.match(/(?:0?[1-9]|1[0-6])/g)?.[0]||"";
+   const value=digits?Number(digits):null;
+   levels.push(value!==null&&value>=1&&value<=16?value:null);
+  }
+  if(levels.filter(v=>v!==null).length>best.filter(v=>v!==null).length)best=levels;
+  if(best.every(v=>v!==null))break;
+ }
+ return {values:best,recognized:best.filter(v=>v!==null).length};
+}
+
 async function scan(file){
  if(busy)return;
  if(!file.type.startsWith("image/")||file.size>15*1024*1024){say("Selecione uma imagem de até 15 MB.",true);return;}
@@ -252,9 +293,15 @@ async function scan(file){
    const txt=result.data?.text||"";
    let parsed=kind==="engine"?parseEngineText(txt):parseSkillsWords(result.data?.words||[],txt);
    if(kind==="skills"&&parsed.recognized!==6){
-    const retry=await worker.recognize(makeCanvas(image,{x:.03,y:.13,w:.94,h:.77},true));
-    const next=parseSkillsWords(retry.data?.words||[],retry.data?.text||"");
-    if(next.recognized>parsed.recognized)parsed=next;
+    say("Identificando os seis números dentro dos ícones…");
+    const badges=await recognizeSkillBadges(worker,image,result.data||{});
+    if(badges.recognized>parsed.recognized){
+     parsed={...parsed,values:badges.values,recognized:badges.recognized};
+    }else if(parsed.recognized<6){
+     const retry=await worker.recognize(makeCanvas(image,{x:.03,y:.13,w:.94,h:.77},true));
+     const other=parseSkillsWords(allWords(retry.data||{}),retry.data?.text||"");
+     if(other.recognized>parsed.recognized)parsed=other;
+    }
    }
    renderPreview(parsed,parsed.raw||txt);
   }
