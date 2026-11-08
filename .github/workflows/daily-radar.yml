@@ -27,4 +27,6 @@ jobs:
           git add data/updates.json
           if ! git diff --cached --quiet; then
             git commit -m "Radar: atualiza noticias oficiais e revisoes beta"
-            git push
+            git pull --rebase origin main
+            git push origin main
+          fi
