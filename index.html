@@ -86,7 +86,7 @@ body:before{opacity:.16;z-index:0}button,input,select,textarea{max-width:100%}.m
 .qualityLine{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:13px 0 17px}.qualityLine span,.qualityLine a{font-size:10px;letter-spacing:.07em;line-height:1.4;border:1px solid #4a555b;padding:6px 8px;border-radius:7px;color:#c2cccc;text-decoration:none;white-space:normal}.qualityLine a{color:#e8fd24;border-color:#8b9c28}.qualityLine span:nth-child(2){border-style:dashed}@media(max-width:600px){.qualityLine span,.qualityLine a{font-size:9.5px;letter-spacing:.025em}}
 </style>
 <link rel="stylesheet" href="assets/overhaul-v4.css?v=4.1">
-<link rel="stylesheet" href="assets/anderus-v5.css?v=5.6">
+<link rel="stylesheet" href="assets/anderus-v5.css?v=6.0">
 </head>
 <body>
 <header class="topbar"><div class="topinner container"><button class="brand" data-nav="home" aria-label="Início"><span class="brandmark">Z</span><span class="brandtext">NEW ERIDU <b>// ANDERUS</b></span></button><nav class="desktopnav" id="deskNav" aria-label="Navegação principal"></nav><div class="topright"><span class="status"><span class="liveDot"></span>3.3 / BETA 3.4</span><button class="btn sm yellow" data-nav="account">MINHA CONTA ↗</button></div></div></header>
@@ -150,7 +150,7 @@ lessons.splice(5,0,{id:'elements',name:'Atlas de reações',sub:'Todos os efeito
 const defaultAccount=()=>({saved:{},teams:[['Phoenix','Velina Airgid','Rina'],['Jane Doe','',''],['','','']],selected:'Phoenix',lastUpdated:Date.now()});
 let account;try{account={...defaultAccount(),...(JSON.parse(localStorage.getItem(key))||{})}}catch{account=defaultAccount()}
 const INITIAL=['Phoenix','Velina Airgid','Jane Doe','Rina'];
-function blankBuild(a){return {name:a.name,level:1,mindscape:0,core:'A',engine:a.engine||'',engineLevel:1,engineRank:1,stats:{atk:'',hp:'',def:'',crit:'',cdmg:'',proficiency:'',mastery:'',pen:'',impact:'',energy:''},slots:[1,2,3,4,5,6].map(n=>({set:'',main:n===1?'PV fixo':n===2?'ATQ fixo':n===3?'DEF fixo':'',subs:''})),notes:''}}
+function blankBuild(a){return {name:a.name,level:1,mindscape:0,core:'A',engine:'',engineLevel:1,engineRank:1,stats:{atk:'',hp:'',def:'',crit:'',cdmg:'',proficiency:'',mastery:'',pen:'',impact:'',energy:''},goals:{},skillLevels:{},skillGoals:{},bangboo:'',slots:[1,2,3,4,5,6].map(n=>({set:'',level:'',main:n===1?'PV fixo':n===2?'ATQ fixo':n===3?'DEF fixo':'',subs:''})),notes:''}}
 for(const n of INITIAL)if(!account.saved[n]){let a=DB.agents.find(x=>x.name===n);if(a){account.saved[n]=blankBuild(a);if(n==='Rina')account.saved[n].engine=''}}
 function save(quiet=false){account.lastUpdated=Date.now();try{localStorage.setItem(key,JSON.stringify(account))}catch(err){if(!quiet)toast('Armazenamento bloqueado. Exporte sua conta como backup.')}}
 const S={page:'home',type:null,id:null};let lesson='intro';const filters={agents:{q:'',rank:'',role:'',element:'',status:'',owned:false},engines:{q:'',rank:'',role:'',status:''},discs:{q:'',status:''}};
@@ -296,5 +296,5 @@ init();
 
 </script><script>if("serviceWorker" in navigator && location.protocol.startsWith("http"))window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));</script>
 <script src="assets/overhaul-v4.js?v=4.1"></script>
-<script src="assets/anderus-v5.js?v=5.6"></script>
+<script src="assets/anderus-v5.js?v=6.0"></script>
 </body></html>
