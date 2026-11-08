@@ -344,7 +344,7 @@ function investmentDashboard(){
 /* ANDERUS LAB — reads saved account data; never fabricates build values */
 const labAttrs=[["atk","ATQ"],["proficiency","Proficiência de Anomalia"],["mastery","Maestria de Anomalia"],["energy","Recuperação de Energia"],["crit","Taxa CRIT (%)"],["cdmg","Dano CRIT (%)"],["hp","PV"],["def","DEF"],["pen","Perfuração"],["impact","Impacto"]];
 const labSkills=[["basic","Básico"],["dodge","Esquiva"],["special","Especial"],["chain","Cadeia"],["assist","Assistência"]];
-const labNumber=v=>v===null||v===undefined||String(v).trim()===""?null:(Number.isFinite(Number(String(v).trim().replace(/%/g,"").replace(",",".")))?Number(String(v).trim().replace(/%/g,"").replace(",",".")):null);
+const labNumber=v=>{if(v===null||v===undefined||String(v).trim()==="")return null;let raw=String(v).trim().replace(/\s/g,"").replace("%","");if(raw.includes(","))raw=raw.replace(/\./g,"").replace(",",".");else if(/^\d{1,3}(?:\.\d{3})+$/.test(raw))raw=raw.replace(/\./g,"");const n=Number(raw);return Number.isFinite(n)?n:null;};
 const labFormat=v=>Number(v).toLocaleString("pt-BR",{maximumFractionDigits:2});
 function labColor(a){
  const name=a.name,el=parseName(a.element||"");
@@ -367,8 +367,8 @@ function labProgress(a,b){
  const items=labTargets(a,b);
  return '<section class="lab-panel" id="lab-progress"><header class="lab-panel-title">'+svg("layers",22)+'<h2>PROGRESSO DE ATRIBUTOS</h2></header><p class="lab-intro-note">Comparação com suas metas ou marcos técnicos da ficha. Números ausentes não são tratados como zero.</p><div class="lab-stats">'+
  items.map(x=>{const valid=x.cur!==null&&x.goal!==null&&x.goal>0,percent=valid?Math.max(0,Math.min(100,100*x.cur/x.goal)):0;
- return '<div class="lab-stat"><div class="lab-stat-name"><strong>'+esc(x.name)+'</strong><small>'+esc(x.source)+'</small></div><div class="lab-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+Math.round(percent)+'" aria-label="'+esc(x.name)+'"><span style="width:'+percent+'%"></span><b>'+ (x.cur===null?'—':labFormat(x.cur))+' / '+(x.goal===null?'—':labFormat(x.goal))+'</b></div><small class="lab-result '+(valid&&x.cur>=x.goal?'good':'')+'">'+(valid?(x.cur>=x.goal?'META ✓':'FALTAM '+labFormat(Math.max(0,x.goal-x.cur))):x.cur===null?'PREENCHER':'DEFINIR META')+'</small></div>';
- }).join("")+'</div><button class="lab-link" data-v5="lab-edit">AJUSTAR ATRIBUTOS E METAS '+svg("right",15)+'</button></section>';
+ return '<div class="lab-stat"><div class="lab-stat-name"><strong>'+esc(x.name)+'</strong><small>'+esc(x.source)+'</small></div><div class="lab-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+Math.round(percent)+'" aria-label="'+esc(x.name)+'"><span style="width:'+percent+'%"></span><b>'+ (x.cur===null?'—':labFormat(x.cur))+' / '+(x.goal===null?'—':labFormat(x.goal))+'</b></div><small class="lab-result '+(valid&&x.cur>=x.goal?'good':'')+'">'+(valid?(x.cur>=x.goal?(x.source==="Marco técnico"?'MARCO ✓':'META ✓'):'FALTAM '+labFormat(Math.max(0,x.goal-x.cur))):x.cur===null?'PREENCHER':'DEFINIR META')+'</small></div>';
+ }).join("")+'</div><details class="lab-source-notes"><summary>COMO AS REFERÊNCIAS FORAM DEFINIDAS? '+svg("right",14)+'</summary><p>Metas pessoais têm prioridade sobre referências gerais. Marcos técnicos dependem das condições do kit, e não são necessariamente o valor máximo para aquela estatística.</p>'+(DB.deep[a.name]?.breaks||[]).map(r=>'<p><b>'+esc(r.label)+':</b> '+esc(r.rule)+'</p>').join("")+(DB.deep[a.name]?.source?'<a href="'+esc(DB.deep[a.name].source)+'" target="_blank" rel="noopener noreferrer">Fonte de referência ↗</a>':'')+'</details><button class="lab-link" data-v5="lab-edit">AJUSTAR ATRIBUTOS E METAS '+svg("right",15)+'</button></section>';
 }
 function labRecommendations(a,b){
  const deep=DB.deep[a.name]||{},level=labNumber(b.level)||1,slots=b.slots||[],en=findEngine(b.engine),rows=[];
