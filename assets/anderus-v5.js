@@ -153,7 +153,11 @@ function detailAgent(a){
 
 function betaFor(a){return a?.beta&&betaKits.agents?betaKits.agents[a.name]||null:null;}
 function betaMeta(b){
- return '<div class="v5-beta-meta"><span>BETA '+esc(b.version)+' · REV. '+esc(b.revision)+'</span><span>REVISADO '+esc(b.verifiedAt)+'</span><a href="'+esc(b.source)+'" target="_blank" rel="noopener noreferrer">CONFERIR FONTE ↗</a></div>';
+ const seen=feed.betaAgentRevisions?.[b.name];
+ const newer=seen&&Number(seen.revision)>Number(b.revision);
+ return '<div class="v5-beta-meta"><span>BETA '+esc(b.version)+' · REV. '+esc(b.revision)+'</span><span>REVISADO '+esc(b.verifiedAt)+'</span>'+
+ (newer?'<span class="v5-beta-outdated">REVISÃO '+esc(seen.revision)+' DETECTADA · VALORES SOB CONFERÊNCIA</span>':'')+
+ '<a href="'+esc(b.source)+'" target="_blank" rel="noopener noreferrer">CONFERIR FONTE ↗</a></div>';
 }
 function betaOverview(a,b){
  return '<section class="v5-panel"><span class="v5-eyebrow">ARQUIVO BETA // EM TESTE</span><h2>MECÂNICAS E ESCALAS</h2>'+betaMeta(b)+
