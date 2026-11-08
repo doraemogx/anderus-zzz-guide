@@ -38,6 +38,39 @@ try:
         if id_ not in seen:
             entries.append({"id":id_,"date":datetime.now(timezone.utc).date().isoformat(),"kind":"beta","status":"monitoring","title":f"Nova revisao de teste v{version} · {revision}","summary":"Revisao beta detectada; numeros requerem curadoria antes de alterar fichas.","areas":["Beta","Pendente de validacao"],"url":"https://zzz.gachabase.net/changelog/beta?lang=en"})
 except Exception as e: print("Fonte beta indisponivel:",e)
+# Revisions per character: allows the UI to show precisely when a beta
+# dossier needs editorial re-check; never invent or blindly replace multipliers.
+from html import unescape
+beta_targets={
+    "Sunbringer":"https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
+    "Robin":"https://zzz.gachabase.net/agents/1661/robin/beta?lang=en",
+    "Kafka":"https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en"
+}
+observed=data.get("betaAgentRevisions") or {}
+for name,url in beta_targets.items():
+    try:
+        page=grab(url)
+        visible=unescape(re.sub(r"\s+"," ",re.sub(r"<[^>]+>"," ",page)))
+        found=re.search(r"Last\s+Updated:\s*v(\d+\.\d+\.\d+)\s+Rev\.\s*(\d+)",visible,re.I)
+        if not found:
+            print("Revisao por agente nao extraida:",name)
+            continue
+        version,revision=found.groups()
+        previous=observed.get(name,{})
+        if previous.get("revision") and previous["revision"]!=revision:
+            eid="auto-beta-agent-"+name.lower()+"-"+revision
+            if eid not in seen:
+                entries.append({"id":eid,"date":datetime.now(timezone.utc).date().isoformat(),
+                  "kind":"beta","status":"monitoring","title":name+" · nova revisão de kit "+revision,
+                  "summary":"Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+                  "areas":[name,"Kit beta","Conferir valores"],"url":url,
+                  "before":"Rev. "+previous["revision"],"after":"Rev. "+revision})
+                seen.add(eid)
+        observed[name]={"version":version,"revision":revision,"url":url,"lastChecked":datetime.now(timezone.utc).date().isoformat()}
+    except Exception as exc:
+        print("Fonte individual indisponivel",name,str(exc)[:100])
+data["betaAgentRevisions"]=observed
+
 manual=[x for x in entries if not str(x.get("id","")).startswith("auto-")]
 auto=sorted([x for x in entries if str(x.get("id","")).startswith("auto-")],key=lambda x:x.get("date",""),reverse=True)[:30]
 data["entries"]=sorted(manual+auto,key=lambda x:x.get("date",""),reverse=True)
