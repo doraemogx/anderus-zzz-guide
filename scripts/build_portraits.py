@@ -21,7 +21,7 @@ ORIGINALS=ROOT/"assets"/"agents"
 PORTRAITS.mkdir(parents=True, exist_ok=True)
 OUTPUT=640
 MAX_BYTES=16_000_000
-PROTECTED={"a0","a1"}  # Referências de qualidade aprovadas pelo usuário
+PROTECTED={"a0","a1","a62","a63","a64"}  # Referências de qualidade aprovadas pelo usuário
 HEADERS={"User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/125 Safari/537.36","Accept":"image/avif,image/webp,image/png,image/jpeg,image/*;q=0.8"}
 # Enquadramento de busto (sem close de rosto). Posição no banner original,
 # representada como centro horizontal, centro vertical e largura proporcional.
@@ -32,7 +32,22 @@ ART_DIRECTION={
  "a20":(0.50,0.39,0.83),
  "a22":(0.50,0.39,0.80),
  "a23":(0.50,0.39,0.80),
- "a24":(0.50,0.38,0.82)
+ "a24":(0.50,0.38,0.66),
+ # O catálogo não deve usar arte de corpo inteiro: busto cabeça+ombros.
+ "a30":(.50,.32,.58),
+ "a49":(.50,.35,.60),
+ "a50":(.50,.35,.60),
+ "a51":(.50,.34,.60),
+ "a52":(.50,.34,.60),
+ "a53":(.50,.34,.60),
+ "a54":(.50,.32,.46), # Koleda
+ "a55":(.50,.32,.45), # Lucy
+ "a56":(.50,.31,.45), # Anby
+ "a57":(.50,.31,.45), # Billy
+ "a58":(.50,.35,.57),
+ "a59":(.50,.32,.49),
+ "a60":(.50,.33,.49),
+ "a61":(.50,.33,.49)
 }
 
 def remote_image(url):
@@ -58,7 +73,24 @@ def crop_composition(im,agent_id,from_highres):
         base.alpha_composite(im,((side-im.width)//2,(side-im.height)//2))
         return base.resize((OUTPUT,OUTPUT),Image.Resampling.LANCZOS).convert("RGB")
     # Prioriza busto e braços em vez do ícone circular/close excessivo.
-    cx,cy,fraction=ART_DIRECTION.get(agent_id,(.50,.39,.80))
+    cx,cy,fraction=ART_DIRECTION.get(agent_id,(.50,.33,.62))
+    # Detecta personagem destacado sobre fundo transparente e concentra o recorte
+    # na metade superior da silhueta (cabeça, ombros e tórax). Para imagens de
+    # divulgação opacas, usa o foco manual acima sem confundir o cenário com a figura.
+    alpha=im.getchannel("A")
+    bbox=alpha.point(lambda v:255 if v>25 else 0).getbbox()
+    if bbox and (bbox[2]-bbox[0])*(bbox[3]-bbox[1]) < w*h*.84:
+        bx0,by0,bx1,by1=bbox
+        body_w=bx1-bx0
+        body_h=by1-by0
+        target=max(int(body_w*.72),int(body_h*.54))
+        square=max(200,min(target,min(w,h)))
+        left=max(0,min(w-square,int((bx0+bx1)/2-square/2)))
+        top=max(0,min(h-square,int(by0+body_h*.33-square/2)))
+        crop=im.crop((left,top,left+square,top+square))
+        base=Image.new("RGBA",crop.size,(18,27,33,255))
+        base.alpha_composite(crop,(0,0))
+        return base.resize((OUTPUT,OUTPUT),Image.Resampling.LANCZOS).convert("RGB")
     square=int(min(w,h)*fraction)
     left=max(0,min(w-square,int(cx*w-square/2)))
     top=max(0,min(h-square,int(cy*h-square/2)))
