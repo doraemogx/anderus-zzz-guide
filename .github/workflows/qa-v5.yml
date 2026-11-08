@@ -8,6 +8,8 @@ on:
       - 'assets/anderus-v5.css'
       - 'assets/anderus-ocr.js'
       - 'assets/anderus-ocr.css'
+      - 'assets/anderus-import-more.js'
+      - 'assets/anderus-import-more.css'
       - 'scripts/smoke_v5.mjs'
       - '.github/workflows/qa-v5.yml'
 permissions:
@@ -23,6 +25,7 @@ jobs:
           node-version: '22'
       - run: node --check assets/anderus-v5.js
       - run: node --check assets/anderus-ocr.js
+      - run: node --check assets/anderus-import-more.js
       - run: python -c "import json; d=json.load(open('data/encyclopedia.json')); assert len(d['agents'])>=60; assert all(len(x.get('mindscapes',[]))==6 for x in d['agents'].values()); print('Mindscapes:',len(d['agents']))"
       - run: npm install --no-save playwright@1.58.2
       - run: npx playwright install --with-deps chromium
