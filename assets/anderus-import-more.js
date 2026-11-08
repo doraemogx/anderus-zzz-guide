@@ -230,7 +230,7 @@ async function recognizeSkillBadges(ocr,image,data){
  // surrounding paragraph rarely captures them, so crop only these chips.
  const H=image.naturalHeight,W=image.naturalWidth;
  const whole={x:.03,y:.13,w:.94,h:.77},canvasScale=Math.min(3.5,1600/(W*whole.w),2100/(H*whole.h));
- const word=allWords(data).filter(w=>/^habilidades[|]?$/.test(norm(w.text))).sort((a,b)=>a.bbox.y0-b.bbox.y0)[0];
+ const word=allWords(data).filter(w=>/^habilidades\b/.test(norm(w.text))&&Number.isFinite(w.bbox?.y0)).sort((a,b)=>a.bbox.y0-b.bbox.y0)[0];
  const centers=[];
  if(word?.bbox&&Number.isFinite(word.bbox.y0)){
   const header=(whole.y*H)+(word.bbox.y0/canvasScale);
