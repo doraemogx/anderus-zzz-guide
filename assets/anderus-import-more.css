@@ -1,0 +1,37 @@
+/* ANDERUS LAB — importação seletiva de Discos, Motor-W e Habilidades V6.3 */
+body.and-v5-mode > #lab-gear-dialog.gi-backdrop{display:grid!important;position:fixed!important;visibility:visible!important;z-index:100000!important}
+#and-v5 .gi-entry{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:13px 0;padding:12px;border:1px solid #608f7b;border-radius:10px;background:linear-gradient(115deg,#20352d,#19252a)}
+#and-v5 .gi-entry>span{flex:1 1 155px}
+#and-v5 .gi-entry strong{font-size:12px;color:#efffb9;display:block}
+#and-v5 .gi-entry p{font-size:11px;color:#a6c7b9;line-height:1.5;margin:4px 0 0}
+#and-v5 .gi-entry button{display:inline-flex;justify-content:center;align-items:center;gap:6px;min-height:41px;flex:0 0 auto;background:#ddfb41;border:1px solid #f1ff97;color:#152016;border-radius:8px;font-size:11px;font-weight:900;padding:10px}
+#and-v5 .gi-entry button:hover{background:#f1ff88}
+#and-v5 .gi-lab-btn{display:flex;align-items:center;justify-content:center;gap:6px;margin:10px 0 15px;border:1px solid var(--lab-accent);color:var(--lab-accent);background:#1b292a;border-radius:8px;min-height:38px;font-weight:900;font-size:11px;padding:10px 12px}
+.gi-dialog{width:min(790px,100%)}
+.gi-dialog .lab-scan-body{min-width:0}
+.gi-disc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.gi-disc-card{display:flex;flex-direction:column;gap:9px;background:#1c2a2c;border:1px solid #56706a;border-radius:10px;padding:12px;min-width:0}
+.gi-disc-heading{display:flex;align-items:center;gap:8px;color:#f4f5e2}
+.gi-disc-heading>input{accent-color:#e4ff41;width:17px;height:17px;flex:none}
+.gi-disc-heading b{font-size:14px;flex:1}
+.gi-disc-heading small{font-size:9px;color:#d7fe70}
+.gi-disc-card>label:not(.gi-disc-heading),.gi-disc-two label,.gi-engine-fields label,.gi-skill label{display:flex;flex-direction:column;gap:5px;min-width:0;color:#b9d3cd;font-size:10px;font-weight:800;line-height:1.35}
+.gi-disc-card select,.gi-disc-card input,.gi-disc-card textarea,.gi-engine-fields select,.gi-engine-fields input,.gi-skills-grid select,.gi-skills-grid input{font:inherit;font-size:13px;width:100%;max-width:100%;min-width:0;box-sizing:border-box;border:1px solid #52716f;background:#0f1a1e;color:#eff8f5;border-radius:7px;min-height:40px;padding:8px 9px;outline-offset:2px}
+.gi-disc-card textarea{resize:vertical;min-height:68px;font-size:12px}
+.gi-disc-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.gi-engine-fields{display:grid;gap:12px;margin-top:11px;border:1px solid #445e59;border-radius:9px;background:#1b292c;padding:13px}
+.gi-engine-fields>label{font-size:11px}
+.gi-skills-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:10px}
+.gi-skill{min-width:0;display:flex;flex-direction:column;gap:9px;padding:11px;background:#1b2b30;border:1px solid #536b66;border-radius:9px}
+.gi-skill>strong{font-size:11px;color:#e2fa80}
+.gi-tip{font-size:11px;line-height:1.55;color:#c6d9c5;margin:13px 0}
+@media(max-width:670px){
+ #and-v5 .gi-entry{padding:11px;flex-wrap:wrap}
+ #and-v5 .gi-entry button{flex:1 1 100%}
+ .gi-disc-grid{grid-template-columns:1fr}
+ .gi-skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .gi-disc-card{padding:11px}
+ .gi-disc-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .gi-dialog .lab-scan-body{padding:11px}
+}
+@media(max-width:360px){.gi-skills-grid,.gi-disc-two{grid-template-columns:1fr}}
