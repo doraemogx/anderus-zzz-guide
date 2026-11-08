@@ -108,6 +108,70 @@ for(const width of [360,393,412,1280]){
  await page.locator('[data-scan-close]').first().click();
  if(await page.locator('#lab-scan-dialog').count())throw Error('Scan modal did not close');
 
+ // Separate screenshot imports: 6 discs, W-Engine and 6 skill levels.
+ const discCards=[
+  'Blues Livre [1]\nNv.15\nPV 2200\nPV +1 6%\nTaxa CRIT 2.4%\nProficiência de Anomalia +2 27\nATQ +1 38',
+  'Blues Livre [2]\nNv.15\nATQ 316\nPV +2 9%\nPerfuração +1 18\nDEF +1 9.6%\nPV 112',
+  'Blues Livre [3]\nNv.15\nDEF 184\nPerfuração +1 18\nProficiência de Anomalia +2 27\nPV +2 336',
+  'Melodia de Phaethon [4]\nNv.15\nProficiência de Anomalia 92\nATQ +1 38\nTaxa CRIT +1 4.8%\nDEF 4.8%\nPV +2 9%',
+  'Melodia de Phaethon [5]\nNv.15\nBônus de Dano de Fogo 30%\nProficiência de Anomalia +1 18\nPV +2 336\nPerfuração 9\nDEF +1 30',
+  'Blues Livre [6]\nNv.15\nMaestria de Anomalia 30%\nDano CRIT 4.8%\nATQ +2 9%\nPerfuração +2 27\nProficiência de Anomalia +1 18'
+ ];
+ const sampleGear=await page.evaluate(sample=>{
+  const x=window.AnderusGearOCR;
+  return {discs:sample.map((t,i)=>x.parseDiscCard(t,i+1)),engine:x.parseEngineText('Pluma Renascente Nv.50\nATQ Básico +595\nMaestria de Anomalia +26,4%'),skills:x.parseSkillsText('Habilidades\nOrdenar segundo ordem no jogo\n05 09 09 09 05 05\nSugestões de Aprimoramento de Habilidades\n07 12 12 12 07 07')};
+ },discCards);
+ if(sampleGear.discs.length!==6||sampleGear.discs.some(x=>!x.valid||x.level!==15)||sampleGear.discs[4].substats.length!==4)throw Error('Disc scanner failed sample layout');
+ if(sampleGear.engine.name!=='Plume of Rebirth'||sampleGear.engine.level!==50||sampleGear.engine.baseAtk!==595)throw Error('Engine scanner failed PT-BR');
+ if(sampleGear.skills.values.join(',')!=='5,9,9,9,5,5')throw Error('Skill scanner selected recommended levels instead of current levels');
+ const useQueue=async texts=>await page.evaluate(arr=>{
+  window.__gearQueue=arr.slice();
+  window.Tesseract={createWorker:async()=>({
+   recognize:async()=>({data:{text:window.__gearQueue.shift()||'',words:[]}}),
+   terminate:async()=>{},
+   setParameters:async()=>{}
+  })};
+ },texts);
+ const uploadGear=async()=>{await page.locator('[data-gi-file]').setInputFiles({name:'report.png',mimeType:'image/png',buffer:png});await page.waitForSelector('#lab-gear-dialog [data-gi-results]:not([hidden])',{timeout:16000});await page.locator('[data-gi-file]:enabled').waitFor();};
+ await useQueue(discCards);
+ await page.locator('.v5-editor [data-v5="import-gear"][data-kind="discs"]').click();
+ await page.waitForSelector('#lab-gear-dialog');
+ await uploadGear();
+ if(await page.locator('#lab-gear-dialog .gi-disc-card').count()!==6)throw Error('Six disc review cards missing');
+ if(await page.locator('#lab-gear-dialog .gi-disc-card [data-gi-check]:checked').count()!==6)throw Error('OCR failed to recognize all 6 disc examples');
+ // Unchecked cards must never be overwritten.
+ await page.locator('[data-gi-check="2"]').uncheck();
+ const preDisc=await page.evaluate(()=>JSON.parse(localStorage.getItem('ANDERUS_PROXY_OS_v2')).saved.Phoenix.slots[0].set);
+ if(preDisc==='Freedom Blues')throw Error('Disc importer saved before user confirmation');
+ await page.locator('[data-gi-apply]').click();
+ await page.waitForSelector('#lab-gear-dialog [data-gi-apply]:disabled');
+ const savedDiscs=await page.evaluate(()=>JSON.parse(localStorage.getItem('ANDERUS_PROXY_OS_v2')).saved.Phoenix.slots);
+ if(savedDiscs[0].set!=='Freedom Blues'||savedDiscs[0].mainValue!=='2200'||savedDiscs[0].level!==15||savedDiscs[0].substats.length!==4||savedDiscs[2].set||savedDiscs[4].set!=="Phaethon's Melody")throw Error('Disc import overwrote wrong slot or lost stat fields');
+ if(width===393)await page.screenshot({path:'anderus-import-discos-mobile.png',fullPage:false});
+ await page.locator('#lab-gear-dialog [data-gi-close]').first().click();
+ await page.waitForSelector('#lab-gear-dialog',{state:'detached'});
+ await useQueue(['Pluma Renascente Nv.50\nATQ Básico +595\nMaestria de Anomalia +26,4%']);
+ await page.locator('.v5-editor [data-v5="import-gear"][data-kind="engine"]').click();
+ await uploadGear();
+ if(await page.locator('[data-gi-engine="name"]').inputValue()!=='Plume of Rebirth')throw Error('Motor catalogue localization not matched');
+ await page.locator('[data-gi-engine="rank"]').fill('1');
+ await page.locator('[data-gi-apply]').click();
+ await page.waitForSelector('#lab-gear-dialog [data-gi-apply]:disabled');
+ const savedEngine=await page.evaluate(()=>JSON.parse(localStorage.getItem('ANDERUS_PROXY_OS_v2')).saved.Phoenix);
+ if(savedEngine.engine!=='Plume of Rebirth'||Number(savedEngine.engineLevel)!==50||Number(savedEngine.engineRank)!==1||savedEngine.engineStats?.baseAtk!=='595')throw Error('Engine not saved in current agent');
+ await page.locator('#lab-gear-dialog [data-gi-close]').first().click();
+ await useQueue(['Habilidades\nOrdenar segundo ordem no jogo\n05 09 09 09 05 05\nSugestões de Aprimoramento de Habilidades\n07 12 12 12 07 07']);
+ await page.locator('.v5-editor [data-v5="import-gear"][data-kind="skills"]').click();
+ await uploadGear();
+ if(await page.locator('[data-gi-skill]').count()!==6)throw Error('Skills screenshot review must have six slots');
+ await page.locator('[data-gi-apply]').click();
+ await page.waitForSelector('#lab-gear-dialog [data-gi-apply]:disabled');
+ const savedSkills=await page.evaluate(()=>JSON.parse(localStorage.getItem('ANDERUS_PROXY_OS_v2')).saved.Phoenix);
+ if(savedSkills.skillLevels?.basic!==5||savedSkills.skillLevels?.dodge!==9||savedSkills.skillLevels?.assist!==9||savedSkills.skillLevels?.special!==9||savedSkills.skillLevels?.chain!==5||savedSkills.coreLevel!==5||savedSkills.core!=='A')throw Error('Skill importer altered central letter or mismapped six levels');
+ if(savedSkills.engine!=='Plume of Rebirth'||savedSkills.slots[0].set!=='Freedom Blues')throw Error('Skill import damaged engine/discs');
+ await page.locator('#lab-gear-dialog [data-gi-close]').first().click();
+
+
  const accountOverflowAfter=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
  if(accountOverflowAfter>4)throw Error('Account edit view overflows '+width+': '+accountOverflowAfter);
  if(!await page.locator('.v5-editor').isVisible())throw Error('Account editor missing');
@@ -135,7 +199,7 @@ for(const width of [360,393,412,1280]){
  if(!await page.locator('#anderus-lab .lab-stat').first().isVisible())throw Error('Attribute bars hidden');
  if(!await page.locator('#anderus-lab .lab-track').allTextContents().then(x=>x.some(t=>t.includes('1.831 / 2.600'))))throw Error('Saved goal not applied to attribute progress');
  if(await page.locator('#anderus-lab .lab-drive-card').count()!==6)throw Error('Lab must render all six disc slots');
- if(await page.locator('#anderus-lab .lab-ability').count()!==5)throw Error('Lab must render five skills');
+ if(await page.locator('#anderus-lab .lab-ability').count()!==6)throw Error('Lab must render six skills');
  if(!await page.locator('#anderus-lab .lab-bangboo').innerText().then(x=>x.includes('Amillion')))throw Error('Lab must show Bangboo from account');
  const agentNames=await page.locator('#anderus-lab .lab-carousel button').count();
  if(agentNames<2)throw Error('Lab carousel missing saved characters');
