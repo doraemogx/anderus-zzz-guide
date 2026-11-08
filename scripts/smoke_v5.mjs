@@ -112,7 +112,7 @@ for(const width of [360,393,412,1280]){
  const discCards=[
   'Blues Livre [1]\nNv.15\nPV 2200\nPV +1 6%\nTaxa CRIT 2.4%\nProficiência de Anomalia +2 27\nATQ +1 38',
   'Blues Livre [2]\nNv.15\nATQ 316\nPV +2 9%\nPerfuração +1 18\nDEF +1 9.6%\nPV 112',
-  'Blues Livre [3]\nNv.15\nDEF 184\nPerfuração +1 18\nProficiência de Anomalia +2 27\nPV +2 336',
+  'Blues Livre [3]\nNv.15\nDEF 184\nPerfuração +1 18\nProficiência de Anomalia +2 27\nPV 3%\nPV +2 336',
   'Melodia de Phaethon [4]\nNv.15\nProficiência de Anomalia 92\nATQ +1 38\nTaxa CRIT +1 4.8%\nDEF 4.8%\nPV +2 9%',
   'Melodia de Phaethon [5]\nNv.15\nBônus de Dano de Fogo 30%\nProficiência de Anomalia +1 18\nPV +2 336\nPerfuração 9\nDEF +1 30',
   'Blues Livre [6]\nNv.15\nMaestria de Anomalia 30%\nDano CRIT 4.8%\nATQ +2 9%\nPerfuração +2 27\nProficiência de Anomalia +1 18'
