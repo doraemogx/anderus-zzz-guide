@@ -125,7 +125,19 @@ for(const width of [360,393,412,1280]){
  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
  if(overflow>4)throw Error('Horizontal overflow '+width+': '+overflow);
  if(errs.length)throw Error('JS errors '+width+': '+errs.join(' // '));
- if(width===393){await page.locator('.v5-bottom [data-to="home"]').click();await page.screenshot({path:'v5-hibrida-s25-edge.png',fullPage:true});}
+ if(width===393){
+  await page.reload({waitUntil:'domcontentloaded'});
+  await page.waitForSelector('.v5-home');
+  await page.locator('.v5-bottom [data-to="account"]').click();
+  await page.locator('.v5-account-tabs [data-tab="upgrade"]').click();
+  await page.waitForSelector('#anderus-lab .lab-hero');
+  const persisted=await page.evaluate(()=>JSON.parse(localStorage.getItem('ANDERUS_PROXY_OS_v2')).saved.Phoenix);
+  if(persisted.goals?.atk!=='2600'||persisted.bangboo!=='Amillion')throw Error('Reload lost saved lab goals or Bangboo');
+  if(!await page.locator('#anderus-lab .lab-track').allTextContents().then(x=>x.some(t=>t.includes('1.831 / 2.600'))))throw Error('Lab did not recover saved progress after reload');
+  await page.screenshot({path:'anderus-lab-s25-edge.png',fullPage:true});
+  await page.locator('.v5-bottom [data-to="home"]').click();
+  await page.screenshot({path:'v5-hibrida-s25-edge.png',fullPage:true});
+ }
  report[width]={agents:65,mindscapes:6,skills:count,endgame:8,overflow,errors:0};
  await page.close();
 }
