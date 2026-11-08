@@ -70,6 +70,31 @@ function parseText(text){
    break;
   }
  }
+ // In two-column ZZZ screenshots Tesseract may read the entire left column
+ // (all labels), followed by the entire right column (all numbers). Only use
+ // positional pairing when 12 values and >=10 labels match the canonical
+ // in-game ordering; otherwise leave doubtful values unfilled.
+ const order=["hp","atk","def","impact","crit","cdmg","mastery","proficiency","penRatio","energy","pen","bonusDamage"];
+ const numericLines=lines.filter(x=>/^[\s]*[-+]?\d[\d.,]*\s*%?\s*$/.test(x));
+ const orderedLabels=[];
+ for(const line of lines){
+  const plain=normalize(line).replace(/[•·:;]/g," ").replace(/\s+/g," ");
+  const found=statMatchers.find(([key,re])=>re.test(plain));
+  if(found&&!orderedLabels.includes(found[0]))orderedLabels.push(found[0]);
+ }
+ const indexes=orderedLabels.map(k=>order.indexOf(k)).filter(i=>i>=0);
+ const monotonic=indexes.every((v,i)=>i===0||v>indexes[i-1]);
+ if(numericLines.length===12&&indexes.length>=10&&monotonic){
+  const values=order.map((key,i)=>parseValue(numericLines[i],key));
+  if(values.every(v=>v!==null)){
+   order.forEach((key,i)=>{if(!Object.hasOwn(fields,key))fields[key]=String(values[i]);});
+   const bonusLine=lines.find(line=>statMatchers.find(([key,re])=>key==="bonusDamage"&&re.test(normalize(line))));
+   if(bonusLine&&!fields.bonusDamageElement){
+    const el=normalize(bonusLine).match(/\bdano\s*(?:(?:de|do|da)\s*)?(fogo|gelo|eter|fisico|eletrico|vento)\b/)?.[1];
+    if(el)fields.bonusDamageElement=el.charAt(0).toUpperCase()+el.slice(1);
+   }
+  }
+ }
  return {fields,warnings,recognized:keys.filter(x=>Object.hasOwn(fields,x.key)).length,lines};
 }
 
