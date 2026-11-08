@@ -35,3 +35,18 @@ body.and-v5-mode > #lab-gear-dialog.gi-backdrop{display:grid!important;position:
  .gi-dialog .lab-scan-body{padding:11px}
 }
 @media(max-width:360px){.gi-skills-grid,.gi-disc-two{grid-template-columns:1fr}}
+
+/* Sixth skill slot and imported equipment details */
+#and-v5 .lab-abilities{grid-template-columns:repeat(6,minmax(0,1fr))}
+#and-v5 .gi-disc-details{margin-top:12px;display:grid;gap:7px}
+#and-v5 .gi-disc-details details{border:1px solid #41595d;background:#202b30;border-radius:8px;padding:10px 12px}
+#and-v5 .gi-disc-details summary{display:flex;align-items:center;gap:9px;list-style:none;cursor:pointer;font-size:11px;color:#eaf9e8;flex-wrap:wrap}
+#and-v5 .gi-disc-details summary::-webkit-details-marker{display:none}
+#and-v5 .gi-disc-details summary b{color:var(--lab-accent)}
+#and-v5 .gi-disc-details summary svg{margin-left:auto;color:var(--lab-accent)}
+#and-v5 .gi-disc-details details p{color:#bac9c9;font-size:11px;line-height:1.55;margin:9px 0}
+#and-v5 .gi-motor-stats{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:13px;background:#1d2e33;border:1px solid #496068;border-radius:9px;margin-top:12px;font-size:11px}
+#and-v5 .gi-motor-stats b{color:var(--lab-accent);width:100%}
+#and-v5 .gi-motor-stats span{color:#dce8df;flex:1 1 140px}
+@media(max-width:650px){#and-v5 .lab-abilities{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:360px){#and-v5 .lab-abilities{grid-template-columns:repeat(3,minmax(0,1fr))}}
