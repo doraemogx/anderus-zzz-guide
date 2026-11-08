@@ -127,7 +127,7 @@ for(const width of [360,393,412,1280]){
  if(errs.length)throw Error('JS errors '+width+': '+errs.join(' // '));
  if(width===393){
   await page.reload({waitUntil:'domcontentloaded'});
-  await page.waitForSelector('.v5-home');
+  await page.waitForSelector('.v5-bottom [data-to="account"]');
   await page.locator('.v5-bottom [data-to="account"]').click();
   await page.locator('.v5-account-tabs [data-tab="upgrade"]').click();
   await page.waitForSelector('#anderus-lab .lab-hero');
