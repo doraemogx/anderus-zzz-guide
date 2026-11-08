@@ -475,3 +475,67 @@ body.and-v5-mode #and-v5{display:block!important;position:relative;z-index:10;is
  #and-v5 .v5-previewrow{gap:8px}
  #and-v5 .v5-preview-state .v5-review-cta{font-size:8px;padding:5px 7px}
 }
+
+/* V5.4 — portrait consistency + mobile account usability */
+#and-v5 .v5-agent-image img,#and-v5 .v5-agent-pic img,
+#and-v5 .v5-roster-list img,#and-v5 .v5-edit-head>img,
+#and-v5 .v5-avatars img,#and-v5 .v5-mini-grid img{
+  object-position:center center;
+  image-rendering:auto;
+}
+#and-v5 .v5-account,#and-v5 .v5-account-layout,#and-v5 .v5-editor,#and-v5 .v5-roster,
+#and-v5 .v5-account-layout>*{min-width:0;max-width:100%;box-sizing:border-box}
+#and-v5 .v5-account-layout{grid-template-columns:minmax(0,290px) minmax(0,1fr)}
+#and-v5 .v5-roster-list{min-width:0}
+#and-v5 .v5-add-picker{border-top:1px solid #405056;padding-top:13px;margin-top:13px;min-width:0}
+#and-v5 .v5-add-picker>.v5-rowbetween{align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+#and-v5 .v5-add-picker>.v5-rowbetween strong{font-size:11px;color:#eaf2ed}
+#and-v5 .v5-add-picker>.v5-rowbetween small{font-size:9px;letter-spacing:.06em;font-weight:900;color:var(--v5-yellow)}
+#and-v5 .v5-add-search{display:flex;align-items:center;gap:9px;border:1px solid #506166;border-radius:9px;background:#121b20;padding:0 10px;min-width:0;margin-bottom:13px;color:var(--v5-yellow)}
+#and-v5 .v5-add-search input{border:0!important;outline:0!important;box-shadow:none!important;min-width:0;width:100%;background:transparent!important;font-size:12px;padding:10px 0}
+#and-v5 .v5-add-rail{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;width:100%;max-width:100%;min-width:0;padding:3px 2px 14px;scroll-snap-type:x mandatory;scroll-padding-inline:2px;overscroll-behavior-inline:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x;scrollbar-width:thin;scrollbar-color:#a0bf25 #273136}
+#and-v5 .v5-add-card{display:flex;flex-direction:column;flex:0 0 150px;min-width:0;max-width:150px;text-align:left;border-radius:11px;border:1px solid #45575b;background:#1c2a30;color:#f5f8f4;padding:0;overflow:hidden;scroll-snap-align:start}
+#and-v5 .v5-add-card:focus-visible,#and-v5 .v5-add-card:hover{border-color:var(--v5-yellow)}
+#and-v5 .v5-add-card>img{width:100%;aspect-ratio:1/1;height:auto;max-width:100%;display:block;object-fit:cover;object-position:center;background:#202f33}
+#and-v5 .v5-add-card>span{display:flex;flex-direction:column;gap:3px;padding:11px 10px 8px;min-height:74px}
+#and-v5 .v5-add-card b{font-size:12px;line-height:1.2;overflow-wrap:anywhere}
+#and-v5 .v5-add-card small{font-size:9px;color:#b9c6c6;line-height:1.4}
+#and-v5 .v5-add-card i{display:flex;align-items:center;gap:5px;margin:0 10px 10px;color:#e8ff31;font-size:10px;font-weight:900;font-style:normal}
+#and-v5 .v5-add-card i svg{flex:none}
+#and-v5 .v5-add-empty{flex:1 0 100%;min-width:0;border:1px dashed #495b60;border-radius:8px;padding:15px;color:#c1cfd0;font-size:12px}
+@media(max-width:900px){
+ #and-v5 .v5-account-layout{display:grid;grid-template-columns:minmax(0,1fr);width:100%;gap:15px}
+ #and-v5 .v5-account-layout>*{width:100%;min-width:0}
+ #and-v5 .v5-roster{position:static;top:auto}
+ #and-v5 .v5-roster-list{display:flex;flex-direction:row;overflow-x:auto;overflow-y:hidden;max-height:none;min-width:0;width:100%;scroll-snap-type:x proximity;touch-action:pan-x;overscroll-behavior-inline:contain}
+ #and-v5 .v5-roster-list button{flex:0 0 160px;min-width:160px;scroll-snap-align:start}
+ #and-v5 .v5-add-card{flex-basis:151px;max-width:151px}
+}
+@media(max-width:640px){
+ #and-v5 .v5-account{min-width:0;max-width:100%;overflow-x:clip}
+ #and-v5 .v5-account .v5-roster{padding:13px}
+ #and-v5 .v5-account .v5-editor{padding:14px;min-width:0;width:100%}
+ #and-v5 .v5-account .v5-edit-head{min-width:0;gap:10px}
+ #and-v5 .v5-account .v5-edit-head>img{flex:0 0 70px;width:70px;height:70px}
+ #and-v5 .v5-account .v5-edit-head>div{min-width:0;flex:1}
+ #and-v5 .v5-account .v5-edit-head h2{font-size:26px}
+ #and-v5 .v5-account .v5-edit-head>button{flex:0 0 25px;width:25px}
+ #and-v5 .v5-account .v5-fields-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #and-v5 .v5-account .v5-fields-3>label:last-child:nth-child(odd){grid-column:1 / -1}
+ #and-v5 .v5-account .v5-fields-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #and-v5 .v5-account .v5-fields>label{min-width:0}
+ #and-v5 .v5-account .v5-fields>label input,#and-v5 .v5-account .v5-fields>label select{min-width:0;width:100%;max-width:100%;font-size:14px}
+ #and-v5 .v5-account .v5-gear-select{grid-template-columns:78px minmax(0,1fr);min-width:0}
+ #and-v5 .v5-account .v5-gear-select img{width:78px;height:90px}
+ #and-v5 .v5-account .v5-gear-select select{width:100%;min-width:0}
+ #and-v5 .v5-account .v5-discslots{grid-template-columns:minmax(0,1fr)}
+ #and-v5 .v5-account .v5-discslot{min-width:0}
+ #and-v5 .v5-account .v5-add-card{flex:0 0 140px;max-width:140px}
+ #and-v5 .v5-account .v5-add-card>span{min-height:68px}
+}
+@media(max-width:370px){
+ #and-v5 .v5-account .v5-fields-2{grid-template-columns:minmax(0,1fr)}
+ #and-v5 .v5-account .v5-add-card{flex-basis:126px;max-width:126px}
+ #and-v5 .v5-account .v5-gear-select{grid-template-columns:68px minmax(0,1fr)}
+ #and-v5 .v5-account .v5-gear-select img{width:68px;height:84px}
+}
