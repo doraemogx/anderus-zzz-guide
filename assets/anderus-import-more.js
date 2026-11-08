@@ -235,10 +235,11 @@ async function scan(file){
     const canvas=makeCanvas(image,DISC_LAYOUT[i],false);
     const result=await worker.recognize(canvas);
     let parsed=parseDiscCard(result.data?.text||"",i+1);
-    if((!parsed.set||!parsed.main)&&result.data?.text){
+    if((!parsed.set||!parsed.main||parsed.level===null||parsed.recognized<5)&&result.data?.text){
      const alt=await worker.recognize(makeCanvas(image,DISC_LAYOUT[i],true));
      const other=parseDiscCard(alt.data?.text||"",i+1);
-     if(other.recognized>parsed.recognized||(!parsed.set&&other.set))parsed=other;
+     const quality=d=>(d.set?6:0)+(d.main?5:0)+(d.level!==null?3:0)+d.recognized;
+     if(quality(other)>quality(parsed))parsed=other;
     }
     // Card position is fixed by its placement, not by unreliable OCR of [1] etc.
     parsed.slot=i+1;
