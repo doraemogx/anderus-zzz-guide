@@ -1,6 +1,9 @@
 name: Radar ZZZ - varredura a cada 3 horas
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/update_radar.py', '.github/workflows/daily-radar.yml']
   schedule:
     - cron: '23 */3 * * *'
 permissions:
