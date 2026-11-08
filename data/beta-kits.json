@@ -1,0 +1,570 @@
+{
+  "schema": 1,
+  "revision": "2026-11-07",
+  "scope": "Prévia 3.4.3; números provisórios, não equivalem a dano final",
+  "agents": {
+    "Sunbringer": {
+      "id": "a62",
+      "gameId": "1601",
+      "name": "Sunbringer",
+      "version": "3.4.3",
+      "revision": "20278274",
+      "verifiedAt": "2026-11-07",
+      "status": "BETA · SUJEITO A MUDANÇAS",
+      "source": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
+      "engineSource": "https://zzz.gachabase.net/w-engines/beta?filter=s%3A2&lang=en-US",
+      "stats": [
+        [
+          "PV base",
+          "5736"
+        ],
+        [
+          "DEF base",
+          "441"
+        ],
+        [
+          "Taxa CRIT base",
+          "33,8%"
+        ],
+        [
+          "Taxa de acúmulo automático de Sharpness",
+          "1,5"
+        ]
+      ],
+      "mechanics": [
+        [
+          "Escala principal",
+          "Golpes Sharp usam DEF como parâmetro de dano. Taxa CRIT excedente de 100% permite nova verificação de Laceration; CRIT DMG inicial converte em Taxa CRIT na proporção de 0,35% para cada 1%."
+        ],
+        [
+          "Gash / Maim",
+          "Alguns golpes acumulam Gash (até 3 cargas). Ataques pesados selecionados consomem cargas e provocam Maim em área."
+        ],
+        [
+          "Midnight Sun",
+          "Ao entrar: +40% Taxa CRIT e ignora 20% da DEF por 20s; duração pausa enquanto companheiros/Dracaene estão em campo; EX ou Bannerbearer renovam."
+        ],
+        [
+          "Wishfire",
+          "Maim concede 40 por carga removida, até 160; com 120 é possível realizar Bannerbearer - Converging Edge; assistência rápida tem espera de 3s."
+        ],
+        [
+          "Habilidade adicional",
+          "Com Atordoador/Defesa/outro Armeiro, EX Especial ou esquiva específica concede a todos os Armeiros +25% de Dano Lacerante por 45s."
+        ]
+      ],
+      "skills": [
+        {
+          "group": "Ataque básico",
+          "name": "Thornbreaker / Bannerbearer",
+          "effect": "Até 4 golpes de Fogo Gênese; o quarto golpe pesado consome até 3 Gash e aplica Maim. Nos golpes 3 e 4, dano recebido -40% e resistência a interrupção maior.",
+          "numbers": [
+            "4 golpes",
+            "máx. 3 Gash",
+            "-40% dano recebido"
+          ]
+        },
+        {
+          "group": "Ataque básico carregado",
+          "name": "Bannerbearer – Converging Edge",
+          "effect": "Consome Wishfire para alternar a execução para Eldreda, concedendo Chain Teeth e Flag Order.",
+          "numbers": [
+            "120 Wishfire"
+          ]
+        },
+        {
+          "group": "Esquiva",
+          "name": "Phase Fold / Spatial Reconstruction",
+          "effect": "Esquiva invulnerável; contra-ataque de Lindverne permite emendar o terceiro golpe do básico.",
+          "numbers": []
+        },
+        {
+          "group": "Assistência",
+          "name": "Defesa e contra-ataques de Dracaene",
+          "effect": "Aparadas acumulam Gash; assistência de Dracaene tem Atordoamento aumentado; Follow-Ups com bônus de acúmulo.",
+          "numbers": [
+            "+50% Daze (Dracaene)",
+            "+15% Gash buildup",
+            "+20% dano de Follow-Up"
+          ]
+        },
+        {
+          "group": "Especial / EX",
+          "name": "Night Blaze / Dawnrise",
+          "effect": "Ataques conjuntos que usam Sharpness; golpe pesado consome até 3 Gash para ativar Maim por carga. Variantes de execução encadeiam após ataques específicos.",
+          "numbers": [
+            "até 3 Gash"
+          ]
+        },
+        {
+          "group": "Suprema",
+          "name": "By This Wish, All Things Remade",
+          "effect": "Execução de Fogo Gênese; remove Ember Scar e prolonga a janela de atordoamento dos inimigos afetados. Não conta como ataque pesado.",
+          "numbers": [
+            "+1s de Daze"
+          ]
+        },
+        {
+          "group": "Passiva central",
+          "name": "Dream Manifestation = Genesis Reconstruction",
+          "effect": "Transforma DEF em escala Sharp, converte CRIT DMG inicial em Taxa CRIT e controla Midnight Sun, Gash, Maim e Wishfire.",
+          "numbers": [
+            "+0,35% CRIT por 1% CRIT DMG inicial",
+            "+40% CRIT Midnight Sun",
+            "20% DEF ignorada"
+          ]
+        },
+        {
+          "group": "Habilidade adicional",
+          "name": "Mark of a Leader",
+          "effect": "Com aliado de Defesa, Atordoamento ou Armeiro, ativa United Will, amplificando dano Lacerante do grupo de Armeiros.",
+          "numbers": [
+            "+25% dano Lacerante",
+            "45s"
+          ]
+        }
+      ],
+      "engine": {
+        "name": "Dragonfire Mirage",
+        "base": "DEF base 446; DEF% 48% no nível 60",
+        "effect": "Taxa CRIT +20%. Ao entrar em combate ou usar EX Especial, recebe Enhance por 25s; durante Enhance, Dano de Fogo +20% e Fire Sharp DMG +10%.",
+        "numbers": [
+          "+20% Taxa CRIT",
+          "+20% Dano de Fogo",
+          "+10% Fire Sharp",
+          "25s"
+        ],
+        "note": "Dados beta publicados; podem sofrer revisão."
+      },
+      "mindscapes": [
+        [
+          "M1 · The Reclusive Void Hunter",
+          "Entra com 120 Wishfire; Gash buildup +10%; golpes ignoram 15% da resistência a Fogo. Em Investigation Zone, ganho inicial limitado a 180s."
+        ],
+        [
+          "M2 · The Heir's Banner of Rebellion",
+          "Wishfire máxima sobe a 200; Ember Scar acumulada +25%; golpes acrescentam Ember Scar equivalente a 18% do dano real; Converging Edge concede +150 Decibéis."
+        ],
+        [
+          "M3 · Measured Hope",
+          "+2 níveis nos cinco tipos principais de habilidade."
+        ],
+        [
+          "M4 · Phantom of the Devotee",
+          "Dano próprio +15%; após assistência de Dracaene habilita EX de seguimento sem consumir Chain Teeth."
+        ],
+        [
+          "M5 · Where We Belong",
+          "+2 níveis nos cinco tipos principais de habilidade."
+        ],
+        [
+          "M6 · Hope of Day Break",
+          "Suprema aplica Ember Scar adicional de 100% da marca gerada pela própria suprema; segue com EX especial sem Flag Order e ignora 15% da DEF do alvo."
+        ]
+      ],
+      "teams": [
+        [
+          "Sunbringer",
+          "Roxy Ifrita Pryce",
+          "Robin"
+        ],
+        [
+          "Sunbringer",
+          "Norma Hollowell",
+          "Robin"
+        ]
+      ],
+      "strategy": "DPS de DEF/Sharp, dependente de controle de Gash, Maim e janelas críticas. Robin oferece escudos e reforço de DEF, enquanto um parceiro de Atordoamento/Armeiro ajuda a ativar habilidade adicional. Times são hipóteses de beta; não equivalem a classificação final de DPS.",
+      "scalingNotice": "Os percentuais acima são efeitos e escalas de passivas. A fonte separa multiplicadores de cada hit em painéis Stats/Advanced Stats, ainda não integralmente mapeados para esta ficha."
+    },
+    "Robin": {
+      "id": "a63",
+      "gameId": "1661",
+      "name": "Robin",
+      "version": "3.4.3",
+      "revision": "20266797",
+      "verifiedAt": "2026-11-07",
+      "status": "BETA · SUJEITO A MUDANÇAS",
+      "source": "https://zzz.gachabase.net/agents/1661/robin/beta?lang=en",
+      "engineSource": "https://zzz.gachabase.net/w-engines/beta?filter=s%3A2&lang=en-US",
+      "stats": [
+        [
+          "PV base",
+          "8754"
+        ],
+        [
+          "DEF base",
+          "706"
+        ],
+        [
+          "ATQ base",
+          "750"
+        ],
+        [
+          "Recarga de Energia base",
+          "1,2"
+        ]
+      ],
+      "mechanics": [
+        [
+          "Off-Field Guard",
+          "Após o Especial, sai de campo em estado de guarda por 80s; oferece bônus de DEF e dispara Aftershocks de apoio."
+        ],
+        [
+          "Escudo Guardian",
+          "Escudos gerados por habilidades acumulam até 12% do PV máximo inicial, com duração renovável até 60s."
+        ],
+        [
+          "Impassioned Aria",
+          "Quando um membro recebe Guardian Shield, toda a equipe ganha +25% de dano por 20s; reativações renovam."
+        ],
+        [
+          "DEF para o grupo",
+          "Acima de 16.000 PV iniciais, cada 1.000 PV adicionais concedem +80 DEF, no máximo +800; efeito aprimorado aumenta o limite em 25%."
+        ],
+        [
+          "Entrada e rotação",
+          "Com 120 de Entry Points pode entrar e conceder escudo de 4% do PV inicial. Aftershock gera 20 Entry Points a cada até 10s."
+        ]
+      ],
+      "skills": [
+        {
+          "group": "Ataque básico",
+          "name": "Soft Legato",
+          "effect": "Sequência de três golpes de Éter.",
+          "numbers": [
+            "3 golpes"
+          ]
+        },
+        {
+          "group": "Esquiva",
+          "name": "Swaying Dance / Featherstep Rhythm",
+          "effect": "Esquiva, ataque de corrida e contra-ataque de Éter durante esquiva perfeita.",
+          "numbers": []
+        },
+        {
+          "group": "Assistência",
+          "name": "Starshine Moment",
+          "effect": "Ao entrar com pontos suficientes: dano de Éter, escudo para o grupo, assistência rápida e saída do estado off-field.",
+          "numbers": [
+            "120 Entry Points",
+            "Escudo 4% PV",
+            "20s"
+          ]
+        },
+        {
+          "group": "Assistência",
+          "name": "Grapple / Grapple Synergy Strike",
+          "effect": "Aparada de controle e auxílio de choque; follow-up de aliado conta como Aftershock.",
+          "numbers": [
+            "1 Buff Enhance Point por grapple bem-sucedido"
+          ]
+        },
+        {
+          "group": "Especial",
+          "name": "Off-Field",
+          "effect": "Explosão de Éter e saída de campo; todo o grupo recebe escudo e bônus de DEF.",
+          "numbers": [
+            "80s guarda",
+            "2% PV como escudo",
+            "15s",
+            "até +800 DEF",
+            "-40% dano recebido durante ativação"
+          ]
+        },
+        {
+          "group": "Aftershock",
+          "name": "Special Attack: Aftershock",
+          "effect": "Quando o aliado ativo acerta, Robin ataca fora de campo e concede pontos de entrada e escudo.",
+          "numbers": [
+            "20 Entry Points",
+            "4% PV como escudo",
+            "15s",
+            "até 1 ativação/10s"
+          ]
+        },
+        {
+          "group": "Suprema",
+          "name": "Ultimate de Robin",
+          "effect": "Grande ataque de Éter; concede Buff Enhance Point e recupera Sharpness fixa dos Armeiros do grupo.",
+          "numbers": [
+            "+1 Buff Enhance Point",
+            "+20 Sharpness"
+          ]
+        },
+        {
+          "group": "Passiva central",
+          "name": "Guardian Aria",
+          "effect": "Concede escudos e +25% de dano ao grupo; aumenta DEF pelo PV inicial, com melhora ao consumir Buff Enhance Point.",
+          "numbers": [
+            "+25% Dano",
+            "até 12% PV de escudo",
+            "até 60s de escudo",
+            "+25% limite de DEF (aprimorado)"
+          ]
+        },
+        {
+          "group": "Habilidade adicional",
+          "name": "Sinergia com Armeiro / Atordoador",
+          "effect": "Com Armeiro ou Atordoador no grupo, aumenta o ATQ dos aliados Atordoadores e concede Decibéis iniciais na condição da beta.",
+          "numbers": [
+            "+3.000 Decibéis iniciais",
+            "até +800 ATQ de Atordoador"
+          ]
+        }
+      ],
+      "engine": {
+        "name": "Robin's Exclusive W-Engine",
+        "base": "ATQ base 713; PV% 30% no nível 60",
+        "effect": "Ao conceder escudo, aliados ganham +16% Dano Lacerante por 20s (pode estender até 30s). Após Aftershock, grupo recebe +10% dano por 20s, acumulando até 2 cargas.",
+        "numbers": [
+          "+16% Dano Lacerante",
+          "+10% dano por carga",
+          "até 2 cargas",
+          "20–30s"
+        ]
+      },
+      "mindscapes": [
+        [
+          "M1 · Life's like a song",
+          "Ao entrar ganha até 2 Defense Points, que absorvem dano excedente ao escudo; ao consumir Buff Enhance Point, ataques do grupo ignoram 20% da DEF por 80s."
+        ],
+        [
+          "M2 · Talent and Hard Work",
+          "Aftershock faz o dano do grupo ignorar 15% da resistência inimiga por 20s."
+        ],
+        [
+          "M3 · What We Sing For",
+          "+2 níveis nos cinco tipos principais de habilidade."
+        ],
+        [
+          "M4 · Onstage and Backstage",
+          "Dano da própria Robin +10%; a cada 60s seu Aftershock pode ser aprimorado automaticamente."
+        ],
+        [
+          "M5 · Song's Over, Party's Not",
+          "+2 níveis nos cinco tipos principais de habilidade."
+        ],
+        [
+          "M6 · The sky is where birds belong",
+          "Aftershock aprimorado crita garantido; bônus de ataque pesado ligado ao PV aumenta para 200% do valor anterior; aliados com Guardian Aria recebem +15% de dano Sharp."
+        ]
+      ],
+      "teams": [
+        [
+          "Sunbringer",
+          "Roxy Ifrita Pryce",
+          "Robin"
+        ],
+        [
+          "Sunbringer",
+          "Norma Hollowell",
+          "Robin"
+        ]
+      ],
+      "strategy": "Suporte defensivo de escudos e bônus coletivos, com especial afinidade a personagens que escalam por DEF ou Sharp. Priorize PV% e manutenção de Off-Field Guard; times são preliminares.",
+      "scalingNotice": "A base beta disponibiliza descrições e escalas de escudos acima. Multiplicadores individuais de dano/atordoamento por golpe precisam ser lidos no painel Stats da fonte e podem mudar."
+    },
+    "Kafka": {
+      "id": "a64",
+      "gameId": "1651",
+      "name": "Kafka",
+      "version": "3.4.3",
+      "revision": "20278274",
+      "verifiedAt": "2026-11-07",
+      "status": "BETA · SUJEITO A MUDANÇAS",
+      "source": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
+      "engineSource": "https://zzz.gachabase.net/w-engines/beta?filter=s%3A2&lang=en-US",
+      "stats": [
+        [
+          "PV base",
+          "7788"
+        ],
+        [
+          "ATQ base",
+          "872"
+        ],
+        [
+          "Proficiência de Anomalia base",
+          "168"
+        ],
+        [
+          "Maestria de Anomalia base",
+          "112"
+        ]
+      ],
+      "mechanics": [
+        [
+          "Lightning Lash",
+          "Ricocheteia até 3 vezes; cada ricochete causa 50% menos dano que o anterior; todo dano de Lash conta como Disorder."
+        ],
+        [
+          "Polarity Disorder",
+          "Ataque Disordered Echo consome 80 Improvised Overture e provoca Disorder especial de 60% sem remover a Anomalia aplicada."
+        ],
+        [
+          "Especial em sequência",
+          "Hunting Prelude permite até 3 ataques EX consecutivos, alguns convertendo Disorder + dano calculado sobre Proficiência."
+        ],
+        [
+          "Passiva",
+          "EX regenera 10 Improvised Overture; Lash passivo pode ativar ao inimigo anômalo atacar a cada 10s."
+        ],
+        [
+          "Distorção crítica",
+          "Passiva concede condição de crítico aos Disordes do grupo: taxa-base 100% e dano crítico 35% no registro beta."
+        ]
+      ],
+      "skills": [
+        {
+          "group": "Ataque básico",
+          "name": "Torment",
+          "effect": "Até quatro golpes elétricos. No último contra alvo com Anomalia, Lightning Lash corresponde a 2% do Disorder original mais 360% da Proficiência de Anomalia.",
+          "numbers": [
+            "4 golpes",
+            "2% Disorder",
+            "+360% Proficiência",
+            "3 ricochetes",
+            "-50% por ricochete"
+          ]
+        },
+        {
+          "group": "Ataque básico carregado",
+          "name": "Disordered Echo",
+          "effect": "Consome Improvised Overture, estende Shock e causa Polarity Disorder sem remover a anomalia.",
+          "numbers": [
+            "80 Improvised Overture",
+            "Shock por 10s",
+            "60% Disorder"
+          ]
+        },
+        {
+          "group": "Esquiva",
+          "name": "Shadow Chaser / Plunder",
+          "effect": "Esquiva e avanço com golpe Elétrico; contra-ataque de esquiva perfeita chama Vanishing Act.",
+          "numbers": []
+        },
+        {
+          "group": "Assistência",
+          "name": "Caress / Monologue",
+          "effect": "Assistência rápida e ofensiva, com parry e follow-up Elétrico.",
+          "numbers": []
+        },
+        {
+          "group": "Especial",
+          "name": "Nightfall Hunt – Rhapsody",
+          "effect": "Ativa Hunting Prelude; permite sequência de EX; sair sem EX pode consumir energia extra.",
+          "numbers": [
+            "até 3 EX na postura",
+            "20 de Energia se sair sem usar EX"
+          ]
+        },
+        {
+          "group": "EX Especial",
+          "name": "Nightfall Hunt – Recitative",
+          "effect": "Golpe Elétrico que ativa Lightning Lash em alvo com Anomalia, escalando em Disorder e Proficiência.",
+          "numbers": [
+            "10% Disorder",
+            "+1060% Proficiência",
+            "até 3 ricochetes"
+          ]
+        },
+        {
+          "group": "EX Especial",
+          "name": "Nightfall Hunt – Aria",
+          "effect": "Disparo elétrico contra alvos sem anomalia elétrica recebe aumento de acúmulo.",
+          "numbers": [
+            "+50% Buildup contra alvo sem anomalia Elétrica"
+          ]
+        },
+        {
+          "group": "Suprema",
+          "name": "Elegy for Yesterday",
+          "effect": "Grande explosão de dano Elétrico em área, com invulnerabilidade durante a animação.",
+          "numbers": []
+        },
+        {
+          "group": "Passiva central",
+          "name": "Core Passive: Kafka",
+          "effect": "Proficiência +84, recupera Improvised Overture com EX. Lightning Lash reativo causa 3% do Disorder original +460% Proficiência; Disorder do grupo pode critar.",
+          "numbers": [
+            "+84 Proficiência",
+            "+10 Overture por EX",
+            "3% Disorder",
+            "+460% Proficiência",
+            "100% CRIT base / 35% dano CRIT (Disorder)"
+          ]
+        },
+        {
+          "group": "Habilidade adicional",
+          "name": "Forgiveness Isn't Mercy",
+          "effect": "Com outro Assistência ou Anomalia no time, aumenta Shock em 3s (Disordered Echo chega a 13s); Recarga de Energia adicional concede Maestria.",
+          "numbers": [
+            "+3s Shock",
+            "13s após extensão",
+            "até +140 Maestria",
+            "30s"
+          ]
+        }
+      ],
+      "engine": {
+        "name": "Kafka Test W-Engine",
+        "base": "ATQ base 713; Recarga de Energia 60% no nível 60",
+        "effect": "EX Elétrica concede +30 Proficiência por 30s, até 3 cargas. Com 3 cargas, +30% dano da usuária e +20% dano de Disorder.",
+        "numbers": [
+          "+30 Proficiência / carga",
+          "até 3 cargas",
+          "+30% dano",
+          "+20% Disorder",
+          "30s"
+        ],
+        "note": "Nome de teste provisório."
+      },
+      "mindscapes": [
+        [
+          "M1 · Fantasy Couture Rhapsody",
+          "Disorder de toda a equipe +25%; Lightning Lash ignora 12% da resistência de todos os atributos."
+        ],
+        [
+          "M2 · Nightmare in the Depths of the Mist",
+          "Acúmulo de Anomalia +15%; durante Hunting Prelude, dano +25% e persiste por 8s ao encerrar."
+        ],
+        [
+          "M3 · Vibrato at the End of a Tragic Tale",
+          "+2 níveis nos cinco tipos principais de habilidade."
+        ],
+        [
+          "M4 · Hunt Beneath the Moonlight",
+          "Qualquer Disorder de aliado devolve 150 Decibéis a Kafka a cada 10s."
+        ],
+        [
+          "M5 · To the Journey's End",
+          "+2 níveis nos cinco tipos principais de habilidade."
+        ],
+        [
+          "M6 · The Castle of Crossed Destinies",
+          "Permite até 6 EX na postura; cada EX faz o próximo Recitative/Lash ignorar 15% de DEF, até 60%; após ataque básico carregado, ATQ +200 por 30s."
+        ]
+      ],
+      "teams": [
+        [
+          "Kafka",
+          "Vivian",
+          "Yuzuha"
+        ],
+        [
+          "Kafka",
+          "Rina",
+          "Trigger"
+        ],
+        [
+          "Kafka",
+          "Jane Doe",
+          "Rina"
+        ]
+      ],
+      "strategy": "Anomalia Elétrica que fortalece Disorder, especialmente com aplicadores de outras anomalias e suporte de Recarga. A dupla Kafka/Vivian é hipótese de beta; compare contra os times já investidos antes de reservar recursos.",
+      "scalingNotice": "Há percentuais verificáveis para Lightning Lash e Disorder acima; multiplicadores hit a hit de Basic/EX/Suprema seguem na tabela Stats da fonte, não incorporados por falta de leitura segura."
+    }
+  }
+}
