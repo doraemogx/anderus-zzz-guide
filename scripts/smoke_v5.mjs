@@ -44,6 +44,26 @@ for(const width of [360,393,412,1280]){
  if(await page.locator('.v5-gear').count()<2)throw Error('Build images missing');
  await page.locator('.v5-bottom [data-to="account"]').click();
  await page.waitForSelector('.v5-account');
+ await page.waitForSelector('.v5-add-rail .v5-add-card');
+ const mobileAccountMetrics=await page.evaluate(()=>({
+   overflow:document.documentElement.scrollWidth-window.innerWidth,
+   railScroll:document.querySelector('.v5-add-rail').scrollWidth-document.querySelector('.v5-add-rail').clientWidth,
+   editorRight:document.querySelector('.v5-editor').getBoundingClientRect().right
+ }));
+ if(mobileAccountMetrics.overflow>4)throw Error('Account overflows mobile viewport '+width+': '+JSON.stringify(mobileAccountMetrics));
+ if(mobileAccountMetrics.railScroll<20)throw Error('No horizontal swipe on Add agent rail');
+ await page.locator('#v5-add-search').fill('nome-inexistente-zzz');
+ if(!await page.locator('.v5-add-empty').isVisible())throw Error('Add agent filter did not work');
+ await page.locator('#v5-add-search').fill('');
+ await page.waitForSelector('.v5-add-card');
+ const availableName=await page.locator('.v5-add-card').first().getAttribute('data-name');
+ await page.locator('.v5-add-card').first().click();
+ await page.waitForSelector('.v5-edit-head h2');
+ const savedAgent=await page.evaluate(n=>JSON.parse(localStorage.getItem('ANDERUS_PROXY_OS_v2')).saved[n],availableName);
+ if(!savedAgent)throw Error('Swipe picker did not add agent to the account');
+ await page.locator('.v5-roster-list [data-name="Phoenix"]').click();
+ const accountOverflowAfter=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+ if(accountOverflowAfter>4)throw Error('Account edit view overflows '+width+': '+accountOverflowAfter);
  if(!await page.locator('.v5-editor').isVisible())throw Error('Account editor missing');
  await page.locator('[data-v5-build="level"]').fill('60');
  await page.locator('[data-v5-build="level"]').blur();
