@@ -2,8 +2,8 @@
 (function(){
 "use strict";
 const root=document.createElement("div");root.id="and-v5";document.body.appendChild(root);document.body.classList.add("and-v5-mode");
-const state={page:"home",type:"agents",id:"",sub:"overview",query:"",element:"",role:"",rarity:"",onlyOwned:false,lesson:"intro",feedFilter:"all",edit:"Phoenix",addQuery:"",mode:"deadly",phase:1};
-let enc={agents:{}},loc={engines:{},discs:{},agents:{}},feed={entries:[]},endgameReference=null;
+const state={page:"home",type:"agents",id:"",sub:"overview",query:"",element:"",role:"",rarity:"",onlyOwned:false,lesson:"intro",feedFilter:"all",edit:"Phoenix",addQuery:"",accountTab:"roster",mode:"deadly",phase:1};
+let enc={agents:{}},loc={engines:{},discs:{},agents:{}},feed={entries:[]},endgameReference=null,betaKits={agents:{}};
 const esc=x=>String(x==null?"":x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const tr=x=>(loc.engines&&loc.engines[x])||(loc.discs&&loc.discs[x])||(loc.agents&&loc.agents[x])||x;
 const findAgent=n=>DB.agents.find(a=>a.name===n);
@@ -150,20 +150,51 @@ function detailAgent(a){
  '<div class="v5-tabscroll" role="tablist">'+Tabs.map(([id,n])=>'<button class="'+(tab===id?'on':'')+'" data-v5="sub" data-sub="'+id+'" role="tab" aria-selected="'+(tab===id)+'">'+n+'</button>').join("")+'</div>'+
  '<div id="v5-tabcontent">'+content+'</div></div>';
 }
+
+function betaFor(a){return a?.beta&&betaKits.agents?betaKits.agents[a.name]||null:null;}
+function betaMeta(b){
+ return '<div class="v5-beta-meta"><span>BETA '+esc(b.version)+' · REV. '+esc(b.revision)+'</span><span>REVISADO '+esc(b.verifiedAt)+'</span><a href="'+esc(b.source)+'" target="_blank" rel="noopener noreferrer">CONFERIR FONTE ↗</a></div>';
+}
+function betaOverview(a,b){
+ return '<section class="v5-panel"><span class="v5-eyebrow">ARQUIVO BETA // EM TESTE</span><h2>MECÂNICAS E ESCALAS</h2>'+betaMeta(b)+
+ '<div class="v5-statgrid">'+(b.stats||[]).map(([k,v])=>'<div><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div>'+
+ '<div class="v5-beta-mechanics">'+(b.mechanics||[]).map(([t,desc])=>'<article><b>'+esc(t)+'</b><p>'+esc(desc)+'</p></article>').join("")+'</div>'+
+ '<p class="v5-small">Os valores são da revisão informada, não da versão final do jogo.</p></section>';
+}
+function betaSkills(a,b){
+ return '<div class="v5-section-intro"><span class="v5-eyebrow">KIT BETA // HABILIDADES E VALORES</span><h2>HABILIDADES DE '+esc(tr(a.name).toUpperCase())+'</h2><p>Habilidades disponíveis e parâmetros publicados. Valores de efeito/passiva são diferentes de multiplicadores de cada golpe. Todos os dados estão sujeitos a mudanças.</p></div>'+betaMeta(b)+
+ (b.skills||[]).map((v,i)=>'<details class="v5-skill" '+(i===0?'open':'')+'><summary><span class="v5-skill-id">'+String(i+1).padStart(2,"0")+'</span><strong>'+esc(v.name)+'</strong><small>'+esc(v.group)+'</small></summary><div class="v5-skill-body"><p>'+esc(v.effect)+'</p>'+(v.numbers?.length?'<div class="v5-numbergrid">'+v.numbers.map(n=>'<div><span>PARÂMETRO BETA</span><b>'+esc(n)+'</b></div>').join("")+'</div>':'<p class="v5-small">Multiplicador individual desse golpe ainda não publicado de forma estruturada nesta ficha.</p>')+'</div></details>').join("")+
+ '<section class="v5-panel"><h3>MULTIPLICADORES DE CADA HIT</h3><p>'+esc(b.scalingNotice)+'</p><a class="v5-beta-source-btn" href="'+esc(b.source)+'" target="_blank" rel="noopener noreferrer">VER TABELAS STATS / ADVANCED STATS NA FONTE ↗</a></section>';
+}
+function betaMind(a,b){
+ return '<div class="v5-section-intro"><span class="v5-eyebrow">BETA · M1 A M6</span><h2>MINDSCAPE CINEMA</h2><p>Resumo completo dos seis níveis encontrados na revisão beta. Todos podem mudar.</p></div>'+betaMeta(b)+
+ (b.mindscapes||[]).map(([t,desc],i)=>'<article class="v5-mind"><header><span class="v5-mindex">M'+(i+1)+'</span><div><small>BETA · REVISÃO '+esc(b.revision)+'</small><h3>'+esc(t)+'</h3></div></header><div class="v5-mind-body"><p>'+esc(desc)+'</p></div></article>').join("");
+}
+function betaEngine(a,b){
+ const x=findEngine(b.engine.name);
+ return '<section class="v5-panel v5-beta-engine"><span class="v5-eyebrow">MOTOR-W DO BETA</span><h2>ASSINATURA E EFEITOS</h2><div class="v5-gear-hero">'+(x?'<img src="'+engineImg(x)+'" alt="'+esc(b.engine.name)+'">':'')+'<div><h3>'+esc(tr(b.engine.name))+'</h3><p>'+esc(b.engine.base)+'</p></div></div><p>'+esc(b.engine.effect)+'</p><div class="v5-mvalues">'+(b.engine.numbers||[]).map(x=>'<span>'+esc(x)+'</span>').join("")+'</div>'+ (b.engine.note?'<p class="v5-small">'+esc(b.engine.note)+'</p>':'')+'<a class="v5-beta-source-btn" target="_blank" rel="noopener noreferrer" href="'+esc(b.engineSource)+'">CONFERIR MOTOR E VALORES ↗</a></section>';
+}
+function betaTeams(a,b){
+ return '<section class="v5-panel"><span class="v5-eyebrow">ANÁLISE ESTRATÉGICA · BETA</span><h2>COMO FORMAR OS TIMES</h2><p>'+esc(b.strategy)+'</p>'+b.teams.map((names,i)=>'<div class="v5-beta-team"><small>COMPOSIÇÃO '+String(i+1).padStart(2,"0")+'</small><div class="v5-teamline">'+names.map(n=>{const x=findAgent(n);return x?'<button data-v5="detail" data-type="agents" data-id="'+x.id+'"><img src="'+portrait(x)+'" alt=""><b>'+esc(tr(n))+'</b><small>'+esc(x.role)+'</small></button>':'<span>'+esc(n)+'</span>'}).join("")+'</div></div>').join("")+'</section>';
+}
+
 function agentOverview(a,deep,data){
+ const beta=betaFor(a);if(beta)return betaOverview(a,beta)+betaTeams(a,beta);
  const steps=Array.isArray(deep.rotation)?deep.rotation:[a.how,"Prepare os efeitos dos suportes e confira o requisito adicional.","Entregue a janela de dano ao personagem principal."];
  return '<section class="v5-panel"><span class="v5-eyebrow">01 / COMO ELE FUNCIONA</span><h2>PAPEL NO COMBATE</h2><p>'+esc(deep.overview||a.summary)+'</p><p>'+esc(a.how)+'</p><div class="v5-info-strip"><div><b>'+esc(a.role)+'</b><small>FUNÇÃO</small></div><div><b>'+esc(a.element)+'</b><small>ATRIBUTO</small></div><div><b>'+esc(a.rank)+'</b><small>RARIDADE</small></div></div></section>'+
  '<section class="v5-panel"><span class="v5-eyebrow">02 / PASSO A PASSO</span><h2>ROTAÇÃO EXPLICADA</h2><ol class="v5-steps">'+steps.map((x,i)=>'<li><b>'+String(i+1).padStart(2,"0")+'</b><span>'+esc(x)+'</span></li>').join("")+'</ol></section>'+
  '<section class="v5-panel"><span class="v5-eyebrow">03 / DADOS DE REFERÊNCIA</span><h2>ESTATÍSTICAS BASE · NV. 60</h2><div class="v5-statgrid">'+Object.entries(data.stats||{}).map(([k,v])=>'<div><span>'+esc(k)+'</span><strong>'+esc(v.lv60)+'</strong></div>').join("")+'</div><div class="v5-note">Valores básicos de referência. Os atributos finais da sua conta incluem motores, discos, bônus, efeitos de combate e outros modificadores.</div></section>';
 }
 function agentSkills(a,data){
- if(a.beta)return '<section class="v5-panel"><h2>HABILIDADES NO BETA</h2><p>O kit ainda está em testes. O guia não exibirá multiplicadores provisórios como definitivos. As mudanças confirmadas entram no Radar com indicação da revisão.</p></section>';
+ const beta=betaFor(a);if(beta)return betaSkills(a,beta);
+ if(a.beta)return '<section class="v5-panel"><h2>BETA EM VERIFICAÇÃO</h2><p>Habilidades ainda não cadastradas com conferência. Consulte o Radar e a fonte de teste.</p></section>';
  const list=data.habilidades||[];
  return '<div class="v5-section-intro"><span class="v5-eyebrow">DADOS TÉCNICOS // NV. CONSULTADO</span><h2>KIT DE HABILIDADES</h2><p>Abra cada habilidade para ver os valores de dano e atordoamento registrados. Os números não equivalem ao dano final nem representam todos os níveis automaticamente.</p></div>'+
  (list.length?list.map((skill,i)=>'<details class="v5-skill" '+(i===0?'open':'')+'><summary><span class="v5-skill-id">'+String(i+1).padStart(2,"0")+'</span><strong>'+esc(skill.nome)+'</strong><small>'+((skill.numeros||[]).length)+' PARÂMETROS</small></summary><div class="v5-skill-body"><p>Habilidade da especialidade '+esc(a.role)+'. Os multiplicadores abaixo se referem ao nível '+esc(skill.nivel||"consultado")+'. A ativação depende do movimento e dos requisitos do personagem.</p><div class="v5-numbergrid">'+(skill.numeros||[]).map(x=>'<div><span>'+esc(x.metrica)+'</span><b>'+esc(x.valor)+'</b></div>').join("")+'</div></div></details>').join(""):'<div class="v5-note">Os números dessa habilidade não estão completos na base consultada. Não foram estimados.</div>')+
  '<section class="v5-panel"><h2>COMO INTERPRETAR OS MULTIPLICADORES?</h2><p><b>Dano:</b> percentual que participa do cálculo do golpe. <b>Atordoamento:</b> parcela de Daze produzida pelo movimento. <b>Níveis:</b> escalonamentos podem variar, inclusive com M3 e M5. <b>Passivas:</b> exigem as condições do kit, que podem envolver atributos, função ou tipos de aliados.</p></section>';
 }
 function agentMind(a,data){
+ const beta=betaFor(a);if(beta)return betaMind(a,beta);
  const points=data.mindscapes||[];
  const rec=a.role==="Suporte"?"M0 como ponto de partida; M1/M2 dependem da janela de buff e do custo.":a.role==="Anomalia"?"M0 funcional; M1/M2 podem melhorar aplicação ou dano, mas é preciso avaliar rotações e recursos.":"M0 funcional; compare M1/M2 com a melhoria de motor e equipamentos antes de gastar mais.";
  return '<div class="v5-section-intro"><span class="v5-eyebrow">CINEMA MENTAL · M0 A M6</span><h2>MINDSCAPE CINEMA</h2><p>As seis cópias adicionais aprimoram o agente. Abaixo estão os nomes, dados numéricos identificados e minha leitura estratégica de cada nível.</p><div class="v5-note">Recomendação inicial: '+esc(rec)+' O efeito descrito é uma explicação técnica resumida, não uma transcrição integral da descrição do jogo.</div></div>'+
@@ -178,12 +209,14 @@ function gearCard(x,type,labelTxt){
  return '<button class="v5-gear" data-v5="detail" data-type="'+type+'" data-id="'+esc(x.id)+'"><img src="'+(type==="engines"?engineImg(x):discImg(x))+'" alt="'+esc(x.name)+'"><span><small>'+labelTxt+'</small><strong>'+esc(tr(x.name))+'</strong><i>VER FICHA '+svg("arrow",13)+'</i></span></button>';
 }
 function agentBuild(a,deep){
+ const beta=betaFor(a);if(beta)return betaEngine(a,beta)+betaTeams(a,beta)+'<section class="v5-panel"><h3>ATRIBUTOS E DISCOS · PRELIMINAR</h3><p>'+esc(deep.subs||'Sem metas finais confirmadas.')+'</p></section>';
  const x=findEngine(a.engine),d=findDisc(deep.ideal4||a.disc),d2=findDisc(deep.ideal2);
  const mains=deep.mains||[];
  return '<section class="v5-panel"><span class="v5-eyebrow">ARQUIVO DE EQUIPAMENTOS</span><h2>BUILD RECOMENDADA</h2><p>'+esc(deep.overview||a.summary)+'</p><div class="v5-gearcards">'+gearCard(x,"engines","MOTOR-W ASSINATURA")+gearCard(d,"discs","CONJUNTO 4 PEÇAS")+gearCard(d2,"discs","CONJUNTO 2 PEÇAS")+'</div></section>'+
  '<section class="v5-panel"><h2>ATRIBUTOS PRINCIPAIS</h2><div class="v5-statsteps">'+mains.map(v=>'<div>'+esc(v)+'</div>').join("")+'</div><h3>COMO PRIORIZAR</h3><p>'+esc(deep.subs||ROLE_DEFAULTS[a.role]?.sub||"O atributo de escala do kit determina a build.")+'</p><div class="v5-note">Builds são recomendações e não garantias. O motor equipado, Mindscapes e companheiros podem alterar as metas ideais.</div></section>';
 }
 function agentTeams(a){
+ const beta=betaFor(a);if(beta)return betaTeams(a,beta);
  const ts=String(a.teams||"").split(" / ").filter(Boolean).map(t=>t.split(",").map(x=>x.trim()));
  return '<div class="v5-section-intro"><h2>EQUIPES E SINERGIAS</h2><p>Exemplos de composições e condições adicionais. Os membros cadastrados na sua conta são destacados.</p></div>'+
  ts.map((members,i)=>'<section class="v5-panel"><span class="v5-eyebrow">COMPOSIÇÃO '+String(i+1).padStart(2,"0")+'</span><div class="v5-teamline">'+members.map(n=>{const x=findAgent(n);return x?'<button data-v5="detail" data-type="agents" data-id="'+x.id+'"><img src="'+portrait(x)+'"><b>'+esc(tr(x.name))+'</b><small>'+esc(x.role)+'</small>'+(account.saved[x.name]?'<em>NA SUA CONTA</em>':'')+'</button>':'<div>'+esc(n)+'</div>';}).join("")+'</div><div class="v5-note">A sinergia final depende de habilidades adicionais, status, motores e do inimigo. Isso não constitui uma garantia de desempenho.</div></section>').join("");
@@ -274,6 +307,35 @@ function addAgentTiles(){
  return available.length?available.map(a=>'<button class="v5-add-card" type="button" data-v5="add-own" data-name="'+esc(a.name)+'" aria-label="Adicionar '+esc(tr(a.name))+' à conta"><img loading="lazy" src="'+portrait(a)+'" alt="'+esc(tr(a.name))+'"><span><b>'+esc(tr(a.name))+'</b><small>'+esc(a.element)+' · '+esc(a.role)+'</small></span><i>'+svg('check',14)+' ADICIONAR</i></button>').join(""):'<div class="v5-add-empty">Nenhum agente disponível com esse filtro.</div>';
 }
 
+
+function investmentDashboard(){
+ const rows=Object.keys(account.saved).map(name=>{
+  const a=findAgent(name),b=account.saved[name];if(!a)return null;
+  const level=Number(b.level||1),slots=(b.slots||[]).filter(x=>x.set).length,engine=findEngine(b.engine);
+  const assigned=account.teams.some(team=>team.includes(name));
+  const skills=Object.values(b.skillLevels||{}).map(Number);
+  const weakSkills=skills.length>0&&Math.min(...skills)<7;
+  const issues=[];
+  if(level<60)issues.push('nível '+level+'/60');
+  if(!engine)issues.push('motor não cadastrado');
+  else if(engine.role!==a.role)issues.push('motor com função incompatível');
+  if(slots<6)issues.push('discos '+slots+'/6');
+  if(weakSkills)issues.push('habilidades para evoluir');
+  const score=(assigned?4:0)+(level<60?2:0)+(slots<6?2:0)+(!engine||engine.role!==a.role?2:0)+(weakSkills?1:0);
+  const tier=assigned&&issues.length?'now':!issues.length?'ready':assigned?'optimize':'later';
+  const reason=issues.length?(assigned?'Usado em equipe: priorize corrigir '+issues.join(', ')+'.':'Ainda falta '+issues.join(', ')+'. Não invista antes dos agentes que já usam suas equipes.'):(assigned?'Estrutura básica registrada. Priorize melhorar subatributos e execução, se necessário.':'Build estruturalmente completa, mas fora das equipes atuais.');
+  return {a,b,tier,score,reason,assigned,issues};
+ }).filter(Boolean).sort((a,b)=>b.score-a.score);
+ const groups=[['now','INVESTIR AGORA','Correções nos agentes que já estão nas equipes.'],['optimize','OTIMIZAR DEPOIS','Agentes em equipes com estrutura básica montada.'],['later','PODE ESPERAR','Personagens fora dos seus times: priorize conforme necessidade.'],['ready','BUILDS REGISTRADAS','Não há pendências estruturais no cadastro.']];
+ const plan=groups.map(([id,label,desc])=>{
+  const arr=rows.filter(x=>x.tier===id);
+  return '<section class="v5-invest-group"><div class="v5-invest-head"><h3>'+label+'</h3><small>'+desc+'</small><b>'+arr.length+'</b></div>'+(arr.length?'<div class="v5-invest-grid">'+arr.map(x=>'<button class="v5-invest-card" data-v5="invest-edit" data-name="'+esc(x.a.name)+'"><img src="'+portrait(x.a)+'" alt=""><span><strong>'+esc(tr(x.a.name))+'</strong><small>'+esc(x.a.role)+' · '+(x.assigned?'EM EQUIPE':'FORA DOS TIMES')+'</small><em>'+esc(x.reason)+'</em></span>'+svg('right',17)+'</button>').join("")+'</div>':'<p class="v5-invest-empty">Nenhum agente nesta categoria.</p>')+'</section>';
+ }).join('');
+ const missing=recommendedForAccount();
+ const targets=missing.length?'<section class="v5-panel"><span class="v5-eyebrow">POSSÍVEIS PRÓXIMOS ALVOS</span><h2>QUEM PODE COMPLETAR SEUS TIMES</h2><p>Baseado nas sinergias que aparecem nas fichas dos agentes cadastrados; não substitui uma avaliação de banner e custo.</p><div class="v5-reclist">'+missing.map(x=>'<button data-v5="detail" data-type="agents" data-id="'+x.agent.id+'"><img src="'+portrait(x.agent)+'" alt=""><span><b>'+esc(tr(x.agent.name))+'</b><small>'+esc(x.agent.role)+'</small><em>Combina com: '+esc(x.partners.map(tr).join(", "))+'</em></span></button>').join("")+'</div></section>':'';
+ return '<section class="v5-invest"><div class="v5-invest-intro"><span class="v5-eyebrow">PRIORIZAÇÃO PERSONALIZADA</span><h2>ONDE VALE INVESTIR?</h2><p>Ordenei suas prioridades pelo uso nas equipes, nível, motor, discos e habilidades cadastrados. Não classifico agentes como ruins apenas por não estarem nos times.</p></div>'+ (rows.length?plan:'<div class="v5-panel">Adicione personagens e monte suas equipes para receber recomendações específicas.</div>')+targets+'<div class="v5-note">Esta é uma análise de prontidão da sua conta, não um ranking absoluto do meta. Para refletir sua evolução, atualize os dados na aba Meu elenco.</div></section>';
+}
+
 function accountScreen(){
  const list=Object.keys(account.saved).filter(x=>findAgent(x));
  const names=DB.agents.filter(a=>!a.beta&&!a.upcoming&&!account.saved[a.name]);
@@ -283,6 +345,8 @@ function accountScreen(){
  const compatible=selected?DB.engines.filter(w=>w.role===selected.role):[];
  return '<div class="v5-inner v5-account">'+title('PAINEL PESSOAL // ANDERUS','MINHA CONTA<span class="v5-dot">.</span>','Organize personagens, equipamentos, status, equipes e investimentos. Os dados permanecem neste navegador.')+
  '<section class="v5-profile-bar"><div class="v5-info-strip"><div><b>'+list.length+'</b><small>AGENTES</small></div><div><b>'+account.teams.length+'</b><small>EQUIPES</small></div><div><b>LOCAL</b><small>ARMAZENAMENTO</small></div></div><div class="v5-backup"><button data-v5="backup">EXPORTAR BACKUP</button><button data-v5="import">IMPORTAR</button><input type="file" id="v5-backup-input" accept="application/json,.json" hidden></div></section>'+
+ '<div class="v5-account-tabs" role="tablist" aria-label="Áreas da conta"><button role="tab" aria-selected="'+(state.accountTab!=="invest")+'" data-v5="accounttab" data-tab="roster" class="'+(state.accountTab!=="invest"?"on":"")+'">MEU ELENCO</button><button role="tab" aria-selected="'+(state.accountTab==="invest")+'" data-v5="accounttab" data-tab="invest" class="'+(state.accountTab==="invest"?"on":"")+'">ONDE INVESTIR? ✦</button></div>'+
+ (state.accountTab==="invest"?investmentDashboard():
  '<div class="v5-account-layout"><aside class="v5-roster"><div class="v5-rowbetween"><strong>MEUS AGENTES</strong><span>'+list.length+'</span></div><div class="v5-roster-list">'+list.map(n=>{const a=findAgent(n);return '<button class="'+(selected&&selected.name===n?'on':'')+'" data-v5="edit" data-name="'+esc(n)+'"><img src="'+portrait(a)+'"><span><b>'+esc(tr(n))+'</b><small>NV. '+esc(account.saved[n].level)+' · M'+esc(account.saved[n].mindscape)+'</small></span>'+svg("right",14)+'</button>';}).join("")+'</div><section class="v5-add-picker"><div class="v5-rowbetween"><strong>ADICIONAR AGENTE</strong><small>DESLIZE PARA O LADO →</small></div><label class="v5-add-search">'+svg('search',17)+'<input id="v5-add-search" value="'+esc(state.addQuery||"")+'" autocomplete="off" placeholder="Buscar personagem..." aria-label="Buscar agente para adicionar"></label><div class="v5-add-rail" id="v5-add-rail" role="group" aria-label="Agentes disponíveis: deslize horizontalmente">'+addAgentTiles()+'</div></section></aside>'+
  '<div class="v5-editor">'+(selected&&b?'<div class="v5-edit-head"><img src="'+portrait(selected)+'"><div><span class="v5-eyebrow">EDITANDO AGENTE</span><h2>'+esc(tr(selected.name))+'</h2><small>'+esc(selected.element)+' · '+esc(selected.role)+'</small></div><button data-v5="detail" data-type="agents" data-id="'+selected.id+'">'+svg("right",18)+'</button></div>'+
  '<div class="v5-fields v5-fields-3">'+field("level","NÍVEL",b.level,"number",1,60)+field("mindscape","MINDSCAPE M0-M6",b.mindscape,"number",0,6)+'<label>HABILIDADE CENTRAL<select data-v5-build="core">'+["A","B","C","D","E","F"].map(x=>'<option '+(x===b.core?'selected':'')+'>'+x+'</option>').join("")+'</select></label></div>'+
@@ -291,7 +355,7 @@ function accountScreen(){
  '<div class="v5-editor-section"><span class="v5-eyebrow">03 / HABILIDADES</span><h3>NÍVEL DAS HABILIDADES</h3><div class="v5-fields v5-fields-3">'+[["basic","ATAQUE BÁSICO"],["dodge","ESQUIVA"],["special","ESPECIAL"],["chain","CADEIA"],["assist","ASSISTÊNCIA"]].map(([k,n])=>'<label>'+n+'<input type="number" min="1" max="16" data-v5-skill="'+k+'" value="'+esc(b.skillLevels?.[k]||1)+'"></label>').join("")+'</div></div>'+
  '<div class="v5-editor-section"><span class="v5-eyebrow">04 / EQUIPAMENTO</span><h3>SEIS DISCOS DE IMPULSO</h3><div class="v5-discslots">'+(b.slots||[]).map((slot,i)=>{const d=findDisc(slot.set);return '<div class="v5-discslot"><div class="v5-discslot-head"><img src="'+discImg(d)+'" alt=""><b>DISCO '+(i+1)+'</b></div><label>CONJUNTO<select data-v5-slot="'+i+'" data-v5-key="set"><option value="">NÃO EQUIPADO</option>'+DB.discs.map(o=>'<option value="'+esc(o.name)+'" '+(o.name===slot.set?'selected':'')+'>'+esc(tr(o.name))+'</option>').join("")+'</select></label><label>ATRIBUTO PRINCIPAL<input data-v5-slot="'+i+'" data-v5-key="main" value="'+esc(slot.main||"")+'" placeholder="Ex.: PV%, ATQ%, CRIT"></label><label>SUBATRIBUTOS<input data-v5-slot="'+i+'" data-v5-key="subs" value="'+esc(slot.subs||"")+'" placeholder="Ex.: ATQ 9%, Prof. 27"></label></div>'}).join("")+'</div></div>'+
  '<div class="v5-editor-section"><span class="v5-eyebrow">05 / ANÁLISE</span><h3>DIAGNÓSTICO DA SUA BUILD</h3>'+accountDiagnostics(selected,b)+'<button class="v5-button v5-button-yellow" data-v5="go" data-to="endgame">AVALIAR ENDGAME '+svg("arrow",15)+'</button><button class="v5-delete" data-v5="remove" data-name="'+esc(selected.name)+'">REMOVER ESTE AGENTE</button></div>':'<div class="v5-panel">Adicione um agente ao seu inventário.</div>')+'</div></div>'+
- accountRecommendations()+'<section class="v5-panel v5-team-edit"><span class="v5-eyebrow">LABORATÓRIO DE EQUIPES</span><h2>SUAS FORMAÇÕES</h2><p>Escolha três agentes por equipe. A análise de endgame usa essas composições.</p>'+account.teams.map((team,i)=>'<div class="v5-team-row"><b>EQUIPE '+(i+1)+'</b>'+team.map((n,j)=>'<select data-v5-team="'+i+'" data-v5-pos="'+j+'"><option value="">VAGO</option>'+list.map(nm=>'<option value="'+esc(nm)+'" '+(n===nm?'selected':'')+'>'+esc(tr(nm))+'</option>').join("")+'</select>').join("")+'</div>').join("")+'</section></div>';
+ accountRecommendations()+'<section class="v5-panel v5-team-edit"><span class="v5-eyebrow">LABORATÓRIO DE EQUIPES</span><h2>SUAS FORMAÇÕES</h2><p>Escolha três agentes por equipe. A análise de endgame usa essas composições.</p>'+account.teams.map((team,i)=>'<div class="v5-team-row"><b>EQUIPE '+(i+1)+'</b>'+team.map((n,j)=>'<select data-v5-team="'+i+'" data-v5-pos="'+j+'"><option value="">VAGO</option>'+list.map(nm=>'<option value="'+esc(nm)+'" '+(n===nm?'selected':'')+'>'+esc(tr(nm))+'</option>').join("")+'</select>').join("")+'</div>').join("")+'</section></div>')+'</div>';
 }
 function field(key,labelTxt,value,type,min,max){
  return '<label>'+labelTxt+'<input type="'+type+'" data-v5-build="'+esc(key)+'" value="'+esc(value)+'" '+(min!=null?'min="'+min+'"':'')+' '+(max!=null?'max="'+max+'"':'')+'></label>';
@@ -345,6 +409,8 @@ function bindEvents(){
   if(act==="mode"){state.mode=el.dataset.id;state.phase=1;draw();return;}
   if(act==="reanalyze"){const y=window.scrollY;draw();window.scrollTo(0,y);return;}
   if(act==="phase"){state.phase=Number(el.dataset.id)||1;draw();return;}
+  if(act==="accounttab"){state.accountTab=el.dataset.tab==="invest"?"invest":"roster";draw();return;}
+  if(act==="invest-edit"){state.accountTab="roster";state.edit=el.dataset.name;account.selected=state.edit;save();draw();requestAnimationFrame(()=>root.querySelector(".v5-editor")?.scrollIntoView({block:"start",behavior:"smooth"}));return;}
   if(act==="edit"){state.edit=el.dataset.name;account.selected=state.edit;save();draw();return;}
   if(act==="add-own"){const name=el.dataset.name;const agent=findAgent(name);if(!agent)return;if(!account.saved[name])account.saved[name]=blankBuild(agent);state.edit=name;state.addQuery="";account.selected=name;save();if(state.page==="account"){draw();requestAnimationFrame(()=>root.querySelector(".v5-editor")?.scrollIntoView({block:"start",behavior:"smooth"}));}else{go("account",{id:""});requestAnimationFrame(()=>root.querySelector(".v5-editor")?.scrollIntoView({block:"start",behavior:"smooth"}));}return;}
   if(act==="add-selected"){const name=root.querySelector("#v5-add-agent")?.value;if(!name)return;if(!account.saved[name])account.saved[name]=blankBuild(findAgent(name));state.edit=name;account.selected=name;save();draw();return;}
@@ -381,8 +447,8 @@ function bindEvents(){
 async function init(){
  root.innerHTML='<div class="v5-loading"><span>Z</span><strong>NEW ERIDU // ANDERUS</strong><small>Preparando seu arquivo Proxy OS...</small></div>';
  const get=async p=>{try{const r=await fetch(p+"?version=5",{cache:"no-store"});return r.ok?r.json():null;}catch{return null;}};
- const results=await Promise.all([get("data/encyclopedia.json"),get("data/localizacao-ptbr.json"),get("data/updates.json"),get("data/endgame-reference.json")]);
- enc=results[0]||enc;loc=results[1]||loc;feed=results[2]||feed;endgameReference=results[3]||null;
+ const results=await Promise.all([get("data/encyclopedia.json"),get("data/localizacao-ptbr.json"),get("data/updates.json"),get("data/endgame-reference.json"),get("data/beta-kits.json")]);
+ enc=results[0]||enc;loc=results[1]||loc;feed=results[2]||feed;endgameReference=results[3]||null;betaKits=results[4]||betaKits;
  const hash=decodeURIComponent(location.hash||"");
  if(hash.indexOf("#and-v5/")===0){const a=hash.slice(8).split("/");state.page=a[0]||"home";state.id=a[1]||"";if(state.id){const it=DB.agents.find(x=>x.id===state.id);state.type=it?"agents":"engines";}}
  history.replaceState({...state,__v5:true,scroll:0},"",location.href);
