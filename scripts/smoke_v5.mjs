@@ -42,6 +42,14 @@ for(const width of [360,393,412,1280]){
  const count=await page.locator('.v5-skill').count();if(count<10)throw Error('Abilities incomplete '+count);
  await page.locator('.v5-tabscroll [data-sub="build"]').click();
  if(await page.locator('.v5-gear').count()<2)throw Error('Build images missing');
+ await page.locator('.v5-bottom [data-to="encyclopedia"]').click();
+ await page.locator('.v5-agent-tile[data-id="a62"]').click();
+ await page.locator('.v5-tabscroll [data-sub="skills"]').click();
+ if(await page.locator('.v5-skill').count()<8)throw Error('Sunbringer beta kit unavailable');
+ await page.locator('.v5-tabscroll [data-sub="mind"]').click();
+ if(await page.locator('.v5-mind').count()!==6)throw Error('Beta Mindscapes incomplete');
+ await page.locator('.v5-tabscroll [data-sub="build"]').click();
+ if(!await page.locator('.v5-beta-engine').count())throw Error('Beta signature W-Engine panel missing');
  await page.locator('.v5-bottom [data-to="account"]').click();
  await page.waitForSelector('.v5-account');
  await page.waitForSelector('.v5-add-rail .v5-add-card');
@@ -69,6 +77,11 @@ for(const width of [360,393,412,1280]){
  await page.locator('[data-v5-build="level"]').blur();
  const owned=await page.evaluate(()=>JSON.parse(localStorage.getItem('ANDERUS_PROXY_OS_v2')));
  if(Number(owned.saved.Phoenix.level)!==60)throw Error('Account not persisted in same key');
+ await page.locator('.v5-account-tabs [data-tab="invest"]').click();
+ await page.waitForSelector('.v5-invest');
+ if(!await page.locator('.v5-invest-group').count())throw Error('Investment priority tab missing');
+ await page.locator('.v5-account-tabs [data-tab="roster"]').click();
+ await page.waitForSelector('.v5-editor');
  await page.locator('.v5-editor [data-to="endgame"]').click();
  await page.waitForSelector('.v5-mode-nav');
  if(await page.locator('.v5-mode-nav button').count()!==8)throw Error('Expected 8 endgame modes');
