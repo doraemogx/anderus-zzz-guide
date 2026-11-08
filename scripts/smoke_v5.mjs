@@ -170,6 +170,14 @@ for(const width of [360,393,412,1280]){
  if(savedSkills.skillLevels?.basic!==5||savedSkills.skillLevels?.dodge!==9||savedSkills.skillLevels?.assist!==9||savedSkills.skillLevels?.special!==9||savedSkills.skillLevels?.chain!==5||savedSkills.coreLevel!==5||savedSkills.core!=='A')throw Error('Skill importer altered central letter or mismapped six levels');
  if(savedSkills.engine!=='Plume of Rebirth'||savedSkills.slots[0].set!=='Freedom Blues')throw Error('Skill import damaged engine/discs');
  await page.locator('#lab-gear-dialog [data-gi-close]').first().click();
+ // Fallback reads six numbers from the circular icons when paragraph OCR
+ // misses all digit labels; it must not overwrite the build without consent.
+ await useQueue(['Habilidades\nOrdenar segundo ordem no jogo','05','09','09','09','05','05']);
+ await page.locator('.v5-editor [data-v5="import-gear"][data-kind="skills"]').click();
+ await uploadGear();
+ const focusedRead=await page.locator('[data-gi-skill]').evaluateAll(els=>els.map(el=>el.value));
+ if(focusedRead.join(',')!=='5,9,9,9,5,5')throw Error('Targeted OCR did not read six level pills');
+ await page.locator('#lab-gear-dialog [data-gi-close]').first().click();
 
 
  const accountOverflowAfter=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
