@@ -764,3 +764,10 @@ body.and-v5-mode #and-v5{display:block!important;position:relative;z-index:10;is
  #and-v5 .lab-background i,#and-v5 .lab-hero:before{animation:none!important}
  #and-v5 .lab-track>span{transition:none!important}
 }
+
+/* Reference provenance and expandable mechanics notes */
+#and-v5 .lab-source-notes{border-top:1px solid #3b4d4e;margin-top:18px;padding:12px 0 2px;font-size:11px;color:#b9cccc}
+#and-v5 .lab-source-notes summary{cursor:pointer;color:var(--lab-accent);font-weight:900;list-style:none;display:flex;justify-content:space-between;gap:8px;align-items:center}
+#and-v5 .lab-source-notes summary::-webkit-details-marker{display:none}
+#and-v5 .lab-source-notes p{line-height:1.65;font-size:11px;color:#d2dbd9;margin:11px 0}
+#and-v5 .lab-source-notes a{display:inline-block;color:var(--lab-accent);font-weight:800;padding:8px 0}
