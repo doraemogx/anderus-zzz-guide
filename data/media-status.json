@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-07T21:18:44.352671+00:00",
+  "checkedAt": "2026-11-09T22:30:00.480004+00:00",
   "counts": {
     "agents": {
       "ok": 65,
@@ -627,9 +627,7 @@
         "id": "w22",
         "name": "Knight's Extolment",
         "status": "ok",
-        "source": "https://cdn.gachabase.net/zzz/assets/33618ddbd703e5f6dddc93a650391f92.png",
-        "width": 275,
-        "height": 280,
+        "source": "local",
         "bytes": 22556
       },
       {
@@ -713,9 +711,7 @@
         "id": "w33",
         "name": "Robin's Exclusive W-Engine",
         "status": "ok",
-        "source": "https://i.gachabase.net/8o2RqRNc6f9bYRj_plT_yPAUdxIUUKv_xiUlSgxadRE/q%3A50/f%3Awebp/plain/zzz/assets/99cd8677cbacd45ba2bd7f3de2ee0cfe.png",
-        "width": 239,
-        "height": 210,
+        "source": "local",
         "bytes": 10320
       },
       {
@@ -778,9 +774,7 @@
         "id": "w41",
         "name": "Dragonfire Mirage",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/portraits/w-engines/sunbringers-signature.webp",
-        "width": 64,
-        "height": 64,
+        "source": "local",
         "bytes": 1872
       },
       {
@@ -1251,9 +1245,7 @@
         "id": "d11",
         "name": "Dawn's Bloom",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/dawns-bloom.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 5690
       },
       {
@@ -1274,9 +1266,7 @@
         "id": "d14",
         "name": "Phaethon's Melody",
         "status": "ok",
-        "source": "https://static.icy-veins.com/images/zenless-zone-zero/drive-discs/phaethons-melody.webp",
-        "width": 152,
-        "height": 152,
+        "source": "local",
         "bytes": 4686
       },
       {
