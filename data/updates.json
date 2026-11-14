@@ -2,9 +2,70 @@
   "schema": 2,
   "checkedAt": "2026-11-14",
   "officialVersion": "3.3",
-  "betaVersion": "3.4.3",
-  "betaRevision": "20291004",
+  "betaVersion": "3.4.4",
+  "betaRevision": "20497240",
   "entries": [
+    {
+      "id": "auto-beta-3-4-4-20497240",
+      "date": "2026-11-14",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Nova revisao de teste v3.4.4 · 20497240",
+      "summary": "Revisao beta detectada; numeros requerem curadoria antes de alterar fichas.",
+      "areas": [
+        "Beta",
+        "Pendente de validacao"
+      ],
+      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+    },
+    {
+      "id": "auto-beta-agent-sunbringer-20497240",
+      "date": "2026-11-14",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Sunbringer · nova revisão de kit 20497240",
+      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+      "areas": [
+        "Sunbringer",
+        "Kit beta",
+        "Conferir valores"
+      ],
+      "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
+      "before": "Rev. 20286631",
+      "after": "Rev. 20497240"
+    },
+    {
+      "id": "auto-beta-agent-robin-20492413",
+      "date": "2026-11-14",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Robin · nova revisão de kit 20492413",
+      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+      "areas": [
+        "Robin",
+        "Kit beta",
+        "Conferir valores"
+      ],
+      "url": "https://zzz.gachabase.net/agents/1661/robin/beta?lang=en",
+      "before": "Rev. 20266797",
+      "after": "Rev. 20492413"
+    },
+    {
+      "id": "auto-beta-agent-kafka-20492413",
+      "date": "2026-11-14",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Kafka · nova revisão de kit 20492413",
+      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+      "areas": [
+        "Kafka",
+        "Kit beta",
+        "Conferir valores"
+      ],
+      "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
+      "before": "Rev. 20286631",
+      "after": "Rev. 20492413"
+    },
     {
       "id": "auto-beta-3-4-3-20280288",
       "date": "2026-11-08",
@@ -624,20 +685,20 @@
   "siteVersion": "5.0",
   "betaAgentRevisions": {
     "Sunbringer": {
-      "version": "3.4.3",
-      "revision": "20286631",
+      "version": "3.4.4",
+      "revision": "20497240",
       "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
       "lastChecked": "2026-11-14"
     },
     "Robin": {
-      "version": "3.4.3",
-      "revision": "20266797",
+      "version": "3.4.4",
+      "revision": "20492413",
       "url": "https://zzz.gachabase.net/agents/1661/robin/beta?lang=en",
       "lastChecked": "2026-11-14"
     },
     "Kafka": {
-      "version": "3.4.3",
-      "revision": "20286631",
+      "version": "3.4.4",
+      "revision": "20492413",
       "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
       "lastChecked": "2026-11-14"
     }
