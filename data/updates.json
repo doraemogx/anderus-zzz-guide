@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "checkedAt": "2026-11-18",
+  "checkedAt": "2026-11-19",
   "officialVersion": "3.3",
   "betaVersion": "3.4.4",
   "betaRevision": "20541895",
@@ -823,19 +823,19 @@
       "version": "3.4.4",
       "revision": "20528983",
       "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
-      "lastChecked": "2026-11-18"
+      "lastChecked": "2026-11-19"
     },
     "Robin": {
       "version": "3.4.4",
       "revision": "20528983",
       "url": "https://zzz.gachabase.net/agents/1661/robin/beta?lang=en",
-      "lastChecked": "2026-11-18"
+      "lastChecked": "2026-11-19"
     },
     "Kafka": {
       "version": "3.4.4",
       "revision": "20528983",
       "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
-      "lastChecked": "2026-11-18"
+      "lastChecked": "2026-11-19"
     }
   }
 }
