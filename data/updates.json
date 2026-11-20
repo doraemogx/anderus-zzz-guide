@@ -6,6 +6,18 @@
   "betaRevision": "20541895",
   "entries": [
     {
+      "id": "auto-official-dcomnewsapp4162040view701033125739758315",
+      "date": "2026-11-16",
+      "kind": "official",
+      "status": "monitoring",
+      "title": "Zenless Zone Zero Version 3.4 \"The Finality of the Day\" Special Program Announce",
+      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
+      "areas": [
+        "Noticias oficiais"
+      ],
+      "url": "https://store.steampowered.com/news/app/4162040/view/701033125739758315"
+    },
+    {
       "id": "auto-beta-3-4-4-20528983",
       "date": "2026-11-15",
       "kind": "beta",
@@ -802,18 +814,6 @@
         "Noticias oficiais"
       ],
       "url": "https://store.steampowered.com/news/app/4162040/view/704396868946233231"
-    },
-    {
-      "id": "auto-official-dcomnewsapp4162040view704396868946232791",
-      "date": "2026-06-16",
-      "kind": "official",
-      "status": "monitoring",
-      "title": "Zenless Zone Zero Steam Version Launches June 17",
-      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
-      "areas": [
-        "Noticias oficiais"
-      ],
-      "url": "https://store.steampowered.com/news/app/4162040/view/704396868946232791"
     }
   ],
   "note": "Monitoramento de noticias e revisoes; dados das fichas exigem revisao antes de publicar.",
