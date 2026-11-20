@@ -2,9 +2,70 @@
   "schema": 2,
   "checkedAt": "2026-11-20",
   "officialVersion": "3.3",
-  "betaVersion": "3.4.4",
-  "betaRevision": "20541895",
+  "betaVersion": "3.4.5",
+  "betaRevision": "20694646",
   "entries": [
+    {
+      "id": "auto-beta-3-4-5-20694646",
+      "date": "2026-11-20",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Nova revisao de teste v3.4.5 · 20694646",
+      "summary": "Revisao beta detectada; numeros requerem curadoria antes de alterar fichas.",
+      "areas": [
+        "Beta",
+        "Pendente de validacao"
+      ],
+      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+    },
+    {
+      "id": "auto-beta-agent-sunbringer-20691792",
+      "date": "2026-11-20",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Sunbringer · nova revisão de kit 20691792",
+      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+      "areas": [
+        "Sunbringer",
+        "Kit beta",
+        "Conferir valores"
+      ],
+      "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
+      "before": "Rev. 20528983",
+      "after": "Rev. 20691792"
+    },
+    {
+      "id": "auto-beta-agent-robin-20691792",
+      "date": "2026-11-20",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Robin · nova revisão de kit 20691792",
+      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+      "areas": [
+        "Robin",
+        "Kit beta",
+        "Conferir valores"
+      ],
+      "url": "https://zzz.gachabase.net/agents/1661/robin/beta?lang=en",
+      "before": "Rev. 20528983",
+      "after": "Rev. 20691792"
+    },
+    {
+      "id": "auto-beta-agent-kafka-20691792",
+      "date": "2026-11-20",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Kafka · nova revisão de kit 20691792",
+      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+      "areas": [
+        "Kafka",
+        "Kit beta",
+        "Conferir valores"
+      ],
+      "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
+      "before": "Rev. 20528983",
+      "after": "Rev. 20691792"
+    },
     {
       "id": "auto-official-dcomnewsapp4162040view701033125739758315",
       "date": "2026-11-16",
@@ -766,74 +827,26 @@
         "Noticias oficiais"
       ],
       "url": "https://store.steampowered.com/news/app/4162040/view/711156617370927264"
-    },
-    {
-      "id": "auto-official-dcomnewsapp4162040view706649847851123192",
-      "date": "2026-07-28",
-      "kind": "official",
-      "status": "monitoring",
-      "title": "Version 3.1 \"The Long Goodbye\" Update Announcement",
-      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
-      "areas": [
-        "Noticias oficiais"
-      ],
-      "url": "https://store.steampowered.com/news/app/4162040/view/706649847851123192"
-    },
-    {
-      "id": "auto-official-dcomnewsapp4162040view693140950130622535",
-      "date": "2026-07-15",
-      "kind": "official",
-      "status": "monitoring",
-      "title": "Zenless Zone Zero Version 3.1 \"The Long Goodbye\" Special Program Announcement",
-      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
-      "areas": [
-        "Noticias oficiais"
-      ],
-      "url": "https://store.steampowered.com/news/app/4162040/view/693140950130622535"
-    },
-    {
-      "id": "auto-official-dcomnewsapp4162040view702145613257509310",
-      "date": "2026-06-18",
-      "kind": "official",
-      "status": "monitoring",
-      "title": "How to Fix the Issue of Linking the Wrong HoYoverse Account",
-      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
-      "areas": [
-        "Noticias oficiais"
-      ],
-      "url": "https://store.steampowered.com/news/app/4162040/view/702145613257509310"
-    },
-    {
-      "id": "auto-official-dcomnewsapp4162040view704396868946233231",
-      "date": "2026-06-16",
-      "kind": "official",
-      "status": "monitoring",
-      "title": "Version 3.0 \"A Sleepwalker's Confession\" Update Announcement",
-      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
-      "areas": [
-        "Noticias oficiais"
-      ],
-      "url": "https://store.steampowered.com/news/app/4162040/view/704396868946233231"
     }
   ],
   "note": "Monitoramento de noticias e revisoes; dados das fichas exigem revisao antes de publicar.",
   "siteVersion": "5.0",
   "betaAgentRevisions": {
     "Sunbringer": {
-      "version": "3.4.4",
-      "revision": "20528983",
+      "version": "3.4.5",
+      "revision": "20691792",
       "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
       "lastChecked": "2026-11-20"
     },
     "Robin": {
-      "version": "3.4.4",
-      "revision": "20528983",
+      "version": "3.4.5",
+      "revision": "20691792",
       "url": "https://zzz.gachabase.net/agents/1661/robin/beta?lang=en",
       "lastChecked": "2026-11-20"
     },
     "Kafka": {
-      "version": "3.4.4",
-      "revision": "20528983",
+      "version": "3.4.5",
+      "revision": "20691792",
       "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
       "lastChecked": "2026-11-20"
     }
