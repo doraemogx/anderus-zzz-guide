@@ -3,7 +3,7 @@
   "checkedAt": "2026-11-21",
   "officialVersion": "3.3",
   "betaVersion": "3.4.5",
-  "betaRevision": "20699967",
+  "betaRevision": "20713015",
   "entries": [
     {
       "id": "auto-beta-3-4-5-20699967",
@@ -33,6 +33,35 @@
       "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
       "before": "Rev. 20691792",
       "after": "Rev. 20699967"
+    },
+    {
+      "id": "auto-beta-3-4-5-20713015",
+      "date": "2026-11-21",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Nova revisao de teste v3.4.5 · 20713015",
+      "summary": "Revisao beta detectada; numeros requerem curadoria antes de alterar fichas.",
+      "areas": [
+        "Beta",
+        "Pendente de validacao"
+      ],
+      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+    },
+    {
+      "id": "auto-beta-agent-sunbringer-20708764",
+      "date": "2026-11-21",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Sunbringer · nova revisão de kit 20708764",
+      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+      "areas": [
+        "Sunbringer",
+        "Kit beta",
+        "Conferir valores"
+      ],
+      "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
+      "before": "Rev. 20699967",
+      "after": "Rev. 20708764"
     },
     {
       "id": "auto-beta-3-4-5-20694646",
@@ -808,30 +837,6 @@
         "Noticias oficiais"
       ],
       "url": "https://store.steampowered.com/news/app/4162040/view/652616887841064661"
-    },
-    {
-      "id": "auto-official-dcomnewsapp4162040view667252863011914640",
-      "date": "2026-10-08",
-      "kind": "official",
-      "status": "monitoring",
-      "title": "Zenless Zone Zero Version 3.3 \"Journey to the Sky\" Special Program Announcement",
-      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
-      "areas": [
-        "Noticias oficiais"
-      ],
-      "url": "https://store.steampowered.com/news/app/4162040/view/667252863011914640"
-    },
-    {
-      "id": "auto-official-dcomnewsapp4162040view714537487845820569",
-      "date": "2026-09-08",
-      "kind": "official",
-      "status": "monitoring",
-      "title": "Version 3.2 \"Their Secret Histories\" Update Announcement",
-      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
-      "areas": [
-        "Noticias oficiais"
-      ],
-      "url": "https://store.steampowered.com/news/app/4162040/view/714537487845820569"
     }
   ],
   "note": "Monitoramento de noticias e revisoes; dados das fichas exigem revisao antes de publicar.",
@@ -839,7 +844,7 @@
   "betaAgentRevisions": {
     "Sunbringer": {
       "version": "3.4.5",
-      "revision": "20699967",
+      "revision": "20708764",
       "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
       "lastChecked": "2026-11-21"
     },
