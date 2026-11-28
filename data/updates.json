@@ -1,10 +1,71 @@
 {
   "schema": 2,
-  "checkedAt": "2026-11-27",
+  "checkedAt": "2026-11-28",
   "officialVersion": "3.3",
-  "betaVersion": "3.4.5",
-  "betaRevision": "20713015",
+  "betaVersion": "3.5.0",
+  "betaRevision": "20893147",
   "entries": [
+    {
+      "id": "auto-beta-3-5-0-20893147",
+      "date": "2026-11-28",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Nova revisao de teste v3.5.0 · 20893147",
+      "summary": "Revisao beta detectada; numeros requerem curadoria antes de alterar fichas.",
+      "areas": [
+        "Beta",
+        "Pendente de validacao"
+      ],
+      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
+    },
+    {
+      "id": "auto-beta-agent-sunbringer-20863416",
+      "date": "2026-11-28",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Sunbringer · nova revisão de kit 20863416",
+      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+      "areas": [
+        "Sunbringer",
+        "Kit beta",
+        "Conferir valores"
+      ],
+      "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
+      "before": "Rev. 20708764",
+      "after": "Rev. 20863416"
+    },
+    {
+      "id": "auto-beta-agent-robin-20863416",
+      "date": "2026-11-28",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Robin · nova revisão de kit 20863416",
+      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+      "areas": [
+        "Robin",
+        "Kit beta",
+        "Conferir valores"
+      ],
+      "url": "https://zzz.gachabase.net/agents/1661/robin/beta?lang=en",
+      "before": "Rev. 20691792",
+      "after": "Rev. 20863416"
+    },
+    {
+      "id": "auto-beta-agent-kafka-20863416",
+      "date": "2026-11-28",
+      "kind": "beta",
+      "status": "monitoring",
+      "title": "Kafka · nova revisão de kit 20863416",
+      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
+      "areas": [
+        "Kafka",
+        "Kit beta",
+        "Conferir valores"
+      ],
+      "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
+      "before": "Rev. 20691792",
+      "after": "Rev. 20863416"
+    },
     {
       "id": "auto-beta-3-4-5-20699967",
       "date": "2026-11-21",
@@ -380,51 +441,6 @@
       "kind": "beta",
       "status": "monitoring",
       "title": "Nova revisao de teste v3.4.3 · 20286631",
-      "summary": "Revisao beta detectada; numeros requerem curadoria antes de alterar fichas.",
-      "areas": [
-        "Beta",
-        "Pendente de validacao"
-      ],
-      "url": "https://zzz.gachabase.net/changelog/beta?lang=en"
-    },
-    {
-      "id": "auto-beta-agent-sunbringer-20286631",
-      "date": "2026-11-08",
-      "kind": "beta",
-      "status": "monitoring",
-      "title": "Sunbringer · nova revisão de kit 20286631",
-      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
-      "areas": [
-        "Sunbringer",
-        "Kit beta",
-        "Conferir valores"
-      ],
-      "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
-      "before": "Rev. 20278274",
-      "after": "Rev. 20286631"
-    },
-    {
-      "id": "auto-beta-agent-kafka-20286631",
-      "date": "2026-11-08",
-      "kind": "beta",
-      "status": "monitoring",
-      "title": "Kafka · nova revisão de kit 20286631",
-      "summary": "Revisão diferente da última observada. Multiplicadores e recomendações precisam ser reconferidos antes de serem publicados nas fichas.",
-      "areas": [
-        "Kafka",
-        "Kit beta",
-        "Conferir valores"
-      ],
-      "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
-      "before": "Rev. 20283614",
-      "after": "Rev. 20286631"
-    },
-    {
-      "id": "auto-beta-3-4-3-20291004",
-      "date": "2026-11-08",
-      "kind": "beta",
-      "status": "monitoring",
-      "title": "Nova revisao de teste v3.4.3 · 20291004",
       "summary": "Revisao beta detectada; numeros requerem curadoria antes de alterar fichas.",
       "areas": [
         "Beta",
@@ -825,40 +841,28 @@
         "Joyau Dore"
       ],
       "url": "https://zenless.hoyoverse.com/en-us/news/166964?catchSpider=1"
-    },
-    {
-      "id": "auto-official-dcomnewsapp4162040view652616887841064661",
-      "date": "2026-10-20",
-      "kind": "official",
-      "status": "monitoring",
-      "title": "Version 3.3 \"Journey to the Sky\" Update Announcement",
-      "summary": "Nova publicacao do canal oficial via Steam. Consulte o anuncio; as fichas nao foram alteradas automaticamente.",
-      "areas": [
-        "Noticias oficiais"
-      ],
-      "url": "https://store.steampowered.com/news/app/4162040/view/652616887841064661"
     }
   ],
   "note": "Monitoramento de noticias e revisoes; dados das fichas exigem revisao antes de publicar.",
   "siteVersion": "5.0",
   "betaAgentRevisions": {
     "Sunbringer": {
-      "version": "3.4.5",
-      "revision": "20708764",
+      "version": "3.5.0",
+      "revision": "20863416",
       "url": "https://zzz.gachabase.net/agents/1601/sunbringer/beta?lang=en",
-      "lastChecked": "2026-11-27"
+      "lastChecked": "2026-11-28"
     },
     "Robin": {
-      "version": "3.4.5",
-      "revision": "20691792",
+      "version": "3.5.0",
+      "revision": "20863416",
       "url": "https://zzz.gachabase.net/agents/1661/robin/beta?lang=en",
-      "lastChecked": "2026-11-27"
+      "lastChecked": "2026-11-28"
     },
     "Kafka": {
-      "version": "3.4.5",
-      "revision": "20691792",
+      "version": "3.5.0",
+      "revision": "20863416",
       "url": "https://zzz.gachabase.net/agents/1651/kafka/beta?lang=en",
-      "lastChecked": "2026-11-27"
+      "lastChecked": "2026-11-28"
     }
   }
 }
